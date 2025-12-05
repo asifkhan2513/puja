@@ -119,7 +119,8 @@ const HomePage = () => {
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <LazyImage
           src={temple}
-          alt="Temple"
+          alt="Sacred Hindu Temple"
+          priority={true}
           className="absolute inset-0 w-full h-full object-cover rounded-none"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40"></div>
@@ -131,7 +132,7 @@ const HomePage = () => {
               Doorstep
             </span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-200 mb-8 font-inter">
+          <p className="text-xl md:text-2xl text-white font-bold mb-8 font-inter">
             Book authentic pujas performed by experienced pandits from sacred
             temples across India
           </p>
@@ -155,10 +156,10 @@ const HomePage = () => {
       {/* Features Section */}
       <section className="py-20 px-4">
         <div className="w-full max-w-screen-2xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 dark:text-white mb-4 pt-serif-bold">
+          <h2 className="text-4xl md:text-5xl font-black text-center text-black mb-4 pt-serif-bold">
             Why Choose Us
           </h2>
-          <p className="text-center text-gray-600 dark:text-gray-400 mb-12 text-lg">
+          <p className="text-center text-gray-900 font-semibold mb-12 text-lg">
             Experience authentic spiritual services with modern convenience
           </p>
 
@@ -176,10 +177,10 @@ const HomePage = () => {
                   >
                     <Icon className={`w-8 h-8 ${feature.color}`} />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 pt-serif-bold">
+                  <h3 className="text-xl font-bold text-black mb-2 pt-serif-bold">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400">
+                  <p className="text-gray-900 font-semibold">
                     {feature.description}
                   </p>
                 </div>
@@ -192,13 +193,13 @@ const HomePage = () => {
       {/* Puja Categories Section */}
       <section className="py-20 px-4 bg-white dark:bg-dark-50">
         <div className="w-full max-w-screen-2xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 dark:text-white mb-4 pt-serif-bold">
+          <h2 className="text-4xl md:text-5xl font-black text-center text-black mb-4 pt-serif-bold">
             Explore Our{" "}
             <span className="text-amber-600 dark:text-amber-400 pt-serif-bold-italic">
               Puja Services
             </span>
           </h2>
-          <p className="text-center text-gray-600 dark:text-gray-400 mb-12 text-lg">
+          <p className="text-center text-gray-900 font-semibold mb-12 text-lg">
             Choose from a wide range of traditional pujas for every occasion
           </p>
 
@@ -212,16 +213,16 @@ const HomePage = () => {
                 <div className="image-hover-zoom h-64 relative overflow-hidden rounded-t-2xl">
                   <LazyImage
                     src={category.image}
-                    alt={category.title}
+                    alt={`${category.title} - Online Puja Services`}
                     className="w-full h-full object-cover rounded-t-2xl"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-accent dark:group-hover:text-accent-light transition-colors pt-serif-bold">
+                  <h3 className="text-2xl font-bold text-black mb-2 group-hover:text-accent dark:group-hover:text-accent-light transition-colors pt-serif-bold">
                     {category.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400 mb-4">
+                  <p className="text-gray-900 font-semibold mb-4">
                     {category.description}
                   </p>
                   <span className="inline-flex items-center gap-2 text-amber-600 dark:text-accent-light font-semibold group-hover:gap-4 transition-all">
@@ -237,13 +238,13 @@ const HomePage = () => {
       {/* Sacred Temples Section */}
       <section className="py-20 px-4">
         <div className="w-full max-w-screen-2xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 dark:text-white mb-4 pt-serif-bold">
+          <h2 className="text-4xl md:text-5xl font-black text-center text-black mb-4 pt-serif-bold">
             Sacred Temples of{" "}
             <span className="text-amber-600 dark:text-amber-400 pt-serif-bold-italic">
               Bharat
             </span>
           </h2>
-          <p className="text-center text-gray-600 dark:text-gray-400 mb-12 text-lg">
+          <p className="text-center text-gray-900 font-semibold mb-12 text-lg">
             Connect with divine energy from India's most revered temples
           </p>
 
@@ -256,7 +257,7 @@ const HomePage = () => {
               >
                 <LazyImage
                   src={temple.image}
-                  alt={temple.name}
+                  alt={`${temple.name} Temple - Sacred Hindu Temple`}
                   className="w-full h-full object-cover rounded-3xl group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
@@ -277,13 +278,13 @@ const HomePage = () => {
       {/* Testimonials Section */}
       <section className="py-20 px-4 bg-gradient-to-br from-amber-50 to-orange-50 dark:from-dark-50 dark:to-dark">
         <div className="w-full max-w-screen-2xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 dark:text-white mb-4 pt-serif-bold">
+          <h2 className="text-4xl md:text-5xl font-black text-center text-black mb-4 pt-serif-bold">
             What Our{" "}
             <span className="text-amber-600 dark:text-amber-400 pt-serif-bold-italic">
               Devotees Say
             </span>
           </h2>
-          <p className="text-center text-gray-600 dark:text-gray-400 mb-12 text-lg">
+          <p className="text-center text-gray-900 font-semibold mb-12 text-lg">
             Trusted by thousands of satisfied devotees across India
           </p>
 
@@ -298,10 +299,10 @@ const HomePage = () => {
                     />
                   ))}
                 </div>
-                <p className="text-gray-700 dark:text-gray-300 mb-4 pt-serif-italic text-lg">
+                <p className="text-black font-bold mb-4 pt-serif-italic text-lg">
                   "{testimonial.text}"
                 </p>
-                <p className="font-bold text-gray-900 dark:text-white">
+                <p className="font-bold text-black">
                   - {testimonial.name}
                 </p>
               </div>

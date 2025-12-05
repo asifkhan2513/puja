@@ -166,17 +166,26 @@ body {
   background: var(--color-accent);
 }
 
-/* Image hover effects */
+/* Image hover effects - Optimized */
 .image-hover-zoom {
   overflow: hidden;
 }
 
 .image-hover-zoom img {
   transition: transform 0.5s ease;
+  will-change: transform;
 }
 
 .image-hover-zoom:hover img {
   transform: scale(1.1);
+}
+
+/* Performance optimizations */
+.animate-slideDown,
+.animate-fadeIn,
+.animate-slideUp,
+.animate-scaleIn {
+  will-change: transform, opacity;
 }
 
 /* Card styles */

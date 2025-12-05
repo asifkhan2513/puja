@@ -51,7 +51,7 @@ const Navbar = () => {
               if (item.dropdown) {
                 return (
                   <div key={index} className="relative group">
-                    <button className="flex items-center gap-2 text-gray-700 font-medium hover:text-accent transition-colors">
+                    <button className="flex items-center gap-2 text-black font-medium hover:text-accent transition-colors">
                       <Icon className="w-4 h-4" />
                       {item.name}
                       <ChevronDown className="w-4 h-4" />
@@ -61,7 +61,7 @@ const Navbar = () => {
                         <Link
                           key={subIndex}
                           to={subItem.href}
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-accent/10 hover:text-accent first:rounded-t-xl last:rounded-b-xl transition-colors"
+                          className="block px-4 py-2 text-sm text-black hover:bg-accent/10 hover:text-accent first:rounded-t-xl last:rounded-b-xl transition-colors"
                         >
                           {subItem.name}
                         </Link>
@@ -74,7 +74,7 @@ const Navbar = () => {
                 <Link
                   key={index}
                   to={item.href}
-                  className="flex items-center gap-2 text-gray-700 font-medium hover:text-accent transition-colors"
+                  className="flex items-center gap-2 text-black font-medium hover:text-accent transition-colors"
                 >
                   <Icon className="w-4 h-4" />
                   {item.name}
@@ -94,7 +94,7 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <div className="flex md:hidden items-center gap-3">
             <button
-              className="text-gray-700 p-2"
+              className="text-black p-2"
               onClick={() => setOpen(!open)}
               aria-label="Toggle menu"
             >
@@ -118,7 +118,7 @@ const Navbar = () => {
                     <div key={index}>
                       <button
                         onClick={() => setPujasOpen(!pujasOpen)}
-                        className="flex items-center justify-between w-full px-3 py-2 text-gray-700 font-medium hover:text-accent hover:bg-accent/10 rounded-xl transition-colors"
+                        className="flex items-center justify-between w-full px-3 py-2 text-black font-medium hover:text-accent hover:bg-accent/10 rounded-xl transition-colors"
                       >
                         <span className="flex items-center gap-2">
                           <Icon className="w-4 h-4" />
@@ -151,7 +151,7 @@ const Navbar = () => {
                   <Link
                     key={index}
                     to={item.href}
-                    className="flex items-center gap-2 px-3 py-2 text-gray-700 font-medium hover:text-accent hover:bg-accent/10 rounded-xl transition-colors"
+                    className="flex items-center gap-2 px-3 py-2 text-black font-medium hover:text-accent hover:bg-accent/10 rounded-xl transition-colors"
                     onClick={() => setOpen(false)}
                   >
                     <Icon className="w-4 h-4" />

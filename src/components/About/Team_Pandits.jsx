@@ -62,13 +62,13 @@ const Team_Pandits = () => {
       {/* Hero Section */}
       <section className="py-20 px-4">
         <div className="w-full max-w-screen-2xl mx-auto">
-          <h1 className="text-5xl md:text-6xl font-bold text-center text-gray-900 dark:text-white mb-6 pt-serif-bold">
+          <h1 className="text-5xl md:text-6xl font-bold text-center text-black mb-6 pt-serif-bold">
             Our Expert{" "}
             <span className="text-amber-600 dark:text-amber-400 pt-serif-bold-italic">
               Pandits
             </span>
           </h1>
-          <p className="text-xl text-center text-gray-600 dark:text-gray-400 mb-16 max-w-3xl mx-auto">
+          <p className="text-xl text-center text-gray-900 font-semibold mb-16 max-w-3xl mx-auto">
             Meet our team of experienced and certified Vedic scholars dedicated
             to performing authentic rituals
           </p>
@@ -85,10 +85,10 @@ const Team_Pandits = () => {
                   <div className="inline-flex p-4 rounded-full bg-gradient-to-br from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 mb-4">
                     <Icon className="w-8 h-8 text-amber-600 dark:text-amber-400" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 pt-serif-bold">
+                  <h3 className="text-xl font-bold text-black mb-2 pt-serif-bold">
                     {qual.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400">
+                  <p className="text-gray-900 font-semibold">
                     {qual.description}
                   </p>
                 </div>
@@ -111,17 +111,17 @@ const Team_Pandits = () => {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 pt-serif-bold">
+                  <h3 className="text-xl font-bold text-black mb-2 pt-serif-bold">
                     {pandit.name}
                   </h3>
                   <p className="text-amber-600 dark:text-amber-400 font-semibold mb-2">
                     {pandit.title}
                   </p>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">
+                  <p className="text-sm text-gray-900 font-semibold mb-1">
                     <span className="font-semibold">Experience:</span>{" "}
                     {pandit.experience}
                   </p>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                  <p className="text-sm text-gray-900 font-semibold">
                     <span className="font-semibold">Specialization:</span>{" "}
                     {pandit.specialization}
                   </p>

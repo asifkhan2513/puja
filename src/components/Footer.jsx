@@ -35,7 +35,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gradient-to-br from-gray-900 to-gray-800 text-gray-300 pt-16 pb-8">
+    <footer className="bg-gradient-to-br from-gray-900 to-gray-800 text-gray-200 font-medium pt-16 pb-8">
       <div className="w-full max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
@@ -47,7 +47,7 @@ const Footer = () => {
                 Divine Puja
               </span>
             </Link>
-            <p className="text-gray-400 leading-relaxed">
+            <p className="text-gray-300 font-medium leading-relaxed">
               Connecting devotees with divine blessings through authentic pujas
               performed by experienced pandits from sacred temples across India.
             </p>
@@ -172,7 +172,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-gray-700">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-300 font-medium text-sm">
               © {currentYear}{" "}
               <span className="text-amber-400 font-semibold">Divine Puja</span>.
               All rights reserved.

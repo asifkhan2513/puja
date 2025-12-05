@@ -44,13 +44,13 @@ const Mission_Trust_Signals = () => {
       {/* Hero Section */}
       <section className="py-20 px-4">
         <div className="w-full max-w-screen-2xl mx-auto">
-          <h1 className="text-5xl md:text-6xl font-bold text-center text-gray-900 dark:text-white mb-6 pt-serif-bold">
+          <h1 className="text-5xl md:text-6xl font-bold text-center text-black mb-6 pt-serif-bold">
             Our Mission &{" "}
             <span className="text-amber-600 dark:text-amber-400 pt-serif-bold-italic">
               Vision
             </span>
           </h1>
-          <p className="text-xl text-center text-gray-600 dark:text-gray-400 mb-16 max-w-3xl mx-auto">
+          <p className="text-xl text-center text-gray-900 font-semibold mb-16 max-w-3xl mx-auto">
             Connecting devotees with divine blessings through authentic
             spiritual services
           </p>
@@ -66,10 +66,10 @@ const Mission_Trust_Signals = () => {
                   <div className="inline-flex p-4 rounded-full bg-gradient-to-br from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 mb-6">
                     <Icon className="w-12 h-12 text-amber-600 dark:text-amber-400" />
                   </div>
-                  <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4 pt-serif-bold">
+                  <h2 className="text-3xl font-bold text-black mb-4 pt-serif-bold">
                     {mission.title}
                   </h2>
-                  <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+                  <p className="text-lg text-gray-900 font-semibold leading-relaxed">
                     {mission.description}
                   </p>
                 </div>
@@ -82,7 +82,7 @@ const Mission_Trust_Signals = () => {
       {/* Trust Signals */}
       <section className="py-20 px-4 bg-white dark:bg-dark-50">
         <div className="w-full max-w-screen-2xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 dark:text-white mb-16 pt-serif-bold">
+          <h2 className="text-4xl md:text-5xl font-bold text-center text-black mb-16 pt-serif-bold">
             Trusted by Thousands
           </h2>
 
@@ -95,10 +95,10 @@ const Mission_Trust_Signals = () => {
                   className="text-center p-6 card hover:shadow-2xl transition-all duration-300"
                 >
                   <Icon className="w-12 h-12 text-amber-600 dark:text-amber-400 mx-auto mb-4" />
-                  <div className="text-4xl font-bold text-gray-900 dark:text-white mb-2 pt-serif-bold">
+                  <div className="text-4xl font-bold text-black mb-2 pt-serif-bold">
                     {signal.number}
                   </div>
-                  <div className="text-gray-600 dark:text-gray-400 font-semibold">
+                  <div className="text-gray-900 font-semibold font-semibold">
                     {signal.label}
                   </div>
                 </div>
@@ -111,36 +111,36 @@ const Mission_Trust_Signals = () => {
       {/* Values Section */}
       <section className="py-20 px-4">
         <div className="w-full max-w-screen-2xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 dark:text-white mb-16 pt-serif-bold">
+          <h2 className="text-4xl md:text-5xl font-bold text-center text-black mb-16 pt-serif-bold">
             Our Core Values
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="card p-8 text-center hover:shadow-2xl transition-all duration-300">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 pt-serif-bold">
+              <h3 className="text-2xl font-bold text-black mb-4 pt-serif-bold">
                 Authenticity
               </h3>
-              <p className="text-gray-600 dark:text-gray-400">
+              <p className="text-gray-900 font-semibold">
                 We ensure all pujas are performed according to traditional Vedic
                 rituals by certified pandits.
               </p>
             </div>
 
             <div className="card p-8 text-center hover:shadow-2xl transition-all duration-300">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 pt-serif-bold">
+              <h3 className="text-2xl font-bold text-black mb-4 pt-serif-bold">
                 Transparency
               </h3>
-              <p className="text-gray-600 dark:text-gray-400">
+              <p className="text-gray-900 font-semibold">
                 Complete visibility into the puja process with live streaming
                 and detailed documentation.
               </p>
             </div>
 
             <div className="card p-8 text-center hover:shadow-2xl transition-all duration-300">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 pt-serif-bold">
+              <h3 className="text-2xl font-bold text-black mb-4 pt-serif-bold">
                 Devotion
               </h3>
-              <p className="text-gray-600 dark:text-gray-400">
+              <p className="text-gray-900 font-semibold">
                 Every puja is performed with utmost devotion and respect for
                 ancient traditions.
               </p>

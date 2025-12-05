@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 
-const LazyImage = ({ src, alt, className, ...props }) => {
+const LazyImage = ({ src, alt, className, priority = false, ...props }) => {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [isInView, setIsInView] = useState(false);
+  const [isInView, setIsInView] = useState(priority); // If priority, load immediately
   const imgRef = React.useRef();
 
   useEffect(() => {
+    if (priority) return; // Skip observer for priority images
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -15,7 +17,7 @@ const LazyImage = ({ src, alt, className, ...props }) => {
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.1, rootMargin: "50px" }
     );
 
     if (imgRef.current) {
@@ -25,18 +27,21 @@ const LazyImage = ({ src, alt, className, ...props }) => {
     return () => {
       if (observer && observer.disconnect) observer.disconnect();
     };
-  }, []);
+  }, [priority]);
 
   return (
     <div
       ref={imgRef}
-      className={`relative overflow-hidden bg-gray-200 dark:bg-dark-100 ${className}`}
+      className={`relative overflow-hidden bg-gray-200 ${className}`}
       {...props}
     >
       {isInView && (
         <img
           src={src}
           alt={alt}
+          loading={priority ? "eager" : "lazy"}
+          fetchpriority={priority ? "high" : "auto"}
+          decoding={priority ? "sync" : "async"}
           className={`w-full h-full object-cover transition-opacity duration-700 ease-in-out ${
             isLoaded ? "opacity-100" : "opacity-0"
           }`}
