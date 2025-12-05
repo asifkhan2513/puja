@@ -35,7 +35,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gradient-to-br from-gray-900 to-gray-800 dark:from-dark dark:to-dark-50 text-gray-300 pt-16 pb-8">
+    <footer className="bg-gradient-to-br from-gray-900 to-gray-800 text-gray-300 pt-16 pb-8">
       <div className="w-full max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
@@ -111,7 +111,7 @@ const Footer = () => {
                 <li key={index}>
                   <Link
                     to={service.href}
-                    className="hover:text-amber-400 transition-colors inline-block hover:translate-x-1 transform duration-200"
+                    className="hover:text-accent-light transition-colors inline-block hover:translate-x-1 transform duration-200"
                   >
                     {service.name}
                   </Link>
@@ -130,7 +130,7 @@ const Footer = () => {
                 <li key={index}>
                   <Link
                     to={resource.href}
-                    className="hover:text-amber-400 transition-colors inline-block hover:translate-x-1 transform duration-200"
+                    className="hover:text-accent-light transition-colors inline-block hover:translate-x-1 transform duration-200"
                   >
                     {resource.name}
                   </Link>
@@ -143,7 +143,7 @@ const Footer = () => {
                 <Mail className="w-5 h-5 text-amber-400" />
                 <a
                   href="mailto:info@divinepuja.com"
-                  className="hover:text-amber-400 transition-colors"
+                  className="hover:text-accent-light transition-colors"
                 >
                   info@divinepuja.com
                 </a>
@@ -152,7 +152,7 @@ const Footer = () => {
                 <Phone className="w-5 h-5 text-amber-400" />
                 <a
                   href="tel:+911234567890"
-                  className="hover:text-amber-400 transition-colors"
+                  className="hover:text-accent-light transition-colors"
                 >
                   +91 123 456 7890
                 </a>
@@ -180,19 +180,19 @@ const Footer = () => {
             <div className="flex gap-6 text-sm">
               <Link
                 to={PATH.LEGAL}
-                className="hover:text-amber-400 transition-colors"
+                className="hover:text-accent-light transition-colors"
               >
                 Privacy Policy
               </Link>
               <Link
                 to={PATH.LEGAL}
-                className="hover:text-amber-400 transition-colors"
+                className="hover:text-accent-light transition-colors"
               >
                 Terms of Service
               </Link>
               <Link
                 to={PATH.LEGAL}
-                className="hover:text-amber-400 transition-colors"
+                className="hover:text-accent-light transition-colors"
               >
                 Cookie Policy
               </Link>

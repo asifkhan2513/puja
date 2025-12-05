@@ -39,15 +39,6 @@
   --color-text: #1f2937;
 }
 
-.dark {
-  --color-primary: #fbbf24;
-  --color-secondary: #34d399;
-  --color-accent: #fdba74;
-  --color-muted: #334155;
-  --color-bg: #0f172a;
-  --color-text: #f9fafb;
-}
-
 /* Full screen layout */
 html,
 body,
@@ -58,12 +49,11 @@ body,
   padding: 0;
 }
 
-/* Smooth transitions */
 body {
   margin: 0;
   padding: 0;
-  background-color: var(--color-bg);
-  color: var(--color-text);
+  background-color: #ffffff;
+  color: #1f2937;
 }
 
 /* Custom Buttons */
@@ -195,10 +185,6 @@ body {
   border-radius: 1.5rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
-}
-
-.dark .card {
-  background-color: #1e293b;
 }
 
 .card:hover {
