@@ -129,6 +129,9 @@ const SpiritualPlaces = lazy(() =>
 const LiveDarshan = lazy(() =>
   import("./components/OnlinePuja/Temple/LiveDarshan")
 );
+const LiveDarshanDetail = lazy(() =>
+  import("./components/OnlinePuja/Temple/LiveDarshanDetail")
+);
 
 /* Knowledge / Content */
 const Article_Content = lazy(() =>
@@ -371,6 +374,10 @@ function App() {
             element={<MaiharDetail />}
           />
           <Route path={PATH.LIVE_DARSHAN.slice(1)} element={<LiveDarshan />} />
+          <Route
+            path={PATH.LIVE_DARSHAN_DETAIL.slice(1)}
+            element={<LiveDarshanDetail />}
+          />
 
           {/* Knowledge / Content */}
           <Route path={PATH.ARTICLES.slice(1)} element={<Article_Content />} />
@@ -406,6 +413,7 @@ function App() {
             path={PATH.RASHIFAL_GEMINI.slice(1)}
             element={<Mithun_Gemini />}
           />
+
           <Route
             path={PATH.RASHIFAL_CANCER.slice(1)}
             element={<Kark_Cancer />}

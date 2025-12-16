@@ -1,3 +1,8 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
+import { PATH } from "../../config/Path";
+
 const AyodhyaDetail = () => {
   return (
     <div className="bg-gradient-to-b from-amber-50 via-white to-orange-100">
@@ -6,12 +11,19 @@ const AyodhyaDetail = () => {
         className="relative h-[70vh] flex items-center justify-center text-center"
         style={{
           backgroundImage:
-            "url(https://images.unsplash.com/photo-1624561172888-ac93c696e10c)",
+            "url(https://images.pexels.com/photos/32106228/pexels-photo-32106228.jpeg)",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
         <div className="absolute inset-0 bg-black/50"></div>
+        {/* Back Button */}
+        <Link
+          to={PATH.SPIRITUAL_PLACES}
+          className="absolute top-6 left-6 z-20 flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-white/30 transition-all font-semibold"
+        >
+          <ArrowLeft className="w-5 h-5" /> Back
+        </Link>
 
         <div className="relative z-10 px-6">
           <h1 className="text-5xl md:text-6xl font-extrabold text-amber-300">
@@ -41,9 +53,9 @@ const AyodhyaDetail = () => {
 
         <div className="rounded-3xl overflow-hidden shadow-2xl">
           <img
-            src="https://images.unsplash.com/photo-1593693397690-362cb9666fc2"
+            src="https://c.ndtvimg.com/2023-12/na2ncado_ram-mandir-3d_625x300_27_December_23.jpg"
             alt="Ram Mandir"
-            className="w-full h-[400px] object-cover hover:scale-105 transition duration-700"
+            className="w-full h-64 md:h-[400px] object-cover hover:scale-105 transition duration-700"
           />
         </div>
 
@@ -62,12 +74,12 @@ const AyodhyaDetail = () => {
 
         <div className="grid md:grid-cols-2 gap-6">
           <img
-            src="https://images.unsplash.com/photo-1586769852836-6318b47c7c8f"
-            className="rounded-2xl shadow-xl"
+            src="https://images.pexels.com/photos/31991708/pexels-photo-31991708.jpeg"
+            className="rounded-2xl shadow-xl w-full h-64 object-cover"
           />
           <img
-            src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"
-            className="rounded-2xl shadow-xl"
+            src="https://plus.unsplash.com/premium_photo-1661963839850-b4be117aff11?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YXlvZGh5YSUyMHJhbSUyMG1hbmRpcnxlbnwwfHwwfHx8MA%3D%3D"
+            className="rounded-2xl shadow-xl w-full h-64 object-cover"
           />
         </div>
 

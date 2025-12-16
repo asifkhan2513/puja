@@ -187,8 +187,8 @@ const Footer = () => {
           <div className="flex flex-col sm:flex-row justify-between items-center gap-3 text-xs">
             <p className="text-gray-400">
               © {currentYear}{" "}
-              <span className="text-amber-400 font-semibold">Bhagwan Puja</span>
-              . All rights reserved.
+              <span className="text-amber-400 font-semibold">Bhagwan</span>. All
+              rights reserved.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <button

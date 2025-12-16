@@ -64,4 +64,5 @@ export const PATH = {
   SPIRITUAL_PLACES_CHITRAKOOT: "/spiritual-places/chitrakoot",
   SPIRITUAL_PLACES_MAIHAR: "/spiritual-places/maihar",
   LIVE_DARSHAN: "/live-darshan",
+  LIVE_DARSHAN_DETAIL: "/live-darshan/:id",
 };

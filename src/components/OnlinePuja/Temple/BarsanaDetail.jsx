@@ -1,3 +1,8 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
+import { PATH } from "../../config/Path";
+
 const BarsanaDetail = () => {
   return (
     <div className="bg-gradient-to-b from-rose-50 via-white to-pink-100">
@@ -6,12 +11,19 @@ const BarsanaDetail = () => {
         className="relative h-[70vh] flex items-center justify-center text-center"
         style={{
           backgroundImage:
-            "url(https://images.unsplash.com/photo-1588072432836-e10032774350)",
+            "url(https://images.pexels.com/photos/15893245/pexels-photo-15893245.jpeg)",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
         <div className="absolute inset-0 bg-black/50"></div>
+        {/* Back Button */}
+        <Link
+          to={PATH.SPIRITUAL_PLACES}
+          className="absolute top-6 left-6 z-20 flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-white/30 transition-all font-semibold"
+        >
+          <ArrowLeft className="w-5 h-5" /> Back
+        </Link>
 
         <div className="relative z-10 px-6">
           <h1 className="text-5xl md:text-6xl font-extrabold text-pink-300">
@@ -44,9 +56,9 @@ const BarsanaDetail = () => {
         {/* IMAGE BREAK */}
         <div className="rounded-3xl overflow-hidden shadow-2xl">
           <img
-            src="https://images.unsplash.com/photo-1593693397690-362cb9666fc2"
+            src="https://images.pexels.com/photos/13426981/pexels-photo-13426981.jpeg"
             alt="Barsana Hills"
-            className="w-full h-[420px] object-cover hover:scale-105 transition duration-700"
+            className="w-full h-64 md:h-[420px] object-cover hover:scale-105 transition duration-700"
           />
         </div>
 
@@ -69,9 +81,9 @@ const BarsanaDetail = () => {
         {/* IMAGE + TEXT */}
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <img
-            src="https://images.unsplash.com/photo-1624561172888-ac93c696e10c"
+            src="https://images.pexels.com/photos/31203531/pexels-photo-31203531.jpeg"
             alt="Radha Rani Temple"
-            className="rounded-2xl shadow-xl"
+            className="rounded-2xl shadow-xl w-full h-64 object-cover"
           />
 
           <p className="text-lg leading-loose text-gray-700">
@@ -91,9 +103,9 @@ const BarsanaDetail = () => {
         {/* HILLTOP HAVEN */}
         <div className="rounded-3xl overflow-hidden shadow-2xl">
           <img
-            src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"
+            src="https://images.pexels.com/photos/15196472/pexels-photo-15196472.jpeg"
             alt="Bhanugarh Hill Barsana"
-            className="w-full h-[420px] object-cover hover:scale-105 transition duration-700"
+            className="w-full h-64 md:h-[420px] object-cover hover:scale-105 transition duration-700"
           />
         </div>
 

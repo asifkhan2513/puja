@@ -1,3 +1,8 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
+import { PATH } from "../../config/Path";
+
 const VrindavanDetail = () => {
   return (
     <div className="bg-gradient-to-b from-emerald-50 via-white to-green-100">
@@ -6,12 +11,19 @@ const VrindavanDetail = () => {
         className="relative h-[70vh] flex items-center justify-center text-center"
         style={{
           backgroundImage:
-            "url(https://images.unsplash.com/photo-1600861194942-f883de0dfe96)",
+            "url(https://images.pexels.com/photos/16228306/pexels-photo-16228306.jpeg)",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
         <div className="absolute inset-0 bg-black/50"></div>
+        {/* Back Button */}
+        <Link
+          to={PATH.SPIRITUAL_PLACES}
+          className="absolute top-6 left-6 z-20 flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-white/30 transition-all font-semibold"
+        >
+          <ArrowLeft className="w-5 h-5" /> Back
+        </Link>
 
         <div className="relative z-10 px-6">
           <h1 className="text-5xl md:text-6xl font-extrabold text-emerald-300">
@@ -46,9 +58,9 @@ const VrindavanDetail = () => {
         {/* IMAGE BREAK */}
         <div className="rounded-3xl overflow-hidden shadow-2xl">
           <img
-            src="https://images.unsplash.com/photo-1585136917971-74684aa99c50"
+            src="https://images.pexels.com/photos/33151151/pexels-photo-33151151.jpeg"
             alt="Vrindavan Temples"
-            className="w-full h-[420px] object-cover hover:scale-105 transition duration-700"
+            className="w-full h-64 md:h-[420px] object-cover hover:scale-105 transition duration-700"
           />
         </div>
 
@@ -71,8 +83,8 @@ const VrindavanDetail = () => {
         {/* BANKE BIHARI */}
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <img
-            src="https://images.unsplash.com/photo-1624365168734-1b1a54cde0c5"
-            className="rounded-2xl shadow-xl"
+            src="https://images.pexels.com/photos/11511275/pexels-photo-11511275.jpeg"
+            className="rounded-2xl shadow-xl w-full h-64 object-cover"
             alt="Banke Bihari Temple"
           />
 
@@ -95,9 +107,9 @@ const VrindavanDetail = () => {
         {/* RADHA RAMAN */}
         <div className="rounded-3xl overflow-hidden shadow-2xl">
           <img
-            src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"
+            src="https://images.pexels.com/photos/12462435/pexels-photo-12462435.jpeg"
             alt="Radha Raman Temple"
-            className="w-full h-[420px] object-cover hover:scale-105 transition duration-700"
+            className="w-full h-64 md:h-[420px] object-cover hover:scale-105 transition duration-700"
           />
         </div>
 
@@ -125,8 +137,8 @@ const VrindavanDetail = () => {
           </p>
 
           <img
-            src="https://images.unsplash.com/photo-1593693397690-362cb9666fc2"
-            className="rounded-2xl shadow-xl"
+            src="https://images.pexels.com/photos/11526024/pexels-photo-11526024.jpeg"
+            className="rounded-2xl shadow-xl w-full h-64 object-cover"
             alt="Govardhan Parikrama"
           />
         </div>

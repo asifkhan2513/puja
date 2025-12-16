@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
   Sparkles,
@@ -113,19 +114,43 @@ const HomePage = () => {
     },
   ];
 
+  /* Carousel State */
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const carouselImages = [temple, carousel1, carousel2, carousel3];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) =>
+        prevIndex === carouselImages.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [carouselImages.length]);
+
   return (
     <div className="min-h-screen w-full bg-gradient-to-b from-amber-50 to-white dark:from-dark dark:to-dark-50">
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <LazyImage
-          src={temple}
-          alt="Sacred Hindu Temple"
-          priority={true}
-          className="absolute inset-0 w-full h-full object-cover rounded-none"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40"></div>
+        {carouselImages.map((image, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              index === currentImageIndex ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <LazyImage
+              src={image}
+              alt={`Sacred Hindu Temple ${index + 1}`}
+              priority={index === 0}
+              className="w-full h-full object-cover rounded-none"
+            />
+          </div>
+        ))}
 
-        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto animate-fadeIn">
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40 z-10"></div>
+
+        <div className="relative z-20 text-center px-4 max-w-4xl mx-auto animate-fadeIn">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 pt-serif-bold">
             Divine Blessings at Your{" "}
             <span className="text-amber-400 pt-serif-bold-italic">
@@ -302,9 +327,7 @@ const HomePage = () => {
                 <p className="text-black font-bold mb-4 pt-serif-italic text-lg">
                   "{testimonial.text}"
                 </p>
-                <p className="font-bold text-black">
-                  - {testimonial.name}
-                </p>
+                <p className="font-bold text-black">- {testimonial.name}</p>
               </div>
             ))}
           </div>

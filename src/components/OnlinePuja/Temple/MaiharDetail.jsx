@@ -1,3 +1,8 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
+import { PATH } from "../../config/Path";
+
 const MaiharDetail = () => {
   return (
     <div className="bg-gradient-to-b from-yellow-50 via-white to-orange-100">
@@ -6,12 +11,19 @@ const MaiharDetail = () => {
         className="relative h-[70vh] flex items-center justify-center text-center"
         style={{
           backgroundImage:
-            "url(https://images.unsplash.com/photo-1606760227091-3dd870d97f1d)",
+            "url(https://media.istockphoto.com/id/1919487842/photo/goddess-mahagauri-devi-for-the-eighth-navadurga-of-navratri-festival.jpg?b=1&s=612x612&w=0&k=20&c=3nyWAFwHv_k7Ult9U-0TFCqH1wdnhT2qo7-CngMDBcA=)",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
         <div className="absolute inset-0 bg-black/50"></div>
+        {/* Back Button */}
+        <Link
+          to={PATH.SPIRITUAL_PLACES}
+          className="absolute top-6 left-6 z-20 flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-white/30 transition-all font-semibold"
+        >
+          <ArrowLeft className="w-5 h-5" /> Back
+        </Link>
 
         <div className="relative z-10 px-6">
           <h1 className="text-5xl md:text-6xl font-extrabold text-amber-300">
@@ -44,9 +56,9 @@ const MaiharDetail = () => {
         {/* IMAGE BREAK */}
         <div className="rounded-3xl overflow-hidden shadow-2xl">
           <img
-            src="https://images.unsplash.com/photo-1593693397690-362cb9666fc2"
+            src="https://www.maihartemple.com/wp-content/uploads/sri-maihar-devi-temple_1412844211.jpg"
             alt="Maihar Temple"
-            className="w-full h-[420px] object-cover hover:scale-105 transition duration-700"
+            className="w-full h-64 md:h-[420px] object-cover hover:scale-105 transition duration-700"
           />
         </div>
 
@@ -68,9 +80,9 @@ const MaiharDetail = () => {
         {/* LOCATION & ASCENT */}
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <img
-            src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"
+            src="https://www.maihartemple.com/wp-content/uploads/sri-maihar-devi-temple_1412844211.jpg"
             alt="Maihar Steps"
-            className="rounded-2xl shadow-xl"
+            className="rounded-2xl shadow-xl w-full h-64 object-cover"
           />
 
           <p className="text-lg leading-loose text-gray-700">
@@ -91,9 +103,9 @@ const MaiharDetail = () => {
         {/* LEGEND OF ALHA & UDAL */}
         <div className="rounded-3xl overflow-hidden shadow-2xl">
           <img
-            src="https://images.unsplash.com/photo-1624561172888-ac93c696e10c"
+            src="https://thumbs.dreamstime.com/b/maihar-mata-temple-madh-pradesh-india-trust-place-many-people-visit-here-maihar-mata-temple-madh-pradesh-state-hd-quality-167481149.jpg"
             alt="Alha and Udal Legend"
-            className="w-full h-[420px] object-cover hover:scale-105 transition duration-700"
+            className="w-full h-64 md:h-[420px] object-cover hover:scale-105 transition duration-700"
           />
         </div>
 

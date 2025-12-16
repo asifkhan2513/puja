@@ -67,7 +67,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <button onClick={() => handleNavClick(PATH.HOME)}>
-            <img src={LOGO} alt="Logo" className="w-14 h-14 rounded-full" />
+            <img src={LOGO} alt="Logo" className="w-20 h-20 rounded-full" />
           </button>
 
           {/* Desktop */}
@@ -149,7 +149,7 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {open && (
-          <div className="md:hidden pb-4">
+          <div className="md:hidden pb-4 bg-white border-t">
             {links.map((item, index) => {
               const Icon = item.icon;
 
@@ -160,26 +160,26 @@ const Navbar = () => {
                       onClick={() =>
                         setDropdownOpen(dropdownOpen === index ? null : index)
                       }
-                      className="flex justify-between w-full px-3 py-2 cursor-pointer"
+                      className="flex justify-between w-full px-4 py-3 text-gray-800 font-medium hover:bg-orange-50 transition-colors cursor-pointer"
                     >
-                      <span className="flex gap-2">
-                        <Icon className="w-5 h-5" />
+                      <span className="flex gap-3 items-center">
+                        <Icon className="w-5 h-5 text-orange-500" />
                         {item.name}
                       </span>
                       <ChevronDown
-                        className={`transition ${
+                        className={`transition-transform duration-300 text-gray-500 ${
                           dropdownOpen === index ? "rotate-180" : ""
                         }`}
                       />
                     </button>
 
                     {dropdownOpen === index && (
-                      <div className="ml-6">
+                      <div className="bg-gray-50 border-y border-gray-100">
                         {item.dropdown.map((sub, i) => (
                           <button
                             key={i}
                             onClick={() => handleNavClick(sub.href)}
-                            className="block w-full text-left py-2 text-sm cursor-pointer"
+                            className="block w-full text-left pl-12 pr-4 py-3 text-sm text-gray-600 font-medium hover:text-orange-600 hover:bg-orange-100/50 transition-colors cursor-pointer"
                           >
                             {sub.name}
                           </button>
@@ -194,9 +194,9 @@ const Navbar = () => {
                 <button
                   key={index}
                   onClick={() => handleNavClick(item.href)}
-                  className="flex gap-2 px-3 py-2 w-full text-left cursor-pointer"
+                  className="flex items-center gap-3 px-4 py-3 w-full text-left text-gray-800 font-medium hover:bg-orange-50 transition-colors cursor-pointer"
                 >
-                  <Icon className="w-5 h-5" />
+                  <Icon className="w-5 h-5 text-orange-500" />
                   {item.name}
                 </button>
               );
