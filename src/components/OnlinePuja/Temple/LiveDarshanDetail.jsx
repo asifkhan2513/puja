@@ -70,24 +70,22 @@ const LiveDarshanDetail = () => {
         </div>
 
         {/* Video Player Section */}
-        <div className="bg-black rounded-2xl shadow-2xl overflow-hidden aspect-video relative mb-10 border-4 border-amber-500/30 ring-4 ring-orange-100">
-          {service.videoUrl ? (
-            <iframe
-              width="100%"
-              height="100%"
-              src={service.videoUrl}
-              title={service.title}
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
-              className="absolute inset-0 w-full h-full"
-            ></iframe>
-          ) : (
-            <div className="flex items-center justify-center h-full text-gray-400">
-              <p>Live stream currently unavailable.</p>
+        <div className="bg-black rounded-2xl shadow-2xl overflow-hidden aspect-video relative mb-10 border-4 border-amber-500/30 ring-4 ring-orange-100 group">
+          <img
+            src={service.image}
+            alt={service.title}
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+
+          <div className="absolute bottom-6 left-6 right-6 text-white">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="flex items-center gap-1.5 px-3 py-1 bg-red-600/90 backdrop-blur-sm rounded-full text-xs font-bold uppercase tracking-wider animate-pulse">
+                <span className="w-1.5 h-1.5 bg-white rounded-full"></span>
+                Live Darshan
+              </span>
             </div>
-          )}
+          </div>
         </div>
 
         {/* Info Wrapper */}
@@ -126,7 +124,7 @@ const LiveDarshanDetail = () => {
             <h2 className="text-2xl font-bold text-orange-800 mb-6 font-serif border-l-4 border-orange-500 pl-4">
               About the Temple & Darshan
             </h2>
-            <div className="prose prose-lg prose-amber max-w-none text-gray-700 leading-relaxed font-meduim">
+            <div className="prose md:prose-lg prose-amber max-w-none text-gray-700 leading-relaxed font-meduim">
               {service.description.split("\\n").map((line, idx) => {
                 const trimmed = line.trim();
                 if (!trimmed) return <div key={idx} className="h-6" />;

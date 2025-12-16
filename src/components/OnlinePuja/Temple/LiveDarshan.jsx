@@ -1,6 +1,6 @@
 import React from "react";
 import { RiLiveLine } from "react-icons/ri";
-import { Play } from "lucide-react";
+import { Play, Eye } from "lucide-react";
 import { useNavigate, Link } from "react-router-dom";
 import { liveDarshanServices } from "./liveDarshanServices";
 import LazyImage from "../../LazyImage";
@@ -46,7 +46,7 @@ const LiveDarshan = () => {
               }
               className="px-8 py-4 bg-white text-orange-700 rounded-full font-bold shadow-xl hover:bg-orange-50 hover:scale-105 transition-all"
             >
-              Watch Live Now
+              View Live Darshan
             </button>
             <Link
               to="/contactus"
@@ -72,7 +72,7 @@ const LiveDarshan = () => {
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div className="bg-orange-50 p-10 rounded-3xl border border-orange-100 hover:shadow-xl transition-shadow">
               <div className="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center mb-6 text-orange-600">
-                <Play className="w-8 h-8 fill-current" />
+                <Eye className="w-8 h-8 text-current" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4 font-serif">
                 Why Bhagwaan Pooja Live Darshan?
@@ -141,13 +141,6 @@ const LiveDarshan = () => {
                   </span>
                 </div>
 
-                {/* Play Button Overlay */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10">
-                  <div className="w-16 h-16 bg-white/95 rounded-full flex items-center justify-center shadow-xl backdrop-blur-sm transform scale-50 group-hover:scale-100 transition-transform duration-300">
-                    <Play className="w-7 h-7 text-orange-600 ml-1 fill-current" />
-                  </div>
-                </div>
-
                 {/* Title Overlay on Image for style */}
                 <div className="absolute bottom-4 left-4 right-4 z-10">
                   <h3 className="text-white text-xl font-bold font-serif leading-tight drop-shadow-md">
@@ -170,8 +163,8 @@ const LiveDarshan = () => {
 
                 <div className="mt-auto pt-4 border-t border-gray-100">
                   <button className="w-full py-3 rounded-xl bg-orange-50 text-orange-700 font-bold hover:bg-orange-600 hover:text-white transition-all duration-300 text-sm uppercase tracking-wider flex items-center justify-center gap-2 group/btn">
-                    Watch Darshan{" "}
-                    <Play className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                    View Darshan{" "}
+                    <Eye className="w-4 h-4 group-hover/btn:scale-110 transition-transform" />
                   </button>
                 </div>
               </div>
