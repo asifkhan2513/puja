@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const QR_Code_Store_Buttons = () => {
   return (
@@ -15,21 +16,23 @@ const QR_Code_Store_Buttons = () => {
             </p>
 
             <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-              <a href="#" className="inline-block">
+              <Link to="#" className="inline-block">
                 <img
                   src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
                   alt="Google Play"
                   className="h-12"
+                  loading="lazy"
                 />
-              </a>
+              </Link>
 
-              <a href="#" className="inline-block">
+              <Link to="#" className="inline-block">
                 <img
                   src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
                   alt="App Store"
                   className="h-12"
+                  loading="lazy"
                 />
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -39,6 +42,7 @@ const QR_Code_Store_Buttons = () => {
                 src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=yourapp-url-here"
                 alt="App QR Code"
                 className="w-40 h-40 object-cover mx-auto"
+                loading="lazy"
               />
               <p className="text-center text-gray-700 mt-4 font-medium">
                 Scan to Download

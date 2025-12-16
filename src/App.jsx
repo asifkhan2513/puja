@@ -7,6 +7,11 @@ import {
 } from "react-router-dom";
 import "./App.css";
 import { PATH } from "./components/config/Path";
+import AyodhyaDetail from "./components/OnlinePuja/Temple/AyodhyaDetail";
+import VrindavanDetail from "./components/OnlinePuja/Temple/VrindavanDetail";
+import BarsanaDetail from "./components/OnlinePuja/Temple/BarsanaDetail";
+import ChitrakootDetail from "./components/OnlinePuja/Temple/ChitrakootDetail";
+import MaiharDetail from "./components/OnlinePuja/Temple/MaiharDetail";
 
 /* Layout / Common */
 const Navbar = lazy(() => import("./components/Navbar"));
@@ -117,6 +122,12 @@ const Kashi_Vishwanath_Pujas = lazy(() =>
 );
 const Ujjain_Temple_Pujas = lazy(() =>
   import("./components/OnlinePuja/Temple/Ujjain_Temple_Pujas")
+);
+const SpiritualPlaces = lazy(() =>
+  import("./components/OnlinePuja/Temple/SpiritualPlaces")
+);
+const LiveDarshan = lazy(() =>
+  import("./components/OnlinePuja/Temple/LiveDarshan")
 );
 
 /* Knowledge / Content */
@@ -335,6 +346,31 @@ function App() {
             path={PATH.TEMPLES_UJJAIN_PUJAS.slice(1)}
             element={<Ujjain_Temple_Pujas />}
           />
+          <Route
+            path={PATH.SPIRITUAL_PLACES.slice(1)}
+            element={<SpiritualPlaces />}
+          />
+          <Route
+            path={PATH.SPIRITUAL_PLACES_AYODHYA.slice(1)}
+            element={<AyodhyaDetail />}
+          />
+          <Route
+            path={PATH.SPIRITUAL_PLACES_VRINDAVAN.slice(1)}
+            element={<VrindavanDetail />}
+          />
+          <Route
+            path={PATH.SPIRITUAL_PLACES_BARSANA.slice(1)}
+            element={<BarsanaDetail />}
+          />
+          <Route
+            path={PATH.SPIRITUAL_PLACES_CHITRAKOOT.slice(1)}
+            element={<ChitrakootDetail />}
+          />
+          <Route
+            path={PATH.SPIRITUAL_PLACES_MAIHAR.slice(1)}
+            element={<MaiharDetail />}
+          />
+          <Route path={PATH.LIVE_DARSHAN.slice(1)} element={<LiveDarshan />} />
 
           {/* Knowledge / Content */}
           <Route path={PATH.ARTICLES.slice(1)} element={<Article_Content />} />

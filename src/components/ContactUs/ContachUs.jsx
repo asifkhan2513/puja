@@ -1,4 +1,5 @@
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const ContachUs = () => {
   const contactInfo = [
@@ -48,9 +49,9 @@ const ContachUs = () => {
             {contactInfo.map((info, index) => {
               const Icon = info.icon;
               return (
-                <a
+                <Link
                   key={index}
-                  href={info.link}
+                  to={info.link}
                   className="card p-6 text-center hover:shadow-2xl transition-all duration-300 group"
                 >
                   <div className="inline-flex p-4 rounded-full bg-gradient-to-br from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 mb-4 group-hover:scale-110 transition-transform">
@@ -59,10 +60,8 @@ const ContachUs = () => {
                   <h3 className="text-xl font-bold text-black mb-2 pt-serif-bold">
                     {info.title}
                   </h3>
-                  <p className="text-gray-900 font-semibold">
-                    {info.details}
-                  </p>
-                </a>
+                  <p className="text-gray-900 font-semibold">{info.details}</p>
+                </Link>
               );
             })}
           </div>
@@ -113,7 +112,7 @@ const ContachUs = () => {
                   </label>
                   <textarea
                     rows="5"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-dark-100 bg-white dark:bg-dark-50 text-black focus:ring-2 focus:ring-accent focus:border-transparent transition-all resize-none"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-300 bg-white text-black focus:ring-2 focus:ring-accent focus:border-transparent transition-all resize-none"
                     placeholder="How can we help you?"
                   ></textarea>
                 </div>

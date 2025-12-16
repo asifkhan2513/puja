@@ -4,27 +4,29 @@ import {
   HomeIcon,
   RocketIcon,
 } from "@radix-ui/react-icons";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { PATH } from "./config/Path";
-import { Sparkles, Phone, ChevronDown } from "lucide-react";
+import { Sparkles, Phone, ChevronDown, LandPlot, Video } from "lucide-react";
+import LOGO from "../assets/LOGO.png";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const [pujasOpen, setPujasOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(null);
   const navigate = useNavigate();
 
   const handleNavClick = (href) => {
     navigate(href);
     window.scrollTo({ top: 0, behavior: "smooth" });
     setOpen(false);
+    setDropdownOpen(null);
   };
 
   const links = [
     { name: "Home", href: PATH.HOME, icon: HomeIcon },
+
     {
       name: "Pujas",
-      href: PATH.PUJAS_DEVI_MAA,
       icon: Sparkles,
       dropdown: [
         { name: "Devi Maa Pujas", href: PATH.PUJAS_DEVI_MAA },
@@ -33,148 +35,172 @@ const Navbar = () => {
         { name: "Lord Vishnu", href: PATH.PUJAS_VISHNU },
       ],
     },
+
     { name: "Daan & Seva", href: PATH.DAAN, icon: RocketIcon },
     { name: "Rashifal", href: PATH.RASHIFAL_DAILY, icon: Sparkles },
-    { name: "Temples", href: PATH.TEMPLES, icon: HomeIcon },
+
+    {
+      name: "Temples",
+      icon: HomeIcon,
+      dropdown: [
+        {
+          name: "Spiritual Places",
+          href: PATH.SPIRITUAL_PLACES,
+          icon: LandPlot,
+          desc: "Explore sacred lands of Ram & Krishna.",
+        },
+        {
+          name: "Live Darshan",
+          href: PATH.LIVE_DARSHAN,
+          icon: Video,
+          desc: "Watch live aartis from major temples.",
+        },
+      ],
+    },
+
     { name: "Contact", href: "/contactus", icon: Phone },
   ];
 
   return (
-    <nav className="sticky top-0 w-full bg-white/95 backdrop-blur-md shadow-md border-b border-gray-200 z-50 transition-colors duration-300">
-      <div className="w-full max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className="sticky top-0 w-full bg-white/95 backdrop-blur-md shadow-md border-b z-50">
+      <div className="max-w-screen-2xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <button
-            onClick={() => handleNavClick(PATH.HOME)}
-            className="flex items-center gap-2 group"
-          >
-            <Sparkles className="w-8 h-8 text-amber-600 group-hover:rotate-12 transition-transform" />
-            <span className="text-2xl font-bold bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent pt-serif-regular">
-              Silo Puja
-            </span>
+          <button onClick={() => handleNavClick(PATH.HOME)}>
+            <img src={LOGO} alt="Logo" className="w-14 h-14 rounded-full" />
           </button>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-6">
+          {/* Desktop */}
+          <div className="hidden md:flex gap-6 items-center">
             {links.map((item, index) => {
               const Icon = item.icon;
+
               if (item.dropdown) {
                 return (
                   <div key={index} className="relative group">
-                    <button className="flex items-center gap-2 text-black font-medium hover:text-accent transition-colors">
-                      <Icon className="w-4 h-4" />
+                    <button className="flex items-center gap-2 font-medium cursor-pointer py-2 hover:text-orange-600 transition-colors">
+                      <Icon className="w-5 h-5 stroke-orange-500" />
                       {item.name}
-                      <ChevronDown className="w-4 h-4" />
+                      <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
                     </button>
-                    <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                      {item.dropdown.map((subItem, subIndex) => (
-                        <button
-                          key={subIndex}
-                          onClick={() => handleNavClick(subItem.href)}
-                          className="block w-full text-left px-4 py-2 text-sm text-black hover:bg-accent/10 hover:text-accent first:rounded-t-xl last:rounded-b-xl transition-colors"
-                        >
-                          {subItem.name}
-                        </button>
-                      ))}
+
+                    <div
+                      className="absolute left-0 mt-2 w-72 bg-white rounded-2xl shadow-xl border border-orange-100
+                        opacity-0 invisible translate-y-2
+                        group-hover:opacity-100 group-hover:visible group-hover:translate-y-0
+                        transition-all duration-300 ease-out z-50 overflow-hidden"
+                    >
+                      <div className="p-2">
+                        {item.dropdown.map((sub, i) => {
+                          const SubIcon = sub.icon || Sparkles;
+                          return (
+                            <button
+                              onClick={() => handleNavClick(sub.href)}
+                              className="flex items-start gap-4 w-full text-left p-3 rounded-xl 
+                                hover:bg-orange-50 transition-colors cursor-pointer group/item"
+                            >
+                              <div className="mt-1 p-2 bg-orange-100 rounded-lg group-hover/item:bg-orange-200 transition-colors">
+                                <SubIcon className="w-5 h-5 text-orange-600" />
+                              </div>
+                              <div>
+                                <h4 className="font-semibold text-gray-800 group-hover/item:text-orange-700">
+                                  {sub.name}
+                                </h4>
+                                {sub.desc && (
+                                  <p className="text-xs text-gray-500 mt-1 line-clamp-2">
+                                    {sub.desc}
+                                  </p>
+                                )}
+                              </div>
+                            </button>
+                          );
+                        })}
+                      </div>
                     </div>
                   </div>
                 );
               }
+
               return (
                 <button
                   key={index}
                   onClick={() => handleNavClick(item.href)}
-                  className="flex items-center gap-2 text-black font-medium hover:text-accent transition-colors"
+                  className="flex items-center gap-2 font-medium cursor-pointer hover:text-orange-600 transition-colors"
                 >
-                  <Icon className="w-4 h-4" />
+                  <Icon className="w-5 h-5 stroke-orange-500" />
                   {item.name}
                 </button>
               );
             })}
 
-            {/* CTA Button */}
             <button
               onClick={() => handleNavClick(PATH.PUJAS_DEVI_MAA)}
-              className="px-6 py-2.5 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold rounded-2xl hover:from-accent hover:to-accent-dark shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+              className="px-6 py-2 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-2xl"
             >
               Book Puja
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="flex md:hidden items-center gap-3">
-            <button
-              className="text-black p-2"
-              onClick={() => setOpen(!open)}
-              aria-label="Toggle menu"
-            >
-              {open ? (
-                <Cross1Icon className="w-6 h-6" />
-              ) : (
-                <HamburgerMenuIcon className="w-6 h-6" />
-              )}
-            </button>
-          </div>
+          {/* Mobile Toggle */}
+          <button className="md:hidden" onClick={() => setOpen(!open)}>
+            {open ? <Cross1Icon /> : <HamburgerMenuIcon />}
+          </button>
         </div>
 
         {/* Mobile Menu */}
         {open && (
-          <div className="md:hidden pb-4 animate-slideDown">
-            <div className="flex flex-col gap-3 pt-2">
-              {links.map((item, index) => {
-                const Icon = item.icon;
-                if (item.dropdown) {
-                  return (
-                    <div key={index}>
-                      <button
-                        onClick={() => setPujasOpen(!pujasOpen)}
-                        className="flex items-center justify-between w-full px-3 py-2 text-black font-medium hover:text-accent hover:bg-accent/10 rounded-xl transition-colors"
-                      >
-                        <span className="flex items-center gap-2">
-                          <Icon className="w-4 h-4" />
-                          {item.name}
-                        </span>
-                        <ChevronDown
-                          className={`w-4 h-4 transition-transform ${
-                            pujasOpen ? "rotate-180" : ""
-                          }`}
-                        />
-                      </button>
-                      {pujasOpen && (
-                        <div className="ml-6 mt-2 flex flex-col gap-2">
-                          {item.dropdown.map((subItem, subIndex) => (
-                            <button
-                              key={subIndex}
-                              onClick={() => handleNavClick(subItem.href)}
-                              className="text-left px-3 py-2 text-sm text-gray-600 hover:text-accent hover:bg-accent/10 rounded-xl transition-colors"
-                            >
-                              {subItem.name}
-                            </button>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  );
-                }
-                return (
-                  <button
-                    key={index}
-                    onClick={() => handleNavClick(item.href)}
-                    className="flex items-center gap-2 px-3 py-2 text-black font-medium hover:text-accent hover:bg-accent/10 rounded-xl transition-colors w-full text-left"
-                  >
-                    <Icon className="w-4 h-4" />
-                    {item.name}
-                  </button>
-                );
-              })}
+          <div className="md:hidden pb-4">
+            {links.map((item, index) => {
+              const Icon = item.icon;
 
-              <button
-                onClick={() => handleNavClick(PATH.PUJAS_DEVI_MAA)}
-                className="w-full px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold rounded-2xl hover:from-accent hover:to-accent-dark shadow-lg text-center transition-all duration-300"
-              >
-                Book Puja
-              </button>
-            </div>
+              if (item.dropdown) {
+                return (
+                  <div key={index}>
+                    <button
+                      onClick={() =>
+                        setDropdownOpen(dropdownOpen === index ? null : index)
+                      }
+                      className="flex justify-between w-full px-3 py-2 cursor-pointer"
+                    >
+                      <span className="flex gap-2">
+                        <Icon className="w-5 h-5" />
+                        {item.name}
+                      </span>
+                      <ChevronDown
+                        className={`transition ${
+                          dropdownOpen === index ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
+
+                    {dropdownOpen === index && (
+                      <div className="ml-6">
+                        {item.dropdown.map((sub, i) => (
+                          <button
+                            key={i}
+                            onClick={() => handleNavClick(sub.href)}
+                            className="block w-full text-left py-2 text-sm cursor-pointer"
+                          >
+                            {sub.name}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+
+              return (
+                <button
+                  key={index}
+                  onClick={() => handleNavClick(item.href)}
+                  className="flex gap-2 px-3 py-2 w-full text-left cursor-pointer"
+                >
+                  <Icon className="w-5 h-5" />
+                  {item.name}
+                </button>
+              );
+            })}
           </div>
         )}
       </div>

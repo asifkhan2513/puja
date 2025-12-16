@@ -57,4 +57,11 @@ export const PATH = {
   RASHIFAL_CAPRICORN: "/rashifal/capricorn",
   RASHIFAL_AQUARIUS: "/rashifal/aquarius",
   RASHIFAL_PISCES: "/rashifal/pisces",
+  SPIRITUAL_PLACES: "/spiritual-places",
+  SPIRITUAL_PLACES_AYODHYA: "/spiritual-places/ayodhya",
+  SPIRITUAL_PLACES_VRINDAVAN: "/spiritual-places/vrindavan",
+  SPIRITUAL_PLACES_BARSANA: "/spiritual-places/barsana",
+  SPIRITUAL_PLACES_CHITRAKOOT: "/spiritual-places/chitrakoot",
+  SPIRITUAL_PLACES_MAIHAR: "/spiritual-places/maihar",
+  LIVE_DARSHAN: "/live-darshan",
 };
