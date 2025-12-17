@@ -181,45 +181,70 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-20 px-4">
+      {/* Live Darshan Section */}
+      <section className="py-20 px-4 bg-orange-50 ">
         <div className="w-full max-w-screen-2xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-black text-center text-black mb-4 pt-serif-bold">
-            Why Choose Us
+            Live Darshan <br />
+            <span className="text-amber-600 dark:text-amber-400 pt-serif-bold-italic text-3xl md:text-4xl">
+              "Witness Divine Aartis from Home"
+            </span>
           </h2>
           <p className="text-center text-gray-900 font-semibold mb-12 text-lg">
-            Experience authentic spiritual services with modern convenience
+            Connect with your deity through our high-definition live streams
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {features.map((feature, index) => {
-              const Icon = feature.icon;
-              return (
-                <div
-                  key={index}
-                  className="card p-6 text-center hover:shadow-2xl transition-all duration-300 animate-slideUp"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div
-                    className={`inline-flex p-4 rounded-full bg-gradient-to-br from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 mb-4`}
-                  >
-                    <Icon className={`w-8 h-8 ${feature.color}`} />
-                  </div>
-                  <h3 className="text-xl font-bold text-black mb-2 pt-serif-bold">
-                    {feature.title}
-                  </h3>
-                  <p className="text-gray-900 font-semibold">
-                    {feature.description}
-                  </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {liveDarshanServices.slice(0, 3).map((service, index) => (
+              <Link
+                key={index}
+                to={`/live-darshan/${service.id}`}
+                className="group relative h-80 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-orange-100/50"
+              >
+                <LazyImage
+                  src={service.image}
+                  alt={`${service.title} Live Darshan`}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+
+                {/* Live Badge */}
+                <div className="absolute top-4 left-4">
+                  <span className="flex items-center gap-1.5 px-3 py-1 bg-red-600 text-white text-xs font-bold uppercase rounded-full animate-pulse shadow-lg">
+                    <span className="w-1.5 h-1.5 bg-white rounded-full"></span>
+                    Live Now
+                  </span>
                 </div>
-              );
-            })}
+
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                  <h3 className="text-xl font-bold mb-2 pt-serif-bold leading-tight">
+                    {service.title}
+                  </h3>
+                  <div className="flex items-center justify-between mt-4">
+                    <span className="text-sm font-medium text-amber-300">
+                      {service.location}
+                    </span>
+                    <span className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-3 py-1.5 rounded-full text-xs font-bold hover:bg-white hover:text-orange-600 transition-colors">
+                      View Darshan <Eye className="w-3 h-3" />
+                    </span>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Link
+              to={PATH.LIVE_DARSHAN}
+              className="inline-flex items-center gap-2 px-8 py-3 bg-white border-2 border-amber-600 text-amber-600 font-bold rounded-full hover:bg-amber-600 hover:text-white transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1"
+            >
+              View All Live Darshans <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </section>
-
       {/* Puja Categories Section */}
-      <section className="py-20 px-4 bg-white dark:bg-dark-50">
+      <section className="py-20 px-4 bg-white ">
         <div className="w-full max-w-screen-2xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-black text-center text-black mb-4 pt-serif-bold">
             Explore Our{" "}
@@ -303,65 +328,39 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Live Darshan Section */}
-      <section className="py-20 px-4 bg-orange-50 dark:bg-dark-50">
+      {/* Features Section */}
+      <section className="py-20 px-4">
         <div className="w-full max-w-screen-2xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-black text-center text-black mb-4 pt-serif-bold">
-            Live Darshan <br />
-            <span className="text-amber-600 dark:text-amber-400 pt-serif-bold-italic text-3xl md:text-4xl">
-              "Witness Divine Aartis from Home"
-            </span>
+            Why Choose Us
           </h2>
           <p className="text-center text-gray-900 font-semibold mb-12 text-lg">
-            Connect with your deity through our high-definition live streams
+            Experience authentic spiritual services with modern convenience
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {liveDarshanServices.slice(0, 3).map((service, index) => (
-              <Link
-                key={index}
-                to={`/live-darshan/${service.id}`}
-                className="group relative h-80 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-orange-100/50"
-              >
-                <LazyImage
-                  src={service.image}
-                  alt={`${service.title} Live Darshan`}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
-
-                {/* Live Badge */}
-                <div className="absolute top-4 left-4">
-                  <span className="flex items-center gap-1.5 px-3 py-1 bg-red-600 text-white text-xs font-bold uppercase rounded-full animate-pulse shadow-lg">
-                    <span className="w-1.5 h-1.5 bg-white rounded-full"></span>
-                    Live Now
-                  </span>
-                </div>
-
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                  <h3 className="text-xl font-bold mb-2 pt-serif-bold leading-tight">
-                    {service.title}
-                  </h3>
-                  <div className="flex items-center justify-between mt-4">
-                    <span className="text-sm font-medium text-amber-300">
-                      {service.location}
-                    </span>
-                    <span className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-3 py-1.5 rounded-full text-xs font-bold hover:bg-white hover:text-orange-600 transition-colors">
-                      View Darshan <Eye className="w-3 h-3" />
-                    </span>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {features.map((feature, index) => {
+              const Icon = feature.icon;
+              return (
+                <div
+                  key={index}
+                  className="card p-6 text-center hover:shadow-2xl transition-all duration-300 animate-slideUp"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <div
+                    className={`inline-flex p-4 rounded-full bg-gradient-to-br from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 mb-4`}
+                  >
+                    <Icon className={`w-8 h-8 ${feature.color}`} />
                   </div>
+                  <h3 className="text-xl font-bold text-black mb-2 pt-serif-bold">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-900 font-semibold">
+                    {feature.description}
+                  </p>
                 </div>
-              </Link>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Link
-              to={PATH.LIVE_DARSHAN}
-              className="inline-flex items-center gap-2 px-8 py-3 bg-white border-2 border-amber-600 text-amber-600 font-bold rounded-full hover:bg-amber-600 hover:text-white transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1"
-            >
-              View All Live Darshans <ArrowRight className="w-4 h-4" />
-            </Link>
+              );
+            })}
           </div>
         </div>
       </section>

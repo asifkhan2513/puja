@@ -1,6 +1,3 @@
-// const BASE_URL = "http://localhost:8080/api/v1";
-
-// ROUTE PATHS
 export const PATH = {
   HOME: "/",
   ABOUT_MISSION: "/about/mission",
