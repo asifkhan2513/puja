@@ -25,9 +25,9 @@ const LiveDarshan = () => {
   return (
     <section className="min-h-screen bg-orange-50/30 font-sans">
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-br from-orange-600 via-amber-600 to-orange-500 py-16 md:py-24 px-4 sm:px-6 overflow-hidden">
+      <div className="relative bg-linear-to-br from-orange-600 via-amber-600 to-orange-500 py-16 md:py-24 px-4 sm:px-6 overflow-hidden">
         {/* Decorative Background Patterns */}
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent scale-150"></div>
+        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-white via-transparent to-transparent scale-150"></div>
         <div className="absolute top-0 right-0 w-64 md:w-96 h-64 md:h-96 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
         <div className="absolute bottom-0 left-0 w-64 md:w-96 h-64 md:h-96 bg-amber-300/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
 

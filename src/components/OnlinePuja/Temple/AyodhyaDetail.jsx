@@ -65,7 +65,7 @@ const AyodhyaDetail = () => {
 
         <div className="border-l-8 border-amber-500 pl-8 py-2 bg-orange-50/50 rounded-r-xl">
           <h2 className="text-3xl md:text-4xl font-bold text-red-900 font-serif mb-6">
-            Spiritual Significance:
+            Spiritual Significance
           </h2>
           <div className="space-y-4 text-lg text-gray-800 leading-relaxed font-medium">
             <p>
@@ -109,7 +109,7 @@ const AyodhyaDetail = () => {
           <div className="bg-white/80 p-8 rounded-3xl shadow-lg border border-orange-100 space-y-6">
             <p className="text-lg leading-loose text-gray-800">
               <span className="font-bold text-red-700 text-xl block mb-2">
-                The Main Shrine (Garbha Griha) -
+                The Main Shrine (Garbha Griha)
               </span>
               The Garbha Griha, or the inner room, is perhaps the most special
               component of a temple. Here resides the statue of Ram Lalla. The
@@ -122,7 +122,7 @@ const AyodhyaDetail = () => {
 
             <p className="text-lg leading-loose text-gray-800">
               <span className="font-bold text-red-700 text-xl block mb-2">
-                The Pilgrimage Experience -
+                The Pilgrimage Experience
               </span>
               A visit to the Ram Mandir will make a difference in your life. And
               you are walking these big halls and hearing thousands of people
@@ -171,19 +171,20 @@ const AyodhyaDetail = () => {
           <div className="space-y-6 text-lg leading-loose text-gray-800 font-medium">
             <p>
               <span className="font-bold text-red-700">
-                The Steps of Faith -{" "}
+                The Steps of Faith :
               </span>
-              In order to get to the main temple, you will have to walk up 76
-              long flight steps. This climb is like a test. The effort you
-              expend is a costly way of shedding your pride and ego before you
-              stand naked in front of God. Because it is designed like a
-              fortress with towers on each corner, it confirms that Hanuman is
-              keeping an eye on every part of the city and forward.
+              The Main Shrine (Garbha Griha) In order to get to the main temple,
+              you will have to walk up 76 long flight steps. This climb is like
+              a test. The effort you expend is a costly way of shedding your
+              pride and ego before you stand naked in front of God. Because it
+              is designed like a fortress with towers on each corner, it
+              confirms that Hanuman is keeping an eye on every part of the city
+              and forward.
             </p>
 
             <p>
               <span className="font-bold text-red-700">
-                The Special Statue –{" "}
+                The Special Statue :
               </span>
               The Hanuman murti is very unique over here. It depicts a young
               Hanuman who is sitting on the lap of his mother, Anjani. What
@@ -193,7 +194,7 @@ const AyodhyaDetail = () => {
 
             <p>
               <span className="font-bold text-red-700">
-                What People Do There -
+                What People Do There :
               </span>{" "}
               It is customary to give Besan ke Laddoo (confectionery) as prasad
               to the deity here. It’s a busy temple, people shouting out Hanuman
@@ -231,7 +232,7 @@ const AyodhyaDetail = () => {
             <div className="bg-white/70 p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
               <p className="text-lg leading-loose text-gray-800">
                 <span className="font-bold text-red-700 block mb-2 text-xl">
-                  Bath in the Saryu River -{" "}
+                  Bath in the Saryu River
                 </span>
                 Bathing here is one of the most pious things Hindus can do. It
                 is believed that water washes away all the bad things (the sins)
@@ -244,7 +245,7 @@ const AyodhyaDetail = () => {
             <div className="bg-white/70 p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
               <p className="text-lg leading-loose text-gray-800">
                 <span className="font-bold text-red-700 block mb-2 text-xl">
-                  Evening Aarti -{" "}
+                  Evening Aarti
                 </span>
                 After the sunsets, the riverside transforms into a spectacle of
                 light and sound in a ceremony called Saryu Aarti. Priests, the
@@ -267,7 +268,7 @@ const AyodhyaDetail = () => {
           <p className="text-lg leading-loose text-gray-800 font-medium">
             <span className="font-bold text-red-700 text-xl font-serif">
               {" "}
-              Guptar Ghat -
+              Guptar Ghat
             </span>{" "}
             Another significant place on the river is Guptar Ghat. According to
             local belief, it is at this holy place that Lord Rama decided to go
