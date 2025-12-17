@@ -1,12 +1,26 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { RiLiveLine } from "react-icons/ri";
-import { Play, Eye } from "lucide-react";
+import { Eye } from "lucide-react";
 import { useNavigate, Link } from "react-router-dom";
 import { liveDarshanServices } from "./liveDarshanServices";
 import LazyImage from "../../LazyImage";
+import Loader from "../../Loader";
 
 const LiveDarshan = () => {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading time
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1500);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <section className="min-h-screen bg-orange-50/30 font-sans">
@@ -44,13 +58,13 @@ const LiveDarshan = () => {
                   .getElementById("streams")
                   .scrollIntoView({ behavior: "smooth" })
               }
-              className="px-8 py-4 bg-white text-orange-700 rounded-full font-bold shadow-xl hover:bg-orange-50 hover:scale-105 transition-all"
+              className="px-8 py-4 bg-white text-orange-700 rounded-full font-bold shadow-xl hover:bg-black hover:text-white transition-all transform hover:scale-105"
             >
               View Live Darshan
             </button>
             <Link
               to="/contactus"
-              className="px-8 py-4 bg-white text-orange-700 rounded-full font-bold shadow-xl hover:bg-orange-50 hover:scale-105 transition-all"
+              className="px-8 py-4 bg-white text-orange-700 rounded-full font-bold shadow-xl hover:bg-black hover:text-white transition-all transform hover:scale-105"
             >
               Get In touch
             </Link>
@@ -162,7 +176,7 @@ const LiveDarshan = () => {
                 </p>
 
                 <div className="mt-auto pt-4 border-t border-gray-100">
-                  <button className="w-full py-3 rounded-xl bg-orange-50 text-orange-700 font-bold hover:bg-orange-600 hover:text-white transition-all duration-300 text-sm uppercase tracking-wider flex items-center justify-center gap-2 group/btn">
+                  <button className="w-full py-3 rounded-xl bg-white text-orange-700 font-bold border-2 border-orange-100 hover:bg-black hover:text-white hover:border-black transition-all duration-300 text-sm uppercase tracking-wider flex items-center justify-center gap-2 group/btn shadow-md">
                     View Darshan{" "}
                     <Eye className="w-4 h-4 group-hover/btn:scale-110 transition-transform" />
                   </button>

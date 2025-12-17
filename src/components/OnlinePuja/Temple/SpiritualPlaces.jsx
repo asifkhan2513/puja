@@ -5,7 +5,7 @@ import Radha from "../../../assets/dummy19.jpg";
 import ChhitraKoot from "../../../assets/dummy15.jpg";
 import MaiharImg from "../../../assets/temple.jpg";
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+
 import { PATH } from "../../config/Path";
 import LazyImage from "../../LazyImage";
 
@@ -62,66 +62,66 @@ const SpiritualPlaces = () => {
   };
 
   return (
-    <div className="min-h-screen bg-orange-50/50 px-6 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-red-50 to-orange-100 py-16 px-4 md:px-8">
       {/* Header - No Back Button */}
-      <div className="max-w-7xl mx-auto flex flex-col items-center justify-center mb-16 relative">
-        <button
-          onClick={() => navigate(-1)}
-          className="absolute left-0 top-1/2 -translate-y-1/2 flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm border border-orange-200 rounded-full text-orange-700 font-semibold hover:bg-orange-100 hover:-translate-x-1 transition-all duration-300 shadow-sm cursor-pointer"
-        >
-          <ArrowLeft className="w-5 h-5" /> Back
-        </button>
-        <h1 className="text-center text-4xl md:text-6xl font-extrabold text-orange-700 drop-shadow-sm font-serif mb-4">
-          Spiritual Places
+      <div className="max-w-7xl mx-auto text-center mb-16 relative">
+        <h1 className="text-4xl md:text-6xl font-extrabold text-red-900 drop-shadow-sm font-serif mb-6 tracking-wide">
+          Temples
         </h1>
-        <div className="w-32 h-1 bg-amber-500 rounded-full"></div>
+        <div className="w-24 h-1.5 bg-gradient-to-r from-orange-500 to-red-600 rounded-full mx-auto" />
       </div>
 
       {/* Cards Grid */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-10 justify-items-center">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 justify-items-center">
         {places.map((place, index) => (
           <div
             key={index}
-            className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-orange-500/20 
-            transition-all duration-500 hover:-translate-y-2 border-2 border-orange-100 hover:border-orange-400 w-full max-w-sm flex flex-col"
+            className="group w-full max-w-[24rem] bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-orange-500/30 
+            transition-all duration-500 hover:-translate-y-3 border border-orange-100 flex flex-col relative"
           >
             {/* Image Section */}
-            <div className="relative h-56 md:h-64 overflow-hidden border-b-4 border-amber-500">
+            <div className="relative h-64 overflow-hidden">
               <LazyImage
                 src={place.img}
                 alt={place.title}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out"
                 priority={index < 3}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-90 group-hover:opacity-70 transition-opacity" />
-              <div className="absolute bottom-4 left-4 right-4">
-                <h3 className="text-white text-xl font-bold drop-shadow-md translate-y-1 group-hover:translate-y-0 transition-transform duration-500 font-serif">
-                  {place.title.split("–")[0].trim()}
+              <div className="absolute inset-0 bg-gradient-to-t from-red-900/60 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-300" />
+
+              {/* Overlay Title for small screens or decorative purpose */}
+              <div className="absolute bottom-4 left-5 right-5">
+                <h3 className="text-white text-lg font-bold tracking-wider opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500 font-serif">
+                  DIvine Destination
                 </h3>
               </div>
             </div>
 
             {/* Content Section */}
-            <div className="p-8 flex flex-col flex-grow bg-gradient-to-b from-white to-orange-50/30">
-              <h2 className="text-xl font-bold text-orange-800 group-hover:text-amber-700 transition-colors mb-2 font-serif">
+            <div className="p-6 md:p-8 flex flex-col flex-grow bg-white relative z-10">
+              {/* Decorative Element */}
+              <div className="absolute top-0 right-0 w-24 h-24 bg-orange-50 rounded-bl-full -mr-4 -mt-4 -z-10 group-hover:bg-orange-100 transition-colors" />
+
+              <h2 className="text-2xl font-bold text-red-900 mb-3 font-serif leading-tight">
                 {place.title}
               </h2>
+              <div className="h-1 w-12 bg-amber-500 mb-4 rounded-full group-hover:w-20 transition-all duration-300"></div>
 
-              <p className="mt-3 text-gray-700 text-base leading-relaxed mb-8 flex-grow">
+              <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-8 flex-grow font-medium">
                 {place.desc}
               </p>
 
               <button
                 onClick={() => handlePlaceClick(place.path)}
-                className={`mt-auto w-full py-3.5 rounded-xl font-bold tracking-wide transition-all duration-300 shadow-md cursor-pointer border border-transparent
+                className={`w-full py-3.5 rounded-xl font-bold tracking-wide transition-all duration-300 shadow-md transform active:scale-95
                 ${
                   place.path
-                    ? "bg-gradient-to-r from-orange-600 to-amber-600 text-white hover:from-orange-700 hover:to-amber-700 hover:shadow-orange-300/50 hover:scale-[1.02]"
+                    ? "bg-gradient-to-r from-orange-600 to-red-600 text-white hover:from-orange-700 hover:to-red-700 hover:shadow-lg hover:shadow-orange-500/40"
                     : "bg-gray-100 text-gray-400 cursor-not-allowed"
                 }`}
                 disabled={!place.path}
               >
-                {place.path ? "Explore Now" : "Coming Soon"}
+                {place.path ? "Explore Journey" : "Coming Soon"}
               </button>
             </div>
           </div>

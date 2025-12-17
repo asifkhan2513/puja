@@ -334,7 +334,10 @@ function App() {
 
           {/* Temples & Cities */}
           <Route path={PATH.TEMPLES.slice(1)} element={<Temples_of_Bharat />} />
-          <Route path={PATH.TEMPLES_AYODHYA.slice(1)} element={<Ayodhya />} />
+          <Route
+            path={PATH.TEMPLES_AYODHYA.slice(1)}
+            element={<AyodhyaDetail />}
+          />
           <Route
             path={PATH.TEMPLES_AYODHYA_PUJAS.slice(1)}
             element={<Ayodhya_Temple_Pujas />}

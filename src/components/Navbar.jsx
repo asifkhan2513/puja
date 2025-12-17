@@ -98,7 +98,11 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <button onClick={() => handleNavClick(PATH.HOME)}>
-            <img src={LOGO} alt="Logo" className="w-20 h-20 rounded-full" />
+            <img
+              src={LOGO}
+              alt="Logo"
+              className="w-24 h-24 md:w-28 md:h-28 rounded-full"
+            />
           </button>
 
           {/* Desktop */}
