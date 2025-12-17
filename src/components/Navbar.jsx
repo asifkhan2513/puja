@@ -7,7 +7,14 @@ import {
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { PATH } from "./config/Path";
-import { Sparkles, Phone, ChevronDown, LandPlot, Video } from "lucide-react";
+import {
+  Sparkles,
+  Phone,
+  ChevronDown,
+  LandPlot,
+  Video,
+  Heart,
+} from "lucide-react";
 import LOGO from "../assets/LOGO.png";
 
 const Navbar = () => {
@@ -44,16 +51,40 @@ const Navbar = () => {
       icon: HomeIcon,
       dropdown: [
         {
-          name: "Spiritual Places",
-          href: PATH.SPIRITUAL_PLACES,
+          name: "Ayodhya",
+          href: PATH.SPIRITUAL_PLACES_AYODHYA,
           icon: LandPlot,
-          desc: "Explore sacred lands of Ram & Krishna.",
+          desc: "Ram Janmabhoomi",
+        },
+        {
+          name: "Vrindavan",
+          href: PATH.SPIRITUAL_PLACES_VRINDAVAN,
+          icon: Sparkles,
+          desc: "Land of Krishna",
+        },
+        {
+          name: "Barsana",
+          href: PATH.SPIRITUAL_PLACES_BARSANA,
+          icon: Heart,
+          desc: "Radha Rani Dham",
+        },
+        {
+          name: "Chitrakoot",
+          href: PATH.SPIRITUAL_PLACES_CHITRAKOOT,
+          icon: LandPlot,
+          desc: "Forest of Ram",
+        },
+        {
+          name: "Maihar",
+          href: PATH.SPIRITUAL_PLACES_MAIHAR,
+          icon: HomeIcon,
+          desc: "Shakti Peeth",
         },
         {
           name: "Live Darshan",
           href: PATH.LIVE_DARSHAN,
           icon: Video,
-          desc: "Watch live aartis from major temples.",
+          desc: "Watch live aartis",
         },
       ],
     },

@@ -39,17 +39,49 @@ const AyodhyaDetail = () => {
       {/* CONTENT */}
       <div className="max-w-5xl mx-auto px-6 py-16 space-y-12">
         <p className="text-lg leading-loose text-gray-700">
-          Amid the pious flow of the Saryu River, in the heart of Uttar Pradesh,
-          stands Ayodhya — not merely as a city, but as the soul of India’s
-          spiritual grandeur. Known as the “City of Gods”, Ayodhya has been
-          described in the Atharvaveda as a land of happiness and prosperity.
+          Amid the pious Saryu River, in the heart of Uttar Pradesh, is a city
+          that itself is not just a place but the soul of India’s spiritual
+          grandeur, Ayodhya.
         </p>
 
         <p className="text-lg leading-loose text-gray-700">
-          Walking through Ayodhya feels like walking through the Ramayana
-          itself. Every ghat, every temple, every narrow lane carries stories of
-          Lord Rama’s birth, exile, patience, and his triumphant return.
+          Ayodhya is also referred to as "The city of gods". According to the
+          Atharvaveda, it is a city of happiness and prosperity. Strolling down
+          the streets of Ayodhya is like strolling through the pages of the
+          Ramayana. Each gully and ghat, each temple has its story of the early
+          life of Rama, his banishment and exile, and his triumphant return.
         </p>
+
+        <p className="text-lg leading-loose text-gray-700">
+          The air is heavy with the smell of sandalwood and incense, filled with
+          incessant chants of "Sita-Ram." It’s a land where devotion is the
+          currency and faith is the speech. And the city is not just home to
+          temples; it is a temple unto itself, welcoming its guests to offer up
+          their mundane troubles and wallow in Bhakti (devotion). A visit to
+          Ayodhya is not just a journey of holy places; it’s internal
+          emancipation.
+        </p>
+        <h2 className="text-3xl font-bold text-amber-800 font-serif border-l-4 border-amber-500 pl-4 mb-8">
+          Spiritual Significance:
+        </h2>
+
+        <p className="text-lg leading-loose text-gray-700">
+          The First Mokshapuri: Scriptures list Ayodhya as the foremost city
+          where the soul can attain liberation
+        </p>
+        <p className="text-lg leading-loose text-gray-700">
+          Capital of the Ikshvaku dynasty: It symbolizes transcendence,
+          governance, duty, and truth.
+        </p>
+        <p className="text-lg leading-loose text-gray-700">
+          From the security of Hanuman Garhi, to the purifying waters of Saryu,
+          and finally through to the presence at Ram Mandir, one follows a route
+          from preparation to purification to Realisation.
+        </p>
+
+        <h2 className="text-3xl font-bold text-amber-800 font-serif mt-12 mb-6">
+          Ram Mandir: The Return of the King
+        </h2>
 
         <div className="rounded-3xl overflow-hidden shadow-2xl">
           <img
@@ -60,38 +92,133 @@ const AyodhyaDetail = () => {
         </div>
 
         <p className="text-lg leading-loose text-gray-700">
-          At the spiritual heart of Ayodhya stands the Ram Mandir — a symbol of
-          unwavering faith. Built in the majestic Nagara style using pink
-          sandstone, the temple rises without iron, reflecting the eternal
-          strength of Sanatan Dharma.
+          The spiritual center of Ayodhya is the Ram Mandir. It symbolises the
+          deep faith and patience of millions of Hindus. It’s not just a house
+          of stone – it’s a dream come true. Ram Lalla (an infant deity Ram) has
+          returned to his real birthplace after hundreds of years of waiting!
         </p>
 
         <p className="text-lg leading-loose text-gray-700">
-          The Garbha Griha houses Ram Lalla — the child form of Lord Rama. His
-          presence fills devotees with peace, humility, and divine joy. Many
-          leave with tears, many with smiles, but all with faith renewed.
+          <span className="font-bold"> The Main Shrine (Garbha Griha) -</span>{" "}
+          The Garbha Griha, or the inner room, is perhaps the most special
+          component of a temple. Here resides the statue of Ram Lalla. The idol
+          depicts Lord Rama in his childhood, as a teenager. He appears
+          innocent, radiant with divine light. For a tourist, seeing this idol
+          is the climax of the trip. It brings an intense feeling of peace and
+          joy.The faithful believe that praying at this place brings them closer
+          to Lord Rama’s goodness, truth, and nobility.
         </p>
 
+        <p className="text-lg leading-loose text-gray-700">
+          <span className="font-bold">The Pilgrimage Experience -</span> A visit
+          to the Ram Mandir will make a difference in your life. And you are
+          walking these big halls and hearing thousands of people chanting and
+          singing. You can practically feel the devotion of their energy in the
+          air. It’s the perfect place to close your eyes, pray, and remind
+          yourself that good always defeats evil.
+        </p>
+        <h2 className="text-3xl font-bold text-amber-800 font-serif mt-12 mb-6">
+          Hanuman Garhi: The Guardian of Ayodhya
+        </h2>
+        <p>
+          Before meeting Lord Rama, a devotee must first meet his most dedicated
+          and loyal server, Lord Hanuman. This brings us to Hanuman Garhi, a
+          fortress-like temple on the hill at the heart of the town.
+        </p>
         <div className="grid md:grid-cols-2 gap-6">
           <img
-            src="https://images.pexels.com/photos/31991708/pexels-photo-31991708.jpeg"
-            className="rounded-2xl shadow-xl w-full h-64 object-cover"
-          />
-          <img
-            src="https://plus.unsplash.com/premium_photo-1661963839850-b4be117aff11?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YXlvZGh5YSUyMHJhbSUyMG1hbmRpcnxlbnwwfHwwfHx8MA%3D%3D"
+            src="https://images.pexels.com/photos/3519190/pexels-photo-3519190.jpeg"
             className="rounded-2xl shadow-xl w-full h-64 object-cover"
           />
         </div>
 
         <p className="text-lg leading-loose text-gray-700">
-          Before reaching Lord Rama, devotees bow at Hanuman Garhi — the eternal
-          guardian of Ayodhya. And flowing beside the city, the sacred Saryu
-          River witnesses every prayer, every lamp, every whispered “Sita Ram”.
+          <span className="font-bold"> The City's Guard -</span> Lord Hanuman is
+          salutation as Kotwal (the Guard) of Ayodhya! Legend has it that after
+          Lord Rama returned to heaven, Hanuman never left. He pledged to
+          protect the city and its inhabitants for eternity. He still sacraments
+          the holy birthplace, even though you cannot see him.
         </p>
 
         <p className="text-lg leading-loose text-gray-700">
-          Ayodhya is not just visited. It is experienced. It is remembered. It
-          is lived within.
+          <span className="font-bold">The Steps of Faith - </span>In order to
+          get to the main temple, you will have to walk up 76 long flight steps.
+          This climb is like a test. The effort you expend is a costly way of
+          shedding your pride and ego before you stand naked in front of God.
+          Because it is designed like a fortress with towers on each corner,
+          it confirms that Hanuman is keeping an eye on every part of the city
+          and forward.
+        </p>
+
+        <p className="text-lg leading-loose text-gray-700">
+          <span className="font-bold"> The Special Statue – </span>The Hanuman
+          murti is very unique over here. It depicts a young Hanuman who is
+          sitting on the lap of his mother, Anjani. What makes this one
+          special is that it reminds us that Hanuman doesn’t only possess
+          strength but also a soft romantic side.
+        </p>
+
+        <p className="text-lg leading-loose text-gray-700">
+          <span className="font-bold">What People Do There -</span> It is
+          customary to give Besan ke Laddoo (confectionery) as prasad to the
+          deity here. It’s a busy temple, people shouting out Hanuman Chalisa (a
+          holy hymn). Lord Hanuman quickly gained popularity amongst the masses,
+          and his worshipers seek strength from him. People worship him for his
+          knowledge and power, which provide a check against evil forces. Your
+          journey to Lord Rama is said to be unfinished unless you pay a visit
+          to the protector Hanuman Garhi.
+        </p>
+
+        {/* the Sayru containt */}
+        <h2 className="text-3xl font-bold text-amber-800 font-serif mt-12 mb-6">
+          Saryu River: The Flow of Salvation
+        </h2>
+        <p>
+          If Ayodhya is the body and Ram Mandir is the heart, then the Saryu
+          River flowing here can be called as blood running through the veins.
+          The saryu is not water but a living goddess. She’s the mute spectator
+          of this epic, right from Lord Rama’s birth till his Jal Samadhi
+          (passing into water).
+        </p>
+        <div className="grid md:grid-cols-2 gap-6">
+          <img
+            src="https://images.pexels.com/photos/35216366/pexels-photo-35216366.jpeg"
+            className="rounded-2xl shadow-xl w-full h-64 object-cover"
+          />
+        </div>
+
+        <p className="text-lg leading-loose text-gray-700">
+          <span className="font-bold">Bath in the Saryu River - </span> Bathing
+          here is one of the most pious things Hindus can do. It is believed
+          that water washes away all the bad things (the sins) we've done in
+          past lives, making your soul clean and ready to go into temples. Its
+          riverbanks, known as ghats, are a hive of activity where people gather
+          to pray, meditate in solitude, and respect their ancestors.
+        </p>
+
+        <p className="text-lg leading-loose text-gray-700">
+          <span font-bold>Evening Aarti - </span> After the sunsets, the
+          riverside transforms into a spectacle of light and sound in a ceremony
+          called Saryu Aarti. Priests, the way they do with the famous
+          Ganga Aarti, hold large brass lamps of fire and sway them in rhythmic
+          circles as bells jingle and shells blow.
+        </p>
+
+        <p className="text-lg leading-loose text-gray-700">
+          Thousands of small earth lamps (diyas) are laid afloat on the river to
+          carry off the locals' prayers. The reflection of these bright lights
+          on the near water is like a carpet of sparkling stars. Sitting on the
+          steps of the ghats (such as Ram Ki Paidi) and watching lamps float by,
+          with solemn chants in the air, is a calming experience.
+        </p>
+
+        <p className="text-lg leading-loose text-gray-700">
+          <span className="font-bold"> Guptar Ghat -</span> Another significant
+          place on the river is Guptar Ghat. According to local belief, it is at
+          this holy place that Lord Rama decided to go out of the world. Here,
+          he stepped into the waters to make his way back home in heaven
+          (Vaikuntha). It is a tranquil, serene place for deep thought, far
+          removed from the bustling main city.
         </p>
       </div>
     </div>

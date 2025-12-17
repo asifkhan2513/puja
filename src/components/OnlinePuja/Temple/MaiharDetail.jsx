@@ -27,12 +27,8 @@ const MaiharDetail = () => {
 
         <div className="relative z-10 px-6">
           <h1 className="text-5xl md:text-6xl font-extrabold text-amber-300">
-            Maihar
+            Maihar: The Necklace of the Divine Mother
           </h1>
-          <p className="mt-6 text-lg text-gray-200 max-w-3xl">
-            The sacred necklace of the Divine Mother, where wisdom, devotion,
-            and power unite.
-          </p>
         </div>
       </div>
 
@@ -40,101 +36,145 @@ const MaiharDetail = () => {
       <div className="max-w-5xl mx-auto px-6 py-16 space-y-14">
         {/* INTRO */}
         <p className="text-lg leading-loose text-gray-700">
-          Maihar is a small town in the Indian state of Madhya Pradesh, yet
-          spiritually it holds immense significance. Its very name carries
-          divine meaning — Mai, the Mother, and Har, the Necklace — together
-          forming “The Mother’s Necklace.”
+          Maihar is a small town in the Indian state of Madhya Pradesh, but
+          spiritually, it is very significant. The name comes from Mai (Mother)
+          and Har (Necklace), or “Mother’s Necklace.” It is the location of one
+          of the greatest temples of the Divine Feminine: Maa Sharda Mandir.
+          This town is the location of one of the most significant and revered
+          temples of the Divine Feminine in Central India: the Maa Sharda
+          Mandir. This powerful shrine acts as a spiritual magnet, drawing
+          devotees from across the globe who seek the grace of the Goddess of
+          Wisdom.
         </p>
 
+        <h1 className="text-5xl md:text-6xl font-extrabold text-amber-300">
+          Maa Sharda Mandir - The Goddess of Wisdom and the Mountain Divine
+        </h1>
         <p className="text-lg leading-loose text-gray-700">
-          This sacred land is home to one of the most powerful shrines of the
-          Divine Feminine — Maa Sharda Mandir. Perched high upon the Trikut
-          Mountain, the temple radiates a presence that devotees feel long
-          before they reach its sanctum.
+          The presiding deity here is Goddess Sharda, an incarnation of Goddess
+          Saraswati, the goddess with attributes of learning, knowledge, and
+          music. To worship Maa Sharda is a means of getting enlightenment and
+          the strength of mind.
         </p>
 
-        {/* IMAGE BREAK */}
-        <div className="rounded-3xl overflow-hidden shadow-2xl">
-          <img
-            src="https://www.maihartemple.com/wp-content/uploads/sri-maihar-devi-temple_1412844211.jpg"
-            alt="Maihar Temple"
-            className="w-full h-64 md:h-[420px] object-cover hover:scale-105 transition duration-700"
-          />
-        </div>
+        <h1 className="text-5xl md:text-6xl font-extrabold text-amber-300">
+          Shakti Peetha: The Holy Abode of Shakti
+        </h1>
+        <ul className="list-disc space-y-4">
+          <li>
+            The Maihar temple is a shaktipeeth. Mythologically, the body parts
+            of the corpse of Sati fell at different places when Lord Shiva was
+            grieving over his wife’s corpse. The necklace (or, haar) of Sati is
+            also considered to have fallen here and, hence, it is a highly
+            revered place for the devotees of the Mother Goddess.
+          </li>
+          <li>
+            Mythological Importance: According to Hindu mythology, when Lord
+            Shiva was mourning the death of his wife, Sati, her body parts fell
+            at several places across the Indian subcontinent. Legend has it that
+            Goddess Sati's necklace fell at this spot, and hence, it is one of
+            the most sacred places for the worshipers of Mother Goddess,
+            symbolizing an abode of power (Shakti).
+          </li>
+          <li>
+            Pilgrimage Merit: Darshan of a Shakti Peetha is considered the
+            holiest act, provides extraordinary punya, and favours all supreme
+            desires. The power of speech and intellect is particularly related
+            to the Maihar Peetha.
+          </li>
+        </ul>
 
-        {/* SHARDA MATA */}
+        <h1 className="text-5xl md:text-6xl font-extrabold text-amber-300">
+          Location and Ascent
+        </h1>
+        <ul className="list-disc space-y-4">
+          <li>
+            The Holy Climb: Pilgrims typically ascend a challenging set of some
+            1,001 to 1,063 steps to make their way to the main shrine. This
+            difficult climb is considered by some to be the ultimate of devotion
+            (tapasya or penance), representing the arduous effort necessary
+            to achieve God consciousness.
+          </li>
+          <li>
+            Modern Accessibility: Ropeway Service (Cable Car) Also for the aged,
+            handicapped, and infirm, an ultra-modern well well-maintained
+            ropeway service is available, bringing the Darshan of Mother to all
+            her children. The view from the top offers a panoramic vista of the
+            surrounding region, enhancing the sense of awe.
+          </li>
+        </ul>
+
+        <h1 className="text-5xl md:text-6xl font-extrabold text-amber-300">
+          The Boon of Knowledge and Understanding
+        </h1>
+        <p>
+          Followers visit this place to worship the Goddess Sharda and seek
+          blessings for wisdom, knowledge, education, learning, and expression.
+          She makes up the one to whom honest wishes can be addressed, namely,
+          by means of knowledge and reason. Before exams, students come here in
+          large numbers and pray, as well as artists and musicians, for the kind
+          of skills they want to master. She is seen as the grantor of all
+          creative and intellectual endeavours.
+        </p>
+        <h2 className="text-5xl md:text-6xl font-extrabold text-amber-300">
+          Legend of Alha and Udal: Eternal Devotion
+        </h2>
         <p className="text-lg leading-loose text-gray-700">
-          The presiding deity of Maihar is Goddess Sharda, an incarnation of
-          Goddess Saraswati — the embodiment of learning, wisdom, and knowledge.
-          Devotees approach her not with fear, but with humility, seeking
-          clarity of mind and purity of intellect.
+          The most popular and unique legend of Maihar is about two warrior
+          brothers, Alha-udhal. This tale tacks on a touch of mystical devotion
+          to the temple’s history.
         </p>
-
+        <h2 className="text-5xl md:text-6xl font-extrabold text-amber-300">
+          Immortal Worshippers
+        </h2>
+        <p>
+          It is believed that Alha and Udal were the first to visit this shrine
+          amidst dense forests on the Trikut mountains. Alha meditated for 12
+          years (tapasya) at a stretch, and the Goddess accepted his wish
+          of immortalized living.
+        </p>
+        <h2 className="text-5xl md:text-6xl font-extrabold text-amber-300">
+          Penance
+        </h2>
         <p className="text-lg leading-loose text-gray-700">
-          Maihar is revered as a Shakti Peetha. According to sacred tradition,
-          when Lord Shiva wandered the cosmos in grief after the loss of Sati,
-          parts of her divine body fell upon the earth. It is believed that her
-          necklace, or haar, fell here — sanctifying Maihar forever.
+          {" "}
+          It is believed that Alha did 12 years of tapa (meditation) and
+          strict penance (worship of the dzi-devi). Satisfied with his
+          dedication, the Goddess granted him immortality and turned him into
+          her guardian as well as a follower of the shrine.
         </p>
-
-        {/* LOCATION & ASCENT */}
-        <div className="grid md:grid-cols-2 gap-8 items-center">
-          <img
-            src="https://www.maihartemple.com/wp-content/uploads/sri-maihar-devi-temple_1412844211.jpg"
-            alt="Maihar Steps"
-            className="rounded-2xl shadow-xl w-full h-64 object-cover"
-          />
-
-          <p className="text-lg leading-loose text-gray-700">
-            The temple rests 600 feet above ground on Trikut Hill.
-            Traditionally, pilgrims climb between 1,001 and 1,063 steps to reach
-            the shrine. Each step is considered an act of devotion — a physical
-            offering mirroring inner surrender.
-          </p>
-        </div>
-
+        <h2 className="text-5xl md:text-6xl font-extrabold text-amber-300">
+          A Daily Miracle: The Living Legend
+        </h2>
         <p className="text-lg leading-loose text-gray-700">
-          For those unable to climb, a ropeway now offers access, yet many still
-          choose the steps, believing that effort itself pleases the Mother.
-          Here, prayers are offered for wisdom, success, and clarity — blessings
-          said to be granted through knowledge and reason.
+          The tradition of the village has it that the immortal warrior Alha
+          visits this temple every day till today in the various mornings at
+          Brahma Mahurat (the sacred early morning hours before sunrise) before
+          the official doors of the temple are opened for darshan.
         </p>
-
-        {/* LEGEND OF ALHA & UDAL */}
-        <div className="rounded-3xl overflow-hidden shadow-2xl">
-          <img
-            src="https://thumbs.dreamstime.com/b/maihar-mata-temple-madh-pradesh-india-trust-place-many-people-visit-here-maihar-mata-temple-madh-pradesh-state-hd-quality-167481149.jpg"
-            alt="Alha and Udal Legend"
-            className="w-full h-64 md:h-[420px] object-cover hover:scale-105 transition duration-700"
-          />
-        </div>
-
-        <p className="text-lg leading-loose text-gray-700">
-          One of the most captivating legends of Maihar is that of the warrior
-          brothers Alha and Udal. It is believed they were the first devotees to
-          discover the shrine hidden amidst dense forests.
-        </p>
-
-        <p className="text-lg leading-loose text-gray-700">
-          Alha performed intense tapasya for twelve uninterrupted years. Pleased
-          by his devotion, the Goddess granted him immortality. Even today,
-          local belief holds that Alha visits the temple daily during Brahma
-          Muhurta — before sunrise — to worship Maa Sharda and adorn her with
-          flowers.
-        </p>
-
-        <p className="text-lg leading-loose text-gray-700">
-          Devotees feel an emotional bond with this unseen guardian. His
-          presence is believed to enhance the temple’s mystique, reminding
-          visitors that devotion never fades — it only transforms.
-        </p>
-
-        {/* CLOSING */}
-        <p className="text-lg leading-loose text-gray-700 font-medium">
-          Maihar is not just a shrine of stone and steps. It is a living
-          testimony to devotion, wisdom, and the eternal compassion of the
-          Divine Mother.
-        </p>
+        <h2 className="text-5xl md:text-6xl font-extrabold text-amber-300">
+          The Rituals
+        </h2>
+        <ul className="list-disc space-y-4">
+          <li>
+            His daily puja for Maa Sharda, along with the shringar (decoration )
+            of her using fresh flowers, contributes beautifully to his divine
+            pursuits. Priests, upon opening the temple, often find fresh
+            offerings and noticeable signs of use.
+          </li>
+          <li>
+            This enigmatic phenomenon causes the warrior to generate such strong
+            emotions among his followers, who hold him in higher regard as they
+            think he makes the temple even more mysteriously divine and sacred.
+          </li>
+          <li>
+            Maa Sharda Mandir at Maihar is more than mere stones; it is a living
+            testimony to the strength of the Goddess, to the holiness of an
+            ancient legend, and above all, to the faith that is unwavering in
+            those who climb up treacherous stone steps to seek her grace, for
+            wisdom or power.
+          </li>
+        </ul>
       </div>
     </div>
   );

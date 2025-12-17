@@ -27,11 +27,14 @@ const ChitrakootDetail = () => {
 
         <div className="relative z-10 px-6">
           <h1 className="text-5xl md:text-6xl font-extrabold text-indigo-300">
-            Chitrakoot
+            Chitrakoot: The Hill of Many Wonders
           </h1>
           <p className="mt-6 text-lg text-gray-200 max-w-3xl">
-            The sacred forested hill where Lord Rama walked, lived, and
-            sanctified every stone with his presence.
+            Chitrakoot, the 'Hill of many wonders', is located in the northern
+            Vindhya range of mountains, spread over the states of Uttar Pradesh
+            and Madhya Pradesh. It is of great religious significance for Hindus
+            due to its association with the Ramayana, a great epic in Hindu
+            mythology.
           </p>
         </div>
       </div>
@@ -39,117 +42,140 @@ const ChitrakootDetail = () => {
       {/* MAIN CONTENT */}
       <div className="max-w-5xl mx-auto px-6 py-16 space-y-14">
         {/* INTRO */}
+        <h2 className="mt-6 text-5xl font-bold">Lord Rama's Abode in Exile</h2>
         <p className="text-lg leading-loose text-gray-700">
-          Chitrakoot, revered as the “Hill of Many Wonders,” lies in the
-          northern Vindhya range of mountains, gently spread across the sacred
-          lands of Uttar Pradesh and Madhya Pradesh. This timeless region holds
-          profound spiritual importance due to its deep association with the
-          Ramayana — the epic that defines dharma, devotion, and righteousness.
+          Chitrakoot is a sacred place, for it is the area where Lord Rama, his
+          wife Sita, and his brother Lakshmana lived when he was in their
+          fourteen years of exile. So every stone, stream, or hill here is
+          sacred; they were all blessed by their divine feet.
+        </p>
+        <h2 className="mt-6 text-5xl font-bold">
+          The Highest Place of Pilgrimage
+        </h2>
+        <ul className="list-disc space-y-2">
+          <li>
+            According to some ancient religious scriptures and local beliefs,
+            Chitrakoot is considered to possess spiritual merit even greater
+            than Prayagraj (formerly known as the king of all pilgrimage
+            destinations).
+          </li>
+          <li>
+            Purification: One common belief is that Chitrakoot Dham is the
+            single holy place where all other tirthas (holy rivers and places)
+            in the world come to take a bath in the Mandakini River, not to
+            bestow but to seek purification for themselves from sins they
+            accumulate through overenthusiastic pilgrims. This highlights
+            Chitrakoot's supreme sanctity
+          </li>
+          <li>
+            The Spirit of Tapas: The Vibe at the temple is one of serene tapas
+            (austerity) and introspection, which simply mirrors what Lord Rama
+            led along with his family members while on their exile.
+          </li>
+        </ul>
+
+        <h2 className="mt-6 text-5xl font-bold">Sages and Saints</h2>
+        <ul className="list-disc space-y-2">
+          <li>
+            In addition to the divine trio, the forested region has been the
+            home of many great sages and saints; thus, it is a thousand-year-old
+            center of spiritual wisdom.
+          </li>
+          <li>
+            Literary Giants: It was the residence of Maharishi Valmiki, who
+            wrote the epic Ramayana in Sanskrit.
+          </li>
+          <li>
+            <span className="font-bold">Great Rishis:</span> There were other
+            great sages, such as Maharshi Atri, who was here with his saintly
+            wife Mata Anusuya, who was known for her great wisdom and piety, to
+            whom Sita used to pay visits for advice. Its visit contributed to
+            making Chitrakoot an abiding place of profound spiritual
+            enlightenment.
+          </li>
+        </ul>
+
+        <h2 className="mt-6 text-5xl font-bold">
+          Kamadgiri Parvat - The Heart Of Chitrakoot{" "}
+        </h2>
+        <p className="text-lg leading-loose text-gray-700">
+          Kamadgiri Parvat, the most sacred spiritual centre in Chitrakoot, is a
+          densely wooded hill that serves as a focal point for all religious and
+          pilgrimage activities.
         </p>
 
+        <h2 className="mt-6 text-5xl font-bold">
+          The Wish-Fulfilling Mountain
+        </h2>
         <p className="text-lg leading-loose text-gray-700">
-          For devotees, Chitrakoot is not merely a geographical location. It is
-          a living pilgrimage, where forests whisper ancient truths and rivers
-          carry memories of divine footsteps.
+          Kamadgiri is a Sanskrit word combination of kama (wish/desire) and
+          giri (peak/mountain). It translates to the Mountain of
+          fulfilling wishes. There is placed the divine hill of Chitrakut
+          itself. It is said by the believers that if one completes a Parikrama
+          around the mountain with the pure intention of wishing for something,
+          then their wish will be fulfilled.
         </p>
 
-        {/* IMAGE BREAK */}
-        <div className="rounded-3xl overflow-hidden shadow-2xl">
-          <img
-            src="https://holydham.com/wp-content/uploads/2012/10/Chitrakoot.jpg"
-            alt="Chitrakoot Forests"
-            className="w-full h-64 md:h-[420px] object-cover hover:scale-105 transition duration-700"
-          />
-        </div>
-
-        {/* LORD RAMA IN EXILE */}
+        <h2 className="mt-6 text-5xl font-bold">
+          The Sacred Walk: Kamadgiri Parikrama
+        </h2>
         <p className="text-lg leading-loose text-gray-700">
-          Chitrakoot is sanctified as the land where Lord Rama, accompanied by
-          Sita and his loyal brother Lakshmana, resided during the fourteen
-          years of exile. Every stream, hill, and stone here is believed to have
-          been touched by their divine feet, transforming the land into sacred
-          ground.
+          For every pilgrim visiting Chitrakoot, the single most important and
+          popular religious activity is circumambulation or Parikrama
+          of Kamadgiri Parvat.
+        </p>
+        <h2 className="mt-6 text-5xl font-bold">
+          The Ceremony: Humility and Respect
+        </h2>
+        <p className="text-lg leading-loose text-gray-700">
+          The pilgrimage path: The sacred pathway runs around the entire hill
+          and measures about five kilometers.
         </p>
 
+        <h3 className="mt-6 text-5xl font-bold">The Ritual</h3>
         <p className="text-lg leading-loose text-gray-700">
-          According to revered scriptures, Chitrakoot holds such spiritual
-          purity that it surpasses even Prayagraj. It is said that all holy
-          places journey here to bathe in the Mandakini River, seeking
-          purification from the sins of countless ages.
+          Devotees are known to walk this path totally barefoot as it introduces
+          Mysticism in their hearts out of their profound devotion to Lord Rama
+          & total respect and humility. The footpath leads pilgrims through many
+          smaller temples and attractive overlooks of the hill.
+        </p>
+        <h3 className="mt-6 text-5xl font-bold">Spiritual ambience</h3>
+        <p className="text-lg leading-loose text-gray-700">
+          The footpath is aesthetically laid with age-old temples on both sides
+          of the path. The air is literally vibrating with the sounds of hymns,
+          bhajans, and chanting, which adds a peace and spiritual experience.
         </p>
 
-        {/* SAGES */}
-        <div className="grid md:grid-cols-2 gap-8 items-center">
-          <img
-            src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2e/65/b3/b1/caption.jpg?w=1200&h=-1&s=1"
-            alt="Chitrakoot Ashrams"
-            className="rounded-2xl shadow-xl w-full h-64 object-cover"
-          />
-
-          <p className="text-lg leading-loose text-gray-700">
-            The silent forests of Chitrakoot have long been home to sages and
-            saints. Maharshi Valmiki, the composer of the Ramayana, along with
-            Maharshi Atri and Mata Anasuya, meditated in these tranquil woods,
-            filling the land with wisdom and spiritual resonance.
-          </p>
-        </div>
-
-        {/* KAMADGIRI */}
-        <div className="rounded-3xl overflow-hidden shadow-2xl">
-          <img
-            src="https://static.toiimg.com/thumb/msid-103572394,width-1070,height-580,resizemode-75/103572394,pt-32,y_pad-40/103572394.jpg"
-            alt="Kamadgiri Parvat"
-            className="w-full h-64 md:h-[420px] object-cover hover:scale-105 transition duration-700"
-          />
-        </div>
-
+        <h2 className="mt-6 text-5xl font-bold">
+          Spiritual Merit and Fulfillment
+        </h2>
         <p className="text-lg leading-loose text-gray-700">
-          At the heart of Chitrakoot rises Kamadgiri Parvat — the most sacred
-          spiritual center of the region. The name Kamadgiri combines Kama
-          (desire) and Giri (mountain), signifying the “Mountain that fulfills
-          wishes.” It is believed to be the original form of Chitrakoot itself.
+          There is a very strong belief that doing the Kamadgiri Parikrama
+          benefits immensely in religious terms. It is widely thought to:
+          <ul className="list-disc space-y-2">
+            <li>The sins of previous acts are all washed away.</li>
+            <li>
+              Accrue the spiritual merit that aligns itself with the process
+              towards freedom.
+            </li>
+            <li>Ensure prosperity and well-being.</li>
+            <li>
+              Accomplish the genuine wishes and lofty meanings of those who have
+              true faith in it.
+            </li>
+          </ul>
         </p>
-
+        <h2 className="mt-6 text-5xl font-bold">
+          The Ultimate Reunion: Bharat Milap
+        </h2>
         <p className="text-lg leading-loose text-gray-700">
-          The mountain is worshipped as Lord Kamtanath, the principal deity and
-          an incarnation of Lord Rama. Devotees regard Kamadgiri not as stone
-          and soil, but as a living divine presence.
-        </p>
-
-        {/* PARIKRAMA */}
-        <div className="grid md:grid-cols-2 gap-8 items-center">
-          <p className="text-lg leading-loose text-gray-700">
-            The most revered practice at Chitrakoot is the Kamadgiri Parikrama —
-            a sacred circumambulation of the hill. The path spans approximately
-            five kilometers and is traditionally walked barefoot, symbolizing
-            humility and surrender.
-          </p>
-
-          <img
-            src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2e/65/b3/b1/caption.jpg?w=1200&h=-1&s=1"
-            alt="Kamadgiri Parikrama"
-            className="rounded-2xl shadow-xl w-full h-64 object-cover"
-          />
-        </div>
-
-        <p className="text-lg leading-loose text-gray-700">
-          Pilgrims believe that completing this parikrama cleanses sins,
-          accumulates spiritual merit, and fulfills sincere desires. The path is
-          lined with ancient temples, where chants, hymns, and bells create an
-          atmosphere of deep peace and devotion.
-        </p>
-
-        <p className="text-lg leading-loose text-gray-700">
-          Along this sacred route lies the Bharat Milap Temple — the place where
-          Bharat met Lord Rama during exile, pleading with him to return and
-          rule Ayodhya. Their meeting stands as a timeless symbol of love,
-          sacrifice, and dharma.
-        </p>
-
-        {/* CLOSING */}
-        <p className="text-lg leading-loose text-gray-700 font-medium">
-          Chitrakoot is not merely remembered — it is felt. A place where the
-          soul slows down, listens, and finds its way home.
+          One of the sentimental points on the Arikrama path is the Bharat Milap
+          Temple. This temple is the spot historically and emotionally known as
+          where Lord Rama’s younger brother, Bharat, came to meet him during his
+          banishment in order to ask him with a pure supplicant heart if he
+          would return and rule over the kingdom. With them as witnesses, the
+          place stands for that unique love and sacrifice between two brothers,
+          and the triumph of duty (Dharma) over desire.
         </p>
       </div>
     </div>
