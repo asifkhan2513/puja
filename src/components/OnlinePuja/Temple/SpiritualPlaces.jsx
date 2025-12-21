@@ -62,7 +62,7 @@ const SpiritualPlaces = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-red-50 to-orange-100 py-16 px-4 md:px-8">
+    <div className="min-h-screen bg-linear-to-br from-orange-50 via-red-50 to-orange-100 py-16 px-4 md:px-8">
       {/* Header - No Back Button */}
       <div className="max-w-7xl mx-auto text-center mb-16 relative">
         <h1 className="text-4xl md:text-6xl font-extrabold text-red-900 drop-shadow-sm font-serif mb-6 tracking-wide">

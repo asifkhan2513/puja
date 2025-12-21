@@ -14,6 +14,8 @@ import {
   LandPlot,
   Video,
   Heart,
+  Wand,
+  Flower,
 } from "lucide-react";
 import LOGO from "../assets/LOGO.png";
 
@@ -81,10 +83,17 @@ const Navbar = () => {
           desc: "Shakti Peeth",
         },
         {
-          name: "Live Darshan",
-          href: PATH.LIVE_DARSHAN,
-          icon: Video,
-          desc: "Watch live aartis",
+          name: "Varanasi",
+          href: PATH.SPIRITUAL_PLACES_VARANASI,
+          icon: Wand,
+          desc: "varanai",
+        },
+
+        {
+          name: "Vindhyachal",
+          href: PATH.SPIRITUAL_PLACES_VINDHYACHAL,
+          icon: Flower,
+          desc: "Vindhyachal",
         },
       ],
     },
@@ -130,6 +139,7 @@ const Navbar = () => {
                           const SubIcon = sub.icon || Sparkles;
                           return (
                             <button
+                              key={i}
                               onClick={() => handleNavClick(sub.href)}
                               className="flex items-start gap-4 w-full text-left p-3 rounded-xl 
                                 hover:bg-orange-50 transition-colors cursor-pointer group/item"

@@ -2,34 +2,33 @@ import React from "react";
 
 const ChitrakootDetail = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-stone-50 via-orange-50 to-amber-100 font-sans scroll-smooth">
+    <div className="min-h-screen bg-gradient-to-b from-amber-50 via-orange-50 to-yellow-100 font-sans scroll-smooth">
       {/* HERO SECTION */}
       <div
         className="relative h-[70vh] flex items-center justify-center text-center overflow-hidden shadow-2xl"
         style={{
-          backgroundImage:
-            "url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLNa7klp1QY0r3hmQVruXJF7hD5txrghLNlw&s)",
+          backgroundImage: "url(https://elyunque.com/images/SitaRavanna.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-stone-900/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-amber-900/40"></div>
         {/* Back Button */}
         <button
           onClick={() => window.history.back()}
-          className="absolute top-6 left-6 z-20 flex items-center gap-2 px-6 py-2 bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-[#FFA500] hover:border-[#FFA500] border border-white/30 transition-all font-bold tracking-wide shadow-lg cursor-pointer"
+          className="absolute top-6 left-6 z-20 flex items-center gap-2 px-6 py-2 bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-amber-600 hover:border-amber-600 border border-white/30 transition-all duration-300 font-bold tracking-wide shadow-lg cursor-pointer transform hover:scale-105"
         >
           ← Back
         </button>
 
         <div className="relative z-10 px-6 max-w-5xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-extrabold text-[#FFA500] drop-shadow-lg font-serif tracking-wide mb-6">
+          <h1 className="text-5xl md:text-7xl font-extrabold bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent drop-shadow-2xl font-serif tracking-wide mb-6 animate-pulse">
             Chitrakoot
           </h1>
           <p className="text-4xl font-bold text-white">
             The Hill of Many Wonders
           </p>
-          <p className="text-xl md:text-2xl text-stone-100 font-medium max-w-3xl mx-auto leading-relaxed drop-shadow-md font-serif">
+          <p className="text-xl md:text-2xl text-amber-100 font-medium max-w-3xl mx-auto leading-relaxed drop-shadow-md font-serif">
             The sacred sanctuary where Lord Rama spent his exile, blessing every
             stone and stream.
           </p>
@@ -39,7 +38,7 @@ const ChitrakootDetail = () => {
       {/* MAIN CONTENT */}
       <div className="max-w-5xl mx-auto px-6 py-16 space-y-14">
         {/* INTRO */}
-        <div className="bg-white/60 p-8 rounded-3xl border border-orange-100 shadow-sm">
+        <div className="bg-white/70 p-8 rounded-3xl border border-amber-200 shadow-lg hover:shadow-xl transition-all duration-300">
           <p className="text-lg leading-loose text-gray-800 font-medium">
             Chitrakoot, the 'Hill of many wonders', is located in the northern
             Vindhya range of mountains, spread over the states of Uttar Pradesh
@@ -50,10 +49,10 @@ const ChitrakootDetail = () => {
         </div>
 
         <div className="space-y-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-amber-900 font-serif border-l-8 border-orange-500 pl-6">
+          <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-amber-700 to-orange-800 bg-clip-text text-transparent font-serif border-l-8 border-amber-500 pl-6">
             Lord Rama's Abode in Exile
           </h2>
-          <p className="text-lg leading-loose text-gray-800 font-medium">
+          <p className="text-lg leading-loose text-gray-800 font-medium bg-white/60 p-6 rounded-2xl border border-amber-200 shadow-lg">
             Chitrakoot is a sacred place, for it is the area where Lord Rama,
             his wife Sita, and his brother Lakshmana lived when he was in their
             fourteen years of exile. So every stone, stream, or hill here is
@@ -61,11 +60,11 @@ const ChitrakootDetail = () => {
           </p>
         </div>
 
-        <div className="space-y-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-amber-900 font-serif border-l-8 border-orange-500 pl-6">
+        <div className="space-y-6 bg-gradient-to-br from-amber-50 to-orange-100 p-8 rounded-3xl border-2 border-amber-300 shadow-xl">
+          <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-amber-700 to-orange-800 bg-clip-text text-transparent font-serif border-l-8 border-orange-500 pl-6">
             The Highest Place of Pilgrimage
           </h2>
-          <ul className="list-disc space-y-4 pl-6 text-lg text-gray-800 font-medium marker:text-orange-500">
+          <ul className="list-disc space-y-4 pl-6 text-lg text-gray-800 font-medium marker:text-amber-500">
             <li>
               According to some ancient religious scriptures and local beliefs,
               Chitrakoot is considered to possess spiritual merit even greater
@@ -92,8 +91,8 @@ const ChitrakootDetail = () => {
           </ul>
         </div>
 
-        <div className="space-y-6 bg-amber-50/50 p-8 rounded-3xl border border-amber-100">
-          <h2 className="text-3xl md:text-4xl font-bold text-amber-900 font-serif">
+        <div className="space-y-6 bg-gradient-to-br from-orange-50 to-amber-100 p-8 rounded-3xl border-2 border-orange-200 shadow-xl">
+          <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-orange-700 to-amber-800 bg-clip-text text-transparent font-serif">
             Sages and Saints
           </h2>
           <ul className="list-disc space-y-4 pl-6 text-lg text-gray-800 font-medium marker:text-orange-500">
@@ -119,7 +118,7 @@ const ChitrakootDetail = () => {
         </div>
 
         <div className="space-y-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-amber-900 font-serif border-b-2 border-orange-200 pb-2 inline-block">
+          <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-amber-700 to-orange-800 bg-clip-text text-transparent font-serif border-b-4 border-amber-400 pb-2 inline-block">
             Kamadgiri Parvat - The Heart Of Chitrakoot
           </h2>
           <p className="text-lg leading-loose text-gray-800 font-medium">
@@ -129,7 +128,7 @@ const ChitrakootDetail = () => {
           </p>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="space-y-4">
+            <div className="space-y-4 bg-gradient-to-br from-amber-50 to-white p-6 rounded-2xl shadow-lg border-2 border-amber-200 hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
               <h2 className="text-2xl font-bold text-amber-800 font-serif">
                 The Wish-Fulfilling Mountain
               </h2>
@@ -142,8 +141,8 @@ const ChitrakootDetail = () => {
                 for something, then their wish will be fulfilled.
               </p>
             </div>
-            <div className="space-y-4">
-              <h2 className="text-2xl font-bold text-amber-800 font-serif">
+            <div className="space-y-4 bg-gradient-to-br from-orange-50 to-white p-6 rounded-2xl shadow-lg border-2 border-orange-200 hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
+              <h2 className="text-2xl font-bold text-orange-800 font-serif">
                 The Sacred Walk: Kamadgiri Parikrama
               </h2>
               <p className="text-lg leading-loose text-gray-800 font-medium">
@@ -156,16 +155,16 @@ const ChitrakootDetail = () => {
         </div>
 
         <div className="space-y-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-amber-900 font-serif border-l-8 border-orange-500 pl-6">
+          <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-amber-700 to-orange-800 bg-clip-text text-transparent font-serif border-l-8 border-orange-500 pl-6">
             The Ceremony: Humility and Respect
           </h2>
-          <p className="text-lg leading-loose text-gray-800 font-medium">
+          <p className="text-lg leading-loose text-gray-800 font-medium bg-white/60 p-6 rounded-2xl border border-amber-200 shadow-lg">
             The pilgrimage path: The sacred pathway runs around the entire hill
             and measures about five kilometers.
           </p>
 
           <div className="grid md:grid-cols-2 gap-8 pt-4">
-            <div className="bg-white p-6 rounded-2xl shadow-sm border border-stone-100">
+            <div className="bg-gradient-to-br from-amber-50 to-white p-6 rounded-2xl shadow-lg border-2 border-amber-200 hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
               <h3 className="text-2xl font-bold text-amber-800 mb-3 font-serif">
                 The Ritual
               </h3>
@@ -177,8 +176,8 @@ const ChitrakootDetail = () => {
                 overlooks of the hill.
               </p>
             </div>
-            <div className="bg-white p-6 rounded-2xl shadow-sm border border-stone-100">
-              <h3 className="text-2xl font-bold text-amber-800 mb-3 font-serif">
+            <div className="bg-gradient-to-br from-orange-50 to-white p-6 rounded-2xl shadow-lg border-2 border-orange-200 hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
+              <h3 className="text-2xl font-bold text-orange-800 mb-3 font-serif">
                 Spiritual Ambience
               </h3>
               <p className="text-lg leading-loose text-gray-800 font-medium">
@@ -191,8 +190,8 @@ const ChitrakootDetail = () => {
           </div>
         </div>
 
-        <div className="space-y-6 bg-orange-50 p-8 rounded-3xl border border-orange-100">
-          <h2 className="text-3xl md:text-4xl font-bold text-amber-900 font-serif">
+        <div className="space-y-6 bg-gradient-to-br from-orange-50 to-amber-100 p-8 rounded-3xl border-2 border-orange-200 shadow-xl">
+          <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-orange-700 to-amber-800 bg-clip-text text-transparent font-serif">
             Spiritual Merit and Fulfillment
           </h2>
           <div className="text-lg leading-loose text-gray-800 font-medium">
@@ -213,14 +212,14 @@ const ChitrakootDetail = () => {
           </div>
         </div>
 
-        <div className="space-y-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-amber-900 font-serif border-b-2 border-orange-200 pb-2 inline-block">
+        <div className="space-y-6 bg-gradient-to-br from-amber-50 to-orange-100 p-8 rounded-3xl border-2 border-amber-300 shadow-xl">
+          <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-amber-700 to-orange-800 bg-clip-text text-transparent font-serif border-b-4 border-amber-400 pb-2 inline-block">
             The Ultimate Reunion: Bharat Milap
           </h2>
           <p className="text-lg leading-loose text-gray-800 font-medium">
             One of the sentimental points on the Arikrama path is the Bharat
             Milap Temple. This temple is the spot historically and emotionally
-            known as where Lord Rama’s younger brother, Bharat, came to meet him
+            known as where Lord Rama's younger brother, Bharat, came to meet him
             during his banishment in order to ask him with a pure supplicant
             heart if he would return and rule over the kingdom. With them as
             witnesses, the place stands for that unique love and sacrifice

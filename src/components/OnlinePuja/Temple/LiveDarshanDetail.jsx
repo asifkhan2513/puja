@@ -178,7 +178,7 @@ const LiveDarshanDetail = () => {
                   {service.Boxes.map((keyword, i) => (
                     <div
                       key={i}
-                      className="group relative bg-gradient-to-br from-orange-50 to-amber-50 p-4 rounded-xl border-2 border-orange-200 hover:border-orange-400 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-default"
+                      className="group relative bg-linear-to-br from-orange-50 to-amber-50 p-4 rounded-xl border-2 border-orange-200 hover:border-orange-400 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-default"
                     >
                       <div className="flex items-center gap-2">
                         <span className="w-2 h-2 bg-orange-500 rounded-full group-hover:animate-pulse"></span>
@@ -194,7 +194,7 @@ const LiveDarshanDetail = () => {
 
             {/* After Boxes Content */}
             {service.afterBoxes && (
-              <div className="mt-6 sm:mt-8 p-4 sm:p-6 bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl border-2 border-orange-200">
+              <div className="mt-6 sm:mt-8 p-4 sm:p-6 bg-linear-to-br from-amber-50 to-orange-50 rounded-xl border-2 border-orange-200">
                 <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed">
                   {service.afterBoxes}
                 </p>

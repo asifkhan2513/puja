@@ -32,14 +32,14 @@ const LiveDarshan = () => {
         <div className="absolute bottom-0 left-0 w-64 md:w-96 h-64 md:h-96 bg-amber-300/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
 
         <div className="relative max-w-5xl mx-auto text-center text-white z-10">
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight mb-6 md:mb-8 drop-shadow-lg text-white font-serif">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight mb-6 md:mb-8 drop-shadow-lg text-white! font-serif">
             Live Darshan
           </h1>
 
           {/* Beautiful subtitle with white text and styled background */}
           <div className="flex justify-center mb-6 md:mb-8">
             <div className="inline-block bg-white/10 backdrop-blur-sm px-6 sm:px-8 md:px-12 py-3 sm:py-4 md:py-5 rounded-2xl border-2 border-white/30 shadow-2xl">
-              <h2 className="text-lg sm:text-xl md:text-3xl text-white font-semibold italic leading-relaxed">
+              <h2 className="text-lg sm:text-xl md:text-3xl text-white! font-semibold italic leading-relaxed">
                 "Experience Divine Blessings From Anywhere, Anytime"
               </h2>
             </div>
@@ -75,7 +75,7 @@ const LiveDarshan = () => {
       </div>
 
       {/* Why Section */}
-      <div className="bg-gradient-to-b from-white via-orange-50/30 to-white py-16 sm:py-20 px-4 sm:px-6 relative overflow-hidden">
+      <div className="bg-linear-to-b from-white via-orange-50/30 to-white py-16 sm:py-20 px-4 sm:px-6 relative overflow-hidden">
         {/* Background decorations */}
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-orange-200 rounded-full blur-3xl opacity-10"></div>
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-amber-200 rounded-full blur-3xl opacity-10"></div>
@@ -84,12 +84,12 @@ const LiveDarshan = () => {
           {/* Beautiful Hindi Text */}
           <div className="text-center mb-12 sm:mb-16">
             <div className="inline-block relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-orange-200 via-amber-200 to-orange-200 blur-2xl opacity-30"></div>
-              <div className="relative bg-gradient-to-br from-orange-50 via-white to-amber-50 px-6 sm:px-12 md:px-16 py-6 sm:py-8 md:py-10 rounded-3xl border-4 border-orange-300 shadow-2xl">
+              <div className="absolute inset-0 bg-linear-to-r from-orange-200 via-amber-200 to-orange-200 blur-2xl opacity-30"></div>
+              <div className="relative bg-linear-to-br from-orange-50 via-white to-amber-50 px-6 sm:px-12 md:px-16 py-6 sm:py-8 md:py-10 rounded-3xl border-4 border-orange-300 shadow-2xl">
                 <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-gray-900 font-serif leading-tight">
                   "मंदिर नहीं जा पा रहे?
                   <br className="hidden sm:block" />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-600">
+                  <span className="text-transparent bg-clip-text bg-linear-to-r from-orange-600 to-amber-600">
                     {" "}
                     कोई बात नहीं…
                   </span>
@@ -112,12 +112,12 @@ const LiveDarshan = () => {
               <div className="absolute -top-6 -left-6 w-24 h-24 bg-orange-300 rounded-full blur-3xl opacity-20"></div>
               <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-amber-300 rounded-full blur-3xl opacity-20"></div>
 
-              <div className="relative bg-gradient-to-br from-white via-orange-50/50 to-amber-50/50 p-8 sm:p-10 md:p-12 rounded-3xl border-4 border-orange-200 shadow-2xl hover:shadow-orange-200/50 transition-all duration-500 hover:-translate-y-2">
+              <div className="relative bg-linear-to-br from-white via-orange-50/50 to-amber-50/50 p-8 sm:p-10 md:p-12 rounded-3xl border-4 border-orange-200 shadow-2xl hover:shadow-orange-200/50 transition-all duration-500 hover:-translate-y-2">
                 {/* Icon with glow effect */}
                 <div className="flex justify-center mb-6">
                   <div className="relative">
-                    <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-amber-500 rounded-2xl blur-xl opacity-50 animate-pulse"></div>
-                    <div className="relative w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-orange-500 via-amber-500 to-orange-600 rounded-2xl flex items-center justify-center shadow-xl transform hover:rotate-12 transition-transform duration-300">
+                    <div className="absolute inset-0 bg-linear-to-r from-orange-500 to-amber-500 rounded-2xl blur-xl opacity-50 animate-pulse"></div>
+                    <div className="relative w-16 h-16 sm:w-20 sm:h-20 bg-linear-to-br from-orange-500 via-amber-500 to-orange-600 rounded-2xl flex items-center justify-center shadow-xl transform hover:rotate-12 transition-transform duration-300">
                       <Eye className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
                     </div>
                   </div>
@@ -125,13 +125,13 @@ const LiveDarshan = () => {
 
                 {/* Title with decorative line */}
                 <div className="text-center mb-6">
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-amber-600 to-orange-600 mb-3 font-serif">
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-linear-to-r from-orange-600 via-amber-600 to-orange-600 mb-3 font-serif">
                     Why Bhagwaan Pooja Live Darshan?
                   </h3>
                   <div className="flex justify-center gap-2 mb-4">
-                    <div className="w-16 h-1 bg-gradient-to-r from-transparent via-orange-500 to-transparent rounded-full"></div>
-                    <div className="w-2 h-2 bg-orange-500 rounded-full mt-[-2px]"></div>
-                    <div className="w-16 h-1 bg-gradient-to-r from-transparent via-orange-500 to-transparent rounded-full"></div>
+                    <div className="w-16 h-1 bg-linear-to-r from-transparent via-orange-500 to-transparent rounded-full"></div>
+                    <div className="w-2 h-2 bg-orange-500 rounded-full -mt-0.5"></div>
+                    <div className="w-16 h-1 bg-linear-to-r from-transparent via-orange-500 to-transparent rounded-full"></div>
                   </div>
                 </div>
 
@@ -153,9 +153,9 @@ const LiveDarshan = () => {
 
                 {/* Decorative bottom element */}
                 <div className="mt-8 flex justify-center gap-3">
-                  <div className="w-12 h-1 bg-gradient-to-r from-orange-400 to-amber-400 rounded-full"></div>
+                  <div className="w-12 h-1 bg-linear-to-r from-orange-400 to-amber-400 rounded-full"></div>
                   <div className="w-1 h-1 bg-orange-500 rounded-full mt-0"></div>
-                  <div className="w-6 h-1 bg-gradient-to-r from-amber-400 to-orange-400 rounded-full"></div>
+                  <div className="w-6 h-1 bg-linear-to-r from-amber-400 to-orange-400 rounded-full"></div>
                 </div>
               </div>
             </div>
@@ -194,7 +194,7 @@ const LiveDarshan = () => {
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   priority={item.id === "mahakal-ujjain"}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
 
                 {/* Live Badge */}
                 <div className="absolute top-3 left-3 md:top-4 md:left-4 z-10">
@@ -236,10 +236,10 @@ const LiveDarshan = () => {
       </div>
 
       {/* Bottom CTA Section */}
-      <div className="bg-gradient-to-br from-orange-600 via-amber-600 to-orange-500 py-12 md:py-16 px-4 sm:px-6 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
+      <div className="bg-linear-to-br from-orange-600 via-amber-600 to-orange-500 py-12 md:py-16 px-4 sm:px-6 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 md:mb-6 font-serif px-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white! mb-4 md:mb-6 font-serif px-4">
             A Modern Way to Stay Connected With Tradition
           </h2>
           <p className="text-base sm:text-lg text-orange-50 mb-4 leading-relaxed px-4">

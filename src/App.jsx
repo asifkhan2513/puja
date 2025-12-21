@@ -12,6 +12,8 @@ import VrindavanDetail from "./components/OnlinePuja/Temple/VrindavanDetail";
 import BarsanaDetail from "./components/OnlinePuja/Temple/BarsanaDetail";
 import ChitrakootDetail from "./components/OnlinePuja/Temple/ChitrakootDetail";
 import MaiharDetail from "./components/OnlinePuja/Temple/MaiharDetail";
+import VaranasiDetails from "./components/OnlinePuja/Temple/VaransiDetails";
+import VindhyachalDetails from "./components/OnlinePuja/Temple/VindhyachalDetails";
 
 /* Layout / Common */
 const Navbar = lazy(() => import("./components/Navbar"));
@@ -375,6 +377,14 @@ function App() {
           <Route
             path={PATH.SPIRITUAL_PLACES_MAIHAR.slice(1)}
             element={<MaiharDetail />}
+          />
+          <Route
+            path={PATH.SPIRITUAL_PLACES_VARANASI.slice(1)}
+            element={<VaranasiDetails />}
+          />
+          <Route
+            path={PATH.SPIRITUAL_PLACES_VINDHYACHAL.slice(1)}
+            element={<VindhyachalDetails />}
           />
           <Route path={PATH.LIVE_DARSHAN.slice(1)} element={<LiveDarshan />} />
           <Route

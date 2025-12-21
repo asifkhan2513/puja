@@ -82,7 +82,7 @@ const Team_Pandits = () => {
                   key={index}
                   className="card p-6 text-center hover:shadow-2xl transition-all duration-300"
                 >
-                  <div className="inline-flex p-4 rounded-full bg-gradient-to-br from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 mb-4">
+                  <div className="inline-flex p-4 rounded-full bg-linear-to-br from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 mb-4">
                     <Icon className="w-8 h-8 text-amber-600 dark:text-amber-400" />
                   </div>
                   <h3 className="text-xl font-bold text-black mb-2 pt-serif-bold">

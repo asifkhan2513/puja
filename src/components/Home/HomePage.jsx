@@ -348,7 +348,7 @@ const HomePage = () => {
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <div
-                    className={`inline-flex p-4 rounded-full bg-gradient-to-br from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 mb-4`}
+                    className={`inline-flex p-4 rounded-full bg-linear-to-br from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 mb-4`}
                   >
                     <Icon className={`w-8 h-8 ${feature.color}`} />
                   </div>
@@ -366,7 +366,7 @@ const HomePage = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-amber-50 to-orange-50 dark:from-dark-50 dark:to-dark">
+      <section className="py-20 px-4 bg-linear-to-br from-amber-50 to-orange-50 dark:from-dark-50 dark:to-dark">
         <div className="w-full max-w-screen-2xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-black text-center text-black mb-4 pt-serif-bold">
             What Our{" "}

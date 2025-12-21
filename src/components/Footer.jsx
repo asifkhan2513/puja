@@ -39,7 +39,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-gray-200 border-t-2 border-amber-500/20 shadow-2xl">
+    <footer className="bg-linear-to-br from-gray-900 via-gray-800 to-gray-900 text-gray-200 border-t-2 border-amber-500/20 shadow-2xl">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-12">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">

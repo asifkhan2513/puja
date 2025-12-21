@@ -31,7 +31,6 @@ export const liveDarshanServices = [
     title: " Kashi Vishwanath Live Darshan",
     location: "Varanasi",
     image: KashiVishwanath,
-    videoUrl: "https://www.youtube.com/embed/fOmW_lr6etM?si=6CDT_L2QzFDKln8P",
     description:
       "Kashi is not just a city! It is the beating heart of devotion to Lord Shiva. Through our service, you can watch: ",
     Boxes: [
@@ -49,7 +48,6 @@ export const liveDarshanServices = [
     title: " Ayodhya Ram Mandir Live Darshan",
     location: "Ayodhya",
     image: AyodhyaRamMandir,
-    videoUrl: "https://www.youtube.com/embed/fOmW_lr6etM?si=6CDT_L2QzFDKln8P",
     description:
       "The divine presence of Prabhu Shri Ram in the newly built Ayodhya Ram Mandir is something every devotee admires. Get Ayodhya Ram Mandir live darshan with our HD-quality streams.",
     afterBoxes:
@@ -60,7 +58,6 @@ export const liveDarshanServices = [
     title: "Mathura & Vrindavan Live Darshan",
     location: "Mathura ",
     image: MathuraVrindavan,
-    videoUrl: "https://www.youtube.com/embed/fOmW_lr6etM?si=6CDT_L2QzFDKln8P",
     description:
       "The Braj Bhoomi temples are full of devotion and divine energy. Bhagwaan Pooja brings you live streams from:",
     Boxes: [
@@ -76,7 +73,6 @@ export const liveDarshanServices = [
     title: "Prayagraj Live Darshan",
     location: "Prayagraj",
     image: Prayagraj,
-    videoUrl: "https://www.youtube.com/embed/fOmW_lr6etM?si=6CDT_L2QzFDKln8P",
     description:
       "Prayagraj: The sacred meeting point of the holy rivers: Ganga. Yamuna. Saraswati. This holds immense spiritual value. Through our live darshan streams, you can watch:",
     Boxes: [

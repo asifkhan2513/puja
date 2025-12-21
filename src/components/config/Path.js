@@ -34,6 +34,8 @@ export const PATH = {
   TEMPLES_KASHI_PUJAS: "/temples/kashi/pujas",
   TEMPLES_UJJAIN: "/temples/ujjain",
   TEMPLES_UJJAIN_PUJAS: "/temples/ujjain/pujas",
+  SPIRITUAL_PLACES_VARANASI: "/temples/varanasi",
+  SPIRITUAL_PLACES_VINDHYACHAL: "/temples/Vindhyachal",
   ARTICLES: "/articles/:slug",
   AARTI: "/aarti",
   FESTIVALS: "/festivals",
