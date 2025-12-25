@@ -19,7 +19,8 @@ const Footer = () => {
 
   const quickLinks = [
     { name: "Home", href: PATH.HOME },
-    { name: "About Us", href: PATH.ABOUT_MISSION },
+    { name: "About US", href: PATH.ABOUT_US },
+    { name: "About Mission", href: PATH.ABOUT_MISSION },
     { name: "Our Team", href: PATH.ABOUT_TEAM },
     { name: "FAQ", href: PATH.FAQ },
   ];

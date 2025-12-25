@@ -16,6 +16,7 @@ import {
   Heart,
   Wand,
   Flower,
+  Store,
 } from "lucide-react";
 import LOGO from "../assets/LOGO.png";
 
@@ -97,7 +98,7 @@ const Navbar = () => {
         },
       ],
     },
-
+    { name: "About Us", href: "/about-us", icon: Store },
     { name: "Contact", href: "/contactus", icon: Phone },
   ];
 

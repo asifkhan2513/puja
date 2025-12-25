@@ -6,13 +6,15 @@ const Mission_Trust_Signals = () => {
       icon: Shield,
       title: "Our Mission",
       description:
-        "To bridge the gap between devotees and divine blessings by providing authentic, accessible, and convenient puja services from sacred temples across India.",
+        "At Bhagwan Puja, our mission is to make sacred Hindu rituals accessible to every devotee by offering authentic online puja services performed by experienced pandits with complete devotion and Vedic purity.",
+      gradient: "from-orange-500 via-amber-500 to-yellow-400",
     },
     {
       icon: Award,
       title: "Our Vision",
       description:
-        "To become the most trusted platform for spiritual services, preserving ancient traditions while embracing modern technology for the benefit of devotees worldwide.",
+        "To become the most trusted spiritual platform by preserving ancient Hindu traditions while embracing modern technology to serve devotees across the world.",
+      gradient: "from-red-500 via-orange-500 to-amber-500",
     },
   ];
 
@@ -21,55 +23,72 @@ const Mission_Trust_Signals = () => {
       icon: Users,
       number: "50,000+",
       label: "Happy Devotees",
+      gradient: "from-emerald-500 via-green-500 to-lime-400",
     },
     {
       icon: Heart,
       number: "100+",
       label: "Expert Pandits",
+      gradient: "from-pink-500 via-rose-500 to-red-400",
     },
     {
       icon: Shield,
       number: "25+",
       label: "Sacred Temples",
+      gradient: "from-blue-500 via-sky-500 to-cyan-400",
     },
     {
       icon: Award,
       number: "10,000+",
       label: "Pujas Performed",
+      gradient: "from-orange-500 via-amber-500 to-yellow-400",
     },
   ];
 
   return (
-    <div className="min-h-screen w-full bg-gradient-to-b from-white to-amber-50 dark:from-dark dark:to-dark-50">
+    <div className="min-h-screen w-full bg-gradient-to-b from-white to-amber-50">
       {/* Hero Section */}
       <section className="py-20 px-4">
-        <div className="w-full max-w-screen-2xl mx-auto">
-          <h1 className="text-5xl md:text-6xl font-bold text-center text-black mb-6 pt-serif-bold">
+        <div className="w-full max-w-screen-2xl mx-auto text-center">
+          <h1 className="text-5xl md:text-6xl font-bold text-black mb-6 pt-serif-bold">
             Our Mission &{" "}
-            <span className="text-amber-600 dark:text-amber-400 pt-serif-bold-italic">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-amber-500 pt-serif-bold-italic">
               Vision
             </span>
           </h1>
-          <p className="text-xl text-center text-gray-900 font-semibold mb-16 max-w-3xl mx-auto">
-            Connecting devotees with divine blessings through authentic
-            spiritual services
+          <p className="text-xl text-gray-800 font-semibold mb-16 max-w-3xl mx-auto">
+            Connecting devotees with divine blessings through authentic and
+            trusted online puja services
           </p>
 
+          {/* Mission Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {missions.map((mission, index) => {
               const Icon = mission.icon;
               return (
                 <div
                   key={index}
-                  className="card p-8 hover:shadow-2xl transition-all duration-300"
+                  className="
+                    group p-10 rounded-3xl
+                    bg-white/90 backdrop-blur-md
+                    border border-amber-200
+                    shadow-lg hover:shadow-2xl
+                    hover:-translate-y-2
+                    transition-all duration-500
+                  "
                 >
-                  <div className="inline-flex p-4 rounded-full bg-linear-to-br from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 mb-6">
-                    <Icon className="w-12 h-12 text-amber-600 dark:text-amber-400" />
+                  <div
+                    className={`inline-flex p-4 rounded-full bg-gradient-to-br ${mission.gradient}
+                    shadow-lg group-hover:scale-110 group-hover:rotate-6
+                    transition-all duration-500 mb-6`}
+                  >
+                    <Icon className="w-10 h-10 text-white" />
                   </div>
+
                   <h2 className="text-3xl font-bold text-black mb-4 pt-serif-bold">
                     {mission.title}
                   </h2>
-                  <p className="text-lg text-gray-900 font-semibold leading-relaxed">
+                  <p className="text-lg text-gray-700 leading-relaxed">
                     {mission.description}
                   </p>
                 </div>
@@ -80,10 +99,10 @@ const Mission_Trust_Signals = () => {
       </section>
 
       {/* Trust Signals */}
-      <section className="py-20 px-4 bg-white dark:bg-dark-50">
+      <section className="py-20 px-4 bg-gradient-to-b from-amber-50 to-white">
         <div className="w-full max-w-screen-2xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center text-black mb-16 pt-serif-bold">
-            Trusted by Thousands
+            Trusted by Thousands of Devotees
           </h2>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -92,13 +111,26 @@ const Mission_Trust_Signals = () => {
               return (
                 <div
                   key={index}
-                  className="text-center p-6 card hover:shadow-2xl transition-all duration-300"
+                  className="
+                    group text-center p-8 rounded-3xl
+                    bg-white/90 backdrop-blur-md
+                    border border-amber-200
+                    shadow-md hover:shadow-2xl
+                    hover:-translate-y-2
+                    transition-all duration-500
+                  "
                 >
-                  <Icon className="w-12 h-12 text-amber-600 dark:text-amber-400 mx-auto mb-4" />
+                  <div
+                    className={`inline-flex p-4 rounded-full bg-gradient-to-br ${signal.gradient}
+                    shadow-lg group-hover:scale-110 transition-all duration-500 mb-4`}
+                  >
+                    <Icon className="w-8 h-8 text-white" />
+                  </div>
+
                   <div className="text-4xl font-bold text-black mb-2 pt-serif-bold">
                     {signal.number}
                   </div>
-                  <div className="text-gray-900 font-semibold font-semibold">
+                  <div className="text-gray-700 font-semibold">
                     {signal.label}
                   </div>
                 </div>
@@ -108,7 +140,7 @@ const Mission_Trust_Signals = () => {
         </div>
       </section>
 
-      {/* Values Section */}
+      {/* Core Values */}
       <section className="py-20 px-4">
         <div className="w-full max-w-screen-2xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center text-black mb-16 pt-serif-bold">
@@ -116,35 +148,37 @@ const Mission_Trust_Signals = () => {
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="card p-8 text-center hover:shadow-2xl transition-all duration-300">
-              <h3 className="text-2xl font-bold text-black mb-4 pt-serif-bold">
-                Authenticity
-              </h3>
-              <p className="text-gray-900 font-semibold">
-                We ensure all pujas are performed according to traditional Vedic
-                rituals by certified pandits.
-              </p>
-            </div>
-
-            <div className="card p-8 text-center hover:shadow-2xl transition-all duration-300">
-              <h3 className="text-2xl font-bold text-black mb-4 pt-serif-bold">
-                Transparency
-              </h3>
-              <p className="text-gray-900 font-semibold">
-                Complete visibility into the puja process with live streaming
-                and detailed documentation.
-              </p>
-            </div>
-
-            <div className="card p-8 text-center hover:shadow-2xl transition-all duration-300">
-              <h3 className="text-2xl font-bold text-black mb-4 pt-serif-bold">
-                Devotion
-              </h3>
-              <p className="text-gray-900 font-semibold">
-                Every puja is performed with utmost devotion and respect for
-                ancient traditions.
-              </p>
-            </div>
+            {[
+              {
+                title: "Authenticity",
+                desc: "All pujas are performed according to traditional Vedic rituals by experienced and verified pandits.",
+              },
+              {
+                title: "Transparency",
+                desc: "Complete visibility with live puja streaming, clear processes, and trusted communication.",
+              },
+              {
+                title: "Devotion",
+                desc: "Every ritual is performed with sincere devotion, purity, and respect for Hindu traditions.",
+              },
+            ].map((value, index) => (
+              <div
+                key={index}
+                className="
+                  p-8 text-center rounded-3xl
+                  bg-white/90 backdrop-blur-md
+                  border border-amber-200
+                  shadow-md hover:shadow-2xl
+                  hover:-translate-y-2
+                  transition-all duration-500
+                "
+              >
+                <h3 className="text-2xl font-bold text-black mb-4 pt-serif-bold">
+                  {value.title}
+                </h3>
+                <p className="text-gray-700 font-semibold">{value.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

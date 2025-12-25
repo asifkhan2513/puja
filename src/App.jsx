@@ -14,6 +14,7 @@ import ChitrakootDetail from "./components/OnlinePuja/Temple/ChitrakootDetail";
 import MaiharDetail from "./components/OnlinePuja/Temple/MaiharDetail";
 import VaranasiDetails from "./components/OnlinePuja/Temple/VaransiDetails";
 import VindhyachalDetails from "./components/OnlinePuja/Temple/VindhyachalDetails";
+import About from "./components/About/About";
 
 /* Layout / Common */
 const Navbar = lazy(() => import("./components/Navbar"));
@@ -234,7 +235,8 @@ function App() {
           {/* Home */}
           <Route index element={<HomePage />} />
 
-          {/* About / Brand */}
+          {/* About us */}
+          <Route path={PATH.ABOUT_US.slice(1)} element={<About />} />
           <Route
             path={PATH.ABOUT_MISSION.slice(1)}
             element={<Mission_Trust_Signals />}

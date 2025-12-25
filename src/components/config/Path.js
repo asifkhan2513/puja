@@ -2,6 +2,7 @@ export const PATH = {
   HOME: "/",
   ABOUT_MISSION: "/about/mission",
   ABOUT_TEAM: "/about/team",
+  ABOUT_US: "/about-us",
   FEATURES: "/features",
   DOWNLOAD: "/download",
   FAQ: "/faq",

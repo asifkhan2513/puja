@@ -42,35 +42,39 @@ const Team_Pandits = () => {
       icon: Award,
       title: "Certified Experts",
       description:
-        "All our pandits are certified by recognized Vedic institutions",
+        "All our pandits are certified by renowned Vedic institutions",
+      gradient: "from-orange-500 via-amber-500 to-yellow-400",
     },
     {
       icon: BookOpen,
-      title: "Deep Knowledge",
+      title: "Deep Scriptural Knowledge",
       description:
-        "Extensive knowledge of Vedic scriptures and ancient traditions",
+        "Profound understanding of Vedas, Puranas, and sacred traditions",
+      gradient: "from-blue-500 via-sky-500 to-cyan-400",
     },
     {
       icon: Heart,
       title: "Devoted Service",
-      description: "Committed to serving devotees with utmost dedication",
+      description:
+        "Serving devotees with devotion, discipline, and spiritual integrity",
+      gradient: "from-pink-500 via-rose-500 to-red-400",
     },
   ];
 
   return (
-    <div className="min-h-screen w-full bg-gradient-to-b from-white to-amber-50 dark:from-dark dark:to-dark-50">
+    <div className="min-h-screen w-full bg-gradient-to-b from-white to-amber-50">
       {/* Hero Section */}
       <section className="py-20 px-4">
-        <div className="w-full max-w-screen-2xl mx-auto">
-          <h1 className="text-5xl md:text-6xl font-bold text-center text-black mb-6 pt-serif-bold">
+        <div className="w-full max-w-screen-2xl mx-auto text-center">
+          <h1 className="text-5xl md:text-6xl font-bold text-black mb-6 pt-serif-bold">
             Our Expert{" "}
-            <span className="text-amber-600 dark:text-amber-400 pt-serif-bold-italic">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-amber-500 pt-serif-bold-italic">
               Pandits
             </span>
           </h1>
-          <p className="text-xl text-center text-gray-900 font-semibold mb-16 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-800 font-semibold mb-16 max-w-3xl mx-auto">
             Meet our team of experienced and certified Vedic scholars dedicated
-            to performing authentic rituals
+            to performing authentic Hindu rituals with devotion
           </p>
 
           {/* Qualifications */}
@@ -80,15 +84,26 @@ const Team_Pandits = () => {
               return (
                 <div
                   key={index}
-                  className="card p-6 text-center hover:shadow-2xl transition-all duration-300"
+                  className="
+                    group p-8 text-center rounded-3xl
+                    bg-white/90 backdrop-blur-md
+                    border border-amber-200
+                    shadow-md hover:shadow-2xl
+                    hover:-translate-y-2
+                    transition-all duration-500
+                  "
                 >
-                  <div className="inline-flex p-4 rounded-full bg-linear-to-br from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 mb-4">
-                    <Icon className="w-8 h-8 text-amber-600 dark:text-amber-400" />
+                  <div
+                    className={`inline-flex p-4 rounded-full bg-gradient-to-br ${qual.gradient}
+                    shadow-lg group-hover:scale-110 group-hover:rotate-6
+                    transition-all duration-500 mb-4`}
+                  >
+                    <Icon className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-black mb-2 pt-serif-bold">
                     {qual.title}
                   </h3>
-                  <p className="text-gray-900 font-semibold">
+                  <p className="text-gray-700 font-semibold">
                     {qual.description}
                   </p>
                 </div>
@@ -101,30 +116,45 @@ const Team_Pandits = () => {
             {pandits.map((pandit, index) => (
               <div
                 key={index}
-                className="card overflow-hidden hover:shadow-2xl transition-all duration-300"
+                className="
+                  group overflow-hidden rounded-3xl
+                  bg-white/90 backdrop-blur-md
+                  border border-amber-200
+                  shadow-md hover:shadow-2xl
+                  hover:-translate-y-2
+                  transition-all duration-500
+                "
               >
                 <div className="h-64 overflow-hidden">
                   <LazyImage
                     src={pandit.image}
                     alt={pandit.name}
-                    className="w-full h-full object-cover rounded-t-2xl"
+                    className="
+                      w-full h-full object-cover
+                      transform group-hover:scale-110
+                      transition-transform duration-700
+                    "
                   />
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-black mb-2 pt-serif-bold">
+
+                <div className="p-6 text-center">
+                  <h3 className="text-xl font-bold text-black mb-1 pt-serif-bold">
                     {pandit.name}
                   </h3>
-                  <p className="text-amber-600 dark:text-amber-400 font-semibold mb-2">
+                  <p className="text-amber-600 font-semibold mb-3">
                     {pandit.title}
                   </p>
-                  <p className="text-sm text-gray-900 font-semibold mb-1">
-                    <span className="font-semibold">Experience:</span>{" "}
-                    {pandit.experience}
-                  </p>
-                  <p className="text-sm text-gray-900 font-semibold">
-                    <span className="font-semibold">Specialization:</span>{" "}
-                    {pandit.specialization}
-                  </p>
+
+                  <div className="text-sm text-gray-700 space-y-1 font-semibold">
+                    <p>
+                      <span className="text-black">Experience:</span>{" "}
+                      {pandit.experience}
+                    </p>
+                    <p>
+                      <span className="text-black">Specialization:</span>{" "}
+                      {pandit.specialization}
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}
@@ -133,18 +163,30 @@ const Team_Pandits = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-amber-600 to-orange-600 dark:from-accent-dark dark:to-accent">
+      <section className="py-20 px-4 bg-orange-500 ">
         <div className="w-full max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 pt-serif-bold">
+          <h2 className="text-4xl md:text-5xl font-bold text-white! mb-6 pt-serif-bold">
             Book a Puja with Our Expert Pandits
           </h2>
-          <p className="text-xl text-white/90 mb-8">
+          <p className="text-xl text-white/90 mb-10">
             Experience authentic Vedic rituals performed with devotion and
-            expertise
+            spiritual excellence
           </p>
+
           <a
             href="/pujas/devi-maa"
-            className="inline-flex items-center gap-2 px-10 py-4 bg-white text-amber-600 font-bold rounded-3xl hover:bg-gray-100 shadow-2xl transition-all duration-300 transform hover:scale-105"
+            className="
+              inline-flex items-center gap-2
+              px-12 py-4
+              bg-white text-amber-600
+              font-bold text-lg
+              rounded-3xl
+              shadow-2xl
+              hover:bg-gray-100
+              hover:scale-105
+              active:scale-95
+              transition-all duration-500
+            "
           >
             Book Now
           </a>
