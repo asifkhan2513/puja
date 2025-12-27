@@ -96,6 +96,12 @@ const Navbar = () => {
           icon: Flower,
           desc: "Vindhyachal",
         },
+        {
+          name: "Prayagraj",
+          href: PATH.TEMPLES_PRAYAGRAJ,
+          icon: Flower,
+          desc: "Prayagraj",
+        },
       ],
     },
     { name: "About Us", href: "/about-us", icon: Store },

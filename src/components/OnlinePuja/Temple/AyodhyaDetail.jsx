@@ -2,7 +2,7 @@ import React from "react";
 
 const AyodhyaDetail = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-orange-50 via-red-50 to-orange-100 font-sans scroll-smooth">
+    <div className="min-h-screen bg-linear-to-b from-orange-50 via-red-50 to-orange-100 font-sans scroll-smooth">
       {/* HERO */}
       <div
         className="relative h-[60vh] sm:h-[70vh] flex items-center justify-center text-center overflow-hidden shadow-2xl"
@@ -13,20 +13,20 @@ const AyodhyaDetail = () => {
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-red-900/60"></div>
+        <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/50 to-red-900/60"></div>
         {/* Back Button */}
         <button
           onClick={() => window.history.back()}
-          className="absolute top-4 left-4 sm:top-6 sm:left-6 z-20 flex items-center gap-2 px-4 sm:px-6 py-2 bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-gradient-to-r hover:from-orange-500 hover:to-red-500 hover:border-orange-400 border border-white/30 transition-all duration-300 font-bold tracking-wide shadow-lg cursor-pointer text-sm sm:text-base"
+          className="absolute top-4 left-4 sm:top-6 sm:left-6 z-20 flex items-center gap-2 px-4 sm:px-6 py-2 bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-linear-to-r hover:from-orange-500 hover:to-red-500 hover:border-orange-400 border border-white/30 transition-all duration-300 font-bold tracking-wide shadow-lg cursor-pointer text-sm sm:text-base"
         >
           ← Back
         </button>
 
         <div className="relative z-10 px-4 sm:px-6 max-w-5xl mx-auto">
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-red-400 to-yellow-300 drop-shadow-2xl font-serif tracking-wide mb-4 sm:mb-6">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-linear-to-r from-orange-400 via-red-400 to-yellow-300 drop-shadow-2xl font-serif tracking-wide mb-4 sm:mb-6">
             Ayodhya
           </h1>
-          <div className="w-20 sm:w-32 h-1.5 bg-gradient-to-r from-orange-400 to-red-400 rounded-full mx-auto mb-6 sm:mb-8 shadow-lg animate-pulse"></div>
+          <div className="w-20 sm:w-32 h-1.5 bg-linear-to-r from-orange-400 to-red-400 rounded-full mx-auto mb-6 sm:mb-8 shadow-lg animate-pulse"></div>
           <div className="inline-block bg-white/10 backdrop-blur-sm px-4 sm:px-8 py-2 sm:py-3 rounded-2xl border-2 border-white/30 shadow-xl">
             <p className="text-lg sm:text-xl md:text-2xl text-white font-semibold max-w-3xl mx-auto leading-relaxed font-serif">
               The eternal city where faith walks, devotion breathes, and Lord
@@ -39,7 +39,7 @@ const AyodhyaDetail = () => {
       {/* CONTENT */}
       <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12 sm:py-16 space-y-12">
         {/* Intro Section */}
-        <div className="bg-gradient-to-br from-white via-orange-50/50 to-red-50/50 p-6 sm:p-8 rounded-3xl border-4 border-orange-200 shadow-2xl hover:shadow-orange-200/50 transition-all duration-500">
+        <div className="bg-linear-to-br from-white via-orange-50/50 to-red-50/50 p-6 sm:p-8 rounded-3xl border-4 border-orange-200 shadow-2xl hover:shadow-orange-200/50 transition-all duration-500">
           <div className="space-y-4 sm:space-y-6 text-base sm:text-lg md:text-xl text-gray-800 leading-relaxed font-medium opacity-90">
             <p className="first-letter:text-6xl first-letter:font-bold first-letter:text-red-600 first-letter:float-left first-letter:mr-2 first-letter:mt-1">
               Amid the pious Saryu River, in the heart of Uttar Pradesh, is a
@@ -69,8 +69,8 @@ const AyodhyaDetail = () => {
         </div>
 
         {/* Spiritual Significance */}
-        <div className="bg-gradient-to-r from-orange-50 to-red-50 p-6 sm:p-8 rounded-3xl border-l-8 border-red-500 shadow-2xl hover:shadow-red-200/50 transition-all duration-500 hover:-translate-y-1">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-700 via-orange-600 to-red-700 font-serif mb-4 sm:mb-6">
+        <div className="bg-linear-to-r from-orange-50 to-red-50 p-6 sm:p-8 rounded-3xl border-l-8 border-red-500 shadow-2xl hover:shadow-red-200/50 transition-all duration-500 hover:-translate-y-1">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-linear-to-r from-red-700 via-orange-600 to-red-700 font-serif mb-4 sm:mb-6">
             Spiritual Significance
           </h2>
           <div className="space-y-4 text-base sm:text-lg text-gray-800 leading-relaxed font-medium">
@@ -104,13 +104,13 @@ const AyodhyaDetail = () => {
         {/* Ram Mandir Section */}
         <div className="space-y-6 sm:space-y-8">
           <div className="text-center">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-700 via-orange-600 to-yellow-600 font-serif mb-2">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-linear-to-r from-red-700 via-orange-600 to-yellow-600 font-serif mb-2">
               Ram Mandir
             </h2>
             <p className="text-lg sm:text-xl text-red-600 font-semibold italic">
               The Return of the King
             </p>
-            <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-orange-400 mx-auto mt-4 rounded-full"></div>
+            <div className="w-24 h-1 bg-linear-to-r from-red-500 to-orange-400 mx-auto mt-4 rounded-full"></div>
           </div>
 
           <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-red-300 ring-4 ring-red-100 hover:ring-red-200 transition-all duration-500 group">
@@ -121,7 +121,7 @@ const AyodhyaDetail = () => {
             />
           </div>
 
-          <div className="bg-gradient-to-br from-red-50 to-orange-50 p-6 sm:p-8 rounded-3xl border-4 border-red-200 shadow-2xl">
+          <div className="bg-linear-to-br from-red-50 to-orange-50 p-6 sm:p-8 rounded-3xl border-4 border-red-200 shadow-2xl">
             <p className="text-base sm:text-lg leading-relaxed text-gray-800 font-medium mb-6">
               The spiritual center of Ayodhya is the Ram Mandir. It symbolises
               the deep faith and patience of millions of Hindus. It's not just a
@@ -165,16 +165,16 @@ const AyodhyaDetail = () => {
         {/* Hanuman Garhi Section */}
         <div className="space-y-6 sm:space-y-8">
           <div className="text-center">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-700 via-red-600 to-yellow-600 font-serif mb-2">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-linear-to-r from-orange-700 via-red-600 to-yellow-600 font-serif mb-2">
               Hanuman Garhi
             </h2>
             <p className="text-lg sm:text-xl text-orange-600 font-semibold italic">
               The Guardian of Ayodhya
             </p>
-            <div className="w-24 h-1 bg-gradient-to-r from-orange-500 to-red-400 mx-auto mt-4 rounded-full"></div>
+            <div className="w-24 h-1 bg-linear-to-r from-orange-500 to-red-400 mx-auto mt-4 rounded-full"></div>
           </div>
 
-          <div className="bg-gradient-to-br from-orange-50 to-yellow-50 p-6 sm:p-8 rounded-3xl border-4 border-orange-200 shadow-2xl">
+          <div className="bg-linear-to-br from-orange-50 to-yellow-50 p-6 sm:p-8 rounded-3xl border-4 border-orange-200 shadow-2xl">
             <p className="text-base sm:text-lg leading-relaxed text-gray-800 font-medium mb-6">
               Before meeting Lord Rama, a devotee must first meet his most
               dedicated and loyal server, Lord Hanuman. This brings us to
@@ -249,16 +249,16 @@ const AyodhyaDetail = () => {
         {/* Saryu River Section */}
         <div className="space-y-6 sm:space-y-8">
           <div className="text-center">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-teal-600 to-cyan-600 font-serif mb-2">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-linear-to-r from-blue-700 via-teal-600 to-cyan-600 font-serif mb-2">
               Saryu River
             </h2>
             <p className="text-lg sm:text-xl text-blue-600 font-semibold italic">
               The Flow of Salvation
             </p>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-teal-400 mx-auto mt-4 rounded-full"></div>
+            <div className="w-24 h-1 bg-linear-to-r from-blue-500 to-teal-400 mx-auto mt-4 rounded-full"></div>
           </div>
 
-          <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-6 sm:p-8 rounded-3xl border-4 border-blue-200 shadow-2xl">
+          <div className="bg-linear-to-br from-blue-50 to-cyan-50 p-6 sm:p-8 rounded-3xl border-4 border-blue-200 shadow-2xl">
             <p className="text-base sm:text-lg leading-relaxed text-gray-800 font-medium mb-6">
               If Ayodhya is the body and Ram Mandir is the heart, then the Saryu
               River flowing here can be called as blood running through the
@@ -303,7 +303,7 @@ const AyodhyaDetail = () => {
               </div>
             </div>
 
-            <div className="bg-gradient-to-r from-amber-50 to-yellow-50 p-4 sm:p-6 rounded-2xl border-2 border-amber-200 shadow-lg mt-6">
+            <div className="bg-linear-to-r from-amber-50 to-yellow-50 p-4 sm:p-6 rounded-2xl border-2 border-amber-200 shadow-lg mt-6">
               <p className="text-sm sm:text-base leading-relaxed text-gray-800">
                 Thousands of small earth lamps (diyas) are laid afloat on the
                 river to carry off the locals' prayers. The reflection of these
