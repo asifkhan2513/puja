@@ -15,7 +15,7 @@ pipeline {
         stage('Code') {
             steps {
                 echo 'This is Code Step'
-                git url: 'https://github.com/asifkhan2513/puja.git',
+                git url: 'https://github.com/asifkhan2513/Pooja.git',
                 branch: 'main'
             }
         }

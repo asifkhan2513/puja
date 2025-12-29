@@ -9,7 +9,7 @@ const Marriage_Relationship_Daan = () => {
     },
     {
       title: "Relationship Healing Daan",
-      desc: "Contribute to pujas done for improving love, bonding & understanding.",
+      desc: "Contribute to Poojas done for improving love, bonding & understanding.",
       amount: "₹351",
     },
     {

@@ -11,7 +11,7 @@ const Ujjain = () => {
       desc: "Participate in the sacred early-morning Bhasma Aarti ritual.",
     },
     {
-      title: "Kaal Sarp Dosh Puja",
+      title: "Kaal Sarp Dosh Pooja",
       desc: "Perform remedies and rituals to reduce the effects of Kaal Sarp Dosh.",
     },
   ];
@@ -25,7 +25,7 @@ const Ujjain = () => {
 
         <p className="text-center text-gray-700 max-w-2xl mx-auto mb-12">
           Ujjain, home to the holy Mahakaleshwar Jyotirlinga, is a powerful
-          spiritual center for rituals and ceremonies. Explore seva and puja
+          spiritual center for rituals and ceremonies. Explore seva and Pooja
           offerings performed in this ancient city of devotion.
         </p>
 

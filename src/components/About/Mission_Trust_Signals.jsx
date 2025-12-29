@@ -6,7 +6,7 @@ const Mission_Trust_Signals = () => {
       icon: Shield,
       title: "Our Mission",
       description:
-        "At Bhagwan Puja, our mission is to make sacred Hindu rituals accessible to every devotee by offering authentic online puja services performed by experienced pandits with complete devotion and Vedic purity.",
+        "At Bhagwan Pooja, our mission is to make sacred Hindu rituals accessible to every devotee by offering authentic online Pooja services performed by experienced pandits with complete devotion and Vedic purity.",
       gradient: "from-orange-500 via-amber-500 to-yellow-400",
     },
     {
@@ -40,7 +40,7 @@ const Mission_Trust_Signals = () => {
     {
       icon: Award,
       number: "10,000+",
-      label: "Pujas Performed",
+      label: "Poojas Performed",
       gradient: "from-orange-500 via-amber-500 to-yellow-400",
     },
   ];
@@ -58,7 +58,7 @@ const Mission_Trust_Signals = () => {
           </h1>
           <p className="text-xl text-gray-800 font-semibold mb-16 max-w-3xl mx-auto">
             Connecting devotees with divine blessings through authentic and
-            trusted online puja services
+            trusted online Pooja services
           </p>
 
           {/* Mission Cards */}
@@ -151,11 +151,11 @@ const Mission_Trust_Signals = () => {
             {[
               {
                 title: "Authenticity",
-                desc: "All pujas are performed according to traditional Vedic rituals by experienced and verified pandits.",
+                desc: "All Poojas are performed according to traditional Vedic rituals by experienced and verified pandits.",
               },
               {
                 title: "Transparency",
-                desc: "Complete visibility with live puja streaming, clear processes, and trusted communication.",
+                desc: "Complete visibility with live Pooja streaming, clear processes, and trusted communication.",
               },
               {
                 title: "Devotion",

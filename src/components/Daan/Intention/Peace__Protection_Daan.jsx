@@ -9,7 +9,7 @@ const Peace__Protection_Daan = () => {
     },
     {
       title: "Protection Ritual Daan",
-      desc: "Contribute to pujas performed for protection from negativity & obstacles.",
+      desc: "Contribute to Poojas performed for protection from negativity & obstacles.",
       amount: "₹551",
     },
     {

@@ -3,17 +3,17 @@ import React from "react";
 const Packages_Add_ons = () => {
   const packages = [
     {
-      title: "Basic Puja Package",
-      desc: "Includes essential puja samagri and pandit mantra recitation.",
+      title: "Basic Pooja Package",
+      desc: "Includes essential Pooja samagri and pandit mantra recitation.",
       price: "₹701",
     },
     {
-      title: "Standard Puja Package",
-      desc: "Includes full puja samagri, flowers, prasad & pandit chanting.",
+      title: "Standard Pooja Package",
+      desc: "Includes full Pooja samagri, flowers, prasad & pandit chanting.",
       price: "₹1101",
     },
     {
-      title: "Premium Puja Package",
+      title: "Premium Pooja Package",
       desc: "Includes samagri, flowers, prasad, havan & personalized rituals.",
       price: "₹1501",
     },
@@ -29,7 +29,7 @@ const Packages_Add_ons = () => {
       price: "₹201",
     },
     {
-      name: "Video Recording of Puja",
+      name: "Video Recording of Pooja",
       price: "₹351",
     },
   ];
@@ -45,7 +45,7 @@ const Packages_Add_ons = () => {
           {/* Packages */}
           <div className="bg-white border border-amber-100 rounded-2xl shadow p-8">
             <h3 className="text-2xl font-semibold text-amber-800 mb-6">
-              Puja Packages
+              Pooja Packages
             </h3>
 
             <div className="space-y-6">

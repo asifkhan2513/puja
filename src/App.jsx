@@ -16,6 +16,7 @@ import VaranasiDetails from "./components/OnlinePuja/Temple/VaransiDetails";
 import VindhyachalDetails from "./components/OnlinePuja/Temple/VindhyachalDetails";
 import About from "./components/About/About";
 import PrayagrajDetails from "./components/OnlinePuja/Temple/PrayagrajDetails";
+import Pooja from "./components/Pooja/Pooja";
 
 /* Layout / Common */
 const Navbar = lazy(() => import("./components/Navbar"));
@@ -38,7 +39,7 @@ const QR_Code_Store_Buttons = lazy(() =>
 const Legal = lazy(() => import("./components/Legal/Legal"));
 const Faq = lazy(() => import("./components/FAQ/Faq"));
 
-/* Pujas by Deity */
+/* Poojas by Deity */
 const Devi_Maa_Pujas = lazy(() =>
   import("./components/OnlinePuja/Deity/Devi_Maa_Pujas")
 );
@@ -52,7 +53,7 @@ const Lord_Vishnu_Pujas = lazy(() =>
   import("./components/OnlinePuja/Deity/Lord_Vishnu_Pujas")
 );
 
-/* Pujas by Intention / Category */
+/* Poojas by Intention / Category */
 const Career_Job_Puja = lazy(() =>
   import("./components/OnlinePuja/Intention/Career_Job_Puja")
 );
@@ -235,7 +236,8 @@ function App() {
         <Route path={PATH.HOME} element={<Layout />}>
           {/* Home */}
           <Route index element={<HomePage />} />
-
+          {/* Pooja */}
+          <Route path={PATH.POOJA.slice(1)} element={<Pooja />} />
           {/* About us */}
           <Route path={PATH.ABOUT_US.slice(1)} element={<About />} />
           <Route
@@ -253,39 +255,39 @@ function App() {
           <Route path={PATH.FAQ.slice(1)} element={<Faq />} />
           <Route path={PATH.LEGAL.slice(1)} element={<Legal />} />
 
-          {/* Deity Pujas */}
+          {/* Deity Poojas */}
           <Route
-            path={PATH.PUJAS_DEVI_MAA.slice(1)}
+            path={PATH.POOJA_DEVI_MAA.slice(1)}
             element={<Devi_Maa_Pujas />}
           />
           <Route
-            path={PATH.PUJAS_GANESHA.slice(1)}
+            path={PATH.POOJA_GANESHA.slice(1)}
             element={<Lord_Ganesha_Pujas />}
           />
           <Route
-            path={PATH.PUJAS_SHIVA.slice(1)}
+            path={PATH.POOJA_SHIVA.slice(1)}
             element={<Lord_Shiva_Pujas />}
           />
           <Route
-            path={PATH.PUJAS_VISHNU.slice(1)}
+            path={PATH.POOJA_VISHNU.slice(1)}
             element={<Lord_Vishnu_Pujas />}
           />
 
-          {/* Intention / Category Pujas */}
+          {/* Intention / Category Poojas */}
           <Route
-            path={PATH.PUJAS_CAREER_JOB.slice(1)}
+            path={PATH.POOJA_CAREER_JOB.slice(1)}
             element={<Career_Job_Puja />}
           />
           <Route
-            path={PATH.PUJAS_HEALTH_PROTECTION.slice(1)}
+            path={PATH.POOJA_HEALTH_PROTECTION.slice(1)}
             element={<Health_Protection_Puja />}
           />
           <Route
-            path={PATH.PUJAS_MARRIAGE_RELATIONSHIP.slice(1)}
+            path={PATH.POOJA_MARRIAGE_RELATIONSHIP.slice(1)}
             element={<Marriage_Relationship_Puja />}
           />
           <Route
-            path={PATH.PUJAS_WEALTH_BUSINESS.slice(1)}
+            path={PATH.POOJA_WEALTH_BUSINESS.slice(1)}
             element={<Wealth_Business_Puja />}
           />
 
@@ -344,17 +346,17 @@ function App() {
             element={<AyodhyaDetail />}
           />
           <Route
-            path={PATH.TEMPLES_AYODHYA_PUJAS.slice(1)}
+            path={PATH.TEMPLES_AYODHYA_POOJA.slice(1)}
             element={<Ayodhya_Temple_Pujas />}
           />
           <Route path={PATH.TEMPLES_KASHI.slice(1)} element={<Kashi />} />
           <Route
-            path={PATH.TEMPLES_KASHI_PUJAS.slice(1)}
+            path={PATH.TEMPLES_KASHI_POOJA.slice(1)}
             element={<Kashi_Vishwanath_Pujas />}
           />
           <Route path={PATH.TEMPLES_UJJAIN.slice(1)} element={<Ujjain />} />
           <Route
-            path={PATH.TEMPLES_UJJAIN_PUJAS.slice(1)}
+            path={PATH.TEMPLES_UJJAIN_POOJA.slice(1)}
             element={<Ujjain_Temple_Pujas />}
           />
           <Route

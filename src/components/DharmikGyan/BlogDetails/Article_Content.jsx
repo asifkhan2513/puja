@@ -12,7 +12,7 @@ const Article_Content = () => {
           <p className="text-gray-700 leading-relaxed">
             This is the introduction paragraph of the article. You can display
             detailed information, spiritual knowledge, or any content related to
-            puja, daan, temples, or rituals here.
+            Pooja, daan, temples, or rituals here.
           </p>
 
           <h2 className="text-2xl font-bold text-amber-800">

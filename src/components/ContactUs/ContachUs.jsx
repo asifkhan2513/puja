@@ -6,8 +6,8 @@ const ContachUs = () => {
     {
       icon: Mail,
       title: "Email Us",
-      details: "info@divinepuja.com",
-      link: "mailto:info@divinepuja.com",
+      details: "info@divinePooja.com",
+      link: "mailto:info@divinePooja.com",
       gradient: "from-orange-400 via-amber-500 to-yellow-400",
     },
     {

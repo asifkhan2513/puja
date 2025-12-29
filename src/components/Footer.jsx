@@ -26,9 +26,9 @@ const Footer = () => {
   ];
 
   const services = [
-    { name: "Devi Maa Pujas", href: PATH.PUJAS_DEVI_MAA },
-    { name: "Lord Ganesha", href: PATH.PUJAS_GANESHA },
-    { name: "Lord Shiva", href: PATH.PUJAS_SHIVA },
+    { name: "Devi Maa Poojas", href: PATH.POOJA_DEVI_MAA },
+    { name: "Lord Ganesha", href: PATH.POOJA_GANESHA },
+    { name: "Lord Shiva", href: PATH.POOJA_SHIVA },
     { name: "Daan & Seva", href: PATH.DAAN },
   ];
 
@@ -57,7 +57,8 @@ const Footer = () => {
               />
             </button>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Connecting devotees with divine blessings through authentic pujas.
+              Connecting devotees with divine blessings through authentic
+              Poojas.
             </p>
             <div className="flex gap-3 pt-2">
               <a
@@ -160,10 +161,10 @@ const Footer = () => {
             <div>
               <p className="text-xs text-gray-500">Email Us</p>
               <a
-                href="mailto:info@divinepuja.com"
+                href="mailto:info@divinePooja.com"
                 className="text-sm text-gray-300 hover:text-amber-400 transition-colors cursor-pointer"
               >
-                info@divinepuja.com
+                info@divinePooja.com
               </a>
             </div>
           </div>

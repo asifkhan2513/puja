@@ -4,8 +4,8 @@ import { Calendar, Video, BookOpen, Heart } from "lucide-react";
 const App_Features = () => {
   const features = [
     {
-      title: "Easy Puja Booking",
-      desc: "Book any puja or seva instantly with a seamless and simple process.",
+      title: "Easy Pooja Booking",
+      desc: "Book any Pooja or seva instantly with a seamless and simple process.",
       icon: Heart,
     },
     {

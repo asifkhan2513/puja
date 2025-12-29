@@ -193,10 +193,10 @@ const MaiharDetail = () => {
           </h2>
           <ul className="list-disc space-y-4 pl-6 text-lg text-gray-800 font-medium marker:text-yellow-500">
             <li>
-              His daily puja for Maa Sharda, along with the shringar (decoration
-              ) of her using fresh flowers, contributes beautifully to his
-              divine pursuits. Priests, upon opening the temple, often find
-              fresh offerings and noticeable signs of use.
+              His daily Pooja for Maa Sharda, along with the shringar
+              (decoration ) of her using fresh flowers, contributes beautifully
+              to his divine pursuits. Priests, upon opening the temple, often
+              find fresh offerings and noticeable signs of use.
             </li>
             <li>
               This enigmatic phenomenon causes the warrior to generate such

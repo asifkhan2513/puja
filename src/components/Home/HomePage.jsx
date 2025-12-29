@@ -30,7 +30,7 @@ const HomePage = () => {
   const features = [
     {
       icon: Sparkles,
-      title: "Authentic Pujas",
+      title: "Authentic Poojas",
       description: "Traditional rituals performed by experienced pandits",
       color: "text-amber-600 dark:text-amber-400",
     },
@@ -49,47 +49,47 @@ const HomePage = () => {
     {
       icon: Calendar,
       title: "Flexible Scheduling",
-      description: "Book pujas at your convenient time",
+      description: "Book Poojas at your convenient time",
       color: "text-green-600 dark:text-green-400",
     },
   ];
 
-  const pujaCategories = [
+  const PoojaCategories = [
     {
-      title: "Devi Maa Pujas",
+      title: "Devi Maa Poojas",
       description: "Invoke the divine feminine energy",
       image: dummy1,
-      link: PATH.PUJAS_DEVI_MAA,
+      link: PATH.POOJA_DEVI_MAA,
     },
     {
       title: "Lord Ganesha",
       description: "Remove obstacles from your path",
       image: dummy2,
-      link: PATH.PUJAS_GANESHA,
+      link: PATH.POOJA_GANESHA,
     },
     {
       title: "Lord Shiva",
       description: "Seek blessings of the destroyer of evil",
       image: dummy3,
-      link: PATH.PUJAS_SHIVA,
+      link: PATH.POOJA_SHIVA,
     },
     {
       title: "Lord Vishnu",
       description: "Preserve and protect your well-being",
       image: dummy4,
-      link: PATH.PUJAS_VISHNU,
+      link: PATH.POOJA_VISHNU,
     },
     {
       title: "Career & Job",
       description: "Enhance professional success",
       image: dummy5,
-      link: PATH.PUJAS_CAREER_JOB,
+      link: PATH.POOJA_CAREER_JOB,
     },
     {
       title: "Health & Protection",
       description: "Ensure wellness and safety",
       image: dummy6,
-      link: PATH.PUJAS_HEALTH_PROTECTION,
+      link: PATH.POOJA_HEALTH_PROTECTION,
     },
   ];
 
@@ -102,7 +102,7 @@ const HomePage = () => {
   const testimonials = [
     {
       name: "Priya Sharma",
-      text: "The puja was performed with utmost devotion. I felt truly blessed!",
+      text: "The Pooja was performed with utmost devotion. I felt truly blessed!",
       rating: 5,
     },
     {
@@ -161,15 +161,15 @@ const HomePage = () => {
             </span>
           </h1>
           <p className="text-xl md:text-2xl text-white font-bold mb-8 font-inter">
-            Book authentic pujas performed by experienced pandits from sacred
+            Book authentic Poojas performed by experienced pandits from sacred
             temples across India
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              to={PATH.PUJAS_DEVI_MAA}
+              to={PATH.POOJA_DEVI_MAA}
               className="px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold rounded-3xl hover:from-accent hover:to-accent-dark shadow-2xl hover:shadow-accent/50 transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
             >
-              Book a Puja <ArrowRight className="w-5 h-5" />
+              Book a Pooja <ArrowRight className="w-5 h-5" />
             </Link>
             <Link
               to={PATH.ABOUT_MISSION}
@@ -243,21 +243,21 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-      {/* Puja Categories Section */}
+      {/* Pooja Categories Section */}
       <section className="py-20 px-4 bg-white ">
         <div className="w-full max-w-screen-2xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-black text-center text-black mb-4 pt-serif-bold">
             Explore Our{" "}
             <span className="text-amber-600 dark:text-amber-400 pt-serif-bold-italic">
-              Puja Services
+              Pooja Services
             </span>
           </h2>
           <p className="text-center text-gray-900 font-semibold mb-12 text-lg">
-            Choose from a wide range of traditional pujas for every occasion
+            Choose from a wide range of traditional Poojas for every occasion
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {pujaCategories.map((category, index) => (
+            {PoojaCategories.map((category, index) => (
               <Link
                 key={index}
                 to={category.link}
@@ -266,7 +266,7 @@ const HomePage = () => {
                 <div className="image-hover-zoom h-64 relative overflow-hidden rounded-t-2xl">
                   <LazyImage
                     src={category.image}
-                    alt={`${category.title} - Online Puja Services`}
+                    alt={`${category.title} - Online Pooja Services`}
                     className="w-full h-full object-cover rounded-t-2xl"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
@@ -406,11 +406,11 @@ const HomePage = () => {
             Ready to Begin Your Spiritual Journey?
           </h2>
           <p className="text-xl text-white/90 mb-8">
-            Book your puja today and receive divine blessings from sacred
+            Book your Pooja today and receive divine blessings from sacred
             temples
           </p>
           <Link
-            to={PATH.PUJAS_DEVI_MAA}
+            to={PATH.POOJA_DEVI_MAA}
             className="inline-flex items-center gap-2 px-10 py-4 bg-white text-amber-600 font-bold rounded-3xl hover:bg-gray-100 shadow-2xl hover:shadow-white/50 transition-all duration-300 transform hover:scale-105"
           >
             Book Now <Sparkles className="w-5 h-5" />

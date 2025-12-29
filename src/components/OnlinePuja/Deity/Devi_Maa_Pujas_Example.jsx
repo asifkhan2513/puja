@@ -1,4 +1,4 @@
-import PujaTemplate from "./PujaTemplate";
+import PoojaTemplate from "./PoojaTemplate";
 import dummy7 from "../../../assets/dummy7.jpg";
 import dummy8 from "../../../assets/dummy8.jpg";
 import dummy9 from "../../../assets/dummy9.jpg";
@@ -7,10 +7,10 @@ import dummy11 from "../../../assets/dummy11.jpg";
 import dummy12 from "../../../assets/dummy12.jpg";
 import chhadhava from "../../../assets/chhadhava.webp";
 
-const DeviMaaPujasExample = () => {
-  const pujas = [
+const DeviMaaPoojasExample = () => {
+  const Poojas = [
     {
-      name: "Durga Puja",
+      name: "Durga Pooja",
       description:
         "Invoke the divine mother's blessings for strength, protection, and victory over obstacles",
       image: dummy7,
@@ -22,7 +22,7 @@ const DeviMaaPujasExample = () => {
       popular: true,
     },
     {
-      name: "Lakshmi Puja",
+      name: "Lakshmi Pooja",
       description:
         "Attract wealth, prosperity, and abundance into your life with Goddess Lakshmi's grace",
       image: dummy8,
@@ -34,7 +34,7 @@ const DeviMaaPujasExample = () => {
       popular: true,
     },
     {
-      name: "Saraswati Puja",
+      name: "Saraswati Pooja",
       description:
         "Seek blessings for knowledge, wisdom, and success in education and arts",
       image: dummy9,
@@ -44,7 +44,7 @@ const DeviMaaPujasExample = () => {
       rating: 4.7,
     },
     {
-      name: "Kali Puja",
+      name: "Kali Pooja",
       description:
         "Remove negative energies and seek protection from the fierce form of divine mother",
       image: dummy10,
@@ -54,9 +54,9 @@ const DeviMaaPujasExample = () => {
       rating: 4.9,
     },
     {
-      name: "Navratri Special Puja",
+      name: "Navratri Special Pooja",
       description:
-        "Nine-day special puja celebrating all forms of the divine feminine",
+        "Nine-day special Pooja celebrating all forms of the divine feminine",
       image: dummy11,
       duration: "9 days",
       pandits: 3,
@@ -66,7 +66,7 @@ const DeviMaaPujasExample = () => {
       popular: true,
     },
     {
-      name: "Vaishno Devi Puja",
+      name: "Vaishno Devi Pooja",
       description:
         "Experience the divine blessings of Mata Vaishno Devi from the sacred shrine",
       image: dummy12,
@@ -92,28 +92,28 @@ const DeviMaaPujasExample = () => {
   const testimonials = [
     {
       name: "Priya Sharma",
-      text: "The Durga Puja was performed with such devotion. I felt the divine presence and received immense blessings!",
+      text: "The Durga Pooja was performed with such devotion. I felt the divine presence and received immense blessings!",
     },
     {
       name: "Anjali Verma",
-      text: "After the Lakshmi Puja, I noticed positive changes in my financial situation. Highly recommended!",
+      text: "After the Lakshmi Pooja, I noticed positive changes in my financial situation. Highly recommended!",
     },
     {
       name: "Meera Patel",
-      text: "The pandits were very knowledgeable and performed the Saraswati Puja beautifully. My daughter's studies have improved!",
+      text: "The pandits were very knowledgeable and performed the Saraswati Pooja beautifully. My daughter's studies have improved!",
     },
   ];
 
   return (
-    <PujaTemplate
-      title="Devi Maa Pujas"
+    <PoojaTemplate
+      title="Devi Maa Poojas"
       description="Invoke the divine feminine energy and receive blessings from the Mother Goddess"
       heroImage={chhadhava}
-      pujas={pujas}
+      Poojas={Poojas}
       benefits={benefits}
       testimonials={testimonials}
     />
   );
 };
 
-export default DeviMaaPujasExample;
+export default DeviMaaPoojasExample;

@@ -11,14 +11,14 @@ const Faq = () => {
         "Daan is a sacred act of giving in Sanatan Dharma. It purifies the mind, removes karmic obstacles, and helps devotees grow spiritually while supporting noble causes.",
     },
     {
-      question: "How do I book a Puja or Seva?",
+      question: "How do I book a Pooja or Seva?",
       answer:
-        "You can easily book any puja or seva through our website by selecting your desired ritual, filling in the required details, and completing the booking process.",
+        "You can easily book any Pooja or seva through our website by selecting your desired ritual, filling in the required details, and completing the booking process.",
     },
     {
       question: "Will I receive confirmation after booking?",
       answer:
-        "Yes, once your booking is completed, you will receive instant confirmation along with puja details via your registered email and mobile number.",
+        "Yes, once your booking is completed, you will receive instant confirmation along with Pooja details via your registered email and mobile number.",
     },
     {
       question: "Is online payment secure?",

@@ -3,11 +3,11 @@ import { ArrowRight, Clock, Users, Star, CheckCircle } from "lucide-react";
 import LazyImage from "../../LazyImage";
 import { PATH } from "../../config/Path";
 
-const PujaTemplate = ({
+const PoojaTemplate = ({
   title,
   description,
   heroImage,
-  pujas = [],
+  Poojas = [],
   benefits = [],
   testimonials = [],
 }) => {
@@ -62,29 +62,29 @@ const PujaTemplate = ({
         </section>
       )}
 
-      {/* Pujas Grid */}
+      {/* Poojas Grid */}
       <section className="py-16 px-4 bg-white dark:bg-gray-800">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white mb-4 pt-serif-bold">
-            Available Pujas
+            Available Poojas
           </h2>
           <p className="text-center text-gray-600 dark:text-gray-400 mb-12 text-lg">
-            Choose from our authentic puja services
+            Choose from our authentic Pooja services
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {pujas.map((puja, index) => (
+            {Poojas.map((Pooja, index) => (
               <div
                 key={index}
                 className="group bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
               >
                 <div className="image-hover-zoom h-56 relative">
                   <LazyImage
-                    src={puja.image}
-                    alt={puja.name}
+                    src={Pooja.image}
+                    alt={Pooja.name}
                     className="w-full h-full object-cover"
                   />
-                  {puja.popular && (
+                  {Pooja.popular && (
                     <div className="absolute top-4 right-4 px-3 py-1 bg-amber-500 text-white text-sm font-bold rounded-full">
                       Popular
                     </div>
@@ -93,38 +93,38 @@ const PujaTemplate = ({
 
                 <div className="p-6">
                   <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors pt-serif-bold">
-                    {puja.name}
+                    {Pooja.name}
                   </h3>
                   <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-2">
-                    {puja.description}
+                    {Pooja.description}
                   </p>
 
                   <div className="flex items-center gap-4 mb-4 text-sm text-gray-600 dark:text-gray-400">
                     <div className="flex items-center gap-1">
                       <Clock className="w-4 h-4" />
-                      <span>{puja.duration}</span>
+                      <span>{Pooja.duration}</span>
                     </div>
                     <div className="flex items-center gap-1">
                       <Users className="w-4 h-4" />
-                      <span>{puja.pandits} Pandits</span>
+                      <span>{Pooja.pandits} Pandits</span>
                     </div>
                   </div>
 
                   <div className="flex items-center justify-between mb-4">
                     <div>
                       <span className="text-3xl font-bold text-amber-600 dark:text-amber-400">
-                        ₹{puja.price}
+                        ₹{Pooja.price}
                       </span>
-                      {puja.originalPrice && (
+                      {Pooja.originalPrice && (
                         <span className="text-gray-500 line-through ml-2">
-                          ₹{puja.originalPrice}
+                          ₹{Pooja.originalPrice}
                         </span>
                       )}
                     </div>
                     <div className="flex items-center gap-1">
                       <Star className="w-4 h-4 fill-amber-500 text-amber-500" />
                       <span className="font-semibold text-gray-900 dark:text-white">
-                        {puja.rating}
+                        {Pooja.rating}
                       </span>
                     </div>
                   </div>
@@ -181,10 +181,10 @@ const PujaTemplate = ({
       <section className="py-16 px-4 bg-gradient-to-r from-amber-600 to-orange-600 dark:from-amber-700 dark:to-orange-700">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 pt-serif-bold">
-            Ready to Book Your Puja?
+            Ready to Book Your Pooja?
           </h2>
           <p className="text-xl text-white/90 mb-8">
-            Experience divine blessings with our authentic puja services
+            Experience divine blessings with our authentic Pooja services
           </p>
           <Link
             to={PATH.CHECKOUT}
@@ -198,4 +198,4 @@ const PujaTemplate = ({
   );
 };
 
-export default PujaTemplate;
+export default PoojaTemplate;

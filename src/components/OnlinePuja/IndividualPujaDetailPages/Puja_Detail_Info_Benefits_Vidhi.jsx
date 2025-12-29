@@ -26,9 +26,9 @@ const Payment_Confirmation_Page = () => {
           </h2>
 
           <p className="text-gray-700 mb-6">
-            Thank you for your contribution. Your puja / seva / daan booking has
-            been successfully completed. A confirmation message has been sent to
-            your email.
+            Thank you for your contribution. Your Pooja / seva / daan booking
+            has been successfully completed. A confirmation message has been
+            sent to your email.
           </p>
 
           <div className="bg-amber-50 border border-amber-100 rounded-xl p-6 text-left mb-6">
@@ -46,7 +46,7 @@ const Payment_Confirmation_Page = () => {
               <span className="font-semibold text-amber-900">
                 Service Type:
               </span>{" "}
-              Rudrabhishek Puja
+              Rudrabhishek Pooja
             </p>
           </div>
 

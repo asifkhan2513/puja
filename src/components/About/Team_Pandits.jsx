@@ -18,7 +18,7 @@ const Team_Pandits = () => {
       name: "Pandit Anil Kumar",
       title: "Temple Priest",
       experience: "20+ Years",
-      specialization: "Deity Worship & Pujas",
+      specialization: "Deity Worship & Poojas",
       image: dummy14,
     },
     {
@@ -166,7 +166,7 @@ const Team_Pandits = () => {
       <section className="py-20 px-4 bg-orange-500 ">
         <div className="w-full max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-white! mb-6 pt-serif-bold">
-            Book a Puja with Our Expert Pandits
+            Book a Pooja with Our Expert Pandits
           </h2>
           <p className="text-xl text-white/90 mb-10">
             Experience authentic Vedic rituals performed with devotion and
@@ -174,7 +174,7 @@ const Team_Pandits = () => {
           </p>
 
           <a
-            href="/pujas/devi-maa"
+            href="/Poojas/devi-maa"
             className="
               inline-flex items-center gap-2
               px-12 py-4

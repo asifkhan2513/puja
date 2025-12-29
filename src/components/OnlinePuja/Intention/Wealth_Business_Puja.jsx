@@ -1,19 +1,19 @@
 import React from "react";
 
-const Wealth_Business_Puja = () => {
-  const pujas = [
+const Wealth_Business_Pooja = () => {
+  const Poojas = [
     {
-      title: "Lakshmi Kubera Puja",
+      title: "Lakshmi Kubera Pooja",
       desc: "A powerful ritual for wealth, abundance, financial stability, and prosperity.",
       amount: "₹1501",
     },
     {
-      title: "Lakshmi Puja",
+      title: "Lakshmi Pooja",
       desc: "Bring divine blessings of Maa Lakshmi for financial growth and good fortune.",
       amount: "₹1101",
     },
     {
-      title: "Business Success Puja",
+      title: "Business Success Pooja",
       desc: "Performed for removing hurdles in business, attracting clients, and boosting growth.",
       amount: "₹1801",
     },
@@ -23,7 +23,7 @@ const Wealth_Business_Puja = () => {
     <section className="py-16 bg-amber-50/40">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl sm:text-4xl font-extrabold text-amber-900 text-center mb-10">
-          Wealth & Business Related Pujas
+          Wealth & Business Related Poojas
         </h2>
 
         <p className="text-center text-gray-700 max-w-2xl mx-auto mb-12">
@@ -33,24 +33,24 @@ const Wealth_Business_Puja = () => {
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {pujas.map((puja, index) => (
+          {Poojas.map((Pooja, index) => (
             <div
               key={index}
               className="bg-white border border-amber-100 shadow rounded-2xl p-6 hover:shadow-md transition"
             >
               <h3 className="text-xl font-semibold text-amber-800 mb-2">
-                {puja.title}
+                {Pooja.title}
               </h3>
 
-              <p className="text-gray-600 mb-4">{puja.desc}</p>
+              <p className="text-gray-600 mb-4">{Pooja.desc}</p>
 
               <div className="flex justify-between items-center">
                 <span className="text-lg font-bold text-amber-900">
-                  {puja.amount}
+                  {Pooja.amount}
                 </span>
 
                 <button className="px-4 py-2 bg-amber-600 text-white rounded-full hover:bg-amber-700 transition">
-                  Book Puja
+                  Book Pooja
                 </button>
               </div>
             </div>
@@ -61,4 +61,4 @@ const Wealth_Business_Puja = () => {
   );
 };
 
-export default Wealth_Business_Puja;
+export default Wealth_Business_Pooja;

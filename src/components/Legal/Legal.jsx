@@ -14,7 +14,7 @@ const Legal = () => {
               Terms & Conditions
             </h3>
             <p className="text-gray-700">
-              All puja, seva, and daan services are performed by verified
+              All Pooja, seva, and daan services are performed by verified
               pandits and temples. By using our platform, you agree to follow
               our service guidelines, booking policies, and payment terms.
             </p>
@@ -38,7 +38,7 @@ const Legal = () => {
             <p className="text-gray-700">
               Refunds are applicable only in cases where services cannot be
               fulfilled due to unforeseen circumstances. Completed rituals,
-              pujas, and sevas are non-refundable.
+              Poojas, and sevas are non-refundable.
             </p>
           </div>
 
@@ -48,8 +48,9 @@ const Legal = () => {
             </h3>
             <p className="text-gray-700">
               Ritual results vary based on individual belief and devotion. Our
-              platform facilitates puja and seva arrangements through authorized
-              personnel and temples, but does not guarantee specific outcomes.
+              platform facilitates Pooja and seva arrangements through
+              authorized personnel and temples, but does not guarantee specific
+              outcomes.
             </p>
           </div>
         </div>

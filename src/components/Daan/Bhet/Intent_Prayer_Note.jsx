@@ -11,7 +11,7 @@ const Intent_Prayer_Note = () => {
         <div className="bg-amber-50/40 border border-amber-100 rounded-2xl shadow p-8">
           <p className="text-gray-700 mb-6">
             Share your prayer intention, wish, or personal message. This note
-            will be offered during your puja / daan ritual by our pandits.
+            will be offered during your Pooja / daan ritual by our pandits.
           </p>
 
           <form className="space-y-5">

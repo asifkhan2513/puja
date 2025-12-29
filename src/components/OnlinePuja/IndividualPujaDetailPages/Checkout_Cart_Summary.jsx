@@ -3,7 +3,7 @@ import React from "react";
 const Checkout_Cart_Summary = () => {
   const items = [
     {
-      title: "Rudrabhishek Puja",
+      title: "Rudrabhishek Pooja",
       price: 1201,
     },
     {

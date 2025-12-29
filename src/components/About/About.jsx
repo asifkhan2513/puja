@@ -6,7 +6,7 @@ const About = () => {
     {
       icon: Flame,
       title: "Authentic Rituals",
-      desc: "All pujas are performed by experienced and verified pandits following proper Vedic traditions.",
+      desc: "All Poojas are performed by experienced and verified pandits following proper Vedic traditions.",
       gradient: "from-orange-500 via-amber-500 to-yellow-400",
     },
     {
@@ -18,7 +18,7 @@ const About = () => {
     {
       icon: Globe,
       title: "Online Convenience",
-      desc: "Participate in pujas from anywhere in the world through live online arrangements.",
+      desc: "Participate in Poojas from anywhere in the world through live online arrangements.",
       gradient: "from-blue-500 via-sky-500 to-cyan-400",
     },
     {
@@ -37,13 +37,13 @@ const About = () => {
           <h1 className="text-5xl md:text-6xl font-bold text-black mb-6 pt-serif-bold">
             About{" "}
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-amber-500">
-              Bhagwan Puja
+              Bhagwan Pooja
             </span>
           </h1>
 
           <p className="text-xl text-gray-800 max-w-3xl mx-auto font-semibold leading-relaxed">
-            Bhagwan Puja is a divine online platform dedicated to connecting
-            devotees with sacred Hindu rituals. We bring traditional puja
+            Bhagwan Pooja is a divine online platform dedicated to connecting
+            devotees with sacred Hindu rituals. We bring traditional Pooja
             services to your home with devotion, authenticity, and spiritual
             purity.
           </p>
@@ -60,8 +60,8 @@ const About = () => {
             </h2>
             <p className="text-gray-700 text-lg leading-relaxed">
               Our mission is to make Hindu rituals accessible to everyone,
-              regardless of location. Through Bhagwan Puja, devotees can
-              participate in online pujas, havans, and special ceremonies
+              regardless of location. Through Bhagwan Pooja, devotees can
+              participate in online Poojas, havans, and special ceremonies
               conducted by learned pandits from sacred temples across India.
             </p>
 
@@ -94,7 +94,7 @@ const About = () => {
       <section className="py-20 px-4 bg-gradient-to-b from-amber-50 to-white">
         <div className="max-w-screen-xl mx-auto">
           <h2 className="text-4xl font-bold text-center text-black mb-16 pt-serif-bold">
-            Why Choose <span className="text-amber-600">Bhagwan Puja</span>
+            Why Choose <span className="text-amber-600">Bhagwan Pooja</span>
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -137,7 +137,7 @@ const About = () => {
             Experience Divine Connection
           </h2>
           <p className="text-gray-700 text-lg leading-relaxed">
-            With Bhagwan Puja, devotion meets technology. Join thousands of
+            With Bhagwan Pooja, devotion meets technology. Join thousands of
             devotees who trust us to perform their sacred rituals with faith,
             purity, and devotion.
           </p>

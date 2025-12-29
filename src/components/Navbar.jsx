@@ -34,17 +34,7 @@ const Navbar = () => {
 
   const links = [
     { name: "Home", href: PATH.HOME, icon: HomeIcon },
-
-    {
-      name: "Pujas",
-      icon: Sparkles,
-      dropdown: [
-        { name: "Devi Maa Pujas", href: PATH.PUJAS_DEVI_MAA },
-        { name: "Lord Ganesha", href: PATH.PUJAS_GANESHA },
-        { name: "Lord Shiva", href: PATH.PUJAS_SHIVA },
-        { name: "Lord Vishnu", href: PATH.PUJAS_VISHNU },
-      ],
-    },
+    { name: "Poojas", href: PATH.POOJA, icon: Sparkles },
 
     { name: "Daan & Seva", href: PATH.DAAN, icon: RocketIcon },
     { name: "Rashifal", href: PATH.RASHIFAL_DAILY, icon: Sparkles },
@@ -186,10 +176,10 @@ const Navbar = () => {
             })}
 
             <button
-              onClick={() => handleNavClick(PATH.PUJAS_DEVI_MAA)}
+              onClick={() => handleNavClick(PATH.POOJA_DEVI_MAA)}
               className="px-6 py-2 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-2xl"
             >
-              Book Puja
+              Book Pooja
             </button>
           </div>
 

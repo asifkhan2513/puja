@@ -22,7 +22,7 @@ const Seva_Daan_Details = () => {
             </p>
 
             <ul className="list-disc list-inside text-gray-700 space-y-2">
-              <li>Supports temple maintenance & daily pujas</li>
+              <li>Supports temple maintenance & daily Poojas</li>
               <li>Helps provide prasad & offerings</li>
               <li>Assists in community welfare programs</li>
               <li>Ensures rituals are performed on your behalf</li>
@@ -33,7 +33,7 @@ const Seva_Daan_Details = () => {
                 What You Receive
               </h4>
               <p className="text-gray-700">
-                A detailed puja report, prasad dispatch (if applicable), and
+                A detailed Pooja report, prasad dispatch (if applicable), and
                 confirmation from our pandits once the ritual is completed.
               </p>
             </div>

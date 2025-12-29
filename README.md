@@ -1,6 +1,6 @@
-# 🕉️ Divine Puja - Online Temple Services Platform
+# 🕉️ Divine Pooja - Online Temple Services Platform
 
-A modern, responsive web application for booking authentic pujas and spiritual services from sacred temples across India.
+A modern, responsive web application for booking authentic Poojas and spiritual services from sacred temples across India.
 
 ## ✨ Features
 
@@ -51,7 +51,7 @@ src/
 ├── assets/              # Images and static files
 ├── components/
 │   ├── Home/           # Home page components
-│   ├── OnlinePuja/     # Puja service components
+│   ├── OnlinePooja/     # Pooja service components
 │   ├── config/         # Configuration files (PATH)
 │   ├── Navbar.jsx      # Navigation component
 │   ├── Footer.jsx      # Footer component
@@ -96,11 +96,11 @@ Multi-column footer with links, social media, and contact information.
 
 ### HomePage
 
-Landing page with hero section, features, puja categories, temples, and testimonials.
+Landing page with hero section, features, Pooja categories, temples, and testimonials.
 
-### PujaTemplate
+### PoojaTemplate
 
-Reusable template for creating puja category pages.
+Reusable template for creating Pooja category pages.
 
 ### LazyImage
 
@@ -151,7 +151,7 @@ All routes are centralized in `src/components/config/Path.js`:
 ```jsx
 import { PATH } from "./components/config/Path";
 
-<Link to={PATH.PUJAS_DEVI_MAA}>Devi Maa Pujas</Link>;
+<Link to={PATH.PoojaS_DEVI_MAA}>Devi Maa Poojas</Link>;
 ```
 
 ## 🖼️ Lazy Loading Images
@@ -227,7 +227,7 @@ This project is licensed under the MIT License.
 
 ## 📞 Support
 
-For support, email info@divinepuja.com or join our Slack channel.
+For support, email info@divinePooja.com or join our Slack channel.
 
 ---
 
