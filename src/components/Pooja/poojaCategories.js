@@ -156,7 +156,6 @@ const poojaCategories = [
       },
     ],
   },
-
   {
     id: 6,
     heading:
@@ -220,7 +219,7 @@ const poojaCategories = [
   },
   {
     id: 7,
-    heading: "",
+    heading: "न्यायालय / कोर्ट–कचहरी में विजय, अनुकूल निर्णय और शत्रु परास्ति के लिए शास्त्रों में कुछ विशेष देवता, मंत्र और अनुष्ठान ",
     subCategories: [
       {
         id: 1,

@@ -238,6 +238,7 @@ function App() {
           <Route index element={<HomePage />} />
           {/* Pooja */}
           <Route path={PATH.POOJA.slice(1)} element={<Pooja />} />
+          <Route path={PATH.POOJA_DETAILS.slice(1)} element={<Pooja />} />
           {/* About us */}
           <Route path={PATH.ABOUT_US.slice(1)} element={<About />} />
           <Route

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import {
   Flame,
   Sparkles,
@@ -22,8 +23,15 @@ import {
   Coins,
   Filter,
   X,
+  Calendar,
+  MapPin,
+  Timer,
+  BookOpen,
+  Sparkle,
 } from "lucide-react";
 import poojaCategories from "./poojaCategories";
+import UpcomingEvent from "./UpcomingEvent";
+import { format, parseISO, isAfter } from "date-fns";
 
 // Inline styles for custom animations and effects
 const styles = `
@@ -53,9 +61,341 @@ const styles = `
   }
 `;
 
+// Pooja Detail View Component
+const PoojaDetailView = ({ id }) => {
+  const navigate = useNavigate();
+  const [timeLeft, setTimeLeft] = useState({});
+
+  // Find the event by ID
+  const event = UpcomingEvent.find((e) => e.id === parseInt(id));
+
+  if (!event) {
+    return (
+      <div className="min-h-screen bg-gradient-to-b from-orange-50 via-amber-50 to-red-100 flex items-center justify-center">
+        <div className="text-center">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4">
+            Pooja Not Found
+          </h2>
+          <button
+            onClick={() => navigate("/puja")}
+            className="px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold rounded-xl hover:from-amber-600 hover:to-orange-700 transition-all duration-300"
+          >
+            Back to Poojas
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  useEffect(() => {
+    const calculateTimeLeft = () => {
+      const eventDate = parseISO(event.date);
+      const now = new Date();
+      const difference = eventDate - now;
+
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+          minutes: Math.floor((difference / 1000 / 60) % 60),
+          seconds: Math.floor((difference / 1000) % 60),
+        });
+      }
+    };
+
+    calculateTimeLeft();
+    const timer = setInterval(calculateTimeLeft, 1000);
+    return () => clearInterval(timer);
+  }, [event.date]);
+
+  const eventDate = parseISO(event.date);
+  const formattedDate = format(eventDate, "dd MMM yyyy");
+  const formattedTime = format(eventDate, "hh:mm a");
+
+  const handleParticipate = (packageType) => {
+    // Handle participation logic here
+    console.log(
+      `Participating in ${event.poojaName} with ${packageType} package`
+    );
+    // You can navigate to checkout or show a modal
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-orange-50 via-amber-50 to-red-100">
+      {/* Header */}
+      <div className="bg-gradient-to-r from-amber-600 to-orange-600 text-white py-8 px-4">
+        <div className="max-w-6xl mx-auto">
+          <button
+            onClick={() => navigate("/puja")}
+            className="flex items-center gap-2 text-amber-100 hover:text-white mb-4 transition-colors"
+          >
+            <ArrowRight className="w-4 h-4 rotate-180" />
+            Back to Poojas
+          </button>
+          <h1 className="text-3xl md:text-4xl font-bold mb-2">
+            {event.poojaName}
+          </h1>
+          <p className="text-xl text-amber-100">{event.poojaNameEn}</p>
+        </div>
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4 py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Main Content */}
+          <div className="lg:col-span-2 space-y-8">
+            {/* Event Image and Basic Info */}
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+              <div className="relative h-64 md:h-80">
+                <img
+                  src={event.image}
+                  alt={event.poojaNameEn}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                <div className="absolute bottom-4 left-4 right-4 text-white">
+                  <div className="flex items-center gap-4 text-sm">
+                    <div className="flex items-center gap-1">
+                      <Calendar className="w-4 h-4" />
+                      {formattedDate}
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Timer className="w-4 h-4" />
+                      {event.time}
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <MapPin className="w-4 h-4" />
+                      {event.placeEn}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-6">
+                {/* Countdown Timer */}
+                {timeLeft.days !== undefined && (
+                  <div className="mb-6">
+                    <h3 className="text-lg font-bold text-gray-800 mb-4">
+                      Event Starts In:
+                    </h3>
+                    <div className="grid grid-cols-4 gap-4">
+                      <div className="bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl p-4 text-center text-white">
+                        <div className="text-2xl font-bold">
+                          {timeLeft.days}
+                        </div>
+                        <div className="text-sm opacity-90">Days</div>
+                      </div>
+                      <div className="bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl p-4 text-center text-white">
+                        <div className="text-2xl font-bold">
+                          {timeLeft.hours}
+                        </div>
+                        <div className="text-sm opacity-90">Hours</div>
+                      </div>
+                      <div className="bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl p-4 text-center text-white">
+                        <div className="text-2xl font-bold">
+                          {timeLeft.minutes}
+                        </div>
+                        <div className="text-sm opacity-90">Minutes</div>
+                      </div>
+                      <div className="bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl p-4 text-center text-white">
+                        <div className="text-2xl font-bold">
+                          {timeLeft.seconds}
+                        </div>
+                        <div className="text-sm opacity-90">Seconds</div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Event Details */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <h3 className="font-bold text-gray-800 mb-3 flex items-center gap-2">
+                      <Crown className="w-5 h-5 text-amber-600" />
+                      Deities
+                    </h3>
+                    <div className="flex flex-wrap gap-2">
+                      {event.deity.map((god, idx) => (
+                        <span
+                          key={idx}
+                          className="px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-sm font-medium"
+                        >
+                          {god}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="font-bold text-gray-800 mb-3 flex items-center gap-2">
+                      <Filter className="w-5 h-5 text-amber-600" />
+                      Categories
+                    </h3>
+                    <div className="flex flex-wrap gap-2">
+                      {event.category.map((cat, idx) => (
+                        <span
+                          key={idx}
+                          className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium"
+                        >
+                          {cat}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Mantra and Jaap */}
+                {event.mantra && (
+                  <div className="mt-6 p-4 bg-gradient-to-r from-orange-50 to-amber-50 rounded-xl border border-orange-100">
+                    <h3 className="font-bold text-gray-800 mb-2 flex items-center gap-2">
+                      <BookOpen className="w-5 h-5 text-amber-600" />
+                      Mantra
+                    </h3>
+                    <p className="text-gray-700 font-mono text-lg">
+                      {event.mantra}
+                    </p>
+                    {event.jaapSankhya && (
+                      <p className="text-sm text-gray-600 mt-2">
+                        Jaap Count: {event.jaapSankhya.toLocaleString()}
+                      </p>
+                    )}
+                  </div>
+                )}
+
+                {/* Benefits */}
+                <div className="mt-6">
+                  <h3 className="font-bold text-gray-800 mb-3 flex items-center gap-2">
+                    <Sparkle className="w-5 h-5 text-amber-600" />
+                    Benefits (लाभ)
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {event.laabh && event.laabh.length > 0 && (
+                      <div>
+                        <h4 className="font-semibold text-gray-700 mb-2">
+                          Hindi
+                        </h4>
+                        <ul className="space-y-1">
+                          {event.laabh.map((benefit, idx) => (
+                            <li
+                              key={idx}
+                              className="text-gray-600 text-sm flex items-start gap-2"
+                            >
+                              <span className="w-1.5 h-1.5 bg-amber-500 rounded-full mt-2 flex-shrink-0"></span>
+                              {benefit}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                    {event.laabhEn && event.laabhEn.length > 0 && (
+                      <div>
+                        <h4 className="font-semibold text-gray-700 mb-2">
+                          English
+                        </h4>
+                        <ul className="space-y-1">
+                          {event.laabhEn.map((benefit, idx) => (
+                            <li
+                              key={idx}
+                              className="text-gray-600 text-sm flex items-start gap-2"
+                            >
+                              <span className="w-1.5 h-1.5 bg-amber-500 rounded-full mt-2 flex-shrink-0"></span>
+                              {benefit}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                {/* Description */}
+                <div className="mt-6 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-100">
+                  <h3 className="font-bold text-gray-800 mb-2">Description</h3>
+                  <p className="text-gray-700 mb-2">{event.description}</p>
+                  <p className="text-gray-600 text-sm italic">
+                    {event.descriptionEn}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Sidebar - Pricing and Participation */}
+          <div className="space-y-6">
+            <div className="bg-white rounded-2xl shadow-lg p-6 sticky top-6">
+              <h3 className="text-xl font-bold text-gray-800 mb-4">
+                Participation Packages
+              </h3>
+
+              <div className="space-y-4">
+                {Object.entries(event.cost).map(([type, price]) => (
+                  <div
+                    key={type}
+                    className="border border-orange-100 rounded-xl p-4 hover:border-orange-300 transition-colors"
+                  >
+                    <div className="flex justify-between items-center mb-3">
+                      <h4 className="font-semibold text-gray-800 capitalize">
+                        {type.replace(/([A-Z])/g, " $1").trim()}
+                      </h4>
+                      <span className="text-2xl font-bold text-amber-600">
+                        ₹{price}
+                      </span>
+                    </div>
+                    <button
+                      onClick={() => handleParticipate(type)}
+                      className="w-full py-3 px-4 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold rounded-xl hover:from-amber-600 hover:to-orange-700 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:scale-105"
+                    >
+                      Participate Now
+                      <User className="w-4 h-4" />
+                    </button>
+                  </div>
+                ))}
+              </div>
+
+              {/* Location Info */}
+              <div className="mt-6 p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border border-green-100">
+                <h4 className="font-bold text-gray-800 mb-2 flex items-center gap-2">
+                  <MapPin className="w-5 h-5 text-green-600" />
+                  Location
+                </h4>
+                <p className="text-gray-700 font-semibold">{event.place}</p>
+                <p className="text-gray-600 text-sm">{event.placeEn}</p>
+              </div>
+
+              {/* Event Schedule */}
+              <div className="mt-4 p-4 bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl border border-purple-100">
+                <h4 className="font-bold text-gray-800 mb-2 flex items-center gap-2">
+                  <Clock className="w-5 h-5 text-purple-600" />
+                  Schedule
+                </h4>
+                <p className="text-gray-700">
+                  <span className="font-semibold">{event.day}</span> •{" "}
+                  {formattedDate}
+                </p>
+                <p className="text-gray-600 text-sm">{event.time}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const Pooja = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
+  const { id } = useParams();
+
+  // If ID is present, show detail view
+  if (id) {
+    return <PoojaDetailView id={id} />;
+  }
+
+  // Handle participation
+  const handleParticipateNow = (eventId) => {
+    navigate(`/puja/${eventId}`);
+  };
 
   // Map categories to icons and images
   const getCategoryIcon = (heading) => {
@@ -135,54 +475,165 @@ const Pooja = () => {
 
   const subCategories = getAllSubCategories();
 
+  // Event Card Component
+  const EventCard = ({ event, type }) => {
+    const eventDate = parseISO(event.date);
+
+    return (
+      <div className="group bg-white rounded-2xl shadow-lg hover:shadow-xl border border-orange-100 overflow-hidden transition-all duration-300 w-full">
+        {/* Image with Date Badge */}
+        <div
+          className="relative h-40 sm:h-48 overflow-hidden cursor-pointer"
+          onClick={() => navigate(`/puja/${event.id}`)}
+        >
+          <img
+            src={event.image}
+            alt={event.poojaNameEn}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+
+          {/* Date Badge - Top Right */}
+          <div className="absolute top-2 sm:top-4 right-2 sm:right-4 bg-white/95 backdrop-blur-sm rounded-xl p-2 sm:p-3 shadow-lg">
+            <div className="text-center">
+              <div className="text-lg sm:text-2xl font-bold text-amber-600">
+                {format(eventDate, "dd")}
+              </div>
+              <div className="text-xs font-semibold text-gray-700 uppercase">
+                {format(eventDate, "MMM")}
+              </div>
+              <div className="text-xs text-gray-500">
+                {format(eventDate, "yyyy")}
+              </div>
+            </div>
+          </div>
+
+          {/* Event Title */}
+          <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 right-2 sm:right-4">
+            <h3 className="text-sm sm:text-lg font-bold text-white mb-1 line-clamp-2">
+              {event.poojaName}
+            </h3>
+            <p className="text-xs sm:text-sm text-amber-100">
+              {event.day} • {event.time}
+            </p>
+          </div>
+        </div>
+
+        {/* Card Content */}
+        <div className="p-4 sm:p-6">
+          {/* Event Details */}
+          <div className="space-y-3 mb-4">
+            <div>
+              <h4 className="font-bold text-gray-700 text-sm mb-1">Deities:</h4>
+              <div className="flex flex-wrap gap-1 sm:gap-2">
+                {event.deity.map((god, idx) => (
+                  <span
+                    key={idx}
+                    className="px-2 sm:px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-xs font-medium"
+                  >
+                    {god}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h4 className="font-bold text-gray-700 text-sm mb-1">
+                Benefits:
+              </h4>
+              <div className="flex flex-wrap gap-1 sm:gap-2">
+                {(event.laabhEn || event.laabh || [])
+                  .slice(0, 2)
+                  .map((benefit, idx) => (
+                    <span
+                      key={idx}
+                      className="px-2 py-1 bg-green-100 text-green-800 rounded text-xs"
+                    >
+                      {benefit}
+                    </span>
+                  ))}
+              </div>
+            </div>
+            {/* Location */}
+            <div>
+              <h4 className="font-bold text-gray-700 text-sm mb-1">
+                Location:
+              </h4>
+              <p className="text-gray-600 text-sm">{event.placeEn}</p>
+            </div>
+            {/* Starting Price */}
+            <div className="pt-2 border-t border-gray-100">
+              <div className="flex justify-between items-center">
+                <span className="text-sm text-gray-600">Starting from:</span>
+                <span className="text-lg font-bold text-amber-600">
+                  ₹{Math.min(...Object.values(event.cost))}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Action Buttons */}
+          <div className="space-y-2">
+            <button
+              onClick={() => navigate(`/puja/${event.id}`)}
+              className="w-full py-3 px-4 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold rounded-xl hover:from-amber-600 hover:to-orange-700 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl hover:shadow-orange-500/30 transform hover:scale-105 text-sm sm:text-base"
+            >
+              Participate Now
+              <User className="w-4 h-4" />
+            </button>
+
+            <div className="text-center">
+              <button
+                onClick={() => navigate(`/puja/${event.id}`)}
+                className="text-amber-600 hover:text-amber-700 text-sm font-medium hover:underline"
+              >
+                View Full Details
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-orange-50 via-amber-50 to-red-100 font-sans scroll-smooth pb-20">
+    <div className="min-h-screen  bg-gradient-to-b from-orange-50 via-amber-50 to-red-100 font-sans scroll-smooth pb-20">
       {/* Hero Header */}
       <style>{styles}</style>
-      <div className="bg-gradient-to-r from-amber-600 to-orange-600 text-white py-16 px-4 mb-8">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 pt-serif-bold text-white text-3d tracking-wide">
-            Divine Pooja Services
-          </h1>
-          <p className="text-xl text-amber-50 max-w-2xl mx-auto mb-8 font-inter text-white">
-            Book authentic Vedic Poojas performed by experienced Pandits at
-            sacred temples
-          </p>
 
-          {/* Search Bar */}
-          <div className="relative max-w-xl mx-auto group">
-            <input
-              type="text"
-              placeholder="Search for a Pooja..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full px-6 py-4 rounded-full bg-white/10 backdrop-blur-md border border-white/30 text-white placeholder-amber-100 focus:outline-none focus:ring-2 focus:ring-white/50 focus:bg-white/20 transition-all duration-300 shadow-2xl pl-14"
-            />
-            <Search className="absolute left-5 top-1/2 transform -translate-y-1/2 text-white/80 w-6 h-6 group-focus-within:text-white transition-colors" />
-          </div>
+      {/* Filter by Category Section */}
+      <div className="max-w-7xl pt-5 mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+            Browse Poojas by Category
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Discover sacred rituals and divine blessings tailored to your
+            spiritual needs
+          </p>
         </div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-8">
           {/* Sidebar Filters - Desktop */}
           <div className="hidden lg:block space-y-6">
-            <div className="bg-white p-6 rounded-2xl shadow-xl border border-orange-100 sticky top-24">
-              <div className="flex items-center gap-2 mb-6 pb-4 border-b border-orange-100/50">
+            <div className="bg-white p-4 lg:p-6 rounded-2xl shadow-xl border border-orange-100 sticky top-24">
+              <div className="flex items-center gap-2 mb-4 lg:mb-6 pb-3 lg:pb-4 border-b border-orange-100/50">
                 <div className="p-2 bg-orange-50 rounded-lg">
-                  <Filter className="w-5 h-5 text-amber-600" />
+                  <Filter className="w-4 h-4 lg:w-5 lg:h-5 text-amber-600" />
                 </div>
-                <span className="text-gray-800 font-bold text-lg pt-serif-bold">
+                <span className="text-gray-800 underline font-bold text-base lg:text-lg">
                   Filter by Category
                 </span>
               </div>
-              <div className="space-y-2 max-h-[600px] overflow-y-auto pr-2">
+              <div className="space-y-2 max-h-[500px] lg:max-h-[600px] overflow-y-auto pr-2">
                 <button
                   onClick={() => setSelectedCategory("")}
-                  className={`w-full text-left px-4 py-3 rounded-xl text-sm transition-all duration-300 flex items-center justify-between group ${
+                  className={`w-full text-left px-3 lg:px-4 py-2 lg:py-3 rounded-xl text-sm transition-all duration-300 flex items-center justify-between group ${
                     !selectedCategory
                       ? "bg-gradient-to-r from-amber-500 to-orange-600 text-white shadow-lg shadow-orange-500/30"
-                      : "text-gray-600 hover:bg-orange-50 hover:pl-5"
+                      : "text-gray-600 hover:bg-orange-50 hover:pl-4 lg:hover:pl-5"
                   }`}
                 >
                   <span className="font-semibold">All Categories</span>
@@ -192,13 +643,15 @@ const Pooja = () => {
                   <button
                     key={category.id}
                     onClick={() => setSelectedCategory(category.heading)}
-                    className={`w-full text-left px-4 py-3 rounded-xl text-sm transition-all duration-300 flex items-center justify-between group ${
+                    className={`w-full text-left px-3 lg:px-4 py-2 lg:py-3 rounded-xl text-sm transition-all duration-300 flex items-center justify-between group ${
                       selectedCategory === category.heading
                         ? "bg-gradient-to-r from-amber-500 to-orange-600 text-white shadow-lg shadow-orange-500/30 font-semibold"
-                        : "text-gray-600 hover:bg-orange-50 hover:pl-5"
+                        : "text-gray-600 hover:bg-orange-50 hover:pl-4 lg:hover:pl-5"
                     }`}
                   >
-                    <span className="leading-tight">{category.heading}</span>
+                    <span className="leading-tight text-xs lg:text-sm">
+                      {category.heading}
+                    </span>
                     {selectedCategory === category.heading && (
                       <ChevronRight className="w-4 h-4" />
                     )}
@@ -210,25 +663,35 @@ const Pooja = () => {
 
           {/* Mobile Filter select */}
           <div className="lg:hidden mb-6">
-            <select
-              value={selectedCategory}
-              onChange={(e) => setSelectedCategory(e.target.value)}
-              className="w-full bg-white border border-gray-200 text-gray-700 py-3 px-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent font-medium shadow-sm"
-            >
-              <option value="">All Categories</option>
-              {poojaCategories.map((category) => (
-                <option key={category.id} value={category.heading}>
-                  {category.heading}
-                </option>
-              ))}
-            </select>
+            <div className="bg-white p-4 rounded-2xl shadow-lg border border-orange-100">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="p-2 bg-orange-50 rounded-lg">
+                  <Filter className="w-4 h-4 text-amber-600" />
+                </div>
+                <span className="text-gray-800 font-bold text-base">
+                  Filter by Category
+                </span>
+              </div>
+              <select
+                value={selectedCategory}
+                onChange={(e) => setSelectedCategory(e.target.value)}
+                className="w-full bg-white border border-gray-200 text-gray-700 py-3 px-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent font-medium shadow-sm"
+              >
+                <option value="">All Categories</option>
+                {poojaCategories.map((category) => (
+                  <option key={category.id} value={category.heading}>
+                    {category.heading}
+                  </option>
+                ))}
+              </select>
+            </div>
           </div>
 
           {/* Results Section */}
           <div className="lg:col-span-3">
             {/* Results Count and Clear Filter */}
-            <div className="flex items-center justify-between mb-6">
-              <span className="text-gray-600 font-medium text-lg">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 lg:mb-6 gap-3 sm:gap-0">
+              <span className="text-gray-600 font-medium text-base lg:text-lg">
                 {selectedCategory ? (
                   <>
                     Showing {subCategories.length} Poojas in "{selectedCategory}
@@ -244,7 +707,7 @@ const Pooja = () => {
                     setSelectedCategory("");
                     setSearchQuery("");
                   }}
-                  className="flex items-center gap-2 text-amber-600 font-semibold hover:underline"
+                  className="flex items-center gap-2 text-amber-600 font-semibold hover:underline text-sm lg:text-base"
                 >
                   <X className="w-4 h-4" />
                   Clear Filters
@@ -254,7 +717,7 @@ const Pooja = () => {
 
             {/* Show Subcategories when category is selected */}
             {selectedCategory && subCategories.length > 0 && (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 lg:gap-6 mb-6 lg:mb-8">
                 {subCategories.map((sub) => (
                   <div
                     key={sub.id}
@@ -338,7 +801,7 @@ const Pooja = () => {
 
             {/* Show Categories when no specific category is selected */}
             {!selectedCategory && (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 lg:gap-6 xl:gap-8 mb-12 lg:mb-16">
                 {filteredCategories.map((category) => (
                   <div
                     key={category.id}
@@ -438,6 +901,47 @@ const Pooja = () => {
             )}
           </div>
         </div>
+      </div>
+
+      {/* Upcoming Events Section */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+        <div className="flex items-center gap-3 mb-8 mt-10">
+          <div className="p-3 bg-gradient-to-r from-amber-500 to-orange-600 rounded-xl shadow-lg">
+            <Calendar className="w-6 h-6 text-white" />
+          </div>
+          <h2 className="text-2xl  md:text-3xl font-bold text-gray-800 flex items-center gap-3">
+            Upcoming Poojas
+            <span className="px-4 py-2 bg-amber-100 text-amber-800 text-sm md:text-base font-semibold rounded-full shadow-sm">
+              {
+                UpcomingEvent.filter((event) =>
+                  isAfter(parseISO(event.date), new Date())
+                ).length
+              }
+            </span>
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+          {UpcomingEvent.filter((event) =>
+            isAfter(parseISO(event.date), new Date())
+          ).map((event) => (
+            <EventCard key={event.id} event={event} type="upcoming" />
+          ))}
+        </div>
+
+        {UpcomingEvent.filter((event) =>
+          isAfter(parseISO(event.date), new Date())
+        ).length === 0 && (
+          <div className="text-center py-16 bg-gradient-to-r from-amber-50 to-orange-50 rounded-2xl border border-dashed border-amber-200">
+            <Calendar className="w-16 h-16 text-amber-300 mx-auto mb-6" />
+            <h3 className="text-xl font-bold text-gray-700 mb-3">
+              No Upcoming Events
+            </h3>
+            <p className="text-gray-500 text-lg">
+              Check back later for new pooja events
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -8,6 +8,7 @@ export const PATH = {
   FAQ: "/faq",
   LEGAL: "/legal",
   POOJA: "/puja",
+  POOJA_DETAILS: "/puja/:id",
   POOJA_DEVI_MAA: "/puja/devi-maa",
   POOJA_GANESHA: "/puja/ganesha",
   POOJA_SHIVA: "/puja/shiva",
