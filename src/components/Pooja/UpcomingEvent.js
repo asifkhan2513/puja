@@ -193,10 +193,140 @@ const UpcomingEvent = [
     place: "सूर्य मंदिर प्रयागराज",
     placeEn: "Surya Mandir Prayagraj",
     time: "06:00 AM to 08:00 AM",
-    image: "https://mysticalbee.com/wp-content/uploads/2023/01/Shani-Beej-Mantra.jpg",
+    image: "https://images.news18.com/ibnkhabar/uploads/2023/05/%E0%A4%97%E0%A4%BE%E0%A4%AF%E0%A4%A4%E0%A5%8D%E0%A4%B0%E0%A5%80-%E0%A4%AE%E0%A4%82%E0%A4%A4%E0%A5%8D%E0%A4%B0-%E0%A4%95%E0%A5%87-%E0%A4%AB%E0%A4%BE%E0%A4%AF%E0%A4%A6%E0%A5%87-58.jpg?im=Resize,width=807,aspect=fit,type=normal",
     description: "सूर्य दोष निवारण के लिए विशेष पूजा",
     descriptionEn: "Special puja for Surya Dosh removal"
+  },
+  {
+    id: 7,
+    date: "2026-01-26T11:00:00",
+    day: "Monday",
+    category: ["धन वृद्धि", "सुरक्षा"],
+    deity: ["durga"],
+    poojaName: "ललिता शत्रनाम",
+    poojaNameEn: "Lalita Shatrnam",
+    paathSankhya: 21,
+    laabh: [
+      "धन वैभव यश में वृद्धि",
+      "स्वास्थ्य और सुरक्षा"
+    ],
+    laabhEn: [
+      "Increase in wealth, prosperity, and fame",
+      "Health and protection"
+    ],
+    cost: {
+      single: 501,
+      twoPersons: 701,
+      familyOf4: 1001,
+      familyOf6: 1251
+    },
+    place: "ललिता देवी मंदिर प्रयागराज",
+    placeEn: "Lalita Devi Mandir Prayagraj",
+    time: "11:00 AM to 01:00 PM",
+    image: "https://d2vlk40wphb5v6.cloudfront.net/public/cms-images/blogs/1171419503_Lalitha-Sahasranam-to-wards-off-black-magic.jpg", // You can replace with the correct image URL
+    description: "ललिता शत्रनाम पूजा धन और सुरक्षा के लिए",
+    descriptionEn: "Lalita Shatrnam puja for wealth and protection"
   }
+  ,// ID 8: 27th January (Tuesday)
+  {
+    id: 8,
+    date: "2026-01-27T11:00:00",
+    day: "Tuesday",
+    category: ["नवग्रह शांति", "पितृ दोष निवारण"],
+    deity: ["Navgrah"],
+    poojaName: "केतु जाप",
+    poojaNameEn: "Ketu Jaap",
+    jaapSankhya: 17000,
+    laabh: [
+      "केतु दोष निवारण",
+      "तनाव से मुक्ति",
+      "करियर में सफलता"
+    ],
+    laabhEn: [
+      "Ketu Dosh removal",
+      "Relief from stress",
+      "Success in career"
+    ],
+    cost: {
+      single: 501,
+      twoPersons: 701,
+      familyOf4: 1001,
+      familyOf6: 1251
+    },
+    place: "संकट मोचन हनुमान मंदिर प्रयागराज",
+    placeEn: "Sankat Mochan Hanuman Mandir Prayagraj",
+    time: "11:00 AM to 01:00 PM",
+    image: "https://www.astrokaka.in/uploads/products/2021/04/ketu-grah-shanti-puja-pauranik-vidhi.jpg", // Replace with the correct image URL
+    description: "केतु दोष निवारण के लिए विशेष पूजा",
+    descriptionEn: "Special puja for Ketu Dosh removal"
+  },
+
+  // ID 9: 28th January (Wednesday)
+  {
+    id: 9,
+    date: "2026-01-28T11:00:00",
+    day: "Wednesday",
+    category: ["नवग्रह शांति", "व्यापार एवं करियर"],
+    deity: ["Navgrah"],
+    poojaName: "बुद्ध वेदिक मंत्र जाप",
+    poojaNameEn: "Buddh Vedic Mantra Jaap",
+    jaapSankhya: 9000,
+    laabh: [
+      "व्यापार एवं करियर में सफलता",
+      "आत्मविश्वास",
+      "बुद्धि एवं ज्ञान में वृद्धि"
+    ],
+    laabhEn: [
+      "Success in business and career",
+      "Self-confidence",
+      "Increase in intelligence and knowledge"
+    ],
+    cost: {
+      single: 501,
+      twoPersons: 701,
+      familyOf4: 1001,
+      familyOf6: 1251
+    },
+    place: "सिद्ध पीठ ओमकार गणेश मंदिर दरागंज प्रयागराज",
+    placeEn: "Siddh Peeth Omkar Ganesh Mandir Daraganj Prayagraj",
+    time: "11:00 AM to 01:00 PM",
+    image: "https://i0.wp.com/pujadhaam.com/wp-content/uploads/2024/06/bbbbb.jpg?resize=990%2C990&ssl=1", // Replace with the correct image URL
+    description: "व्यापार और करियर में सफलता के लिए विशेष पूजा",
+    descriptionEn: "Special puja for success in business and career"
+  },
+  {
+    id: 10,
+    date: "2026-01-29T11:00:00",
+    day: "Thursday",
+    category: ["नवग्रह शांति", "स्वास्थ्य समृद्धि"],
+    deity: ["Navgrah", "Lord Vishnu"],
+    poojaName: "विष्णु पूजन एवं बृहस्पति वेदिक मंत्र जाप (एकादशी विशेष)",
+    poojaNameEn: "Vishnu Poojan and Brihaspati Vedic Mantra Jaap (Ekadashi Special)",
+    jaapSankhya: 19000,
+    laabh: [
+      "विवाह और पारिवारिक सुख",
+      "भय निवारण",
+      "जीवन में स्थिरता"
+    ],
+    laabhEn: [
+      "Marriage and family happiness",
+      "Removal of fears",
+      "Stability in life"
+    ],
+    cost: {
+      single: 501,
+      twoPersons: 701,
+      familyOf4: 1001,
+      familyOf6: 1251
+    },
+    place: "वेणी माधव मंदिर प्रयागराज",
+    placeEn: "Veni Madhav Mandir Prayagraj",
+    time: "11:00 AM to 01:00 PM",
+    image: "https://bhaktisandesh.com/wp-content/uploads/2025/04/%E0%A4%97%E0%A5%81%E0%A4%B0%E0%A5%81-%E0%A4%95%E0%A4%BE-%E0%A4%B5%E0%A5%88%E0%A4%A6%E0%A4%BF%E0%A4%95-%E0%A4%AE%E0%A4%82%E0%A4%A4%E0%A5%8D%E0%A4%B0.webp", // Replace with the correct image URL
+    description: "विवाह, पारिवारिक सुख और भय निवारण के लिए विष्णु पूजा",
+    descriptionEn: "Vishnu puja for marriage, family happiness, and removal of fears"
+  }
+
 ];
 
 export default UpcomingEvent;

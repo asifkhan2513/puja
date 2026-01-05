@@ -64,7 +64,6 @@ const styles = `
 // Pooja Detail View Component
 const PoojaDetailView = ({ id }) => {
   const navigate = useNavigate();
-  const [timeLeft, setTimeLeft] = useState({});
 
   // Find the event by ID
   const event = UpcomingEvent.find((e) => e.id === parseInt(id));
@@ -86,27 +85,6 @@ const PoojaDetailView = ({ id }) => {
       </div>
     );
   }
-
-  useEffect(() => {
-    const calculateTimeLeft = () => {
-      const eventDate = parseISO(event.date);
-      const now = new Date();
-      const difference = eventDate - now;
-
-      if (difference > 0) {
-        setTimeLeft({
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-          minutes: Math.floor((difference / 1000 / 60) % 60),
-          seconds: Math.floor((difference / 1000) % 60),
-        });
-      }
-    };
-
-    calculateTimeLeft();
-    const timer = setInterval(calculateTimeLeft, 1000);
-    return () => clearInterval(timer);
-  }, [event.date]);
 
   const eventDate = parseISO(event.date);
   const formattedDate = format(eventDate, "dd MMM yyyy");
@@ -171,41 +149,6 @@ const PoojaDetailView = ({ id }) => {
               </div>
 
               <div className="p-6">
-                {/* Countdown Timer */}
-                {timeLeft.days !== undefined && (
-                  <div className="mb-6">
-                    <h3 className="text-lg font-bold text-gray-800 mb-4">
-                      Event Starts In:
-                    </h3>
-                    <div className="grid grid-cols-4 gap-4">
-                      <div className="bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl p-4 text-center text-white">
-                        <div className="text-2xl font-bold">
-                          {timeLeft.days}
-                        </div>
-                        <div className="text-sm opacity-90">Days</div>
-                      </div>
-                      <div className="bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl p-4 text-center text-white">
-                        <div className="text-2xl font-bold">
-                          {timeLeft.hours}
-                        </div>
-                        <div className="text-sm opacity-90">Hours</div>
-                      </div>
-                      <div className="bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl p-4 text-center text-white">
-                        <div className="text-2xl font-bold">
-                          {timeLeft.minutes}
-                        </div>
-                        <div className="text-sm opacity-90">Minutes</div>
-                      </div>
-                      <div className="bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl p-4 text-center text-white">
-                        <div className="text-2xl font-bold">
-                          {timeLeft.seconds}
-                        </div>
-                        <div className="text-sm opacity-90">Seconds</div>
-                      </div>
-                    </div>
-                  </div>
-                )}
-
                 {/* Event Details */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
@@ -481,9 +424,9 @@ const Pooja = () => {
 
     return (
       <div className="group bg-white rounded-2xl shadow-lg hover:shadow-xl border border-orange-100 overflow-hidden transition-all duration-300 w-full">
-        {/* Image with Date Badge */}
+        {/* Image with Date Badge - Made smaller */}
         <div
-          className="relative h-40 sm:h-48 overflow-hidden cursor-pointer"
+          className="relative h-32 sm:h-36 overflow-hidden cursor-pointer"
           onClick={() => navigate(`/puja/${event.id}`)}
         >
           <img
