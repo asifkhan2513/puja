@@ -326,6 +326,8 @@ const PoojaDetailView = ({ id }) => {
 
 const Pooja = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedDeity, setSelectedDeity] = useState("");
+  const [selectedLocation, setSelectedLocation] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
   const { id } = useParams();
@@ -394,6 +396,11 @@ const Pooja = () => {
     const matchesCategory = selectedCategory
       ? category.heading === selectedCategory
       : true;
+    const matchesDeity = selectedDeity
+      ? category.subCategories.some((sub) =>
+          sub.deity?.toLowerCase().includes(selectedDeity.toLowerCase())
+        )
+      : true;
     const matchesSearch = searchQuery
       ? category.heading.toLowerCase().includes(searchQuery.toLowerCase()) ||
         category.subCategories.some(
@@ -402,7 +409,7 @@ const Pooja = () => {
             sub.benefits?.toLowerCase().includes(searchQuery.toLowerCase())
         )
       : true;
-    return matchesCategory && matchesSearch;
+    return matchesCategory && matchesDeity && matchesSearch;
   });
 
   // Get all subcategories for display
@@ -411,7 +418,16 @@ const Pooja = () => {
       const category = poojaCategories.find(
         (cat) => cat.heading === selectedCategory
       );
-      return category ? category.subCategories : [];
+      let subCats = category ? category.subCategories : [];
+
+      // Filter by deity if selected
+      if (selectedDeity) {
+        subCats = subCats.filter((sub) =>
+          sub.deity?.toLowerCase().includes(selectedDeity.toLowerCase())
+        );
+      }
+
+      return subCats;
     }
     return [];
   };
@@ -544,16 +560,133 @@ const Pooja = () => {
       {/* Hero Header */}
       <style>{styles}</style>
 
-      {/* Filter by Category Section */}
+      {/* Dynamic Header Section */}
       <div className="max-w-7xl pt-5 mx-auto px-4 sm:px-6 lg:px-8 mb-8">
         <div className="text-center mb-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-            Browse Poojas by Category
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Discover sacred rituals and divine blessings tailored to your
-            spiritual needs
-          </p>
+          {!selectedCategory ? (
+            <>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                Browse Upcoming Pooja and Poojas by Category
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Discover sacred rituals and divine blessings tailored to your
+                spiritual needs
+              </p>
+              <div className="flex item-center justify-center space-x-2">
+                {/* Location */}
+                <div className="mt-8 flex justify-end">
+                  <div className="bg-white rounded-xl shadow-md border border-orange-100 p-4 w-64">
+                    <div className="flex items-center gap-2 mb-3">
+                      <div className="p-1.5 bg-orange-50 rounded-lg">
+                        <Filter className="w-4 h-4 text-amber-600" />
+                      </div>
+                      <h3 className="text-sm font-bold text-gray-800">
+                        Filter by Location
+                      </h3>
+                    </div>
+
+                    <select
+                      value={selectedLocation}
+                      onChange={(e) => setSelectedLocation(e.target.value)}
+                      className="w-full bg-white border border-gray-200 text-gray-700 py-2 px-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent font-medium shadow-sm text-sm"
+                    >
+                      <option value="">सभी स्थान (All Locations)</option>
+                      <option value="वाराणसी">वाराणसी (Varanasi)</option>
+                      <option value="प्रयागराज">प्रयागराज (Prayagraj)</option>
+                      <option value="अयोध्या">अयोध्या (Ayodhya)</option>
+                      <option value="मथुरा">मथुरा (Mathura)</option>
+                      <option value="हरिद्वार">हरिद्वार (Haridwar)</option>
+                    </select>
+
+                    {selectedLocation && (
+                      <div className="mt-2 flex items-center justify-between">
+                        <span className="text-xs text-gray-600">
+                          Filtering:{" "}
+                          <span className="font-semibold text-amber-600">
+                            {selectedLocation}
+                          </span>
+                        </span>
+                        <button
+                          onClick={() => setSelectedLocation("")}
+                          className="text-amber-600 hover:text-amber-700 text-xs font-medium flex items-center gap-1"
+                        >
+                          <X className="w-3 h-3" />
+                          Clear
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                {/* Deity Filter Section */}
+                <div className="mt-8 flex justify-end">
+                  <div className="bg-white rounded-xl shadow-md border border-orange-100 p-4 w-64">
+                    <div className="flex items-center gap-2 mb-3">
+                      <div className="p-1.5 bg-orange-50 rounded-lg">
+                        <Filter className="w-4 h-4 text-amber-600" />
+                      </div>
+                      <h3 className="text-sm font-bold text-gray-800">
+                        Filter by Deity
+                      </h3>
+                    </div>
+
+                    <select
+                      value={selectedDeity}
+                      onChange={(e) => setSelectedDeity(e.target.value)}
+                      className="w-full bg-white border border-gray-200 text-gray-700 py-2 px-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent font-medium shadow-sm text-sm"
+                    >
+                      <option value="">सभी देवी-देवता (All Deities)</option>
+                      <option value="गणेश">श्री गणेश जी (Lord Ganesha)</option>
+                      <option value="शिव">भगवान शिव (Lord Shiva)</option>
+                      <option value="विष्णु">भगवान विष्णु (Lord Vishnu)</option>
+                      <option value="कृष्ण">श्री कृष्ण (Lord Krishna)</option>
+                      <option value="राम">श्री राम (Lord Rama)</option>
+                      <option value="हनुमान">हनुमान जी (Lord Hanuman)</option>
+                      <option value="दुर्गा">
+                        माता दुर्गा (Goddess Durga)
+                      </option>
+                      <option value="लक्ष्मी">
+                        माता लक्ष्मी (Goddess Lakshmi)
+                      </option>
+                      <option value="सरस्वती">
+                        माता सरस्वती (Goddess Saraswati)
+                      </option>
+                      <option value="काली">माता काली (Goddess Kali)</option>
+                      <option value="सूर्य">सूर्य देव (Lord Surya)</option>
+                      <option value="भैरव">भैरव बाबा (Lord Bhairav)</option>
+                    </select>
+
+                    {selectedDeity && (
+                      <div className="mt-2 flex items-center justify-between">
+                        <span className="text-xs text-gray-600">
+                          Filtering:{" "}
+                          <span className="font-semibold text-amber-600">
+                            {selectedDeity}
+                          </span>
+                        </span>
+                        <button
+                          onClick={() => setSelectedDeity("")}
+                          className="text-amber-600 hover:text-amber-700 text-xs font-medium flex items-center gap-1"
+                        >
+                          <X className="w-3 h-3" />
+                          Clear
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </>
+          ) : (
+            <>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                {selectedCategory} Poojas
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Specialized poojas for your spiritual needs
+              </p>
+            </>
+          )}
         </div>
       </div>
 
@@ -605,7 +738,8 @@ const Pooja = () => {
           </div>
 
           {/* Mobile Filter select */}
-          <div className="lg:hidden mb-6">
+          <div className="lg:hidden mb-6 space-y-4">
+            {/* Category Filter */}
             <div className="bg-white p-4 rounded-2xl shadow-lg border border-orange-100">
               <div className="flex items-center gap-2 mb-4">
                 <div className="p-2 bg-orange-50 rounded-lg">
@@ -628,6 +762,39 @@ const Pooja = () => {
                 ))}
               </select>
             </div>
+
+            {/* Deity Filter */}
+            <div className="bg-white p-4 rounded-2xl shadow-lg border border-orange-100">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="p-2 bg-orange-50 rounded-lg">
+                  <Crown className="w-4 h-4 text-amber-600" />
+                </div>
+                <span className="text-gray-800 font-bold text-base">
+                  Filter by Deity
+                </span>
+              </div>
+              <select
+                value={selectedDeity}
+                onChange={(e) => setSelectedDeity(e.target.value)}
+                className="w-full bg-white border border-gray-200 text-gray-700 py-3 px-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent font-medium shadow-sm"
+              >
+                <option value="">सभी देवी-देवता (All Deities)</option>
+                <option value="गणेश">श्री गणेश जी (Lord Ganesha)</option>
+                <option value="शिव">भगवान शिव (Lord Shiva)</option>
+                <option value="विष्णु">भगवान विष्णु (Lord Vishnu)</option>
+                <option value="कृष्ण">श्री कृष्ण (Lord Krishna)</option>
+                <option value="राम">श्री राम (Lord Rama)</option>
+                <option value="हनुमान">हनुमान जी (Lord Hanuman)</option>
+                <option value="दुर्गा">माता दुर्गा (Goddess Durga)</option>
+                <option value="लक्ष्मी">माता लक्ष्मी (Goddess Lakshmi)</option>
+                <option value="सरस्वती">
+                  माता सरस्वती (Goddess Saraswati)
+                </option>
+                <option value="काली">माता काली (Goddess Kali)</option>
+                <option value="सूर्य">सूर्य देव (Lord Surya)</option>
+                <option value="भैरव">भैरव बाबा (Lord Bhairav)</option>
+              </select>
+            </div>
           </div>
 
           {/* Results Section */}
@@ -644,10 +811,11 @@ const Pooja = () => {
                   <>Showing {filteredCategories.length} Categories</>
                 )}
               </span>
-              {(selectedCategory || searchQuery) && (
+              {(selectedCategory || selectedDeity || searchQuery) && (
                 <button
                   onClick={() => {
                     setSelectedCategory("");
+                    setSelectedDeity("");
                     setSearchQuery("");
                   }}
                   className="flex items-center gap-2 text-amber-600 font-semibold hover:underline text-sm lg:text-base"
@@ -742,77 +910,29 @@ const Pooja = () => {
               </div>
             )}
 
-            {/* Show Categories when no specific category is selected */}
+            {/* Show Upcoming Poojas when no specific category is selected */}
             {!selectedCategory && (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 lg:gap-6 xl:gap-8 mb-12 lg:mb-16">
-                {filteredCategories.map((category) => (
-                  <div
-                    key={category.id}
-                    className="group bg-white rounded-3xl shadow-lg hover:shadow-2xl border border-orange-100 overflow-hidden transition-all duration-500 transform hover:-translate-y-2 cursor-pointer"
-                    onClick={() => setSelectedCategory(category.heading)}
-                  >
-                    {/* Category Header with Image */}
-                    <div className="relative h-48 overflow-hidden">
-                      <img
-                        src={getCategoryImage(category.heading)}
-                        alt={category.heading}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
-
-                      {/* Category Icon */}
-                      <div className="absolute top-4 right-4 p-3 bg-white/20 backdrop-blur-md rounded-full border border-white/30">
-                        {getCategoryIcon(category.heading)}
-                      </div>
-
-                      {/* Category Title */}
-                      <div className="absolute bottom-4 left-4 right-4">
-                        <h3 className="text-xl font-bold text-white mb-2 leading-tight">
-                          {category.heading}
-                        </h3>
-                        <span className="text-amber-200 text-sm font-medium">
-                          {category.subCategories.length} Poojas Available
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Sub-categories Preview */}
-                    <div className="p-6">
-                      <div className="space-y-3 mb-6">
-                        {category.subCategories
-                          .slice(0, 3)
-                          .map((sub, index) => (
-                            <div
-                              key={sub.id}
-                              className="flex items-center gap-3 p-3 bg-gradient-to-r from-orange-50 to-amber-50 rounded-xl border border-orange-100"
-                            >
-                              <div className="p-2 bg-white rounded-lg shadow-sm">
-                                {getDeityIcon(sub.deity)}
-                              </div>
-                              <div className="flex-1 min-w-0">
-                                <h4 className="font-bold text-gray-800 text-sm truncate">
-                                  {sub.deity}
-                                </h4>
-                              </div>
-                            </div>
-                          ))}
-
-                        {category.subCategories.length > 3 && (
-                          <div className="text-center">
-                            <span className="text-sm text-amber-600 font-medium">
-                              +{category.subCategories.length - 3} more poojas
-                            </span>
-                          </div>
-                        )}
-                      </div>
-
-                      {/* Action Button */}
-                      <button className="w-full py-3.5 px-4 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold rounded-xl hover:from-amber-600 hover:to-orange-700 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl hover:shadow-orange-500/30 transform hover:scale-105">
-                        View All Poojas
-                        <ArrowRight className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" />
-                      </button>
-                    </div>
-                  </div>
+                {UpcomingEvent.filter((event) => {
+                  const isUpcoming = isAfter(parseISO(event.date), new Date());
+                  const matchesDeity = selectedDeity
+                    ? event.deity.some((deity) =>
+                        deity
+                          .toLowerCase()
+                          .includes(selectedDeity.toLowerCase())
+                      )
+                    : true;
+                  const matchesLocation = selectedLocation
+                    ? event.place
+                        .toLowerCase()
+                        .includes(selectedLocation.toLowerCase()) ||
+                      event.placeEn
+                        .toLowerCase()
+                        .includes(selectedLocation.toLowerCase())
+                    : true;
+                  return isUpcoming && matchesDeity && matchesLocation;
+                }).map((event) => (
+                  <EventCard key={event.id} event={event} type="upcoming" />
                 ))}
               </div>
             )}
@@ -834,6 +954,7 @@ const Pooja = () => {
                 <button
                   onClick={() => {
                     setSelectedCategory("");
+                    setSelectedDeity("");
                     setSearchQuery("");
                   }}
                   className="mt-6 text-amber-600 font-bold hover:underline"
@@ -847,7 +968,7 @@ const Pooja = () => {
       </div>
 
       {/* Upcoming Events Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+      {/* <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         <div className="flex items-center gap-3 mb-8 mt-10">
           <div className="p-3 bg-gradient-to-r from-amber-500 to-orange-600 rounded-xl shadow-lg">
             <Calendar className="w-6 h-6 text-white" />
@@ -885,7 +1006,7 @@ const Pooja = () => {
             </p>
           </div>
         )}
-      </div>
+      </div> */}
     </div>
   );
 };
