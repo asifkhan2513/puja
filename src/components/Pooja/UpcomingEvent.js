@@ -325,7 +325,72 @@ const UpcomingEvent = [
     image: "https://bhaktisandesh.com/wp-content/uploads/2025/04/%E0%A4%97%E0%A5%81%E0%A4%B0%E0%A5%81-%E0%A4%95%E0%A4%BE-%E0%A4%B5%E0%A5%88%E0%A4%A6%E0%A4%BF%E0%A4%95-%E0%A4%AE%E0%A4%82%E0%A4%A4%E0%A5%8D%E0%A4%B0.webp", // Replace with the correct image URL
     description: "विवाह, पारिवारिक सुख और भय निवारण के लिए विष्णु पूजा",
     descriptionEn: "Vishnu puja for marriage, family happiness, and removal of fears"
+  },
+  {
+    id: 11,
+    date: "2026-01-30T11:00:00",
+    day: "Friday",
+    category: ["व्यापार और करियर में सफलता", "दुखों का निवारण"],
+    deity: ["Durga"],
+    poojaName: "सर्व बंधा दोष निवारण पूजा एवं श्री सूक्त पाठ",
+    poojaNameEn: "Sarv Bandha Dosh Nivaran Puja and Shri Sukt Paath",
+    laabh: [
+      "धन वैभव यश में वृद्धि",
+      "स्वास्थ्य और सुरक्षा",
+      "सकारात्मक ऊर्जा"
+    ],
+    laabhEn: [
+      "Increase in wealth, prosperity, and fame",
+      "Health and protection",
+      "Positive energy"
+    ],
+    cost: {
+      single: 501,
+      twoPersons: 701,
+      familyOf4: 1001,
+      familyOf6: 1251
+    },
+    place: "अलोप शंकरी सिद्ध पीठ अलोपीबाग प्रयागराज",
+    placeEn: "Alop Shankari Siddh Peeth Alopibagh Prayagraj",
+    time: "11:00 AM to 01:00 PM",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-PYNz5XjMuwYsqrFI-VBhcBx3_Ji_FhYWgw&s",
+    description: "व्यापार, करियर और सभी प्रकार के दुखों के निवारण हेतु विशेष दुर्गा पूजा",
+    descriptionEn: "Special Durga puja for career success and removal of sorrows"
+  },
+  {
+    id: 12,
+    date: "2026-01-31T11:00:00",
+    day: "Saturday",
+    category: ["नवग्रह शांति", "शत्रु बाधा"],
+    deity: ["Navgrah"],
+    poojaName: "राहु जाप",
+    poojaNameEn: "Rahu Jaap",
+    mantra: "राहु वैदिक मंत्र जाप",
+    jaapSankhya: 18000,
+    laabh: [
+      "राहु दोष में लाभ",
+      "आकस्मिक लाभ",
+      "शत्रु बाधा मुक्ति"
+    ],
+    laabhEn: [
+      "Relief from Rahu Dosh",
+      "Sudden gains",
+      "Freedom from enemy obstacles"
+    ],
+    cost: {
+      single: 501,
+      twoPersons: 701,
+      familyOf4: 1001,
+      familyOf6: 1251
+    },
+    place: "संगम प्रयागराज",
+    placeEn: "Sangam Prayagraj",
+    time: "11:00 AM to 01:00 PM",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf4E7oLBYa4G7SCJYYDIq9w_BShl6NnSck6w&s",
+    description: "राहु दोष, शत्रु बाधा और नवग्रह शांति के लिए विशेष जाप",
+    descriptionEn: "Special jaap for Rahu Dosh, enemy obstruction removal, and Navgraha peace"
   }
+
 
 ];
 

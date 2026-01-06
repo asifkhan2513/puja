@@ -28,6 +28,7 @@ import {
   Timer,
   BookOpen,
   Sparkle,
+  ChevronDown,
 } from "lucide-react";
 import poojaCategories from "./poojaCategories";
 import UpcomingEvent from "./UpcomingEvent";
@@ -432,7 +433,29 @@ const Pooja = () => {
     return [];
   };
 
-  const subCategories = getAllSubCategories();
+  // Get filtered category poojas based on deity
+  const getFilteredCategoryPoojas = () => {
+    if (!selectedDeity) return [];
+
+    const filteredPoojas = [];
+    poojaCategories.forEach((category) => {
+      category.subCategories.forEach((sub) => {
+        if (
+          sub.deity &&
+          sub.deity.toLowerCase().includes(selectedDeity.toLowerCase())
+        ) {
+          filteredPoojas.push({
+            ...sub,
+            categoryHeading: category.heading,
+            categoryId: category.id,
+          });
+        }
+      });
+    });
+    return filteredPoojas;
+  };
+
+  const filteredCategoryPoojas = getFilteredCategoryPoojas();
 
   // Event Card Component
   const EventCard = ({ event, type }) => {
@@ -572,108 +595,132 @@ const Pooja = () => {
                 Discover sacred rituals and divine blessings tailored to your
                 spiritual needs
               </p>
-              <div className="flex item-center justify-center space-x-2">
-                {/* Location */}
-                <div className="mt-8 flex justify-end">
-                  <div className="bg-white rounded-xl shadow-md border border-orange-100 p-4 w-64">
-                    <div className="flex items-center gap-2 mb-3">
-                      <div className="p-1.5 bg-orange-50 rounded-lg">
-                        <Filter className="w-4 h-4 text-amber-600" />
-                      </div>
-                      <h3 className="text-sm font-bold text-gray-800">
-                        Filter by Location
-                      </h3>
-                    </div>
+              <div className="flex items-center justify-center gap-4 mt-6">
+                {/* Location Filter */}
+                <div className="relative">
+                  <select
+                    value={selectedLocation}
+                    onChange={(e) => setSelectedLocation(e.target.value)}
+                    className={`appearance-none bg-white border rounded-lg px-4 py-2.5 pr-10 text-sm font-medium shadow-sm min-w-[160px] transition-all duration-200 ${
+                      selectedLocation
+                        ? "border-amber-400 bg-amber-50 text-amber-800"
+                        : "border-gray-300 text-gray-700 hover:border-amber-400"
+                    } focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent`}
+                  >
+                    <option value="" className="text-gray-500">
+                      Location
+                    </option>
+                    <option value="वाराणसी" className="text-gray-800">
+                      वाराणसी (Varanasi)
+                    </option>
+                    <option value="प्रयागराज" className="text-gray-800">
+                      प्रयागराज (Prayagraj)
+                    </option>
+                    <option value="अयोध्या" className="text-gray-800">
+                      अयोध्या (Ayodhya)
+                    </option>
+                    <option value="मथुरा" className="text-gray-800">
+                      मथुरा (Mathura)
+                    </option>
+                    <option value="हरिद्वार" className="text-gray-800">
+                      हरिद्वार (Haridwar)
+                    </option>
+                  </select>
 
-                    <select
-                      value={selectedLocation}
-                      onChange={(e) => setSelectedLocation(e.target.value)}
-                      className="w-full bg-white border border-gray-200 text-gray-700 py-2 px-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent font-medium shadow-sm text-sm"
-                    >
-                      <option value="">सभी स्थान (All Locations)</option>
-                      <option value="वाराणसी">वाराणसी (Varanasi)</option>
-                      <option value="प्रयागराज">प्रयागराज (Prayagraj)</option>
-                      <option value="अयोध्या">अयोध्या (Ayodhya)</option>
-                      <option value="मथुरा">मथुरा (Mathura)</option>
-                      <option value="हरिद्वार">हरिद्वार (Haridwar)</option>
-                    </select>
-
-                    {selectedLocation && (
-                      <div className="mt-2 flex items-center justify-between">
-                        <span className="text-xs text-gray-600">
-                          Filtering:{" "}
-                          <span className="font-semibold text-amber-600">
-                            {selectedLocation}
-                          </span>
-                        </span>
-                        <button
-                          onClick={() => setSelectedLocation("")}
-                          className="text-amber-600 hover:text-amber-700 text-xs font-medium flex items-center gap-1"
-                        >
-                          <X className="w-3 h-3" />
-                          Clear
-                        </button>
-                      </div>
-                    )}
+                  {/* Custom dropdown arrow */}
+                  <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                    <ChevronRight
+                      className={`w-4 h-4 transform transition-transform ${
+                        selectedLocation
+                          ? "rotate-90 text-amber-600"
+                          : "rotate-90 text-gray-400"
+                      }`}
+                    />
                   </div>
+
+                  {selectedLocation && (
+                    <button
+                      onClick={() => setSelectedLocation("")}
+                      className="absolute -top-2 -right-2 bg-amber-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm hover:bg-amber-600 transition-colors shadow-md"
+                      title="Clear location filter"
+                    >
+                      <X className="w-3 h-3" />
+                    </button>
+                  )}
                 </div>
 
-                {/* Deity Filter Section */}
-                <div className="mt-8 flex justify-end">
-                  <div className="bg-white rounded-xl shadow-md border border-orange-100 p-4 w-64">
-                    <div className="flex items-center gap-2 mb-3">
-                      <div className="p-1.5 bg-orange-50 rounded-lg">
-                        <Filter className="w-4 h-4 text-amber-600" />
-                      </div>
-                      <h3 className="text-sm font-bold text-gray-800">
-                        Filter by Deity
-                      </h3>
-                    </div>
+                {/* Deity Filter */}
+                <div className="relative">
+                  <select
+                    value={selectedDeity}
+                    onChange={(e) => setSelectedDeity(e.target.value)}
+                    className={`appearance-none bg-white border rounded-lg px-4 py-2.5 pr-10 text-sm font-medium shadow-sm min-w-[160px] transition-all duration-200 ${
+                      selectedDeity
+                        ? "border-purple-400 bg-purple-50 text-purple-800"
+                        : "border-gray-300 text-gray-700 hover:border-purple-400"
+                    } focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent`}
+                  >
+                    <option value="" className="text-gray-500">
+                      Deity
+                    </option>
+                    <option value="गणेश" className="text-gray-800">
+                      श्री गणेश जी (Lord Ganesha)
+                    </option>
+                    <option value="शिव" className="text-gray-800">
+                      भगवान शिव (Lord Shiva)
+                    </option>
+                    <option value="विष्णु" className="text-gray-800">
+                      भगवान विष्णु (Lord Vishnu)
+                    </option>
+                    <option value="कृष्ण" className="text-gray-800">
+                      श्री कृष्ण (Lord Krishna)
+                    </option>
+                    <option value="राम" className="text-gray-800">
+                      श्री राम (Lord Rama)
+                    </option>
+                    <option value="हनुमान" className="text-gray-800">
+                      हनुमान जी (Lord Hanuman)
+                    </option>
+                    <option value="दुर्गा" className="text-gray-800">
+                      माता दुर्गा (Goddess Durga)
+                    </option>
+                    <option value="लक्ष्मी" className="text-gray-800">
+                      माता लक्ष्मी (Goddess Lakshmi)
+                    </option>
+                    <option value="सरस्वती" className="text-gray-800">
+                      माता सरस्वती (Goddess Saraswati)
+                    </option>
+                    <option value="काली" className="text-gray-800">
+                      माता काली (Goddess Kali)
+                    </option>
+                    <option value="सूर्य" className="text-gray-800">
+                      सूर्य देव (Lord Surya)
+                    </option>
+                    <option value="भैरव" className="text-gray-800">
+                      भैरव बाबा (Lord Bhairav)
+                    </option>
+                  </select>
 
-                    <select
-                      value={selectedDeity}
-                      onChange={(e) => setSelectedDeity(e.target.value)}
-                      className="w-full bg-white border border-gray-200 text-gray-700 py-2 px-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent font-medium shadow-sm text-sm"
-                    >
-                      <option value="">सभी देवी-देवता (All Deities)</option>
-                      <option value="गणेश">श्री गणेश जी (Lord Ganesha)</option>
-                      <option value="शिव">भगवान शिव (Lord Shiva)</option>
-                      <option value="विष्णु">भगवान विष्णु (Lord Vishnu)</option>
-                      <option value="कृष्ण">श्री कृष्ण (Lord Krishna)</option>
-                      <option value="राम">श्री राम (Lord Rama)</option>
-                      <option value="हनुमान">हनुमान जी (Lord Hanuman)</option>
-                      <option value="दुर्गा">
-                        माता दुर्गा (Goddess Durga)
-                      </option>
-                      <option value="लक्ष्मी">
-                        माता लक्ष्मी (Goddess Lakshmi)
-                      </option>
-                      <option value="सरस्वती">
-                        माता सरस्वती (Goddess Saraswati)
-                      </option>
-                      <option value="काली">माता काली (Goddess Kali)</option>
-                      <option value="सूर्य">सूर्य देव (Lord Surya)</option>
-                      <option value="भैरव">भैरव बाबा (Lord Bhairav)</option>
-                    </select>
-
-                    {selectedDeity && (
-                      <div className="mt-2 flex items-center justify-between">
-                        <span className="text-xs text-gray-600">
-                          Filtering:{" "}
-                          <span className="font-semibold text-amber-600">
-                            {selectedDeity}
-                          </span>
-                        </span>
-                        <button
-                          onClick={() => setSelectedDeity("")}
-                          className="text-amber-600 hover:text-amber-700 text-xs font-medium flex items-center gap-1"
-                        >
-                          <X className="w-3 h-3" />
-                          Clear
-                        </button>
-                      </div>
-                    )}
+                  {/* Custom dropdown arrow */}
+                  <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                    <ChevronRight
+                      className={`w-4 h-4 transform transition-transform ${
+                        selectedDeity
+                          ? "rotate-90 text-purple-600"
+                          : "rotate-90 text-gray-400"
+                      }`}
+                    />
                   </div>
+
+                  {selectedDeity && (
+                    <button
+                      onClick={() => setSelectedDeity("")}
+                      className="absolute -top-2 -right-2 bg-purple-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm hover:bg-purple-600 transition-colors shadow-md"
+                      title="Clear deity filter"
+                    >
+                      <X className="w-3 h-3" />
+                    </button>
+                  )}
                 </div>
               </div>
             </>
@@ -910,18 +957,11 @@ const Pooja = () => {
               </div>
             )}
 
-            {/* Show Upcoming Poojas when no specific category is selected */}
-            {!selectedCategory && (
+            {/* Show Upcoming Poojas when no specific category is selected and no deity filter */}
+            {!selectedCategory && !selectedDeity && (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 lg:gap-6 xl:gap-8 mb-12 lg:mb-16">
                 {UpcomingEvent.filter((event) => {
                   const isUpcoming = isAfter(parseISO(event.date), new Date());
-                  const matchesDeity = selectedDeity
-                    ? event.deity.some((deity) =>
-                        deity
-                          .toLowerCase()
-                          .includes(selectedDeity.toLowerCase())
-                      )
-                    : true;
                   const matchesLocation = selectedLocation
                     ? event.place
                         .toLowerCase()
@@ -930,9 +970,119 @@ const Pooja = () => {
                         .toLowerCase()
                         .includes(selectedLocation.toLowerCase())
                     : true;
-                  return isUpcoming && matchesDeity && matchesLocation;
+                  return isUpcoming && matchesLocation;
                 }).map((event) => (
                   <EventCard key={event.id} event={event} type="upcoming" />
+                ))}
+              </div>
+            )}
+
+            {/* Show Category-based Poojas when deity filter is applied */}
+            {!selectedCategory && selectedDeity && (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 lg:gap-6 xl:gap-8 mb-12 lg:mb-16">
+                {filteredCategoryPoojas.map((pooja, index) => (
+                  <div
+                    key={`${pooja.categoryId}-${pooja.id}`}
+                    className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl border border-orange-100 overflow-hidden transition-all duration-300 transform hover:-translate-y-1"
+                    style={{
+                      animationDelay: `${index * 100}ms`,
+                      animation: "fadeInUp 0.6s ease-out forwards",
+                    }}
+                  >
+                    <div className="relative h-32 bg-gradient-to-br from-amber-500 to-orange-600 p-6 flex items-center justify-between overflow-hidden">
+                      <div className="absolute top-0 right-0 p-4 opacity-10">
+                        <div className="w-20 h-20 rounded-full border-6 border-white"></div>
+                      </div>
+                      <div className="absolute -bottom-4 -left-4 bg-white/10 w-20 h-20 rounded-full blur-xl"></div>
+
+                      <div className="relative z-10 flex items-center gap-3">
+                        <div className="p-3 bg-white/20 backdrop-blur-md rounded-full border border-white/30">
+                          {getDeityIcon(pooja.deity)}
+                        </div>
+                        <h3 className="text-xl font-bold text-white">
+                          {pooja.deity}
+                        </h3>
+                      </div>
+                    </div>
+
+                    <div className="p-6">
+                      {/* Category Badge */}
+                      <div className="mb-4">
+                        <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium">
+                          {pooja.categoryHeading}
+                        </span>
+                      </div>
+
+                      {pooja.disease && (
+                        <div className="mb-4 p-3 bg-red-50 rounded-lg border border-red-100">
+                          <h4 className="font-semibold text-red-800 text-sm mb-1">
+                            समस्या:
+                          </h4>
+                          <p className="text-red-700 text-sm">
+                            {pooja.disease}
+                          </p>
+                        </div>
+                      )}
+
+                      {pooja.benefits && (
+                        <div className="mb-4 p-3 bg-green-50 rounded-lg border border-green-100">
+                          <h4 className="font-semibold text-green-800 text-sm mb-1">
+                            लाभ:
+                          </h4>
+                          <p className="text-green-700 text-sm">
+                            {pooja.benefits}
+                          </p>
+                        </div>
+                      )}
+
+                      {pooja.mantra && (
+                        <div className="mb-4 p-3 bg-blue-50 rounded-lg border border-blue-100">
+                          <h4 className="font-semibold text-blue-800 text-sm mb-1">
+                            मंत्र:
+                          </h4>
+                          <p className="text-blue-700 text-sm font-mono">
+                            {pooja.mantra}
+                          </p>
+                        </div>
+                      )}
+
+                      {pooja.path && (
+                        <div className="mb-4 p-3 bg-purple-50 rounded-lg border border-purple-100">
+                          <h4 className="font-semibold text-purple-800 text-sm mb-1">
+                            पूजा विधि:
+                          </h4>
+                          <p className="text-purple-700 text-sm">
+                            {pooja.path}
+                          </p>
+                        </div>
+                      )}
+
+                      {pooja.puja && (
+                        <div className="mb-4 p-3 bg-amber-50 rounded-lg border border-amber-100">
+                          <h4 className="font-semibold text-amber-800 text-sm mb-1">
+                            पूजा:
+                          </h4>
+                          <p className="text-amber-700 text-sm">{pooja.puja}</p>
+                        </div>
+                      )}
+
+                      {pooja.method && (
+                        <div className="mb-4 p-3 bg-indigo-50 rounded-lg border border-indigo-100">
+                          <h4 className="font-semibold text-indigo-800 text-sm mb-1">
+                            विधि:
+                          </h4>
+                          <p className="text-indigo-700 text-sm">
+                            {pooja.method}
+                          </p>
+                        </div>
+                      )}
+
+                      <button className="w-full py-3.5 px-4 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold rounded-xl hover:from-amber-600 hover:to-orange-700 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl hover:shadow-orange-500/30 transform hover:scale-105">
+                        Book This Pooja
+                        <ArrowRight className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" />
+                      </button>
+                    </div>
+                  </div>
                 ))}
               </div>
             )}
