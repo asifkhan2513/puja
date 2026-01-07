@@ -75,7 +75,7 @@ const UpcomingEvent = [
     day: "Thursday",
     category: ["लक्ष्मी प्राप्ति पूजा", "शत्रु बंध निवारण पूजा"],
     deity: ["lord vishnu"],
-    poojaName: "विष्णु षट्‌नाम पाठ",
+    poojaName: " विष्णु सहस्त्रनाम स्त्रोत पाठ",
     poojaNameEn: "Vishnu Shatnam Paath",
     mantra: "विष्णु षट्‌नाम पाठ संख्या",
     paathSankhya: 21,
