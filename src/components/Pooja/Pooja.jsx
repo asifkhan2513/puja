@@ -35,6 +35,25 @@ import UpcomingEvent, { howItWorksData } from "./UpcomingEvent";
 import { format, parseISO, isAfter } from "date-fns";
 import { useLanguage } from "../../contexts/LanguageContext";
 
+// Utility function to create URL-friendly slugs from pooja names
+const createSlug = (text) => {
+  return text
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, "") // Remove special characters except spaces and hyphens
+    .replace(/\s+/g, "-") // Replace spaces with hyphens
+    .replace(/-+/g, "-") // Replace multiple hyphens with single hyphen
+    .trim();
+};
+
+// Utility function to find event by slug
+const findEventBySlug = (slug) => {
+  return UpcomingEvent.find((event) => {
+    const hindiSlug = createSlug(event.poojaName);
+    const englishSlug = createSlug(event.poojaNameEn);
+    return hindiSlug === slug || englishSlug === slug;
+  });
+};
+
 // Inline styles for custom animations and effects
 const styles = `
   @keyframes marquee {
@@ -64,24 +83,24 @@ const styles = `
 `;
 
 // Pooja Detail View Component
-const PoojaDetailView = ({ id, language = "hindi" }) => {
+const PoojaDetailView = ({ slug, language = "hindi" }) => {
   const navigate = useNavigate();
 
-  // Find the event by ID
-  const event = UpcomingEvent.find((e) => e.id === parseInt(id));
+  // Find the event by slug
+  const event = findEventBySlug(slug);
 
   if (!event) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-orange-50 via-amber-50 to-red-100 flex items-center justify-center">
         <div className="text-center">
           <h2 className="text-2xl font-bold text-gray-800 mb-4">
-            Pooja Not Found
+            {language === "english" ? "Pooja Not Found" : "पूजा नहीं मिली"}
           </h2>
           <button
-            onClick={() => navigate("/puja")}
+            onClick={() => navigate("/pooja")}
             className="px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold rounded-xl hover:from-amber-600 hover:to-orange-700 transition-all duration-300"
           >
-            Back to Poojas
+            {language === "english" ? "Back to Poojas" : "पूजा सूची में वापस"}
           </button>
         </div>
       </div>
@@ -106,7 +125,7 @@ const PoojaDetailView = ({ id, language = "hindi" }) => {
       <div className="bg-gradient-to-r from-amber-600 to-orange-600 text-white py-8 px-4">
         <div className="max-w-6xl mx-auto">
           <button
-            onClick={() => navigate("/puja")}
+            onClick={() => navigate("/pooja")}
             className="flex items-center gap-2 text-amber-100 hover:text-white mb-4 transition-colors"
           >
             <ArrowRight className="w-4 h-4 rotate-180" />
@@ -285,7 +304,9 @@ const PoojaDetailView = ({ id, language = "hindi" }) => {
               <div className="p-6">
                 <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2">
                   <Sparkles className="w-6 h-6 text-amber-600" />
-                  {howItWorksData.heading}
+                  {language === "english"
+                    ? howItWorksData.heading
+                    : howItWorksData.headingHi}
                 </h2>
 
                 <div className="space-y-6">
@@ -297,16 +318,21 @@ const PoojaDetailView = ({ id, language = "hindi" }) => {
                       <div className="flex-shrink-0">
                         <img
                           src={step.image}
-                          alt={step.title}
+                          alt={
+                            language === "english" ? step.title : step.titleHi
+                          }
                           className="w-16 h-16 rounded-lg object-cover"
                         />
                       </div>
                       <div className="flex-1">
                         <h3 className="font-bold text-gray-800 mb-2">
-                          {step.id}. {step.title}
+                          {step.id}.{" "}
+                          {language === "english" ? step.title : step.titleHi}
                         </h3>
                         <p className="text-gray-600 text-sm leading-relaxed">
-                          {step.description}
+                          {language === "english"
+                            ? step.description
+                            : step.descriptionHi}
                         </p>
                       </div>
                     </div>
@@ -373,16 +399,18 @@ const Pooja = () => {
   const [selectedPoojaId, setSelectedPoojaId] = useState(null);
   const { language } = useLanguage(); // Use global language context
   const navigate = useNavigate();
-  const { id } = useParams();
+  const { slug } = useParams(); // Changed from id to slug
 
-  // If ID is present, show detail view
-  if (id) {
-    return <PoojaDetailView id={id} language={language} />;
+  // If slug is present, show detail view
+  if (slug) {
+    return <PoojaDetailView slug={slug} language={language} />;
   }
 
-  // Handle participation
-  const handleParticipateNow = (eventId) => {
-    navigate(`/puja/${eventId}`);
+  // Handle participation - now uses slug instead of ID
+  const handleParticipateNow = (event) => {
+    // Always use English slug for SEO-friendly URLs
+    const poojaSlug = createSlug(event.poojaNameEn);
+    navigate(`/pooja/${poojaSlug}`);
   };
 
   // Map categories to icons and images
@@ -498,17 +526,23 @@ const Pooja = () => {
   };
 
   const filteredCategoryPoojas = getFilteredCategoryPoojas();
+  const subCategories = getAllSubCategories();
 
   // Event Card Component
   const EventCard = ({ event, type }) => {
     const eventDate = parseISO(event.date);
+
+    // Always use English slug for SEO-friendly URLs
+    const getEventSlug = () => {
+      return createSlug(event.poojaNameEn);
+    };
 
     return (
       <div className="group bg-white rounded-2xl shadow-lg hover:shadow-xl border border-orange-100 overflow-hidden transition-all duration-300 w-full">
         {/* Image with Date Badge - Made smaller */}
         <div
           className="relative h-32 sm:h-36 overflow-hidden cursor-pointer"
-          onClick={() => navigate(`/puja/${event.id}`)}
+          onClick={() => navigate(`/pooja/${getEventSlug()}`)}
         >
           <img
             src={event.image}
@@ -608,7 +642,7 @@ const Pooja = () => {
           {/* Action Buttons */}
           <div className="space-y-2">
             <button
-              onClick={() => navigate(`/puja/${event.id}`)}
+              onClick={() => navigate(`/pooja/${getEventSlug()}`)}
               className="w-full py-3 px-4 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold rounded-xl hover:from-amber-600 hover:to-orange-700 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl hover:shadow-orange-500/30 transform hover:scale-105 text-sm sm:text-base"
             >
               {language === "english" ? "Participate Now" : "अभी भाग लें"}
@@ -617,7 +651,7 @@ const Pooja = () => {
 
             <div className="text-center">
               <button
-                onClick={() => navigate(`/puja/${event.id}`)}
+                onClick={() => navigate(`/pooja/${getEventSlug()}`)}
                 className="text-amber-600 hover:text-amber-700 text-sm font-medium hover:underline"
               >
                 {language === "english"
@@ -1013,12 +1047,12 @@ const Pooja = () => {
                         </div>
                       )}
 
-                      {sub.puja && (
+                      {sub.pooja && (
                         <div className="mb-4 p-3 bg-amber-50 rounded-lg border border-amber-100">
                           <h4 className="font-semibold text-amber-800 text-sm mb-1">
                             पूजा:
                           </h4>
-                          <p className="text-amber-700 text-sm">{sub.puja}</p>
+                          <p className="text-amber-700 text-sm">{sub.pooja}</p>
                         </div>
                       )}
 
@@ -1132,12 +1166,14 @@ const Pooja = () => {
                         </div>
                       )}
 
-                      {pooja.puja && (
+                      {pooja.pooja && (
                         <div className="mb-4 p-3 bg-amber-50 rounded-lg border border-amber-100">
                           <h4 className="font-semibold text-amber-800 text-sm mb-1">
                             पूजा:
                           </h4>
-                          <p className="text-amber-700 text-sm">{pooja.puja}</p>
+                          <p className="text-amber-700 text-sm">
+                            {pooja.pooja}
+                          </p>
                         </div>
                       )}
 

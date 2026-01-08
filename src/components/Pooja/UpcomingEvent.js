@@ -9,7 +9,7 @@ const UpcomingEvent = [
     deity: ["lord hanuman , Navgrah"],
     deityHi: ["हनुमान जी, नवग्रह"],
     poojaName: "मंगल दोष निवारण पूजा",
-    poojaNameEn: "Mangal Dosh Nivaran Puja",
+    poojaNameEn: "Mangal Dosh Nivaran pooja",
     mantra: "मंगल वैदिक मंत्र जाप संख्या",
     mantraEn: "Mangal Vedic Mantra Jaap Count",
     jaapSankhya: 10000,
@@ -35,9 +35,9 @@ const UpcomingEvent = [
     placeEn: "Sankatmochan Hanuman Mandir Sangam Daraganj Prayagraj",
     time: "11:00 AM to 01:00 PM",
     timeHi: "सुबह 11:00 से दोपहर 01:00 तक",
-    image: "https://temple.yatradham.org/public/Product/puja-rituals/puja-rituals_2nbk7AFt_202310091711160.jpg",
+    image: "https://temple.yatradham.org/public/Product/pooja-rituals/pooja-rituals_2nbk7AFt_202310091711160.jpg",
     description: "मंगल दोष निवारण के लिए विशेष पूजा",
-    descriptionEn: "Special puja for Mangal Dosh removal"
+    descriptionEn: "Special pooja for Mangal Dosh removal"
   },
   {
     id: 2,
@@ -77,7 +77,7 @@ const UpcomingEvent = [
     timeHi: "सुबह 11:00 से दोपहर 01:00 तक",
     image: "https://shaligram.com/product-img/ganapati-atharvashirsha-paath-OPS-14-16-Zoom.jpg",
     description: "कार्य और व्यापार में वृद्धि के लिए गणेश पूजा",
-    descriptionEn: "Ganesh puja for career and business growth"
+    descriptionEn: "Ganesh pooja for career and business growth"
   },
   {
     id: 3,
@@ -110,7 +110,7 @@ const UpcomingEvent = [
     time: "11:00 AM to 01:00 PM",
     image: "https://static.india.com/wp-content/uploads/2024/03/Shri-Vishnu-Shatnama-Stotra.jpg?impolicy=Medium_Widthonly&w=700",
     description: "धन प्राप्ति और शत्रु निवारण के लिए विष्णु पूजा",
-    descriptionEn: "Vishnu puja for wealth acquisition and enemy removal"
+    descriptionEn: "Vishnu pooja for wealth acquisition and enemy removal"
   },
   {
     id: 4,
@@ -172,7 +172,7 @@ const UpcomingEvent = [
     time: "11:00 AM to 01:00 PM",
     image: "https://mysticalbee.com/wp-content/uploads/2023/01/Shani-Beej-Mantra.jpg",
     description: "शनि दोष निवारण के लिए विशेष पूजा",
-    descriptionEn: "Special puja for Shani Dosh removal"
+    descriptionEn: "Special pooja for Shani Dosh removal"
   },
   {
     id: 6,
@@ -205,7 +205,7 @@ const UpcomingEvent = [
     time: "06:00 AM to 08:00 AM",
     image: "https://images.news18.com/ibnkhabar/uploads/2023/05/%E0%A4%97%E0%A4%BE%E0%A4%AF%E0%A4%A4%E0%A5%8D%E0%A4%B0%E0%A5%80-%E0%A4%AE%E0%A4%82%E0%A4%A4%E0%A5%8D%E0%A4%B0-%E0%A4%95%E0%A5%87-%E0%A4%AB%E0%A4%BE%E0%A4%AF%E0%A4%A6%E0%A5%87-58.jpg?im=Resize,width=807,aspect=fit,type=normal",
     description: "सूर्य दोष निवारण के लिए विशेष पूजा",
-    descriptionEn: "Special puja for Surya Dosh removal"
+    descriptionEn: "Special pooja for Surya Dosh removal"
   },
   {
     id: 7,
@@ -235,7 +235,7 @@ const UpcomingEvent = [
     time: "11:00 AM to 01:00 PM",
     image: "https://d2vlk40wphb5v6.cloudfront.net/public/cms-images/blogs/1171419503_Lalitha-Sahasranam-to-wards-off-black-magic.jpg", // You can replace with the correct image URL
     description: "ललिता शत्रनाम पूजा धन और सुरक्षा के लिए",
-    descriptionEn: "Lalita Shatrnam puja for wealth and protection"
+    descriptionEn: "Lalita Shatrnam pooja for wealth and protection"
   }
   ,// ID 8: 27th January (Tuesday)
   {
@@ -266,9 +266,9 @@ const UpcomingEvent = [
     place: "संकट मोचन हनुमान मंदिर प्रयागराज",
     placeEn: "Sankat Mochan Hanuman Mandir Prayagraj",
     time: "11:00 AM to 01:00 PM",
-    image: "https://www.astrokaka.in/uploads/products/2021/04/ketu-grah-shanti-puja-pauranik-vidhi.jpg", // Replace with the correct image URL
+    image: "https://www.astrokaka.in/uploads/products/2021/04/ketu-grah-shanti-pooja-pauranik-vidhi.jpg", // Replace with the correct image URL
     description: "केतु दोष निवारण के लिए विशेष पूजा",
-    descriptionEn: "Special puja for Ketu Dosh removal"
+    descriptionEn: "Special pooja for Ketu Dosh removal"
   },
 
   // ID 9: 28th January (Wednesday)
@@ -300,9 +300,9 @@ const UpcomingEvent = [
     place: "सिद्ध पीठ ओमकार गणेश मंदिर दरागंज प्रयागराज",
     placeEn: "Siddh Peeth Omkar Ganesh Mandir Daraganj Prayagraj",
     time: "11:00 AM to 01:00 PM",
-    image: "https://i0.wp.com/pujadhaam.com/wp-content/uploads/2024/06/bbbbb.jpg?resize=990%2C990&ssl=1", // Replace with the correct image URL
+    image: "https://i0.wp.com/poojadhaam.com/wp-content/uploads/2024/06/bbbbb.jpg?resize=990%2C990&ssl=1", // Replace with the correct image URL
     description: "व्यापार और करियर में सफलता के लिए विशेष पूजा",
-    descriptionEn: "Special puja for success in business and career"
+    descriptionEn: "Special pooja for success in business and career"
   },
   {
     id: 10,
@@ -334,7 +334,7 @@ const UpcomingEvent = [
     time: "11:00 AM to 01:00 PM",
     image: "https://bhaktisandesh.com/wp-content/uploads/2025/04/%E0%A4%97%E0%A5%81%E0%A4%B0%E0%A5%81-%E0%A4%95%E0%A4%BE-%E0%A4%B5%E0%A5%88%E0%A4%A6%E0%A4%BF%E0%A4%95-%E0%A4%AE%E0%A4%82%E0%A4%A4%E0%A5%8D%E0%A4%B0.webp", // Replace with the correct image URL
     description: "विवाह, पारिवारिक सुख और भय निवारण के लिए विष्णु पूजा",
-    descriptionEn: "Vishnu puja for marriage, family happiness, and removal of fears"
+    descriptionEn: "Vishnu pooja for marriage, family happiness, and removal of fears"
   },
   {
     id: 11,
@@ -343,7 +343,7 @@ const UpcomingEvent = [
     category: ["व्यापार और करियर में सफलता", "दुखों का निवारण"],
     deity: ["Durga"],
     poojaName: "सर्व बंधा दोष निवारण पूजा एवं श्री सूक्त पाठ",
-    poojaNameEn: "Sarv Bandha Dosh Nivaran Puja and Shri Sukt Paath",
+    poojaNameEn: "Sarv Bandha Dosh Nivaran pooja and Shri Sukt Paath",
     laabh: [
       "धन वैभव यश में वृद्धि",
       "स्वास्थ्य और सुरक्षा",
@@ -365,7 +365,7 @@ const UpcomingEvent = [
     time: "11:00 AM to 01:00 PM",
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-PYNz5XjMuwYsqrFI-VBhcBx3_Ji_FhYWgw&s",
     description: "व्यापार, करियर और सभी प्रकार के दुखों के निवारण हेतु विशेष दुर्गा पूजा",
-    descriptionEn: "Special Durga puja for career success and removal of sorrows"
+    descriptionEn: "Special Durga pooja for career success and removal of sorrows"
   },
   {
     id: 12,
@@ -409,9 +409,9 @@ export const howItWorksData = {
   steps: [
     {
       id: 1,
-      title: "Choose Your Puja",
+      title: "Choose Your pooja",
       titleHi: "अपनी पूजा चुनें",
-      description: "Select the puja you wish to perform and seek divine blessings. Every Puja consists of Vedic Name chant, Mantras, Aarti, Bhog as applicable, and took ~2 hours.",
+      description: "Select the pooja you wish to perform and seek divine blessings. Every pooja consists of Vedic Name chant, Mantras, Aarti, Bhog as applicable, and took ~2 hours.",
       descriptionHi: "वह पूजा चुनें जिसे आप करना चाहते हैं और दिव्य आशीर्वाद प्राप्त करना चाहते हैं। प्रत्येक पूजा में वैदिक नाम जाप, मंत्र, आरती, भोग शामिल है और लगभग 2 घंटे का समय लगता है।",
       image: "https://lp-cms-production.imgix.net/2025-04/Shutterstock374175955.jpg?auto=format,compress&q=72&w=1440&h=810&fit=crop"
     },
@@ -425,9 +425,9 @@ export const howItWorksData = {
     },
     {
       id: 3,
-      title: "Receive Blessings & Puja Video",
+      title: "Receive Blessings & pooja Video",
       titleHi: "आशीर्वाद और पूजा वीडियो प्राप्त करें",
-      description: "Pandit ji performs the sacred puja in your name and gotra, and shares a video of the ceremony as a divine blessing.",
+      description: "Pandit ji performs the sacred pooja in your name and gotra, and shares a video of the ceremony as a divine blessing.",
       descriptionHi: "पंडित जी आपके नाम और गोत्र में पवित्र पूजा करते हैं, और दिव्य आशीर्वाद के रूप में समारोह का वीडियो साझा करते हैं।",
       image: "https://lp-cms-production.imgix.net/2025-04/Shutterstock374175955.jpg?auto=format,compress&q=72&w=1440&h=810&fit=crop"
     }

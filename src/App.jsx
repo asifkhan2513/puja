@@ -8,7 +8,7 @@ import {
 import "./App.css";
 import { PATH } from "./components/config/Path";
 import { LanguageProvider } from "./contexts/LanguageContext";
-import AyodhyaDetail from "./components/OnlinePuja/Temple/AyodhyaDetail";
+import AyodhyaDetail from "./components/Onlinepuja/Temple/AyodhyaDetail";
 import VrindavanDetail from "./components/OnlinePuja/Temple/VrindavanDetail";
 import BarsanaDetail from "./components/OnlinePuja/Temple/BarsanaDetail";
 import ChitrakootDetail from "./components/OnlinePuja/Temple/ChitrakootDetail";
@@ -41,30 +41,30 @@ const Legal = lazy(() => import("./components/Legal/Legal"));
 const Faq = lazy(() => import("./components/FAQ/Faq"));
 
 /* Poojas by Deity */
-const Devi_Maa_Pujas = lazy(() =>
+const Devi_Maa_poojas = lazy(() =>
   import("./components/OnlinePuja/Deity/Devi_Maa_Pujas")
 );
-const Lord_Ganesha_Pujas = lazy(() =>
+const Lord_Ganesha_poojas = lazy(() =>
   import("./components/OnlinePuja/Deity/Lord_Ganesha_Pujas")
 );
-const Lord_Shiva_Pujas = lazy(() =>
+const Lord_Shiva_poojas = lazy(() =>
   import("./components/OnlinePuja/Deity/Lord_Shiva_Pujas")
 );
-const Lord_Vishnu_Pujas = lazy(() =>
+const Lord_Vishnu_poojas = lazy(() =>
   import("./components/OnlinePuja/Deity/Lord_Vishnu_Pujas")
 );
 
 /* Poojas by Intention / Category */
-const Career_Job_Puja = lazy(() =>
+const Career_Job_pooja = lazy(() =>
   import("./components/OnlinePuja/Intention/Career_Job_Puja")
 );
-const Health_Protection_Puja = lazy(() =>
+const Health_Protection_pooja = lazy(() =>
   import("./components/OnlinePuja/Intention/Health_Protection_Puja")
 );
-const Marriage_Relationship_Puja = lazy(() =>
+const Marriage_Relationship_pooja = lazy(() =>
   import("./components/OnlinePuja/Intention/Marriage_Relationship_Puja")
 );
-const Wealth_Business_Puja = lazy(() =>
+const Wealth_Business_pooja = lazy(() =>
   import("./components/OnlinePuja/Intention/Wealth_Business_Puja")
 );
 
@@ -120,13 +120,13 @@ const Temples_of_Bharat = lazy(() =>
 const Ayodhya = lazy(() => import("./components/Daan/Temple/Ayodhya"));
 const Kashi = lazy(() => import("./components/Daan/Temple/Kashi"));
 const Ujjain = lazy(() => import("./components/Daan/Temple/Ujjain"));
-const Ayodhya_Temple_Pujas = lazy(() =>
+const Ayodhya_Temple_poojas = lazy(() =>
   import("./components/OnlinePuja/Temple/Ayodhya_Temple_Pujas")
 );
-const Kashi_Vishwanath_Pujas = lazy(() =>
+const Kashi_Vishwanath_poojas = lazy(() =>
   import("./components/OnlinePuja/Temple/Kashi_Vishwanath_Pujas")
 );
-const Ujjain_Temple_Pujas = lazy(() =>
+const Ujjain_Temple_poojas = lazy(() =>
   import("./components/OnlinePuja/Temple/Ujjain_Temple_Pujas")
 );
 const SpiritualPlaces = lazy(() =>
@@ -261,37 +261,37 @@ function App() {
             {/* Deity Poojas */}
             <Route
               path={PATH.POOJA_DEVI_MAA.slice(1)}
-              element={<Devi_Maa_Pujas />}
+              element={<Devi_Maa_poojas />}
             />
             <Route
               path={PATH.POOJA_GANESHA.slice(1)}
-              element={<Lord_Ganesha_Pujas />}
+              element={<Lord_Ganesha_poojas />}
             />
             <Route
               path={PATH.POOJA_SHIVA.slice(1)}
-              element={<Lord_Shiva_Pujas />}
+              element={<Lord_Shiva_poojas />}
             />
             <Route
               path={PATH.POOJA_VISHNU.slice(1)}
-              element={<Lord_Vishnu_Pujas />}
+              element={<Lord_Vishnu_poojas />}
             />
 
             {/* Intention / Category Poojas */}
             <Route
               path={PATH.POOJA_CAREER_JOB.slice(1)}
-              element={<Career_Job_Puja />}
+              element={<Career_Job_pooja />}
             />
             <Route
               path={PATH.POOJA_HEALTH_PROTECTION.slice(1)}
-              element={<Health_Protection_Puja />}
+              element={<Health_Protection_pooja />}
             />
             <Route
               path={PATH.POOJA_MARRIAGE_RELATIONSHIP.slice(1)}
-              element={<Marriage_Relationship_Puja />}
+              element={<Marriage_Relationship_pooja />}
             />
             <Route
               path={PATH.POOJA_WEALTH_BUSINESS.slice(1)}
-              element={<Wealth_Business_Puja />}
+              element={<Wealth_Business_pooja />}
             />
 
             {/* Daan / Seva flow */}
@@ -353,17 +353,17 @@ function App() {
             />
             <Route
               path={PATH.TEMPLES_AYODHYA_POOJA.slice(1)}
-              element={<Ayodhya_Temple_Pujas />}
+              element={<Ayodhya_Temple_poojas />}
             />
             <Route path={PATH.TEMPLES_KASHI.slice(1)} element={<Kashi />} />
             <Route
               path={PATH.TEMPLES_KASHI_POOJA.slice(1)}
-              element={<Kashi_Vishwanath_Pujas />}
+              element={<Kashi_Vishwanath_poojas />}
             />
             <Route path={PATH.TEMPLES_UJJAIN.slice(1)} element={<Ujjain />} />
             <Route
               path={PATH.TEMPLES_UJJAIN_POOJA.slice(1)}
-              element={<Ujjain_Temple_Pujas />}
+              element={<Ujjain_Temple_poojas />}
             />
             <Route
               path={PATH.SPIRITUAL_PLACES.slice(1)}
