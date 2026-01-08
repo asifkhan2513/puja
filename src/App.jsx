@@ -8,7 +8,7 @@ import {
 import "./App.css";
 import { PATH } from "./components/config/Path";
 import { LanguageProvider } from "./contexts/LanguageContext";
-import AyodhyaDetail from "./components/Onlinepuja/Temple/AyodhyaDetail";
+import AyodhyaDetail from "./components/OnlinePuja/Temple/AyodhyaDetail";
 import VrindavanDetail from "./components/OnlinePuja/Temple/VrindavanDetail";
 import BarsanaDetail from "./components/OnlinePuja/Temple/BarsanaDetail";
 import ChitrakootDetail from "./components/OnlinePuja/Temple/ChitrakootDetail";
