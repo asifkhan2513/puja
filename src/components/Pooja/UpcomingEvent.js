@@ -3,11 +3,15 @@ const UpcomingEvent = [
     id: 1,
     date: "2026-01-20T18:00:00",
     day: "Tuesday",
+    dayHi: "मंगलवार",
     category: ["विवाह बंध", "नवग्रह शांति"],
+    categoryEn: ["Marriage Bond", "Navgraha Peace"],
     deity: ["lord hanuman , Navgrah"],
+    deityHi: ["हनुमान जी, नवग्रह"],
     poojaName: "मंगल दोष निवारण पूजा",
     poojaNameEn: "Mangal Dosh Nivaran Puja",
     mantra: "मंगल वैदिक मंत्र जाप संख्या",
+    mantraEn: "Mangal Vedic Mantra Jaap Count",
     jaapSankhya: 10000,
     laabh: [
       "वैवाहिक समस्या से समाधान",
@@ -30,6 +34,7 @@ const UpcomingEvent = [
     place: "संकटमोचन हनुमान मंदिर संगम दरागंज प्रयागराज",
     placeEn: "Sankatmochan Hanuman Mandir Sangam Daraganj Prayagraj",
     time: "11:00 AM to 01:00 PM",
+    timeHi: "सुबह 11:00 से दोपहर 01:00 तक",
     image: "https://temple.yatradham.org/public/Product/puja-rituals/puja-rituals_2nbk7AFt_202310091711160.jpg",
     description: "मंगल दोष निवारण के लिए विशेष पूजा",
     descriptionEn: "Special puja for Mangal Dosh removal"
@@ -38,11 +43,15 @@ const UpcomingEvent = [
     id: 2,
     date: "2026-01-21T11:00:00",
     day: "Wednesday",
+    dayHi: "बुधवार",
     category: ["नौकरी एवं व्यापार वृद्धि"],
+    categoryEn: ["Job and Business Growth"],
     deity: ["lord ganesh"],
+    deityHi: ["गणेश जी"],
     poojaName: "गणेश पूजा एवं गणेश अथर्व शीर्ष पाठ",
     poojaNameEn: "Ganesh Pooja and Ganesh Atharv Shirsh Paath",
     mantra: "गणेश अथर्व शीर्ष पाठ संख्या",
+    mantraEn: "Ganesh Atharv Shirsh Paath Count",
     paathSankhya: 51,
     laabh: [
       "विघ्नों का नाश",
@@ -65,6 +74,7 @@ const UpcomingEvent = [
     place: "सिद्ध पीठ ओमकार गणेश मंदिर प्रयागराज",
     placeEn: "Siddh Peeth Omkar Ganesh Mandir Prayagraj",
     time: "11:00 AM to 01:00 PM",
+    timeHi: "सुबह 11:00 से दोपहर 01:00 तक",
     image: "https://shaligram.com/product-img/ganapati-atharvashirsha-paath-OPS-14-16-Zoom.jpg",
     description: "कार्य और व्यापार में वृद्धि के लिए गणेश पूजा",
     descriptionEn: "Ganesh puja for career and business growth"
@@ -390,8 +400,38 @@ const UpcomingEvent = [
     description: "राहु दोष, शत्रु बाधा और नवग्रह शांति के लिए विशेष जाप",
     descriptionEn: "Special jaap for Rahu Dosh, enemy obstruction removal, and Navgraha peace"
   }
-
-
 ];
+
+// Common "How it Works" data for all poojas
+export const howItWorksData = {
+  heading: "How it works?",
+  headingHi: "यह कैसे काम करता है?",
+  steps: [
+    {
+      id: 1,
+      title: "Choose Your Puja",
+      titleHi: "अपनी पूजा चुनें",
+      description: "Select the puja you wish to perform and seek divine blessings. Every Puja consists of Vedic Name chant, Mantras, Aarti, Bhog as applicable, and took ~2 hours.",
+      descriptionHi: "वह पूजा चुनें जिसे आप करना चाहते हैं और दिव्य आशीर्वाद प्राप्त करना चाहते हैं। प्रत्येक पूजा में वैदिक नाम जाप, मंत्र, आरती, भोग शामिल है और लगभग 2 घंटे का समय लगता है।",
+      image: "https://lp-cms-production.imgix.net/2025-04/Shutterstock374175955.jpg?auto=format,compress&q=72&w=1440&h=810&fit=crop"
+    },
+    {
+      id: 2,
+      title: "Offer Dakshina and Sankalp",
+      titleHi: "दक्षिणा और संकल्प अर्पित करें",
+      description: "Offer Dakshina, Bhog/Seva, and share your sankalp with name and gotra.",
+      descriptionHi: "दक्षिणा, भोग/सेवा अर्पित करें और अपना नाम और गोत्र के साथ संकल्प साझा करें।",
+      image: "https://images.pexels.com/photos/15893245/pexels-photo-15893245.jpeg"
+    },
+    {
+      id: 3,
+      title: "Receive Blessings & Puja Video",
+      titleHi: "आशीर्वाद और पूजा वीडियो प्राप्त करें",
+      description: "Pandit ji performs the sacred puja in your name and gotra, and shares a video of the ceremony as a divine blessing.",
+      descriptionHi: "पंडित जी आपके नाम और गोत्र में पवित्र पूजा करते हैं, और दिव्य आशीर्वाद के रूप में समारोह का वीडियो साझा करते हैं।",
+      image: "https://lp-cms-production.imgix.net/2025-04/Shutterstock374175955.jpg?auto=format,compress&q=72&w=1440&h=810&fit=crop"
+    }
+  ]
+};
 
 export default UpcomingEvent;

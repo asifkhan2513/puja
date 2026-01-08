@@ -31,8 +31,9 @@ import {
   ChevronDown,
 } from "lucide-react";
 import poojaCategories from "./poojaCategories";
-import UpcomingEvent from "./UpcomingEvent";
+import UpcomingEvent, { howItWorksData } from "./UpcomingEvent";
 import { format, parseISO, isAfter } from "date-fns";
+import { useLanguage } from "../../contexts/LanguageContext";
 
 // Inline styles for custom animations and effects
 const styles = `
@@ -63,7 +64,7 @@ const styles = `
 `;
 
 // Pooja Detail View Component
-const PoojaDetailView = ({ id }) => {
+const PoojaDetailView = ({ id, language = "hindi" }) => {
   const navigate = useNavigate();
 
   // Find the event by ID
@@ -109,12 +110,14 @@ const PoojaDetailView = ({ id }) => {
             className="flex items-center gap-2 text-amber-100 hover:text-white mb-4 transition-colors"
           >
             <ArrowRight className="w-4 h-4 rotate-180" />
-            Back to Poojas
+            {language === "english" ? "Back to Poojas" : "पूजा सूची में वापस"}
           </button>
           <h1 className="text-3xl md:text-4xl font-bold mb-2">
-            {event.poojaName}
+            {language === "english" ? event.poojaNameEn : event.poojaName}
           </h1>
-          <p className="text-xl text-amber-100">{event.poojaNameEn}</p>
+          <p className="text-xl text-amber-100">
+            {language === "english" ? event.poojaName : event.poojaNameEn}
+          </p>
         </div>
       </div>
 
@@ -122,7 +125,7 @@ const PoojaDetailView = ({ id }) => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
-            {/* Event Image and Basic Info */}
+            {/* Event Image - Fixed without overlay content */}
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
               <div className="relative h-64 md:h-80">
                 <img
@@ -130,28 +133,12 @@ const PoojaDetailView = ({ id }) => {
                   alt={event.poojaNameEn}
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <div className="flex items-center gap-4 text-sm">
-                    <div className="flex items-center gap-1">
-                      <Calendar className="w-4 h-4" />
-                      {formattedDate}
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Timer className="w-4 h-4" />
-                      {event.time}
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <MapPin className="w-4 h-4" />
-                      {event.placeEn}
-                    </div>
-                  </div>
-                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
               </div>
 
               <div className="p-6">
                 {/* Event Details */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                   <div>
                     <h3 className="font-bold text-gray-800 mb-3 flex items-center gap-2">
                       <Crown className="w-5 h-5 text-amber-600" />
@@ -187,26 +174,31 @@ const PoojaDetailView = ({ id }) => {
                   </div>
                 </div>
 
-                {/* Mantra and Jaap */}
+                {/* Mantra and Jaap - Now visible and properly positioned */}
                 {event.mantra && (
-                  <div className="mt-6 p-4 bg-gradient-to-r from-orange-50 to-amber-50 rounded-xl border border-orange-100">
+                  <div className="mt-35 mb-6 p-4 bg-gradient-to-r from-orange-50 to-amber-50 rounded-xl border border-orange-100">
                     <h3 className="font-bold text-gray-800 mb-2 flex items-center gap-2">
                       <BookOpen className="w-5 h-5 text-amber-600" />
                       Mantra
                     </h3>
-                    <p className="text-gray-700 font-mono text-lg">
+                    <p className="text-gray-700 font-mono text-lg mb-2">
                       {event.mantra}
                     </p>
                     {event.jaapSankhya && (
-                      <p className="text-sm text-gray-600 mt-2">
+                      <p className="text-sm text-gray-600">
                         Jaap Count: {event.jaapSankhya.toLocaleString()}
+                      </p>
+                    )}
+                    {event.paathSankhya && (
+                      <p className="text-sm text-gray-600">
+                        Paath Count: {event.paathSankhya}
                       </p>
                     )}
                   </div>
                 )}
 
                 {/* Benefits */}
-                <div className="mt-6">
+                <div className="mb-6">
                   <h3 className="font-bold text-gray-800 mb-3 flex items-center gap-2">
                     <Sparkle className="w-5 h-5 text-amber-600" />
                     Benefits (लाभ)
@@ -252,12 +244,73 @@ const PoojaDetailView = ({ id }) => {
                 </div>
 
                 {/* Description */}
-                <div className="mt-6 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-100">
+                <div className="mb-6 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-100">
                   <h3 className="font-bold text-gray-800 mb-2">Description</h3>
                   <p className="text-gray-700 mb-2">{event.description}</p>
                   <p className="text-gray-600 text-sm italic">
                     {event.descriptionEn}
                   </p>
+                </div>
+
+                {/* Event Timing - Moved here after description */}
+                <div className="mb-6 p-4 bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl border border-purple-100">
+                  <h3 className="font-bold text-gray-800 mb-2 flex items-center gap-2">
+                    <Clock className="w-5 h-5 text-purple-600" />
+                    Event Schedule
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div>
+                      <p className="text-sm text-gray-600">Date</p>
+                      <p className="font-semibold text-gray-800">
+                        {formattedDate}
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-600">Day</p>
+                      <p className="font-semibold text-gray-800">{event.day}</p>
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-600">Time</p>
+                      <p className="font-semibold text-gray-800">
+                        {event.time}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* How it Works Section */}
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+              <div className="p-6">
+                <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2">
+                  <Sparkles className="w-6 h-6 text-amber-600" />
+                  {howItWorksData.heading}
+                </h2>
+
+                <div className="space-y-6">
+                  {howItWorksData.steps.map((step, index) => (
+                    <div
+                      key={step.id}
+                      className="flex gap-4 p-4 bg-gradient-to-r from-amber-50 to-orange-50 rounded-xl border border-amber-100"
+                    >
+                      <div className="flex-shrink-0">
+                        <img
+                          src={step.image}
+                          alt={step.title}
+                          className="w-16 h-16 rounded-lg object-cover"
+                        />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-bold text-gray-800 mb-2">
+                          {step.id}. {step.title}
+                        </h3>
+                        <p className="text-gray-600 text-sm leading-relaxed">
+                          {step.description}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -304,19 +357,6 @@ const PoojaDetailView = ({ id }) => {
                 <p className="text-gray-700 font-semibold">{event.place}</p>
                 <p className="text-gray-600 text-sm">{event.placeEn}</p>
               </div>
-
-              {/* Event Schedule */}
-              <div className="mt-4 p-4 bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl border border-purple-100">
-                <h4 className="font-bold text-gray-800 mb-2 flex items-center gap-2">
-                  <Clock className="w-5 h-5 text-purple-600" />
-                  Schedule
-                </h4>
-                <p className="text-gray-700">
-                  <span className="font-semibold">{event.day}</span> •{" "}
-                  {formattedDate}
-                </p>
-                <p className="text-gray-600 text-sm">{event.time}</p>
-              </div>
             </div>
           </div>
         </div>
@@ -330,12 +370,14 @@ const Pooja = () => {
   const [selectedDeity, setSelectedDeity] = useState("");
   const [selectedLocation, setSelectedLocation] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
+  const [selectedPoojaId, setSelectedPoojaId] = useState(null);
+  const { language } = useLanguage(); // Use global language context
   const navigate = useNavigate();
   const { id } = useParams();
 
   // If ID is present, show detail view
   if (id) {
-    return <PoojaDetailView id={id} />;
+    return <PoojaDetailView id={id} language={language} />;
   }
 
   // Handle participation
@@ -470,7 +512,7 @@ const Pooja = () => {
         >
           <img
             src={event.image}
-            alt={event.poojaNameEn}
+            alt={language === "english" ? event.poojaNameEn : event.poojaName}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
@@ -493,7 +535,7 @@ const Pooja = () => {
           {/* Event Title */}
           <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 right-2 sm:right-4">
             <h3 className="text-sm sm:text-lg font-bold text-white mb-1 line-clamp-2">
-              {event.poojaName}
+              {language === "english" ? event.poojaNameEn : event.poojaName}
             </h3>
             <p className="text-xs sm:text-sm text-amber-100">
               {event.day} • {event.time}
@@ -506,7 +548,9 @@ const Pooja = () => {
           {/* Event Details */}
           <div className="space-y-3 mb-4">
             <div>
-              <h4 className="font-bold text-gray-700 text-sm mb-1">Deities:</h4>
+              <h4 className="font-bold text-gray-700 text-sm mb-1">
+                {language === "english" ? "Deities:" : "देवता:"}
+              </h4>
               <div className="flex flex-wrap gap-1 sm:gap-2">
                 {event.deity.map((god, idx) => (
                   <span
@@ -521,10 +565,13 @@ const Pooja = () => {
 
             <div>
               <h4 className="font-bold text-gray-700 text-sm mb-1">
-                Benefits:
+                {language === "english" ? "Benefits:" : "लाभ:"}
               </h4>
               <div className="flex flex-wrap gap-1 sm:gap-2">
-                {(event.laabhEn || event.laabh || [])
+                {(language === "english"
+                  ? event.laabhEn || []
+                  : event.laabh || []
+                )
                   .slice(0, 2)
                   .map((benefit, idx) => (
                     <span
@@ -539,14 +586,18 @@ const Pooja = () => {
             {/* Location */}
             <div>
               <h4 className="font-bold text-gray-700 text-sm mb-1">
-                Location:
+                {language === "english" ? "Location:" : "स्थान:"}
               </h4>
-              <p className="text-gray-600 text-sm">{event.placeEn}</p>
+              <p className="text-gray-600 text-sm">
+                {language === "english" ? event.placeEn : event.place}
+              </p>
             </div>
             {/* Starting Price */}
             <div className="pt-2 border-t border-gray-100">
               <div className="flex justify-between items-center">
-                <span className="text-sm text-gray-600">Starting from:</span>
+                <span className="text-sm text-gray-600">
+                  {language === "english" ? "Starting from:" : "शुरुआती मूल्य:"}
+                </span>
                 <span className="text-lg font-bold text-amber-600">
                   ₹{Math.min(...Object.values(event.cost))}
                 </span>
@@ -560,7 +611,7 @@ const Pooja = () => {
               onClick={() => navigate(`/puja/${event.id}`)}
               className="w-full py-3 px-4 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold rounded-xl hover:from-amber-600 hover:to-orange-700 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl hover:shadow-orange-500/30 transform hover:scale-105 text-sm sm:text-base"
             >
-              Participate Now
+              {language === "english" ? "Participate Now" : "अभी भाग लें"}
               <User className="w-4 h-4" />
             </button>
 
@@ -569,7 +620,9 @@ const Pooja = () => {
                 onClick={() => navigate(`/puja/${event.id}`)}
                 className="text-amber-600 hover:text-amber-700 text-sm font-medium hover:underline"
               >
-                View Full Details
+                {language === "english"
+                  ? "View Full Details"
+                  : "पूरा विवरण देखें"}
               </button>
             </div>
           </div>
@@ -589,11 +642,14 @@ const Pooja = () => {
           {!selectedCategory ? (
             <>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-                Browse Upcoming Pooja and Poojas by Category
+                {language === "hindi"
+                  ? "आगामी पूजा और श्रेणी के अनुसार पूजा ब्राउज़ करें"
+                  : "Browse Upcoming Pooja and Poojas by Category"}
               </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Discover sacred rituals and divine blessings tailored to your
-                spiritual needs
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-6">
+                {language === "hindi"
+                  ? "अपनी आध्यात्मिक आवश्यकताओं के अनुरूप पवित्र अनुष्ठान और दिव्य आशीर्वाद खोजें"
+                  : "Discover sacred rituals and divine blessings tailored to your spiritual needs"}
               </p>
               <div className="flex items-center justify-center gap-4 mt-6">
                 {/* Location Filter */}
@@ -608,7 +664,7 @@ const Pooja = () => {
                     } focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent`}
                   >
                     <option value="" className="text-gray-500">
-                      Location
+                      {language === "english" ? "Location" : "स्थान"}
                     </option>
                     <option value="वाराणसी" className="text-gray-800">
                       वाराणसी (Varanasi)
@@ -661,7 +717,7 @@ const Pooja = () => {
                     } focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent`}
                   >
                     <option value="" className="text-gray-500">
-                      Deity
+                      {language === "english" ? "Deity" : "देवता"}
                     </option>
                     <option value="गणेश" className="text-gray-800">
                       श्री गणेश जी (Lord Ganesha)
@@ -747,7 +803,9 @@ const Pooja = () => {
                   <Filter className="w-4 h-4 lg:w-5 lg:h-5 text-amber-600" />
                 </div>
                 <span className="text-gray-800 underline font-bold text-base lg:text-lg">
-                  Filter by Category
+                  {language === "english"
+                    ? "Filter by Category"
+                    : "श्रेणी के अनुसार फ़िल्टर करें"}
                 </span>
               </div>
               <div className="space-y-2 max-h-[500px] lg:max-h-[600px] overflow-y-auto pr-2">
@@ -759,7 +817,11 @@ const Pooja = () => {
                       : "text-gray-600 hover:bg-orange-50 hover:pl-4 lg:hover:pl-5"
                   }`}
                 >
-                  <span className="font-semibold">All Categories</span>
+                  <span className="font-semibold">
+                    {language === "english"
+                      ? "All Categories"
+                      : "सभी श्रेणियां"}
+                  </span>
                   {!selectedCategory && <ChevronRight className="w-4 h-4" />}
                 </button>
                 {poojaCategories.map((category) => (
@@ -793,7 +855,9 @@ const Pooja = () => {
                   <Filter className="w-4 h-4 text-amber-600" />
                 </div>
                 <span className="text-gray-800 font-bold text-base">
-                  Filter by Category
+                  {language === "english"
+                    ? "Filter by Category"
+                    : "श्रेणी के अनुसार फ़िल्टर करें"}
                 </span>
               </div>
               <select
@@ -801,7 +865,9 @@ const Pooja = () => {
                 onChange={(e) => setSelectedCategory(e.target.value)}
                 className="w-full bg-white border border-gray-200 text-gray-700 py-3 px-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent font-medium shadow-sm"
               >
-                <option value="">All Categories</option>
+                <option value="">
+                  {language === "english" ? "All Categories" : "सभी श्रेणियां"}
+                </option>
                 {poojaCategories.map((category) => (
                   <option key={category.id} value={category.heading}>
                     {category.heading}
@@ -817,7 +883,9 @@ const Pooja = () => {
                   <Crown className="w-4 h-4 text-amber-600" />
                 </div>
                 <span className="text-gray-800 font-bold text-base">
-                  Filter by Deity
+                  {language === "english"
+                    ? "Filter by Deity"
+                    : "देवता के अनुसार फ़िल्टर करें"}
                 </span>
               </div>
               <select
@@ -851,11 +919,16 @@ const Pooja = () => {
               <span className="text-gray-600 font-medium text-base lg:text-lg">
                 {selectedCategory ? (
                   <>
-                    Showing {subCategories.length} Poojas in "{selectedCategory}
-                    "
+                    {language === "english"
+                      ? `Showing ${subCategories.length} Poojas in "${selectedCategory}"`
+                      : `"${selectedCategory}" में ${subCategories.length} पूजा दिखा रहे हैं`}
                   </>
                 ) : (
-                  <>Showing {filteredCategories.length} Categories</>
+                  <>
+                    {language === "english"
+                      ? `Showing ${filteredCategories.length} Categories`
+                      : `${filteredCategories.length} श्रेणियां दिखा रहे हैं`}
+                  </>
                 )}
               </span>
               {(selectedCategory || selectedDeity || searchQuery) && (
@@ -868,7 +941,9 @@ const Pooja = () => {
                   className="flex items-center gap-2 text-amber-600 font-semibold hover:underline text-sm lg:text-base"
                 >
                   <X className="w-4 h-4" />
-                  Clear Filters
+                  {language === "english"
+                    ? "Clear Filters"
+                    : "फ़िल्टर साफ़ करें"}
                 </button>
               )}
             </div>

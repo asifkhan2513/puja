@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import "./App.css";
 import { PATH } from "./components/config/Path";
+import { LanguageProvider } from "./contexts/LanguageContext";
 import AyodhyaDetail from "./components/OnlinePuja/Temple/AyodhyaDetail";
 import VrindavanDetail from "./components/OnlinePuja/Temple/VrindavanDetail";
 import BarsanaDetail from "./components/OnlinePuja/Temple/BarsanaDetail";
@@ -230,255 +231,275 @@ const Layout = () => (
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        {/* Layout wrapper */}
-        <Route path={PATH.HOME} element={<Layout />}>
-          {/* Home */}
-          <Route index element={<HomePage />} />
-          {/* Pooja */}
-          <Route path={PATH.POOJA.slice(1)} element={<Pooja />} />
-          <Route path={PATH.POOJA_DETAILS.slice(1)} element={<Pooja />} />
-          {/* About us */}
-          <Route path={PATH.ABOUT_US.slice(1)} element={<About />} />
-          <Route
-            path={PATH.ABOUT_MISSION.slice(1)}
-            element={<Mission_Trust_Signals />}
-          />
-          <Route path={PATH.ABOUT_TEAM.slice(1)} element={<Team_Pandits />} />
+    <LanguageProvider>
+      <Router>
+        <Routes>
+          {/* Layout wrapper */}
+          <Route path={PATH.HOME} element={<Layout />}>
+            {/* Home */}
+            <Route index element={<HomePage />} />
+            {/* Pooja */}
+            <Route path={PATH.POOJA.slice(1)} element={<Pooja />} />
+            <Route path={PATH.POOJA_DETAILS.slice(1)} element={<Pooja />} />
+            {/* About us */}
+            <Route path={PATH.ABOUT_US.slice(1)} element={<About />} />
+            <Route
+              path={PATH.ABOUT_MISSION.slice(1)}
+              element={<Mission_Trust_Signals />}
+            />
+            <Route path={PATH.ABOUT_TEAM.slice(1)} element={<Team_Pandits />} />
 
-          {/* App & Utilities */}
-          <Route path={PATH.FEATURES.slice(1)} element={<App_Features />} />
-          <Route
-            path={PATH.DOWNLOAD.slice(1)}
-            element={<QR_Code_Store_Buttons />}
-          />
-          <Route path={PATH.FAQ.slice(1)} element={<Faq />} />
-          <Route path={PATH.LEGAL.slice(1)} element={<Legal />} />
+            {/* App & Utilities */}
+            <Route path={PATH.FEATURES.slice(1)} element={<App_Features />} />
+            <Route
+              path={PATH.DOWNLOAD.slice(1)}
+              element={<QR_Code_Store_Buttons />}
+            />
+            <Route path={PATH.FAQ.slice(1)} element={<Faq />} />
+            <Route path={PATH.LEGAL.slice(1)} element={<Legal />} />
 
-          {/* Deity Poojas */}
-          <Route
-            path={PATH.POOJA_DEVI_MAA.slice(1)}
-            element={<Devi_Maa_Pujas />}
-          />
-          <Route
-            path={PATH.POOJA_GANESHA.slice(1)}
-            element={<Lord_Ganesha_Pujas />}
-          />
-          <Route
-            path={PATH.POOJA_SHIVA.slice(1)}
-            element={<Lord_Shiva_Pujas />}
-          />
-          <Route
-            path={PATH.POOJA_VISHNU.slice(1)}
-            element={<Lord_Vishnu_Pujas />}
-          />
+            {/* Deity Poojas */}
+            <Route
+              path={PATH.POOJA_DEVI_MAA.slice(1)}
+              element={<Devi_Maa_Pujas />}
+            />
+            <Route
+              path={PATH.POOJA_GANESHA.slice(1)}
+              element={<Lord_Ganesha_Pujas />}
+            />
+            <Route
+              path={PATH.POOJA_SHIVA.slice(1)}
+              element={<Lord_Shiva_Pujas />}
+            />
+            <Route
+              path={PATH.POOJA_VISHNU.slice(1)}
+              element={<Lord_Vishnu_Pujas />}
+            />
 
-          {/* Intention / Category Poojas */}
-          <Route
-            path={PATH.POOJA_CAREER_JOB.slice(1)}
-            element={<Career_Job_Puja />}
-          />
-          <Route
-            path={PATH.POOJA_HEALTH_PROTECTION.slice(1)}
-            element={<Health_Protection_Puja />}
-          />
-          <Route
-            path={PATH.POOJA_MARRIAGE_RELATIONSHIP.slice(1)}
-            element={<Marriage_Relationship_Puja />}
-          />
-          <Route
-            path={PATH.POOJA_WEALTH_BUSINESS.slice(1)}
-            element={<Wealth_Business_Puja />}
-          />
+            {/* Intention / Category Poojas */}
+            <Route
+              path={PATH.POOJA_CAREER_JOB.slice(1)}
+              element={<Career_Job_Puja />}
+            />
+            <Route
+              path={PATH.POOJA_HEALTH_PROTECTION.slice(1)}
+              element={<Health_Protection_Puja />}
+            />
+            <Route
+              path={PATH.POOJA_MARRIAGE_RELATIONSHIP.slice(1)}
+              element={<Marriage_Relationship_Puja />}
+            />
+            <Route
+              path={PATH.POOJA_WEALTH_BUSINESS.slice(1)}
+              element={<Wealth_Business_Puja />}
+            />
 
-          {/* Daan / Seva flow */}
-          <Route path={PATH.DAAN.slice(1)} element={<Seva_Daan_Details />} />
-          <Route
-            path={PATH.DAAN_HEALTH.slice(1)}
-            element={<Health_related_Daan />}
-          />
-          <Route
-            path={PATH.DAAN_MARRIAGE.slice(1)}
-            element={<Marriage_Relationship_Daan />}
-          />
-          <Route
-            path={PATH.DAAN_PEACE_PROTECTION.slice(1)}
-            element={<Peace__Protection_Daan />}
-          />
-          <Route
-            path={PATH.DAAN_WEALTH_BUSINESS.slice(1)}
-            element={<Wealth_Business_Daan />}
-          />
-          <Route
-            path={PATH.DAAN_PACKAGES.slice(1)}
-            element={<Packages_Add_ons />}
-          />
-          <Route path={PATH.CHECKOUT.slice(1)} element={<Checkout />} />
-          <Route
-            path={PATH.CHECKOUT_SUMMARY.slice(1)}
-            element={<Checkout_Cart_Summary />}
-          />
-          <Route
-            path={PATH.CHECKOUT_DATE_TIME.slice(1)}
-            element={<Date_Time_Selection />}
-          />
-          <Route
-            path={PATH.CHECKOUT_INTENT.slice(1)}
-            element={<Intent_Prayer_Note />}
-          />
-          <Route
-            path={PATH.CHECKOUT_USER_DETAILS.slice(1)}
-            element={<User_Details_Form />}
-          />
-          <Route
-            path={PATH.CHECKOUT_PAYMENT_CONFIRMATION.slice(1)}
-            element={<Payment_Confirmation_Page />}
-          />
-          <Route
-            path={PATH.PAYMENT_SUCCESS.slice(1)}
-            element={<Payment_Confirmation />}
-          />
+            {/* Daan / Seva flow */}
+            <Route path={PATH.DAAN.slice(1)} element={<Seva_Daan_Details />} />
+            <Route
+              path={PATH.DAAN_HEALTH.slice(1)}
+              element={<Health_related_Daan />}
+            />
+            <Route
+              path={PATH.DAAN_MARRIAGE.slice(1)}
+              element={<Marriage_Relationship_Daan />}
+            />
+            <Route
+              path={PATH.DAAN_PEACE_PROTECTION.slice(1)}
+              element={<Peace__Protection_Daan />}
+            />
+            <Route
+              path={PATH.DAAN_WEALTH_BUSINESS.slice(1)}
+              element={<Wealth_Business_Daan />}
+            />
+            <Route
+              path={PATH.DAAN_PACKAGES.slice(1)}
+              element={<Packages_Add_ons />}
+            />
+            <Route path={PATH.CHECKOUT.slice(1)} element={<Checkout />} />
+            <Route
+              path={PATH.CHECKOUT_SUMMARY.slice(1)}
+              element={<Checkout_Cart_Summary />}
+            />
+            <Route
+              path={PATH.CHECKOUT_DATE_TIME.slice(1)}
+              element={<Date_Time_Selection />}
+            />
+            <Route
+              path={PATH.CHECKOUT_INTENT.slice(1)}
+              element={<Intent_Prayer_Note />}
+            />
+            <Route
+              path={PATH.CHECKOUT_USER_DETAILS.slice(1)}
+              element={<User_Details_Form />}
+            />
+            <Route
+              path={PATH.CHECKOUT_PAYMENT_CONFIRMATION.slice(1)}
+              element={<Payment_Confirmation_Page />}
+            />
+            <Route
+              path={PATH.PAYMENT_SUCCESS.slice(1)}
+              element={<Payment_Confirmation />}
+            />
 
-          {/* Temples & Cities */}
-          <Route path={PATH.TEMPLES.slice(1)} element={<Temples_of_Bharat />} />
-          <Route
-            path={PATH.TEMPLES_AYODHYA.slice(1)}
-            element={<AyodhyaDetail />}
-          />
-          <Route
-            path={PATH.TEMPLES_AYODHYA_POOJA.slice(1)}
-            element={<Ayodhya_Temple_Pujas />}
-          />
-          <Route path={PATH.TEMPLES_KASHI.slice(1)} element={<Kashi />} />
-          <Route
-            path={PATH.TEMPLES_KASHI_POOJA.slice(1)}
-            element={<Kashi_Vishwanath_Pujas />}
-          />
-          <Route path={PATH.TEMPLES_UJJAIN.slice(1)} element={<Ujjain />} />
-          <Route
-            path={PATH.TEMPLES_UJJAIN_POOJA.slice(1)}
-            element={<Ujjain_Temple_Pujas />}
-          />
-          <Route
-            path={PATH.SPIRITUAL_PLACES.slice(1)}
-            element={<SpiritualPlaces />}
-          />
-          <Route
-            path={PATH.SPIRITUAL_PLACES_AYODHYA.slice(1)}
-            element={<AyodhyaDetail />}
-          />
-          <Route
-            path={PATH.SPIRITUAL_PLACES_VRINDAVAN.slice(1)}
-            element={<VrindavanDetail />}
-          />
-          <Route
-            path={PATH.SPIRITUAL_PLACES_BARSANA.slice(1)}
-            element={<BarsanaDetail />}
-          />
-          <Route
-            path={PATH.SPIRITUAL_PLACES_CHITRAKOOT.slice(1)}
-            element={<ChitrakootDetail />}
-          />
-          <Route
-            path={PATH.SPIRITUAL_PLACES_MAIHAR.slice(1)}
-            element={<MaiharDetail />}
-          />
-          <Route
-            path={PATH.SPIRITUAL_PLACES_VARANASI.slice(1)}
-            element={<VaranasiDetails />}
-          />
-          <Route
-            path={PATH.SPIRITUAL_PLACES_VINDHYACHAL.slice(1)}
-            element={<VindhyachalDetails />}
-          />
-          <Route
-            path={PATH.TEMPLES_PRAYAGRAJ.slice(1)}
-            element={<PrayagrajDetails />}
-          />
-          <Route path={PATH.LIVE_DARSHAN.slice(1)} element={<LiveDarshan />} />
-          <Route
-            path={PATH.LIVE_DARSHAN_DETAIL.slice(1)}
-            element={<LiveDarshanDetail />}
-          />
+            {/* Temples & Cities */}
+            <Route
+              path={PATH.TEMPLES.slice(1)}
+              element={<Temples_of_Bharat />}
+            />
+            <Route
+              path={PATH.TEMPLES_AYODHYA.slice(1)}
+              element={<AyodhyaDetail />}
+            />
+            <Route
+              path={PATH.TEMPLES_AYODHYA_POOJA.slice(1)}
+              element={<Ayodhya_Temple_Pujas />}
+            />
+            <Route path={PATH.TEMPLES_KASHI.slice(1)} element={<Kashi />} />
+            <Route
+              path={PATH.TEMPLES_KASHI_POOJA.slice(1)}
+              element={<Kashi_Vishwanath_Pujas />}
+            />
+            <Route path={PATH.TEMPLES_UJJAIN.slice(1)} element={<Ujjain />} />
+            <Route
+              path={PATH.TEMPLES_UJJAIN_POOJA.slice(1)}
+              element={<Ujjain_Temple_Pujas />}
+            />
+            <Route
+              path={PATH.SPIRITUAL_PLACES.slice(1)}
+              element={<SpiritualPlaces />}
+            />
+            <Route
+              path={PATH.SPIRITUAL_PLACES_AYODHYA.slice(1)}
+              element={<AyodhyaDetail />}
+            />
+            <Route
+              path={PATH.SPIRITUAL_PLACES_VRINDAVAN.slice(1)}
+              element={<VrindavanDetail />}
+            />
+            <Route
+              path={PATH.SPIRITUAL_PLACES_BARSANA.slice(1)}
+              element={<BarsanaDetail />}
+            />
+            <Route
+              path={PATH.SPIRITUAL_PLACES_CHITRAKOOT.slice(1)}
+              element={<ChitrakootDetail />}
+            />
+            <Route
+              path={PATH.SPIRITUAL_PLACES_MAIHAR.slice(1)}
+              element={<MaiharDetail />}
+            />
+            <Route
+              path={PATH.SPIRITUAL_PLACES_VARANASI.slice(1)}
+              element={<VaranasiDetails />}
+            />
+            <Route
+              path={PATH.SPIRITUAL_PLACES_VINDHYACHAL.slice(1)}
+              element={<VindhyachalDetails />}
+            />
+            <Route
+              path={PATH.TEMPLES_PRAYAGRAJ.slice(1)}
+              element={<PrayagrajDetails />}
+            />
+            <Route
+              path={PATH.LIVE_DARSHAN.slice(1)}
+              element={<LiveDarshan />}
+            />
+            <Route
+              path={PATH.LIVE_DARSHAN_DETAIL.slice(1)}
+              element={<LiveDarshanDetail />}
+            />
 
-          {/* Knowledge / Content */}
-          <Route path={PATH.ARTICLES.slice(1)} element={<Article_Content />} />
-          <Route path={PATH.AARTI.slice(1)} element={<Aarti />} />
-          <Route path={PATH.FESTIVALS.slice(1)} element={<Festivals_Vrat />} />
-          <Route path={PATH.MANTRAS.slice(1)} element={<Mantra_Stotra />} />
+            {/* Knowledge / Content */}
+            <Route
+              path={PATH.ARTICLES.slice(1)}
+              element={<Article_Content />}
+            />
+            <Route path={PATH.AARTI.slice(1)} element={<Aarti />} />
+            <Route
+              path={PATH.FESTIVALS.slice(1)}
+              element={<Festivals_Vrat />}
+            />
+            <Route path={PATH.MANTRAS.slice(1)} element={<Mantra_Stotra />} />
 
-          {/* Rashifal */}
-          <Route
-            path={PATH.RASHIFAL_DAILY.slice(1)}
-            element={<Daily_Rashifal />}
-          />
-          <Route
-            path={PATH.RASHIFAL_WEEKLY.slice(1)}
-            element={<Weekly_Rashifal />}
-          />
-          <Route
-            path={PATH.RASHIFAL_MONTHLY.slice(1)}
-            element={<Monthly_Rashifal />}
-          />
-          <Route
-            path={PATH.RASHIFAL_YEARLY.slice(1)}
-            element={<Yearly_Rashifal />}
-          />
+            {/* Rashifal */}
+            <Route
+              path={PATH.RASHIFAL_DAILY.slice(1)}
+              element={<Daily_Rashifal />}
+            />
+            <Route
+              path={PATH.RASHIFAL_WEEKLY.slice(1)}
+              element={<Weekly_Rashifal />}
+            />
+            <Route
+              path={PATH.RASHIFAL_MONTHLY.slice(1)}
+              element={<Monthly_Rashifal />}
+            />
+            <Route
+              path={PATH.RASHIFAL_YEARLY.slice(1)}
+              element={<Yearly_Rashifal />}
+            />
 
-          {/* Individual zodiac routes */}
-          <Route path={PATH.RASHIFAL_ARIES.slice(1)} element={<Mesh_Aries />} />
-          <Route
-            path={PATH.RASHIFAL_TAURUS.slice(1)}
-            element={<Vrishabha_Taurus />}
-          />
-          <Route
-            path={PATH.RASHIFAL_GEMINI.slice(1)}
-            element={<Mithun_Gemini />}
-          />
+            {/* Individual zodiac routes */}
+            <Route
+              path={PATH.RASHIFAL_ARIES.slice(1)}
+              element={<Mesh_Aries />}
+            />
+            <Route
+              path={PATH.RASHIFAL_TAURUS.slice(1)}
+              element={<Vrishabha_Taurus />}
+            />
+            <Route
+              path={PATH.RASHIFAL_GEMINI.slice(1)}
+              element={<Mithun_Gemini />}
+            />
 
-          <Route
-            path={PATH.RASHIFAL_CANCER.slice(1)}
-            element={<Kark_Cancer />}
-          />
-          <Route path={PATH.RASHIFAL_LEO.slice(1)} element={<Simha_Leo />} />
-          <Route
-            path={PATH.RASHIFAL_VIRGO.slice(1)}
-            element={<Kanya_Virgo />}
-          />
-          <Route path={PATH.RASHIFAL_LIBRA.slice(1)} element={<Tula_Libra />} />
-          <Route
-            path={PATH.RASHIFAL_SCORPIO.slice(1)}
-            element={<Vrishchik_Scorpio />}
-          />
-          <Route
-            path={PATH.RASHIFAL_SAGITTARIUS.slice(1)}
-            element={<Dhanu_Sagittarius />}
-          />
-          <Route
-            path={PATH.RASHIFAL_CAPRICORN.slice(1)}
-            element={<Makar_Capricorn />}
-          />
-          <Route
-            path={PATH.RASHIFAL_AQUARIUS.slice(1)}
-            element={<Kumbh_Aquarius />}
-          />
-          <Route
-            path={PATH.RASHIFAL_PISCES.slice(1)}
-            element={<Meen_Pisces />}
-          />
+            <Route
+              path={PATH.RASHIFAL_CANCER.slice(1)}
+              element={<Kark_Cancer />}
+            />
+            <Route path={PATH.RASHIFAL_LEO.slice(1)} element={<Simha_Leo />} />
+            <Route
+              path={PATH.RASHIFAL_VIRGO.slice(1)}
+              element={<Kanya_Virgo />}
+            />
+            <Route
+              path={PATH.RASHIFAL_LIBRA.slice(1)}
+              element={<Tula_Libra />}
+            />
+            <Route
+              path={PATH.RASHIFAL_SCORPIO.slice(1)}
+              element={<Vrishchik_Scorpio />}
+            />
+            <Route
+              path={PATH.RASHIFAL_SAGITTARIUS.slice(1)}
+              element={<Dhanu_Sagittarius />}
+            />
+            <Route
+              path={PATH.RASHIFAL_CAPRICORN.slice(1)}
+              element={<Makar_Capricorn />}
+            />
+            <Route
+              path={PATH.RASHIFAL_AQUARIUS.slice(1)}
+              element={<Kumbh_Aquarius />}
+            />
+            <Route
+              path={PATH.RASHIFAL_PISCES.slice(1)}
+              element={<Meen_Pisces />}
+            />
 
-          {/* Contact Us */}
-          <Route path="contactus" element={<ContachUs />} />
+            {/* Contact Us */}
+            <Route path="contactus" element={<ContachUs />} />
 
-          {/* Fallback Not Found inside layout */}
-          <Route path="*" element={<NotFound />} />
-        </Route>
+            {/* Fallback Not Found inside layout */}
+            <Route path="*" element={<NotFound />} />
+          </Route>
 
-        {/* Catch-all (if someone navigates outside layout) */}
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-    </Router>
+          {/* Catch-all (if someone navigates outside layout) */}
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </Router>
+    </LanguageProvider>
   );
 }
 

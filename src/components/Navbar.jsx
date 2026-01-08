@@ -19,10 +19,12 @@ import {
   Store,
 } from "lucide-react";
 import LOGO from "../assets/LOGO.png";
+import { useLanguage } from "../contexts/LanguageContext";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(null);
+  const { language, setLanguage } = useLanguage();
   const navigate = useNavigate();
 
   const handleNavClick = (href) => {
@@ -33,69 +35,90 @@ const Navbar = () => {
   };
 
   const links = [
-    { name: "Home", href: PATH.HOME, icon: HomeIcon },
-    { name: "Poojas", href: PATH.POOJA, icon: Sparkles },
-
-    { name: "Daan & Seva", href: PATH.DAAN, icon: RocketIcon },
-    { name: "Rashifal", href: PATH.RASHIFAL_DAILY, icon: Sparkles },
-
     {
-      name: "Temples",
+      name: language === "english" ? "Home" : "होम",
+      href: PATH.HOME,
+      icon: HomeIcon,
+    },
+    {
+      name: language === "english" ? "Poojas" : "पूजा",
+      href: PATH.POOJA,
+      icon: Sparkles,
+    },
+    {
+      name: language === "english" ? "Daan & Seva" : "दान और सेवा",
+      href: PATH.DAAN,
+      icon: RocketIcon,
+    },
+    {
+      name: language === "english" ? "Rashifal" : "राशिफल",
+      href: PATH.RASHIFAL_DAILY,
+      icon: Sparkles,
+    },
+    {
+      name: language === "english" ? "Temples" : "मंदिर",
       icon: HomeIcon,
       dropdown: [
         {
-          name: "Ayodhya",
+          name: language === "english" ? "Ayodhya" : "अयोध्या",
           href: PATH.SPIRITUAL_PLACES_AYODHYA,
           icon: LandPlot,
-          desc: "Ram Janmabhoomi",
+          desc: language === "english" ? "Ram Janmabhoomi" : "राम जन्मभूमि",
         },
         {
-          name: "Vrindavan",
+          name: language === "english" ? "Vrindavan" : "वृंदावन",
           href: PATH.SPIRITUAL_PLACES_VRINDAVAN,
           icon: Sparkles,
-          desc: "Land of Krishna",
+          desc: language === "english" ? "Land of Krishna" : "कृष्ण की भूमि",
         },
         {
-          name: "Barsana",
+          name: language === "english" ? "Barsana" : "बरसाना",
           href: PATH.SPIRITUAL_PLACES_BARSANA,
           icon: Heart,
-          desc: "Radha Rani Dham",
+          desc: language === "english" ? "Radha Rani Dham" : "राधा रानी धाम",
         },
         {
-          name: "Chitrakoot",
+          name: language === "english" ? "Chitrakoot" : "चित्रकूट",
           href: PATH.SPIRITUAL_PLACES_CHITRAKOOT,
           icon: LandPlot,
-          desc: "Forest of Ram",
+          desc: language === "english" ? "Forest of Ram" : "राम का वन",
         },
         {
-          name: "Maihar",
+          name: language === "english" ? "Maihar" : "मैहर",
           href: PATH.SPIRITUAL_PLACES_MAIHAR,
           icon: HomeIcon,
-          desc: "Shakti Peeth",
+          desc: language === "english" ? "Shakti Peeth" : "शक्ति पीठ",
         },
         {
-          name: "Varanasi",
+          name: language === "english" ? "Varanasi" : "वाराणसी",
           href: PATH.SPIRITUAL_PLACES_VARANASI,
           icon: Wand,
-          desc: "varanai",
+          desc: language === "english" ? "Varanasi" : "वाराणसी",
         },
-
         {
-          name: "Vindhyachal",
+          name: language === "english" ? "Vindhyachal" : "विंध्याचल",
           href: PATH.SPIRITUAL_PLACES_VINDHYACHAL,
           icon: Flower,
-          desc: "Vindhyachal",
+          desc: language === "english" ? "Vindhyachal" : "विंध्याचल",
         },
         {
-          name: "Prayagraj",
+          name: language === "english" ? "Prayagraj" : "प्रयागराज",
           href: PATH.TEMPLES_PRAYAGRAJ,
           icon: Flower,
-          desc: "Prayagraj",
+          desc: language === "english" ? "Prayagraj" : "प्रयागराज",
         },
       ],
     },
-    { name: "About Us", href: "/about-us", icon: Store },
-    { name: "Contact", href: "/contactus", icon: Phone },
+    {
+      name: language === "english" ? "About Us" : "हमारे बारे में",
+      href: "/about-us",
+      icon: Store,
+    },
+    {
+      name: language === "english" ? "Contact" : "संपर्क",
+      href: "/contactus",
+      icon: Phone,
+    },
   ];
 
   return (
@@ -175,11 +198,39 @@ const Navbar = () => {
               );
             })}
 
+            {/* Language Toggle */}
+            <div className="flex items-center bg-white rounded-full p-1 shadow-md border border-gray-200 ml-2">
+              <button
+                onClick={() => setLanguage("hindi")}
+                className={`px-3 py-1.5 rounded-full text-sm font-semibold transition-all duration-300 ${
+                  language === "hindi"
+                    ? "bg-gradient-to-r from-purple-500 to-purple-600 text-white shadow-sm"
+                    : "text-gray-600 hover:text-purple-600"
+                }`}
+              >
+                <span className="flex items-center gap-1">
+                  <span className="text-sm">हि</span>
+                </span>
+              </button>
+              <button
+                onClick={() => setLanguage("english")}
+                className={`px-3 py-1.5 rounded-full text-sm font-semibold transition-all duration-300 ${
+                  language === "english"
+                    ? "bg-gradient-to-r from-purple-500 to-purple-600 text-white shadow-sm"
+                    : "text-gray-600 hover:text-purple-600"
+                }`}
+              >
+                <span className="flex items-center gap-1">
+                  <span className="text-sm">En</span>
+                </span>
+              </button>
+            </div>
+
             <button
               onClick={() => handleNavClick(PATH.POOJA_DEVI_MAA)}
               className="px-6 py-2 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-2xl"
             >
-              Book Pooja
+              {language === "english" ? "Book Pooja" : "पूजा बुक करें"}
             </button>
           </div>
 
@@ -192,6 +243,32 @@ const Navbar = () => {
         {/* Mobile Menu */}
         {open && (
           <div className="md:hidden pb-4 bg-white border-t">
+            {/* Language Toggle for Mobile */}
+            <div className="px-4 py-3 border-b border-gray-100">
+              <div className="flex items-center justify-center bg-gray-50 rounded-full p-1">
+                <button
+                  onClick={() => setLanguage("hindi")}
+                  className={`flex-1 px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
+                    language === "hindi"
+                      ? "bg-gradient-to-r from-purple-500 to-purple-600 text-white shadow-sm"
+                      : "text-gray-600"
+                  }`}
+                >
+                  हिंदी
+                </button>
+                <button
+                  onClick={() => setLanguage("english")}
+                  className={`flex-1 px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
+                    language === "english"
+                      ? "bg-gradient-to-r from-purple-500 to-purple-600 text-white shadow-sm"
+                      : "text-gray-600"
+                  }`}
+                >
+                  English
+                </button>
+              </div>
+            </div>
+
             {links.map((item, index) => {
               const Icon = item.icon;
 
