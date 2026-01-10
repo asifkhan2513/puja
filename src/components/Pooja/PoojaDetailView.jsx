@@ -259,71 +259,88 @@ const PoojaDetailView = ({ slug, language = "hindi" }) => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Left Column - Details */}
           <div className="lg:col-span-2 space-y-8">
-            {/* Dynamic Rendering of Detailed Pages */}
+            {/* Dynamic Rendering of Detailed Pages (Excluding Page 1) */}
             {event.detailedPages &&
-              event.detailedPages.map((page, idx) => (
-                <div
-                  key={idx}
-                  className={`rounded-3xl p-6 sm:p-8 shadow-xl border border-orange-100 ${
-                    idx % 2 === 0
-                      ? "bg-white"
-                      : "bg-gradient-to-br from-amber-50 to-orange-50"
-                  }`}
-                >
-                  <div className="flex items-center gap-2 mb-4">
-                    <span className={`p-2 rounded-lg ${getSectionColor(idx)}`}>
-                      {getSectionIcon(idx)}
-                    </span>
-                    <h2 className="text-xl sm:text-2xl font-bold text-gray-800">
-                      {isHindi ? page.title : page.titleEn || page.title}
-                    </h2>
-                  </div>
+              event.detailedPages
+                .filter((page) => page.pageNumber !== 1)
+                .map((page, idx) => (
+                  <div
+                    key={idx}
+                    className={`rounded-3xl p-6 sm:p-8 shadow-xl border-2 border-orange-100 hover:shadow-2xl hover:scale-[1.01] transition-all duration-300 relative overflow-hidden group ${
+                      idx % 2 === 0
+                        ? "bg-white"
+                        : "bg-gradient-to-br from-amber-50 to-orange-50"
+                    }`}
+                  >
+                    {/* Decorative Background Element */}
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-orange-200/20 rounded-bl-full -z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                  {page.content ? (
-                    <p className="text-gray-600 text-lg leading-relaxed">
-                      {isHindi ? page.content : page.contentEn || page.content}
-                    </p>
-                  ) : null}
-
-                  {page.blessings && (
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-                      {page.blessings.map((blessing, bIdx) => (
-                        <div
-                          key={bIdx}
-                          className="bg-white p-4 rounded-xl shadow-sm border border-orange-100 flex items-start gap-3"
+                    <div className="relative z-10">
+                      <div className="flex items-center gap-3 mb-6">
+                        <span
+                          className={`p-3 rounded-2xl shadow-md ${getSectionColor(
+                            idx
+                          )}`}
                         >
-                          <div className="mt-1 bg-green-100 p-1 rounded-full text-green-600 shrink-0">
-                            <CheckCircle className="w-4 h-4" />
-                          </div>
-                          <span className="font-semibold text-gray-700">
-                            {blessing}
-                          </span>
+                          {getSectionIcon(page.pageNumber)}
+                        </span>
+                        <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 font-serif tracking-wide">
+                          {isHindi ? page.title : page.titleEn || page.title}
+                        </h2>
+                      </div>
+
+                      {page.content ? (
+                        <p className="text-gray-700 text-lg leading-loose font-medium opacity-90">
+                          {isHindi
+                            ? page.content
+                            : page.contentEn || page.content}
+                        </p>
+                      ) : null}
+
+                      {page.blessings && (
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
+                          {page.blessings.map((blessing, bIdx) => (
+                            <div
+                              key={bIdx}
+                              className="bg-white/80 backdrop-blur-sm p-4 rounded-xl shadow-sm border border-orange-100 hover:border-orange-300 flex items-start gap-3 transition-colors duration-200"
+                            >
+                              <div className="mt-1 bg-gradient-to-br from-green-100 to-green-200 p-1.5 rounded-full text-green-700 shrink-0 shadow-inner">
+                                <CheckCircle className="w-4 h-4" />
+                              </div>
+                              <span className="font-semibold text-gray-800 text-sm leading-snug">
+                                {blessing}
+                              </span>
+                            </div>
+                          ))}
                         </div>
-                      ))}
+                      )}
                     </div>
-                  )}
-                </div>
-              ))}
+                  </div>
+                ))}
 
             {/* About / Context Section - Dynamic */}
             {(event.whyChoose || event.whyChooseEn) && (
-              <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-orange-100">
-                <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2">
-                  <Flower className="w-6 h-6 text-orange-500" />
+              <div className="bg-white rounded-3xl p-8 shadow-2xl border-2 border-orange-100 hover:shadow-orange-100/50 transition-shadow duration-300">
+                <h2 className="text-2xl font-bold text-gray-800 mb-8 flex items-center gap-3 font-serif">
+                  <div className="p-2 bg-orange-100 rounded-lg text-orange-600">
+                    <Flower className="w-6 h-6" />
+                  </div>
                   {isHindi ? "पूजन के बारे में" : "About the Pooja"}
                 </h2>
                 <div className="space-y-4">
-                  <ul className="space-y-3">
+                  <ul className="grid grid-cols-1 gap-4">
                     {(isHindi
                       ? event.whyChoose
                       : event.whyChooseEn || event.whyChoose
                     ).map((point, i) => (
                       <li
                         key={i}
-                        className="flex gap-3 text-gray-700 items-start"
+                        className="flex gap-4 p-4 rounded-2xl bg-orange-50/50 hover:bg-orange-50 transition-colors border border-transparent hover:border-orange-100 group"
                       >
-                        <div className="h-2 w-2 rounded-full bg-orange-400 mt-2 shrink-0"></div>
-                        <span>{point}</span>
+                        <div className="h-3 w-3 rounded-full bg-gradient-to-r from-orange-400 to-red-500 mt-2 shrink-0 group-hover:scale-125 transition-transform duration-300 shadow-md"></div>
+                        <span className="text-gray-700 font-medium leading-relaxed">
+                          {point}
+                        </span>
                       </li>
                     ))}
                   </ul>
@@ -334,27 +351,31 @@ const PoojaDetailView = ({ slug, language = "hindi" }) => {
             {/* Detailed Benefits Grid - Dynamic */}
             {event.detailedBenefits && (
               <div>
-                <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2 pl-2">
-                  <Award className="w-6 h-6 text-orange-500" />
+                <h2 className="text-2xl font-bold text-gray-800 mb-8 flex items-center gap-3 pl-2 font-serif">
+                  <div className="p-2 bg-yellow-100 rounded-lg text-yellow-600">
+                    <Award className="w-6 h-6" />
+                  </div>
                   {isHindi ? "पूजा लाभ" : "Pooja Benefits"}
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {event.detailedBenefits.map((benefit, idx) => (
                     <div
                       key={idx}
-                      className="bg-orange-50/50 rounded-2xl p-6 border border-4 border-orange-200 hover:shadow-lg transition-shadow"
+                      className="bg-white rounded-2xl p-6 border-b-4 border-orange-400 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 relative group overflow-hidden"
                     >
-                      <div className="flex items-center gap-3 mb-3">
-                        <div className="p-2 bg-white rounded-lg shadow-sm text-orange-600 font-bold text-lg">
+                      <div className="absolute top-0 right-0 w-24 h-24 bg-orange-50 rounded-bl-full -mr-8 -mt-8 opacity-50 group-hover:scale-110 transition-transform duration-500"></div>
+
+                      <div className="flex items-center gap-4 mb-4 relative z-10">
+                        <div className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-orange-400 to-red-500 text-white font-bold text-lg rounded-xl shadow-md group-hover:rotate-6 transition-transform duration-300">
                           {idx + 1}
                         </div>
-                        <h3 className="font-bold text-lg text-gray-800">
+                        <h3 className="font-bold text-xl text-gray-800 leading-tight">
                           {isHindi
                             ? benefit.title
                             : benefit.titleEn || benefit.title}
                         </h3>
                       </div>
-                      <p className="text-gray-600 text-sm leading-relaxed">
+                      <p className="text-gray-600 text-sm leading-relaxed font-medium pl-14 opacity-80 relative z-10">
                         {isHindi
                           ? benefit.description
                           : benefit.descriptionEn || benefit.description}
