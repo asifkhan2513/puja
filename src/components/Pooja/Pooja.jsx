@@ -32,6 +32,7 @@ import {
 } from "lucide-react";
 import poojaCategories from "./poojaCategories";
 import UpcomingEvent, { howItWorksData } from "./UpcomingEvent";
+import PoojaDetailView from "./PoojaDetailView";
 import { format, parseISO, isAfter } from "date-fns";
 import { useLanguage } from "../../contexts/LanguageContext";
 
@@ -81,315 +82,6 @@ const styles = `
       0 5px 10px rgba(0,0,0,.25);
   }
 `;
-
-// Pooja Detail View Component
-const PoojaDetailView = ({ slug, language = "hindi" }) => {
-  const navigate = useNavigate();
-
-  // Find the event by slug
-  const event = findEventBySlug(slug);
-
-  if (!event) {
-    return (
-      <div className="min-h-screen bg-gradient-to-b from-orange-50 via-amber-50 to-red-100 flex items-center justify-center">
-        <div className="text-center">
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">
-            {language === "english" ? "Pooja Not Found" : "पूजा नहीं मिली"}
-          </h2>
-          <button
-            onClick={() => navigate("/pooja")}
-            className="px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold rounded-xl hover:from-amber-600 hover:to-orange-700 transition-all duration-300"
-          >
-            {language === "english" ? "Back to Poojas" : "पूजा सूची में वापस"}
-          </button>
-        </div>
-      </div>
-    );
-  }
-
-  const eventDate = parseISO(event.date);
-  const formattedDate = format(eventDate, "dd MMM yyyy");
-  const formattedTime = format(eventDate, "hh:mm a");
-
-  const handleParticipate = (packageType) => {
-    // Handle participation logic here
-    console.log(
-      `Participating in ${event.poojaName} with ${packageType} package`
-    );
-    // You can navigate to checkout or show a modal
-  };
-
-  return (
-    <div className="min-h-screen bg-gradient-to-b from-orange-50 via-amber-50 to-red-100">
-      {/* Header */}
-      <div className="bg-gradient-to-r from-amber-600 to-orange-600 text-white py-8 px-4">
-        <div className="max-w-6xl mx-auto">
-          <button
-            onClick={() => navigate("/pooja")}
-            className="flex items-center gap-2 text-amber-100 hover:text-white mb-4 transition-colors"
-          >
-            <ArrowRight className="w-4 h-4 rotate-180" />
-            {language === "english" ? "Back to Poojas" : "पूजा सूची में वापस"}
-          </button>
-          <h1 className="text-3xl md:text-4xl font-bold mb-2">
-            {language === "english" ? event.poojaNameEn : event.poojaName}
-          </h1>
-          <p className="text-xl text-amber-100">
-            {language === "english" ? event.poojaName : event.poojaNameEn}
-          </p>
-        </div>
-      </div>
-
-      <div className="max-w-6xl mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Main Content */}
-          <div className="lg:col-span-2 space-y-8">
-            {/* Event Image - Fixed without overlay content */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-              <div className="relative h-64 md:h-80">
-                <img
-                  src={event.image}
-                  alt={event.poojaNameEn}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-              </div>
-
-              <div className="p-6">
-                {/* Event Details */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                  <div>
-                    <h3 className="font-bold text-gray-800 mb-3 flex items-center gap-2">
-                      <Crown className="w-5 h-5 text-amber-600" />
-                      Deities
-                    </h3>
-                    <div className="flex flex-wrap gap-2">
-                      {event.deity.map((god, idx) => (
-                        <span
-                          key={idx}
-                          className="px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-sm font-medium"
-                        >
-                          {god}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div>
-                    <h3 className="font-bold text-gray-800 mb-3 flex items-center gap-2">
-                      <Filter className="w-5 h-5 text-amber-600" />
-                      Categories
-                    </h3>
-                    <div className="flex flex-wrap gap-2">
-                      {event.category.map((cat, idx) => (
-                        <span
-                          key={idx}
-                          className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium"
-                        >
-                          {cat}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Mantra and Jaap - Now visible and properly positioned */}
-                {event.mantra && (
-                  <div className="mt-35 mb-6 p-4 bg-gradient-to-r from-orange-50 to-amber-50 rounded-xl border border-orange-100">
-                    <h3 className="font-bold text-gray-800 mb-2 flex items-center gap-2">
-                      <BookOpen className="w-5 h-5 text-amber-600" />
-                      Mantra
-                    </h3>
-                    <p className="text-gray-700 font-mono text-lg mb-2">
-                      {event.mantra}
-                    </p>
-                    {event.jaapSankhya && (
-                      <p className="text-sm text-gray-600">
-                        Jaap Count: {event.jaapSankhya.toLocaleString()}
-                      </p>
-                    )}
-                    {event.paathSankhya && (
-                      <p className="text-sm text-gray-600">
-                        Paath Count: {event.paathSankhya}
-                      </p>
-                    )}
-                  </div>
-                )}
-
-                {/* Benefits */}
-                <div className="mb-6">
-                  <h3 className="font-bold text-gray-800 mb-3 flex items-center gap-2">
-                    <Sparkle className="w-5 h-5 text-amber-600" />
-                    Benefits (लाभ)
-                  </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {event.laabh && event.laabh.length > 0 && (
-                      <div>
-                        <h4 className="font-semibold text-gray-700 mb-2">
-                          Hindi
-                        </h4>
-                        <ul className="space-y-1">
-                          {event.laabh.map((benefit, idx) => (
-                            <li
-                              key={idx}
-                              className="text-gray-600 text-sm flex items-start gap-2"
-                            >
-                              <span className="w-1.5 h-1.5 bg-amber-500 rounded-full mt-2 flex-shrink-0"></span>
-                              {benefit}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-                    {event.laabhEn && event.laabhEn.length > 0 && (
-                      <div>
-                        <h4 className="font-semibold text-gray-700 mb-2">
-                          English
-                        </h4>
-                        <ul className="space-y-1">
-                          {event.laabhEn.map((benefit, idx) => (
-                            <li
-                              key={idx}
-                              className="text-gray-600 text-sm flex items-start gap-2"
-                            >
-                              <span className="w-1.5 h-1.5 bg-amber-500 rounded-full mt-2 flex-shrink-0"></span>
-                              {benefit}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-                  </div>
-                </div>
-
-                {/* Description */}
-                <div className="mb-6 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-100">
-                  <h3 className="font-bold text-gray-800 mb-2">Description</h3>
-                  <p className="text-gray-700 mb-2">{event.description}</p>
-                  <p className="text-gray-600 text-sm italic">
-                    {event.descriptionEn}
-                  </p>
-                </div>
-
-                {/* Event Timing - Moved here after description */}
-                <div className="mb-6 p-4 bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl border border-purple-100">
-                  <h3 className="font-bold text-gray-800 mb-2 flex items-center gap-2">
-                    <Clock className="w-5 h-5 text-purple-600" />
-                    Event Schedule
-                  </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div>
-                      <p className="text-sm text-gray-600">Date</p>
-                      <p className="font-semibold text-gray-800">
-                        {formattedDate}
-                      </p>
-                    </div>
-                    <div>
-                      <p className="text-sm text-gray-600">Day</p>
-                      <p className="font-semibold text-gray-800">{event.day}</p>
-                    </div>
-                    <div>
-                      <p className="text-sm text-gray-600">Time</p>
-                      <p className="font-semibold text-gray-800">
-                        {event.time}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* How it Works Section */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-              <div className="p-6">
-                <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2">
-                  <Sparkles className="w-6 h-6 text-amber-600" />
-                  {language === "english"
-                    ? howItWorksData.heading
-                    : howItWorksData.headingHi}
-                </h2>
-
-                <div className="space-y-6">
-                  {howItWorksData.steps.map((step, index) => (
-                    <div
-                      key={step.id}
-                      className="flex gap-4 p-4 bg-gradient-to-r from-amber-50 to-orange-50 rounded-xl border border-amber-100"
-                    >
-                      <div className="flex-shrink-0">
-                        <img
-                          src={step.image}
-                          alt={
-                            language === "english" ? step.title : step.titleHi
-                          }
-                          className="w-16 h-16 rounded-lg object-cover"
-                        />
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="font-bold text-gray-800 mb-2">
-                          {step.id}.{" "}
-                          {language === "english" ? step.title : step.titleHi}
-                        </h3>
-                        <p className="text-gray-600 text-sm leading-relaxed">
-                          {language === "english"
-                            ? step.description
-                            : step.descriptionHi}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Sidebar - Pricing and Participation */}
-          <div className="space-y-6">
-            <div className="bg-white rounded-2xl shadow-lg p-6 sticky top-6">
-              <h3 className="text-xl font-bold text-gray-800 mb-4">
-                Participation Packages
-              </h3>
-
-              <div className="space-y-4">
-                {Object.entries(event.cost).map(([type, price]) => (
-                  <div
-                    key={type}
-                    className="border border-orange-100 rounded-xl p-4 hover:border-orange-300 transition-colors"
-                  >
-                    <div className="flex justify-between items-center mb-3">
-                      <h4 className="font-semibold text-gray-800 capitalize">
-                        {type.replace(/([A-Z])/g, " $1").trim()}
-                      </h4>
-                      <span className="text-2xl font-bold text-amber-600">
-                        ₹{price}
-                      </span>
-                    </div>
-                    <button
-                      onClick={() => handleParticipate(type)}
-                      className="w-full py-3 px-4 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold rounded-xl hover:from-amber-600 hover:to-orange-700 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:scale-105"
-                    >
-                      Participate Now
-                      <User className="w-4 h-4" />
-                    </button>
-                  </div>
-                ))}
-              </div>
-
-              {/* Location Info */}
-              <div className="mt-6 p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border border-green-100">
-                <h4 className="font-bold text-gray-800 mb-2 flex items-center gap-2">
-                  <MapPin className="w-5 h-5 text-green-600" />
-                  Location
-                </h4>
-                <p className="text-gray-700 font-semibold">{event.place}</p>
-                <p className="text-gray-600 text-sm">{event.placeEn}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
 
 const Pooja = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -568,9 +260,6 @@ const Pooja = () => {
 
           {/* Event Title */}
           <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 right-2 sm:right-4">
-            <h3 className="text-sm sm:text-lg font-bold text-white mb-1 line-clamp-2">
-              {language === "english" ? event.poojaNameEn : event.poojaName}
-            </h3>
             <p className="text-xs sm:text-sm text-amber-100">
               {event.day} • {event.time}
             </p>
@@ -579,6 +268,9 @@ const Pooja = () => {
 
         {/* Card Content */}
         <div className="p-4 sm:p-6">
+          <h3 className="text-sm sm:text-lg font-bold text-white mb-1 line-clamp-2">
+            {language === "english" ? event.poojaNameEn : event.poojaName}
+          </h3>{" "}
           {/* Event Details */}
           <div className="space-y-3 mb-4">
             <div>
@@ -638,7 +330,6 @@ const Pooja = () => {
               </div>
             </div>
           </div>
-
           {/* Action Buttons */}
           <div className="space-y-2">
             <button
@@ -1227,47 +918,6 @@ const Pooja = () => {
           </div>
         </div>
       </div>
-
-      {/* Upcoming Events Section */}
-      {/* <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-        <div className="flex items-center gap-3 mb-8 mt-10">
-          <div className="p-3 bg-gradient-to-r from-amber-500 to-orange-600 rounded-xl shadow-lg">
-            <Calendar className="w-6 h-6 text-white" />
-          </div>
-          <h2 className="text-2xl  md:text-3xl font-bold text-gray-800 flex items-center gap-3">
-            Upcoming Poojas
-            <span className="px-4 py-2 bg-amber-100 text-amber-800 text-sm md:text-base font-semibold rounded-full shadow-sm">
-              {
-                UpcomingEvent.filter((event) =>
-                  isAfter(parseISO(event.date), new Date())
-                ).length
-              }
-            </span>
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
-          {UpcomingEvent.filter((event) =>
-            isAfter(parseISO(event.date), new Date())
-          ).map((event) => (
-            <EventCard key={event.id} event={event} type="upcoming" />
-          ))}
-        </div>
-
-        {UpcomingEvent.filter((event) =>
-          isAfter(parseISO(event.date), new Date())
-        ).length === 0 && (
-          <div className="text-center py-16 bg-gradient-to-r from-amber-50 to-orange-50 rounded-2xl border border-dashed border-amber-200">
-            <Calendar className="w-16 h-16 text-amber-300 mx-auto mb-6" />
-            <h3 className="text-xl font-bold text-gray-700 mb-3">
-              No Upcoming Events
-            </h3>
-            <p className="text-gray-500 text-lg">
-              Check back later for new pooja events
-            </p>
-          </div>
-        )}
-      </div> */}
     </div>
   );
 };

@@ -220,7 +220,7 @@ const PageLoader = () => (
 const Layout = () => (
   <div className="flex flex-col min-h-screen w-full">
     <Navbar />
-    <main className="flex-1 w-full">
+    <main className="flex-1 w-full pt-16">
       <Suspense fallback={<PageLoader />}>
         <Outlet />
       </Suspense>
