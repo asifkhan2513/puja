@@ -205,7 +205,7 @@ const Chadhava = () => {
                       {new Date(item.date).toLocaleDateString()}
                     </span>
                     <span className="text-orange-600 font-bold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
-                      {isHindi ? " भग लें" : "Participate Now"}{" "}
+                      {isHindi ? "अभी भाग लें" : "Participate Now"}{" "}
                       <ChevronRight className="w-4 h-4" />
                     </span>
                   </div>
