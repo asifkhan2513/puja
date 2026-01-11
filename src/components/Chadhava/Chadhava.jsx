@@ -78,8 +78,6 @@ const Chadhava = () => {
 
   const handleShare = async () => {
     const url = window.location.href;
-
-    // Fallback to Clipboard API
     try {
       await navigator.clipboard.writeText(url);
       setIsCopied(true);
@@ -90,24 +88,6 @@ const Chadhava = () => {
       }, 3000);
     } catch (err) {
       console.error("Failed to copy: ", err);
-    }
-
-    // Try native share if available (mobile)
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title:
-            typeof selectedItem.title === "object"
-              ? isHindi
-                ? selectedItem.title.hi
-                : selectedItem.title.en
-              : selectedItem.title,
-          text: "Check out this divine offering!",
-          url: url,
-        });
-      } catch (error) {
-        // Share cancelled or failed, ignore
-      }
     }
   };
 
@@ -204,7 +184,7 @@ const Chadhava = () => {
                     <span className="text-orange-700 text-sm font-bold bg-orange-50 px-3 py-1 rounded-full border border-orange-100">
                       {new Date(item.date).toLocaleDateString()}
                     </span>
-                    <span className="text-orange-600 font-bold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+                    <span className="bg-orange-600 text-white rounded-full px-4 py-1.5 font-bold text-sm flex items-center gap-1 hover:bg-orange-700 transition-colors shadow-sm cursor-pointer shadow-orange-200">
                       {isHindi ? "अभी भाग लें" : "Participate Now"}{" "}
                       <ChevronRight className="w-4 h-4" />
                     </span>
@@ -276,13 +256,15 @@ const Chadhava = () => {
             </h1>
 
             <div className="flex flex-wrap gap-4 mb-8 text-gray-600">
-              <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-xl shadow-sm border border-orange-100">
+              <div className="flex items-center gap-2 bg-white px-5 py-3 rounded-2xl shadow-sm border border-orange-100 hover:shadow-md transition-shadow cursor-default">
                 <MapPin className="w-5 h-5 shrink-0 text-orange-500" />
-                <span className="font-medium">{selectedItem.location}</span>
+                <span className="font-medium text-gray-700">
+                  {selectedItem.location}
+                </span>
               </div>
-              <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-xl shadow-sm border border-orange-100">
+              <div className="flex items-center gap-2 bg-white px-5 py-3 rounded-2xl shadow-sm border border-orange-100 hover:shadow-md transition-shadow cursor-default">
                 <Clock className="w-5 h-5 shrink-0 text-orange-500" />
-                <span className="font-medium">
+                <span className="font-medium text-gray-700">
                   {new Date(selectedItem.date).toLocaleTimeString([], {
                     hour: "2-digit",
                     minute: "2-digit",
@@ -298,8 +280,9 @@ const Chadhava = () => {
             </div>
 
             {/* Benefits Box */}
-            <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-2xl p-6 mb-8 border border-orange-200 shadow-inner">
-              <div className="flex items-center gap-3 mb-4">
+            <div className="bg-white rounded-3xl p-8 mb-10 border border-orange-100 shadow-lg hover:shadow-xl transition-shadow relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-orange-50 rounded-bl-full -mr-10 -mt-10 transition-transform group-hover:scale-110"></div>
+              <div className="flex items-center gap-3 mb-6 relative z-10">
                 <div className="p-2 bg-white rounded-lg shadow-sm text-orange-500">
                   <Sparkles className="w-5 h-5" />
                 </div>
