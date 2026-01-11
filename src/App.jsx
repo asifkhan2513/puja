@@ -18,6 +18,7 @@ import VindhyachalDetails from "./components/OnlinePuja/Temple/VindhyachalDetail
 import About from "./components/About/About";
 import PrayagrajDetails from "./components/OnlinePuja/Temple/PrayagrajDetails";
 import Pooja from "./components/Pooja/Pooja";
+import Chadhava from "./components/Chadhava/Chadhava";
 
 /* Layout / Common */
 const Navbar = lazy(() => import("./components/Navbar"));
@@ -241,6 +242,14 @@ function App() {
             {/* Pooja */}
             <Route path={PATH.POOJA.slice(1)} element={<Pooja />} />
             <Route path={PATH.POOJA_DETAILS.slice(1)} element={<Pooja />} />
+
+            {/* Chadhava */}
+            <Route path={PATH.CHADHAVA.slice(1)} element={<Chadhava />} />
+            <Route
+              path={PATH.CHADHAVA_DETAILS.slice(1)}
+              element={<Chadhava />}
+            />
+
             {/* About us */}
             <Route path={PATH.ABOUT_US.slice(1)} element={<About />} />
             <Route
@@ -423,7 +432,7 @@ function App() {
             <Route path={PATH.MANTRAS.slice(1)} element={<Mantra_Stotra />} />
 
             {/* Rashifal */}
-            <Route
+            {/* <Route
               path={PATH.RASHIFAL_DAILY.slice(1)}
               element={<Daily_Rashifal />}
             />
@@ -438,10 +447,10 @@ function App() {
             <Route
               path={PATH.RASHIFAL_YEARLY.slice(1)}
               element={<Yearly_Rashifal />}
-            />
+            /> */}
 
             {/* Individual zodiac routes */}
-            <Route
+            {/* <Route
               path={PATH.RASHIFAL_ARIES.slice(1)}
               element={<Mesh_Aries />}
             />
@@ -486,7 +495,7 @@ function App() {
             <Route
               path={PATH.RASHIFAL_PISCES.slice(1)}
               element={<Meen_Pisces />}
-            />
+            /> */}
 
             {/* Contact Us */}
             <Route path="contactus" element={<ContachUs />} />

@@ -92,10 +92,27 @@ const Pooja = () => {
   const { language } = useLanguage(); // Use global language context
   const navigate = useNavigate();
   const { slug } = useParams(); // Changed from id to slug
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 500);
+    return () => clearTimeout(timer);
+  }, []);
 
   // If slug is present, show detail view
   if (slug) {
     return <PoojaDetailView slug={slug} language={language} />;
+  }
+
+  // Loader
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-orange-50">
+        <div className="w-12 h-12 border-4 border-amber-500 border-t-transparent rounded-full animate-spin"></div>
+      </div>
+    );
   }
 
   // Handle participation - now uses slug instead of ID

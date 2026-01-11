@@ -40,7 +40,7 @@ const LazyImage = ({ src, alt, className, priority = false, ...props }) => {
           src={src}
           alt={alt}
           loading={priority ? "eager" : "lazy"}
-          fetchpriority={priority ? "high" : "auto"}
+          fetchPriority={priority ? "high" : "auto"}
           decoding={priority ? "sync" : "async"}
           className={`w-full h-full object-cover transition-opacity duration-700 ease-in-out ${
             isLoaded ? "opacity-100" : "opacity-0"

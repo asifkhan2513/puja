@@ -46,6 +46,11 @@ const Navbar = () => {
       icon: Sparkles,
     },
     {
+      name: language === "english" ? "Chadhava" : "चढ़ावा",
+      href: PATH.CHADHAVA,
+      icon: Sparkles,
+    },
+    {
       name: language === "english" ? "Daan & Seva" : "दान और सेवा",
       href: PATH.DAAN,
       icon: RocketIcon,
