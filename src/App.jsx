@@ -19,6 +19,7 @@ import About from "./components/About/About";
 import PrayagrajDetails from "./components/OnlinePuja/Temple/PrayagrajDetails";
 import Pooja from "./components/Pooja/Pooja";
 import Chadhava from "./components/Chadhava/Chadhava";
+import Products from "./components/Products/Products.jsx";
 
 /* Layout / Common */
 const Navbar = lazy(() => import("./components/Navbar"));
@@ -248,6 +249,13 @@ function App() {
             <Route
               path={PATH.CHADHAVA_DETAILS.slice(1)}
               element={<Chadhava />}
+            />
+
+            {/* Products */}
+            <Route path={PATH.PRODUCTS.slice(1)} element={<Products />} />
+            <Route
+              path={PATH.PRODUCTS_DETAILS.slice(1)}
+              element={<Products />}
             />
 
             {/* About us */}

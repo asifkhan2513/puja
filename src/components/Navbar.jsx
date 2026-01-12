@@ -45,21 +45,21 @@ const Navbar = () => {
       href: PATH.POOJA,
       icon: Sparkles,
     },
-    {
-      name: language === "english" ? "Chadhava" : "चढ़ावा",
-      href: PATH.CHADHAVA,
-      icon: Sparkles,
-    },
+    // {
+    //   name: language === "english" ? "Chadhava" : "चढ़ावा",
+    //   href: PATH.CHADHAVA,
+    //   icon: Sparkles,
+    // },
     {
       name: language === "english" ? "Daan & Seva" : "दान और सेवा",
       href: PATH.DAAN,
       icon: RocketIcon,
     },
-    {
-      name: language === "english" ? "Rashifal" : "राशिफल",
-      href: PATH.RASHIFAL_DAILY,
-      icon: Sparkles,
-    },
+    // {
+    //   name: language === "english" ? "Rashifal" : "राशिफल",
+    //   href: PATH.RASHIFAL_DAILY,
+    //   icon: Sparkles,
+    // },
     {
       name: language === "english" ? "Temples" : "मंदिर",
       icon: HomeIcon,
@@ -113,6 +113,11 @@ const Navbar = () => {
           desc: language === "english" ? "Prayagraj" : "प्रयागराज",
         },
       ],
+    },
+    {
+      name: language === "english" ? "Products" : "उत्पाद",
+      href: PATH.PRODUCTS,
+      icon: Sparkles,
     },
     {
       name: language === "english" ? "About Us" : "हमारे बारे में",

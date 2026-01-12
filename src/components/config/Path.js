@@ -46,6 +46,8 @@ export const PATH = {
   MANTRAS: "/mantras",
   CHADHAVA: "/chadhava",
   CHADHAVA_DETAILS: "/chadhava/:slug",
+  PRODUCTS: "/products",
+  PRODUCTS_DETAILS: "/products/:slug",
   RASHIFAL_PISCES: "/rashifal/pisces",
   SPIRITUAL_PLACES: "/temples",
   SPIRITUAL_PLACES_AYODHYA: "/temples/ayodhya",
