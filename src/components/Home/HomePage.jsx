@@ -10,6 +10,8 @@ import {
   Heart,
   Phone,
   Info,
+  Star,
+  Quote,
 } from "lucide-react";
 
 import LazyImage from "../LazyImage";
@@ -88,8 +90,93 @@ const HomePage = () => {
     },
   ];
 
+  const News = [
+    {
+      image: "",
+      name: "",
+      description: "",
+    },
+    {
+      image: "",
+      name: "",
+      description: "",
+    },
+  ];
+  // Testimonials data
+  const testimonials = [
+    {
+      id: 1,
+      name: language === "english" ? "Priya Sharma" : "प्रिया शर्मा",
+      location: language === "english" ? "Mumbai" : "मुंबई",
+      rating: 5,
+      review:
+        language === "english"
+          ? "The Pooja was performed with utmost devotion and authenticity. I felt truly blessed and received the prasad at my doorstep. Highly recommended!"
+          : "पूजा अत्यंत भक्ति और प्रामाणिकता के साथ की गई। मैंने वास्तव में धन्य महसूस किया और प्रसाद मेरे घर तक पहुंचा। अत्यधिक अनुशंसित!",
+      date: language === "english" ? "2 days ago" : "2 दिन पहले",
+    },
+    {
+      id: 2,
+      name: language === "english" ? "Rajesh Kumar" : "राजेश कुमार",
+      location: language === "english" ? "Delhi" : "दिल्ली",
+      rating: 5,
+      review:
+        language === "english"
+          ? "Excellent service and very professional pandits. The online booking was smooth and the ritual was performed exactly as requested. Thank you!"
+          : "उत्कृष्ट सेवा और बहुत ही पेशेवर पंडित। ऑनलाइन बुकिंग आसान थी और अनुष्ठान बिल्कुल वैसे ही किया गया जैसा मांगा था। धन्यवाद!",
+      date: language === "english" ? "1 week ago" : "1 सप्ताह पहले",
+    },
+    {
+      id: 3,
+      name: language === "english" ? "Anita Desai" : "अनीता देसाई",
+      location: language === "english" ? "Pune" : "पुणे",
+      rating: 5,
+      review:
+        language === "english"
+          ? "Amazing experience! The chadhava was offered at the temple as promised and I received photos and videos. Very convenient and trustworthy service."
+          : "अद्भुत अनुभव! चढ़ावा वादे के अनुसार मंदिर में चढ़ाया गया और मुझे फोटो और वीडियो मिले। बहुत सुविधाजनक और भरोसेमंद सेवा।",
+      date: language === "english" ? "3 days ago" : "3 दिन पहले",
+    },
+    {
+      id: 4,
+      name: language === "english" ? "Vikram Singh" : "विक्रम सिंह",
+      location: language === "english" ? "Jaipur" : "जयपुर",
+      rating: 5,
+      review:
+        language === "english"
+          ? "The pandits were knowledgeable and performed the puja with proper mantras. I could feel the positive energy even from home. Great initiative!"
+          : "पंडित जी बहुत जानकार थे और उन्होंने सही मंत्रों के साथ पूजा की। घर से ही मैं सकारात्मक ऊर्जा महसूस कर सका। बेहतरीन पहल!",
+      date: language === "english" ? "5 days ago" : "5 दिन पहले",
+    },
+    {
+      id: 5,
+      name: language === "english" ? "Meera Patel" : "मीरा पटेल",
+      location: language === "english" ? "Ahmedabad" : "अहमदाबाद",
+      rating: 5,
+      review:
+        language === "english"
+          ? "Wonderful service! The products quality is excellent and delivery was on time. The spiritual items are authentic and blessed. Will order again!"
+          : "शानदार सेवा! उत्पादों की गुणवत्ता उत्कृष्ट है और डिलीवरी समय पर हुई। आध्यात्मिक वस्तुएं प्रामाणिक और आशीर्वादित हैं। फिर से ऑर्डर करूंगी!",
+      date: language === "english" ? "1 day ago" : "1 दिन पहले",
+    },
+  ];
+
+  // Testimonials carousel state
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+
+  // Auto-slide testimonials every 2 seconds
+  useEffect(() => {
+    const testimonialInterval = setInterval(() => {
+      setCurrentTestimonial((prev) =>
+        prev === testimonials.length - 1 ? 0 : prev + 1
+      );
+    }, 2000);
+
+    return () => clearInterval(testimonialInterval);
+  }, [testimonials.length]);
+
   return (
-    <div className="min-h-screen w-full bg-linear-to-b from-amber-50 to-white">
+    <div className="min-h-screen w-full bg-gradient-to-b from-amber-50 to-white">
       {/* Hero Section with Carousel */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Carousel Background */}
@@ -110,7 +197,7 @@ const HomePage = () => {
         ))}
 
         {/* Overlay */}
-        <div className="absolute inset-0 bg-linear-to-r from-black/70 via-black/50 to-black/40 z-10 flex items-center justify-center">
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/40 z-10 flex items-center justify-center">
           <div className="text-center px-4 max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
               {language === "english"
@@ -130,7 +217,7 @@ const HomePage = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
                 to={PATH.POOJA}
-                className="px-8 py-4 bg-linear-to-r from-amber-500 to-orange-600 text-white font-bold rounded-3xl hover:from-amber-600 hover:to-orange-700 shadow-2xl hover:shadow-amber/50 transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
+                className="px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold rounded-3xl hover:from-amber-600 hover:to-orange-700 shadow-2xl hover:shadow-amber/50 transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
               >
                 {language === "english" ? "Book a Pooja" : "पूजा बुक करें"}
                 <ArrowRight className="w-5 h-5" />
@@ -148,7 +235,7 @@ const HomePage = () => {
       </section>
 
       {/* Second Hero Section */}
-      <section className="py-20 px-4 bg-linear-to-br from-amber-50 via-orange-50 to-red-50">
+      <section className="py-20 px-4 bg-gradient-to-br from-amber-50 via-orange-50 to-red-50">
         <div className="w-full max-w-screen-2xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
@@ -160,7 +247,7 @@ const HomePage = () => {
                       ? "India's Temples"
                       : "भारत के मंदिर"}
                   </span>
-                  <span className="block text-transparent bg-linear-to-r from-amber-600 via-orange-600 to-red-600 bg-clip-text animate-slideInLeft delay-200">
+                  <span className="block text-transparent bg-gradient-to-r from-amber-600 via-orange-600 to-red-600 bg-clip-text animate-slideInLeft delay-200">
                     {language === "english"
                       ? "Now on Your Mobile"
                       : "अब आपके मोबाइल पर"}
@@ -186,7 +273,7 @@ const HomePage = () => {
               <div className="flex flex-col sm:flex-row gap-4 animate-slideInLeft delay-500">
                 <Link
                   to="/chadhava"
-                  className="group px-8 py-4 bg-linear-to-r from-amber-500 via-orange-500 to-red-500 text-white font-bold rounded-2xl hover:from-amber-600 hover:via-orange-600 hover:to-red-600 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3 border-2 border-transparent hover:border-amber-300"
+                  className="group px-8 py-4 bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 text-white font-bold rounded-2xl hover:from-amber-600 hover:via-orange-600 hover:to-red-600 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3 border-2 border-transparent hover:border-amber-300"
                 >
                   {language === "english" ? "Book Chadhava" : "चढ़ावा बुक करें"}
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -204,11 +291,11 @@ const HomePage = () => {
                 />
 
                 {/* Image Overlay Effect */}
-                <div className="absolute inset-0 bg-linear-to-t from-amber-500/20 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-amber-500/20 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
 
               {/* Left Decorative Element Only */}
-              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-linear-to-br from-amber-400 to-orange-500 rounded-full opacity-20 animate-pulse delay-1000"></div>
+              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full opacity-20 animate-pulse delay-1000"></div>
 
               {/* Floating Animation Elements */}
               <div className="absolute top-10 right-10 w-4 h-4 bg-amber-400 rounded-full animate-bounce delay-700"></div>
@@ -251,14 +338,14 @@ const HomePage = () => {
                   to={service.link}
                   className="group relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 overflow-hidden"
                 >
-                  {/* Background linear */}
+                  {/* Background Gradient */}
                   <div
-                    className={`absolute inset-0 bg-linear-to-br ${colors[index]} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                    className={`absolute inset-0 bg-gradient-to-br ${colors[index]} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
                   ></div>
 
                   {/* Icon */}
                   <div
-                    className={`relative z-10 w-16 h-16 bg-linear-to-br ${colors[index]} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
+                    className={`relative z-10 w-16 h-16 bg-gradient-to-br ${colors[index]} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
                   >
                     <Icon className="w-8 h-8 text-white" />
                   </div>
@@ -283,16 +370,94 @@ const HomePage = () => {
 
                   {/* Decorative Corner */}
                   <div
-                    className={`absolute top-0 right-0 w-20 h-20 bg-linear-to-bl ${colors[index]} opacity-10 rounded-bl-full`}
+                    className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl ${colors[index]} opacity-10 rounded-bl-full`}
                   ></div>
                 </Link>
               );
             })}
           </div>
 
+          {/* Testimonials Section */}
+          <div className="mt-20">
+            <div className="text-center mb-12">
+              <h3 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                {language === "english"
+                  ? "What Our Devotees Say"
+                  : "हमारे भक्त क्या कहते हैं"}
+              </h3>
+              <p className="text-lg text-gray-600">
+                {language === "english"
+                  ? "Trusted by thousands of satisfied devotees across India"
+                  : "भारत भर के हजारों संतुष्ट भक्तों का भरोसा"}
+              </p>
+            </div>
+
+            {/* Testimonial Slider */}
+            <div className="relative max-w-4xl mx-auto">
+              <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12 border border-gray-100 relative overflow-hidden">
+                {/* Quote Icon */}
+                <div className="absolute top-6 left-6 text-amber-200">
+                  <Quote className="w-12 h-12" />
+                </div>
+
+                {/* Testimonial Content */}
+                <div className="relative z-10 text-center">
+                  {/* Stars */}
+                  <div className="flex justify-center gap-1 mb-6">
+                    {[...Array(testimonials[currentTestimonial].rating)].map(
+                      (_, i) => (
+                        <Star
+                          key={i}
+                          className="w-6 h-6 fill-amber-400 text-amber-400"
+                        />
+                      )
+                    )}
+                  </div>
+
+                  {/* Review Text */}
+                  <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-8 italic">
+                    "{testimonials[currentTestimonial].review}"
+                  </p>
+
+                  {/* Reviewer Info */}
+                  <div className="flex flex-col items-center">
+                    <h4 className="text-xl font-bold text-gray-800 mb-1">
+                      {testimonials[currentTestimonial].name}
+                    </h4>
+                    <p className="text-gray-600 mb-2">
+                      {testimonials[currentTestimonial].location}
+                    </p>
+                    <p className="text-sm text-amber-600 font-semibold">
+                      {testimonials[currentTestimonial].date}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Decorative Elements */}
+                <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-to-br from-amber-100 to-orange-100 rounded-full opacity-50"></div>
+                <div className="absolute -top-4 -left-4 w-16 h-16 bg-gradient-to-br from-orange-100 to-red-100 rounded-full opacity-30"></div>
+              </div>
+
+              {/* Dots Indicator */}
+              <div className="flex justify-center gap-2 mt-6">
+                {testimonials.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentTestimonial(index)}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      index === currentTestimonial
+                        ? "bg-amber-500 w-8"
+                        : "bg-gray-300 hover:bg-amber-300"
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+
           {/* Bottom CTA */}
           <div className="text-center mt-16">
-            <div className="inline-flex items-center gap-4 px-8 py-4 bg-linear-to-r from-amber-100 to-orange-100 rounded-2xl">
+            <div className="inline-flex items-center gap-4 px-8 py-4 bg-gradient-to-r from-amber-100 to-orange-100 rounded-2xl">
               <Sparkles className="w-6 h-6 text-amber-600" />
               <span className="text-lg font-semibold text-gray-800">
                 {language === "english"
@@ -307,9 +472,7 @@ const HomePage = () => {
 
       {/* Bhagwan Poojas in News */}
 
-
-
-                  {/* Customers Reviews */}
+      {/* Customers Reviews */}
     </div>
   );
 };
