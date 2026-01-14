@@ -1,123 +1,32 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
-  Sparkles,
-  Heart,
-  Users,
-  Calendar,
+  Flower,
+  Gift,
+  ShoppingCart,
   ArrowRight,
-  Star,
-  Eye,
+  Sparkles,
+  Users,
+  Heart,
+  Phone,
+  Info,
 } from "lucide-react";
 
 import LazyImage from "../LazyImage";
 import { PATH } from "../config/Path";
-import { liveDarshanServices } from "../OnlinePuja/Temple/liveDarshanServices";
+import { useLanguage } from "../../contexts/LanguageContext";
 
 // Import images
 import temple from "../../assets/temple.jpg";
 import carousel1 from "../../assets/craousel1.jpg";
 import carousel2 from "../../assets/craousel2.jpg";
 import carousel3 from "../../assets/craousel3.jpg";
-import dummy1 from "../../assets/dummy1.jpg";
-import dummy2 from "../../assets/dummy2.jpg";
-import dummy3 from "../../assets/dummy3.jpg";
-import dummy4 from "../../assets/dummy4.jpg";
-import dummy5 from "../../assets/dummy5.jpg";
-import dummy6 from "../../assets/dummy6.jpg";
+import heroDummy from "../../assets/hero-section-img.webp";
 
 const HomePage = () => {
-  const features = [
-    {
-      icon: Sparkles,
-      title: "Authentic Poojas",
-      description: "Traditional rituals performed by experienced pandits",
-      color: "text-amber-600 dark:text-amber-400",
-    },
-    {
-      icon: Heart,
-      title: "Divine Blessings",
-      description: "Connect with divine energy from sacred temples",
-      color: "text-rose-600 dark:text-rose-400",
-    },
-    {
-      icon: Users,
-      title: "Expert Pandits",
-      description: "Certified and experienced spiritual guides",
-      color: "text-blue-600 dark:text-blue-400",
-    },
-    {
-      icon: Calendar,
-      title: "Flexible Scheduling",
-      description: "Book Poojas at your convenient time",
-      color: "text-green-600 dark:text-green-400",
-    },
-  ];
+  const { language } = useLanguage();
 
-  const PoojaCategories = [
-    {
-      title: "Devi Maa Poojas",
-      description: "Invoke the divine feminine energy",
-      image: dummy1,
-      link: PATH.POOJA_DEVI_MAA,
-    },
-    {
-      title: "Lord Ganesha",
-      description: "Remove obstacles from your path",
-      image: dummy2,
-      link: PATH.POOJA_GANESHA,
-    },
-    {
-      title: "Lord Shiva",
-      description: "Seek blessings of the destroyer of evil",
-      image: dummy3,
-      link: PATH.POOJA_SHIVA,
-    },
-    {
-      title: "Lord Vishnu",
-      description: "Preserve and protect your well-being",
-      image: dummy4,
-      link: PATH.POOJA_VISHNU,
-    },
-    {
-      title: "Career & Job",
-      description: "Enhance professional success",
-      image: dummy5,
-      link: PATH.POOJA_CAREER_JOB,
-    },
-    {
-      title: "Health & Protection",
-      description: "Ensure wellness and safety",
-      image: dummy6,
-      link: PATH.POOJA_HEALTH_PROTECTION,
-    },
-  ];
-
-  const temples = [
-    { name: "Ayodhya", image: carousel1, link: PATH.TEMPLES_AYODHYA },
-    { name: "Kashi Vishwanath", image: carousel2, link: PATH.TEMPLES_KASHI },
-    { name: "Ujjain Mahakal", image: carousel3, link: PATH.TEMPLES_UJJAIN },
-  ];
-
-  const testimonials = [
-    {
-      name: "Priya Sharma",
-      text: "The Pooja was performed with utmost devotion. I felt truly blessed!",
-      rating: 5,
-    },
-    {
-      name: "Rajesh Kumar",
-      text: "Excellent service and very professional pandits. Highly recommended!",
-      rating: 5,
-    },
-    {
-      name: "Anita Desai",
-      text: "Convenient booking and authentic rituals. Thank you!",
-      rating: 5,
-    },
-  ];
-
-  /* Carousel State */
+  // Carousel State
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const carouselImages = [temple, carousel1, carousel2, carousel3];
 
@@ -131,10 +40,59 @@ const HomePage = () => {
     return () => clearInterval(interval);
   }, [carouselImages.length]);
 
+  const Services = [
+    {
+      icon: Flower,
+      name: language === "english" ? "Poojas" : "पूजा",
+      link: PATH.POOJA,
+      description:
+        language === "english"
+          ? "Book online pujas anytime, anywhere and get prasad delivered to your home."
+          : "ऑनलाइन पूजा बुक करें कभी भी, कहीं भी और प्रसाद घर पर प्राप्त करें।",
+    },
+    {
+      icon: Gift,
+      name: language === "english" ? "Chadhava" : "चढ़ावा",
+      link: "/chadhava",
+      description:
+        language === "english"
+          ? "Offer Chadhava at India's renowned temples to solve life's problems and receive divine blessings."
+          : "भारत के प्रसिद्ध मंदिरों में चढ़ावा चढ़ाएं और जीवन की समस्याओं का समाधान पाएं।",
+    },
+    {
+      icon: ShoppingCart,
+      name: language === "english" ? "Products" : "उत्पाद",
+      link: PATH.PRODUCTS,
+      description:
+        language === "english"
+          ? "Everything for your devotion — now just a tap away. Shop puja essentials, powerful Siddh items & more — delivered to your doorstep."
+          : "आपकी भक्ति के लिए सब कुछ — अब बस एक टैप की दूरी पर। पूजा की आवश्यक वस्तुएं, शक्तिशाली सिद्ध वस्तुएं और बहुत कुछ खरीदें।",
+    },
+    {
+      icon: Phone,
+      name: language === "english" ? "Contact Us" : "संपर्क करें",
+      link: "/contactus",
+      description:
+        language === "english"
+          ? "Get in touch with our spiritual experts for personalized guidance and support for all your religious needs."
+          : "अपनी सभी धार्मिक आवश्यकताओं के लिए व्यक्तिगत मार्गदर्शन और सहायता के लिए हमारे आध्यात्मिक विशेषज्ञों से संपर्क करें।",
+    },
+    {
+      icon: Info,
+      name: language === "english" ? "About Us" : "हमारे बारे में",
+      link: "/about-us",
+      description:
+        language === "english"
+          ? "Learn about our mission to bring authentic spiritual experiences and connect devotees with divine blessings."
+          : "प्रामाणिक आध्यात्मिक अनुभव लाने और भक्तों को दिव्य आशीर्वाद से जोड़ने के हमारे मिशन के बारे में जानें।",
+    },
+  ];
+
   return (
-    <div className="min-h-screen w-full bg-gradient-to-b from-amber-50 to-white dark:from-dark dark:to-dark-50">
-      {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+    <div className="min-h-screen w-full bg-linear-to-b from-amber-50 to-white">
+      {/* Hero Section with Carousel */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Carousel Background */}
         {carouselImages.map((image, index) => (
           <div
             key={index}
@@ -146,277 +104,212 @@ const HomePage = () => {
               src={image}
               alt={`Sacred Hindu Temple ${index + 1}`}
               priority={index === 0}
-              className="w-full h-full object-cover rounded-none"
+              className="w-full h-full object-cover"
             />
           </div>
         ))}
 
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40 z-10"></div>
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-linear-to-r from-black/70 via-black/50 to-black/40 z-10 flex items-center justify-center">
+          <div className="text-center px-4 max-w-4xl mx-auto">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+              {language === "english"
+                ? "Divine Blessings at Your"
+                : "दिव्य आशीर्वाद आपके"}{" "}
+              <span className="text-amber-400 block">
+                {language === "english" ? "Doorstep" : "द्वार पर"}
+              </span>
+            </h1>
 
-        <div className="relative z-20 text-center px-4 max-w-4xl mx-auto animate-fadeIn">
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 pt-serif-bold">
-            Divine Blessings at Your{" "}
-            <span className="text-amber-400 pt-serif-bold-italic">
-              Doorstep
-            </span>
-          </h1>
-          <p className="text-xl md:text-2xl text-white font-bold mb-8 font-inter">
-            Book authentic Poojas performed by experienced pandits from sacred
-            temples across India
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              to={PATH.POOJA_DEVI_MAA}
-              className="px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold rounded-3xl hover:from-accent hover:to-accent-dark shadow-2xl hover:shadow-accent/50 transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
-            >
-              Book a Pooja <ArrowRight className="w-5 h-5" />
-            </Link>
-            <Link
-              to={PATH.ABOUT_MISSION}
-              className="px-8 py-4 bg-white/20 backdrop-blur-md text-white font-bold rounded-3xl border-2 border-white hover:bg-white hover:text-accent transition-all duration-300 flex items-center justify-center gap-2"
-            >
-              Learn More
-            </Link>
+            <p className="text-xl md:text-2xl text-white font-semibold mb-8 max-w-3xl mx-auto">
+              {language === "english"
+                ? "Book authentic Poojas performed by experienced pandits from sacred temples across India"
+                : "भारत के पवित्र मंदिरों से अनुभवी पंडितों द्वारा किए जाने वाले प्रामाणिक पूजा बुक करें"}
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Link
+                to={PATH.POOJA}
+                className="px-8 py-4 bg-linear-to-r from-amber-500 to-orange-600 text-white font-bold rounded-3xl hover:from-amber-600 hover:to-orange-700 shadow-2xl hover:shadow-amber/50 transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
+              >
+                {language === "english" ? "Book a Pooja" : "पूजा बुक करें"}
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+
+              <Link
+                to="/about-us"
+                className="px-8 py-4 bg-white/20 backdrop-blur-md text-white font-bold rounded-3xl border-2 border-white hover:bg-white hover:text-amber-600 transition-all duration-300 flex items-center justify-center gap-2"
+              >
+                {language === "english" ? "Learn More" : "और जानें"}
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Live Darshan Section */}
-      <section className="py-20 px-4 bg-orange-50 ">
+      {/* Second Hero Section */}
+      <section className="py-20 px-4 bg-linear-to-br from-amber-50 via-orange-50 to-red-50">
         <div className="w-full max-w-screen-2xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-black text-center text-black mb-4 pt-serif-bold">
-            Live Darshan <br />
-            <span className="text-amber-600 dark:text-amber-400 pt-serif-bold-italic text-3xl md:text-4xl">
-              "Witness Divine Aartis from Home"
-            </span>
-          </h2>
-          <p className="text-center text-gray-900 font-semibold mb-12 text-lg">
-            Connect with your deity through our high-definition live streams
-          </p>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
+            <div className="space-y-8 animate-fadeIn">
+              <div className="space-y-6">
+                <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
+                  <span className="block text-gray-800 animate-slideInLeft">
+                    {language === "english"
+                      ? "India's Temples"
+                      : "भारत के मंदिर"}
+                  </span>
+                  <span className="block text-transparent bg-linear-to-r from-amber-600 via-orange-600 to-red-600 bg-clip-text animate-slideInLeft delay-200">
+                    {language === "english"
+                      ? "Now on Your Mobile"
+                      : "अब आपके मोबाइल पर"}
+                  </span>
+                </h1>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {liveDarshanServices.slice(0, 3).map((service, index) => (
-              <Link
-                key={index}
-                to={`/live-darshan/${service.id}`}
-                className="group relative h-80 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-orange-100/50"
-              >
-                <LazyImage
-                  src={service.image}
-                  alt={`${service.title} Live Darshan`}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+                <p className="text-xl md:text-2xl text-gray-700 font-semibold animate-slideInLeft delay-300">
+                  {language === "english"
+                    ? "Perform Puja and Offer Chadhava, Anywhere, Anytime"
+                    : "पूजा करें और चढ़ाएं चढ़ावा, कहीं भी, कभी भी"}
+                </p>
 
-                {/* Live Badge */}
-                <div className="absolute top-4 left-4">
-                  <span className="flex items-center gap-1.5 px-3 py-1 bg-red-600 text-white text-xs font-bold uppercase rounded-full animate-pulse shadow-lg">
-                    <span className="w-1.5 h-1.5 bg-white rounded-full"></span>
-                    Live Now
+                <div className="flex items-center gap-3 text-lg font-bold text-amber-700 animate-slideInLeft delay-400">
+                  <Users className="w-6 h-6" />
+                  <span>
+                    {language === "english"
+                      ? "2 Lakh+ Devotees Trust"
+                      : "2 लाख+ भक्तों का विश्वास"}
                   </span>
                 </div>
+              </div>
 
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                  <h3 className="text-xl font-bold mb-2 pt-serif-bold leading-tight">
-                    {service.title}
-                  </h3>
-                  <div className="flex items-center justify-between mt-4">
-                    <span className="text-sm font-medium text-amber-300">
-                      {service.location}
-                    </span>
-                    <span className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-3 py-1.5 rounded-full text-xs font-bold hover:bg-white hover:text-orange-600 transition-colors">
-                      View Darshan <Eye className="w-3 h-3" />
-                    </span>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Link
-              to={PATH.LIVE_DARSHAN}
-              className="inline-flex items-center gap-2 px-8 py-3 bg-white border-2 border-amber-600 text-amber-600 font-bold rounded-full hover:bg-amber-600 hover:text-white transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1"
-            >
-              View All Live Darshans <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
-      {/* Pooja Categories Section */}
-      <section className="py-20 px-4 bg-white ">
-        <div className="w-full max-w-screen-2xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-black text-center text-black mb-4 pt-serif-bold">
-            Explore Our{" "}
-            <span className="text-amber-600 dark:text-amber-400 pt-serif-bold-italic">
-              Pooja Services
-            </span>
-          </h2>
-          <p className="text-center text-gray-900 font-semibold mb-12 text-lg">
-            Choose from a wide range of traditional Poojas for every occasion
-          </p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {PoojaCategories.map((category, index) => (
-              <Link
-                key={index}
-                to={category.link}
-                className="group card overflow-hidden hover:shadow-2xl transition-all duration-300"
-              >
-                <div className="image-hover-zoom h-64 relative overflow-hidden rounded-t-2xl">
-                  <LazyImage
-                    src={category.image}
-                    alt={`${category.title} - Online Pooja Services`}
-                    className="w-full h-full object-cover rounded-t-2xl"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold text-black mb-2 group-hover:text-accent dark:group-hover:text-accent-light transition-colors pt-serif-bold">
-                    {category.title}
-                  </h3>
-                  <p className="text-gray-900 font-semibold mb-4">
-                    {category.description}
-                  </p>
-                  <span className="inline-flex items-center gap-2 text-amber-600 dark:text-accent-light font-semibold group-hover:gap-4 transition-all">
-                    Explore <ArrowRight className="w-4 h-4" />
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Sacred Temples Section */}
-      <section className="py-20 px-4">
-        <div className="w-full max-w-screen-2xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-black text-center text-black mb-4 pt-serif-bold">
-            Sacred Temples of{" "}
-            <span className="text-amber-600 dark:text-amber-400 pt-serif-bold-italic">
-              Bharat
-            </span>
-          </h2>
-          <p className="text-center text-gray-900 font-semibold mb-12 text-lg">
-            Connect with divine energy from India's most revered temples
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {temples.map((temple, index) => (
-              <Link
-                key={index}
-                to={temple.link}
-                className="group relative h-96 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300"
-              >
-                <LazyImage
-                  src={temple.image}
-                  alt={`${temple.name} Temple - Sacred Hindu Temple`}
-                  className="w-full h-full object-cover rounded-3xl group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <h3 className="text-3xl font-bold text-white mb-2 pt-serif-bold">
-                    {temple.name}
-                  </h3>
-                  <span className="inline-flex items-center gap-2 text-accent-light font-semibold group-hover:gap-4 transition-all">
-                    Visit Temple <ArrowRight className="w-4 h-4" />
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section className="py-20 px-4">
-        <div className="w-full max-w-screen-2xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-black text-center text-black mb-4 pt-serif-bold">
-            Why Choose Us
-          </h2>
-          <p className="text-center text-gray-900 font-semibold mb-12 text-lg">
-            Experience authentic spiritual services with modern convenience
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {features.map((feature, index) => {
-              const Icon = feature.icon;
-              return (
-                <div
-                  key={index}
-                  className="card p-6 text-center hover:shadow-2xl transition-all duration-300 animate-slideUp"
-                  style={{ animationDelay: `${index * 0.1}s` }}
+              <div className="flex flex-col sm:flex-row gap-4 animate-slideInLeft delay-500">
+                <Link
+                  to="/chadhava"
+                  className="group px-8 py-4 bg-linear-to-r from-amber-500 via-orange-500 to-red-500 text-white font-bold rounded-2xl hover:from-amber-600 hover:via-orange-600 hover:to-red-600 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3 border-2 border-transparent hover:border-amber-300"
                 >
+                  {language === "english" ? "Book Chadhava" : "चढ़ावा बुक करें"}
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Image */}
+            <div className="relative animate-slideInRight">
+              <div className="relative z-10 group">
+                <LazyImage
+                  src={heroDummy}
+                  alt="Hindu Temple and Devotion"
+                  className="w-full h-auto object-cover rounded-3xl shadow-2xl border-4 border-white hover:shadow-3xl transition-all duration-500 transform group-hover:scale-105"
+                />
+
+                {/* Image Overlay Effect */}
+                <div className="absolute inset-0 bg-linear-to-t from-amber-500/20 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </div>
+
+              {/* Left Decorative Element Only */}
+              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-linear-to-br from-amber-400 to-orange-500 rounded-full opacity-20 animate-pulse delay-1000"></div>
+
+              {/* Floating Animation Elements */}
+              <div className="absolute top-10 right-10 w-4 h-4 bg-amber-400 rounded-full animate-bounce delay-700"></div>
+              <div className="absolute bottom-20 right-5 w-3 h-3 bg-orange-500 rounded-full animate-bounce delay-1000"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Services Section */}
+      <section className="py-20 px-4 bg-white">
+        <div className="w-full max-w-screen-2xl mx-auto">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+              {language === "english" ? "Our Services" : "हमारी सेवाएं"}
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              {language === "english"
+                ? "Experience divine blessings through our comprehensive spiritual services designed for modern devotees"
+                : "आधुनिक भक्तों के लिए डिज़ाइन की गई हमारी व्यापक आध्यात्मिक सेवाओं के माध्यम से दिव्य आशीर्वाद का अनुभव करें"}
+            </p>
+          </div>
+
+          {/* Services Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+            {Services.map((service, index) => {
+              const Icon = service.icon;
+              const colors = [
+                "from-amber-500 to-orange-600",
+                "from-orange-500 to-red-600",
+                "from-red-500 to-pink-600",
+                "from-blue-500 to-purple-600",
+                "from-green-500 to-teal-600",
+              ];
+
+              return (
+                <Link
+                  key={index}
+                  to={service.link}
+                  className="group relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 overflow-hidden"
+                >
+                  {/* Background linear */}
                   <div
-                    className={`inline-flex p-4 rounded-full bg-linear-to-br from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 mb-4`}
+                    className={`absolute inset-0 bg-linear-to-br ${colors[index]} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                  ></div>
+
+                  {/* Icon */}
+                  <div
+                    className={`relative z-10 w-16 h-16 bg-linear-to-br ${colors[index]} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
                   >
-                    <Icon className={`w-8 h-8 ${feature.color}`} />
+                    <Icon className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-black mb-2 pt-serif-bold">
-                    {feature.title}
-                  </h3>
-                  <p className="text-gray-900 font-semibold">
-                    {feature.description}
-                  </p>
-                </div>
+
+                  {/* Content */}
+                  <div className="relative z-10">
+                    <h3 className="text-2xl font-bold text-gray-800 mb-4 group-hover:text-amber-700 transition-colors">
+                      {service.name}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed mb-6">
+                      {service.description}
+                    </p>
+
+                    {/* CTA */}
+                    <div className="flex items-center gap-2 text-amber-600 font-semibold group-hover:gap-4 transition-all">
+                      <span>
+                        {language === "english" ? "Explore Now" : "अभी देखें"}
+                      </span>
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+
+                  {/* Decorative Corner */}
+                  <div
+                    className={`absolute top-0 right-0 w-20 h-20 bg-linear-to-bl ${colors[index]} opacity-10 rounded-bl-full`}
+                  ></div>
+                </Link>
               );
             })}
           </div>
-        </div>
-      </section>
 
-      {/* Testimonials Section */}
-      <section className="py-20 px-4 bg-linear-to-br from-amber-50 to-orange-50 dark:from-dark-50 dark:to-dark">
-        <div className="w-full max-w-screen-2xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-black text-center text-black mb-4 pt-serif-bold">
-            What Our{" "}
-            <span className="text-amber-600 dark:text-amber-400 pt-serif-bold-italic">
-              Devotees Say
-            </span>
-          </h2>
-          <p className="text-center text-gray-900 font-semibold mb-12 text-lg">
-            Trusted by thousands of satisfied devotees across India
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="card p-8 text-center">
-                <div className="flex justify-center gap-1 mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-5 h-5 fill-amber-500 text-amber-500"
-                    />
-                  ))}
-                </div>
-                <p className="text-black font-bold mb-4 pt-serif-italic text-lg">
-                  "{testimonial.text}"
-                </p>
-                <p className="font-bold text-black">- {testimonial.name}</p>
-              </div>
-            ))}
+          {/* Bottom CTA */}
+          <div className="text-center mt-16">
+            <div className="inline-flex items-center gap-4 px-8 py-4 bg-linear-to-r from-amber-100 to-orange-100 rounded-2xl">
+              <Sparkles className="w-6 h-6 text-amber-600" />
+              <span className="text-lg font-semibold text-gray-800">
+                {language === "english"
+                  ? "Join thousands of satisfied devotees today"
+                  : "आज ही हजारों संतुष्ट भक्तों से जुड़ें"}
+              </span>
+              <Heart className="w-6 h-6 text-red-500" />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-amber-600 to-orange-600 dark:from-accent-dark dark:to-accent">
-        <div className="w-full max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 pt-serif-bold">
-            Ready to Begin Your Spiritual Journey?
-          </h2>
-          <p className="text-xl text-white/90 mb-8">
-            Book your Pooja today and receive divine blessings from sacred
-            temples
-          </p>
-          <Link
-            to={PATH.POOJA_DEVI_MAA}
-            className="inline-flex items-center gap-2 px-10 py-4 bg-white text-amber-600 font-bold rounded-3xl hover:bg-gray-100 shadow-2xl hover:shadow-white/50 transition-all duration-300 transform hover:scale-105"
-          >
-            Book Now <Sparkles className="w-5 h-5" />
-          </Link>
-        </div>
-      </section>
+      {/* Bhagwan Poojas in News */}
+
+
+
+                  {/* Customers Reviews */}
     </div>
   );
 };

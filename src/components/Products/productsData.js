@@ -23,7 +23,7 @@ export const products = [
         id: 102,
         name: { hi: "तुलसी की माला", en: "Tulsi Mala" },
         image:
-          "https://m.media-amazon.com/images/I/71J1xP2xTFL._AC_UY1100_.jpg",
+          "https://www.jyotishhelp.com/media/uploads/page_images/k/tulsi-ki-mala.png",
       },
       {
         id: 103,
