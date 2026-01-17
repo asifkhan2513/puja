@@ -6,14 +6,14 @@ const ContachUs = () => {
     {
       icon: Mail,
       title: "Email Us",
-      details: "info@divinePooja.com",
-      link: "mailto:info@divinePooja.com",
+      details: " bhagwanpoojalive@gmail.com",
+      link: "mailto: bhagwanpoojalive@gmail.com",
       gradient: "from-orange-400 via-amber-500 to-yellow-400",
     },
     {
       icon: Phone,
       title: "Call Us",
-      details: "+91 123 456 7890",
+      details: "+91 7054790404",
       link: "tel:+911234567890",
       gradient: "from-red-500 via-orange-500 to-amber-500",
     },

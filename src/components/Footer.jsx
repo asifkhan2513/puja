@@ -161,10 +161,10 @@ const Footer = () => {
             <div>
               <p className="text-xs text-gray-500">Email Us</p>
               <a
-                href="mailto:info@divinePooja.com"
+                href="mailto: bhagwanpoojalive@gmail.com"
                 className="text-sm text-gray-300 hover:text-amber-400 transition-colors cursor-pointer"
               >
-                info@divinePooja.com
+                bhagwanpoojalive@gmail.com
               </a>
             </div>
           </div>
@@ -178,7 +178,7 @@ const Footer = () => {
                 href="tel:+911234567890"
                 className="text-sm text-gray-300 hover:text-amber-400 transition-colors cursor-pointer"
               >
-                +91 123 456 7890
+                +91 7054790404
               </a>
             </div>
           </div>

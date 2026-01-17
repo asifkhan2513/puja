@@ -227,7 +227,7 @@ This project is licensed under the MIT License.
 
 ## 📞 Support
 
-For support, email info@divinePooja.com or join our Slack channel.
+For support, email  bhagwanpoojalive@gmail.com or join our Slack channel.
 
 ---
 
