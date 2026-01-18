@@ -1,0 +1,67 @@
+
+pipeline {
+    agent any
+
+    environment {
+        DOCKERHUB_CREDENTIALS = 'dockerhub-creds'
+    }
+    stages {
+
+        stage('Load Variables') {
+            steps {
+                script {
+                    def vars = readProperties file: 'vars.env'
+                    env.APP_NAME = vars.APP_NAME
+                    env.DOCKER_IMAGE = vars.DOCKER_IMAGE
+                    env.DOCKER_TAG = vars.DOCKER_TAG
+                    env.CONTAINER_PORT = vars.CONTAINER_PORT
+                }
+            }
+        }
+
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Docker Build') {
+            steps {
+                sh '''
+                docker build -t $DOCKER_IMAGE:$DOCKER_TAG .
+                '''
+            }
+        }
+
+        stage('Docker Login') {
+            steps {
+                withCredentials([usernamePassword(
+                    credentialsId: 'dockerhub-creds',
+                    usernameVariable: 'DOCKER_USER',
+                    passwordVariable: 'DOCKER_PASS'
+                )]) {
+                    sh '''
+                    echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
+                    '''
+                }
+            }
+        }
+
+        stage('Docker Push') {
+            steps {
+                sh '''
+                docker push $DOCKER_IMAGE:$DOCKER_TAG
+                '''
+            }
+        }
+    }
+
+    post {
+        success {
+            echo "Docker image pushed successfully"
+        }
+        failure {
+            echo "Pipeline failed"
+        }
+    }
+}
