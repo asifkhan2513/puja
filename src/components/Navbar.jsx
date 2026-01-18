@@ -140,7 +140,7 @@ const Navbar = () => {
             <img
               src={LOGO}
               alt="Logo"
-              className="w-24 h-24 md:w-28 md:h-28 rounded-full"
+              className="w-20 h-20 md:w-32 md:h-32 rounded-full "
             />
           </button>
 
@@ -214,7 +214,7 @@ const Navbar = () => {
                 onClick={() => setLanguage("hindi")}
                 className={`px-3 py-1.5 rounded-full text-sm font-semibold transition-all duration-300 ${
                   language === "hindi"
-                    ? "bg-gradient-to-r from-purple-500 to-purple-600 text-white shadow-sm"
+                    ? "bg-linear-to-r from-purple-500 to-purple-600 text-white shadow-sm"
                     : "text-gray-600 hover:text-purple-600"
                 }`}
               >
@@ -226,7 +226,7 @@ const Navbar = () => {
                 onClick={() => setLanguage("english")}
                 className={`px-3 py-1.5 rounded-full text-sm font-semibold transition-all duration-300 ${
                   language === "english"
-                    ? "bg-gradient-to-r from-purple-500 to-purple-600 text-white shadow-sm"
+                    ? "bg-linear-to-r from-purple-500 to-purple-600 text-white shadow-sm"
                     : "text-gray-600 hover:text-purple-600"
                 }`}
               >
@@ -238,7 +238,7 @@ const Navbar = () => {
 
             <button
               onClick={() => handleNavClick(PATH.POOJA_DEVI_MAA)}
-              className="px-6 py-2 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-2xl"
+              className="px-6 py-2 bg-linear-to-r from-amber-500 to-orange-600 text-white rounded-2xl"
             >
               {language === "english" ? "Book Pooja" : "पूजा बुक करें"}
             </button>
@@ -260,7 +260,7 @@ const Navbar = () => {
                   onClick={() => setLanguage("hindi")}
                   className={`flex-1 px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
                     language === "hindi"
-                      ? "bg-gradient-to-r from-purple-500 to-purple-600 text-white shadow-sm"
+                      ? "bg-linear-to-r from-purple-500 to-purple-600 text-white shadow-sm"
                       : "text-gray-600"
                   }`}
                 >
@@ -270,7 +270,7 @@ const Navbar = () => {
                   onClick={() => setLanguage("english")}
                   className={`flex-1 px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
                     language === "english"
-                      ? "bg-gradient-to-r from-purple-500 to-purple-600 text-white shadow-sm"
+                      ? "bg-linear-to-r from-purple-500 to-purple-600 text-white shadow-sm"
                       : "text-gray-600"
                   }`}
                 >

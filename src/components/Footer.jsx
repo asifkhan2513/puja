@@ -26,17 +26,16 @@ const Footer = () => {
   ];
 
   const services = [
-    { name: "Devi Maa Poojas", href: PATH.POOJA_DEVI_MAA },
-    { name: "Lord Ganesha", href: PATH.POOJA_GANESHA },
-    { name: "Lord Shiva", href: PATH.POOJA_SHIVA },
-    { name: "Daan & Seva", href: PATH.DAAN },
+    { name: "Poojas", href: PATH.POOJA },
+    { name: "Chadhava", href: PATH.CHADHAVA },
+    { name: "Products", href: PATH.PRODUCTS },
   ];
 
   const resources = [
-    { name: "Rashifal", href: PATH.RASHIFAL_DAILY },
-    { name: "Aarti", href: PATH.AARTI },
-    { name: "Mantras", href: PATH.MANTRAS },
+    { name: "About Us", href: PATH.ABOUT_US },
+    { name: "Contact", href: "/contactus" },
     { name: "Download App", href: PATH.DOWNLOAD },
+    { name: "Book Pooja", href: PATH.POOJA_DEVI_MAA },
   ];
 
   return (
@@ -53,7 +52,7 @@ const Footer = () => {
               <img
                 src={LOGO}
                 alt="Logo"
-                className="w-16 h-16 rounded-full object-cover"
+                className="w-16 h-16 md:w-32 md:h-32 rounded-full object-cover border-2 border-amber-500 bg-white/10 group-hover:shadow-amber-500/50 shadow-md transition-all duration-300"
               />
             </button>
             <p className="text-gray-400 text-sm leading-relaxed">
@@ -189,8 +188,10 @@ const Footer = () => {
           <div className="flex flex-col sm:flex-row justify-between items-center gap-3 text-xs">
             <p className="text-gray-400">
               © {currentYear}{" "}
-              <span className="text-amber-400 font-semibold">Bhagwan</span>. All
-              rights reserved.
+              <span className="text-amber-400 font-semibold">
+                Bhagwan Pooja{" "}
+              </span>
+              . All rights reserved.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <button
