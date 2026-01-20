@@ -9,7 +9,6 @@ import {
   Users,
   Heart,
   Phone,
-  
   Info,
   Star,
   Quote,
@@ -18,14 +17,14 @@ import {
 import LazyImage from "../LazyImage";
 import { PATH } from "../config/Path";
 import { useLanguage } from "../../contexts/LanguageContext";
-import Video from "../../assets/Home2.mp4"
+import Video from "../../assets/Home2.mp4";
 
 // Import images
 import temple from "../../assets/temple.jpg";
 import carousel1 from "../../assets/craousel1.jpg";
 import carousel2 from "../../assets/craousel2.jpg";
 import carousel3 from "../../assets/craousel3.jpg";
-import heroDummy from "../../assets/hero-section-img.webp";
+import heroDummy from "../../assets/Heroimage.png";
 import Loader from "../Loader";
 const HomePage = () => {
   const { language } = useLanguage();
@@ -37,7 +36,7 @@ const HomePage = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) =>
-        prevIndex === carouselImages.length - 1 ? 0 : prevIndex + 1
+        prevIndex === carouselImages.length - 1 ? 0 : prevIndex + 1,
       );
     }, 3000);
 
@@ -170,7 +169,7 @@ const HomePage = () => {
   useEffect(() => {
     const testimonialInterval = setInterval(() => {
       setCurrentTestimonial((prev) =>
-        prev === testimonials.length - 1 ? 0 : prev + 1
+        prev === testimonials.length - 1 ? 0 : prev + 1,
       );
     }, 2000);
 
@@ -191,61 +190,58 @@ const HomePage = () => {
     <div className="min-h-screen w-full bg-linear-to-b from-amber-50 to-white">
       {/* Hero Section with Video Background */}
       <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
-      
-      {/* 🎥 Video Background */}
-      <video
-        ref={videoRef}
-        className="absolute inset-0 w-full h-full object-cover"
-        src={Video}
-        muted
-        loop
-        autoPlay
-        playsInline
-        preload="auto"
-      />
+        {/* 🎥 Video Background */}
+        <video
+          ref={videoRef}
+          className="absolute inset-0 w-full h-full object-cover"
+          src={Video}
+          muted
+          loop
+          autoPlay
+          playsInline
+          preload="auto"
+        />
 
-      {/* 🌑 Overlay */}
-      <div className="absolute inset-0 bg-linear-to-r from-black/80 via-black/60 to-black/40 flex items-center justify-center px-4">
-        <div className="text-center max-w-5xl mx-auto">
+        {/* 🌑 Overlay */}
+        <div className="absolute inset-0 bg-linear-to-r from-black/80 via-black/60 to-black/40 flex items-center justify-center px-4">
+          <div className="text-center max-w-5xl mx-auto">
+            {/* Heading */}
+            <h1 className="text-4xl mt-3 sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+              {language === "english"
+                ? "Divine Blessings at Your"
+                : "दिव्य आशीर्वाद आपके"}
+              <span className="block text-amber-400">
+                {language === "english" ? "Doorstep" : "द्वार पर"}
+              </span>
+            </h1>
 
-          {/* Heading */}
-          <h1 className="text-4xl mt-3 sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-            {language === "english"
-              ? "Divine Blessings at Your"
-              : "दिव्य आशीर्वाद आपके"}
-            <span className="block text-amber-400">
-              {language === "english" ? "Doorstep" : "द्वार पर"}
-            </span>
-          </h1>
+            {/* Subtitle */}
+            <p className="text-lg sm:text-xl md:text-2xl text-white font-medium mb-8 max-w-3xl mx-auto">
+              {language === "english"
+                ? "Book authentic Poojas performed by experienced pandits from sacred temples across India"
+                : "भारत के पवित्र मंदिरों से अनुभवी पंडितों द्वारा किए जाने वाले प्रामाणिक पूजा बुक करें"}
+            </p>
 
-          {/* Subtitle */}
-          <p className="text-lg sm:text-xl md:text-2xl text-white font-medium mb-8 max-w-3xl mx-auto">
-            {language === "english"
-              ? "Book authentic Poojas performed by experienced pandits from sacred temples across India"
-              : "भारत के पवित्र मंदिरों से अनुभवी पंडितों द्वारा किए जाने वाले प्रामाणिक पूजा बुक करें"}
-          </p>
+            {/* Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Link
+                to={PATH.POOJA}
+                className="px-8 py-4 bg-linear-to-r from-amber-500 to-orange-600 text-white font-bold rounded-full shadow-xl hover:scale-105 transition-all flex items-center gap-2"
+              >
+                {language === "english" ? "Book a Pooja" : "पूजा बुक करें"}
+                <ArrowRight className="w-5 h-5" />
+              </Link>
 
-          {/* Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link
-              to={PATH.POOJA}
-              className="px-8 py-4 bg-linear-to-r from-amber-500 to-orange-600 text-white font-bold rounded-full shadow-xl hover:scale-105 transition-all flex items-center gap-2"
-            >
-              {language === "english" ? "Book a Pooja" : "पूजा बुक करें"}
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-
-            <Link
-              to="/about-us"
-              className="px-8 py-4 bg-white/20 backdrop-blur-md text-white font-bold rounded-full border border-white hover:bg-white hover:text-amber-600 transition-all"
-            >
-              {language === "english" ? "Learn More" : "और जानें"}
-            </Link>
+              <Link
+                to="/about-us"
+                className="px-8 py-4 bg-white/20 backdrop-blur-md text-white font-bold rounded-full border border-white hover:bg-white hover:text-amber-600 transition-all"
+              >
+                {language === "english" ? "Learn More" : "और जानें"}
+              </Link>
+            </div>
           </div>
-
         </div>
-      </div>
-    </section>
+      </section>
 
       {/* Second Hero Section */}
       <section className="py-20 px-4 bg-linear-to-br from-amber-50 via-orange-50 to-red-50">
@@ -423,7 +419,7 @@ const HomePage = () => {
                           key={i}
                           className="w-6 h-6 fill-amber-400 text-amber-400"
                         />
-                      )
+                      ),
                     )}
                   </div>
 
