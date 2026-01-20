@@ -26,7 +26,7 @@ import carousel1 from "../../assets/craousel1.jpg";
 import carousel2 from "../../assets/craousel2.jpg";
 import carousel3 from "../../assets/craousel3.jpg";
 import heroDummy from "../../assets/hero-section-img.webp";
-
+import Loader from "../Loader";
 const HomePage = () => {
   const { language } = useLanguage();
 
@@ -205,11 +205,11 @@ const HomePage = () => {
       />
 
       {/* 🌑 Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40 flex items-center justify-center px-4">
+      <div className="absolute inset-0 bg-linear-to-r from-black/80 via-black/60 to-black/40 flex items-center justify-center px-4">
         <div className="text-center max-w-5xl mx-auto">
 
           {/* Heading */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+          <h1 className="text-4xl mt-3 sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
             {language === "english"
               ? "Divine Blessings at Your"
               : "दिव्य आशीर्वाद आपके"}
@@ -229,7 +229,7 @@ const HomePage = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
               to={PATH.POOJA}
-              className="px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold rounded-full shadow-xl hover:scale-105 transition-all flex items-center gap-2"
+              className="px-8 py-4 bg-linear-to-r from-amber-500 to-orange-600 text-white font-bold rounded-full shadow-xl hover:scale-105 transition-all flex items-center gap-2"
             >
               {language === "english" ? "Book a Pooja" : "पूजा बुक करें"}
               <ArrowRight className="w-5 h-5" />

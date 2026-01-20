@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { items, howItWorksData } from "./Chadava";
 import { useLanguage } from "../../contexts/LanguageContext";
+import Loader from "../Loader";
 import {
   MapPin,
   ChevronRight,
@@ -77,20 +78,13 @@ const Chadhava = () => {
 
   // Loading state
   if (isLoading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-50 via-red-50 to-yellow-50">
-        <div className="relative">
-          <div className="w-16 h-16 border-4 border-orange-500 border-t-transparent rounded-full animate-spin"></div>
-          <div className="absolute inset-0 w-16 h-16 border-4 border-red-300 border-b-transparent rounded-full animate-spin animate-reverse"></div>
-        </div>
-      </div>
-    );
+    return <Loader />;
   }
 
   // List View
   if (!selectedItem) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-orange-50 via-red-50 to-yellow-50 p-4 font-sans relative pb-20">
+      <div className="min-h-screen bg-linear-to-br from-orange-50 via-red-50 to-yellow-50 p-4 font-sans relative pb-20">
         {/* Toast Notification */}
         {showToast && (
           <div className="fixed top-24 left-1/2 transform -translate-x-1/2 z-50 bg-green-600 text-white px-6 py-3 rounded-full flex items-center gap-2 shadow-xl animate-bounce">
@@ -104,9 +98,9 @@ const Chadhava = () => {
         <div className="max-w-7xl mx-auto pt-8">
           {/* Header */}
           <header className="mb-16 text-center relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-orange-200/20 via-red-200/20 to-yellow-200/20 rounded-3xl blur-3xl"></div>
+            <div className="absolute inset-0 bg-linear-to-r from-orange-200/20 via-red-200/20 to-yellow-200/20 rounded-3xl blur-3xl"></div>
             <div className="relative z-10">
-              <h1 className="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-red-600 to-yellow-600 mb-6 font-serif drop-shadow-sm animate-pulse">
+              <h1 className="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-linear-to-r from-orange-600 via-red-600 to-yellow-600 mb-6 font-serif drop-shadow-sm animate-pulse">
                 {isHindi ? "दिव्य चढ़ावा" : "Divine Offerings"}
               </h1>
               <p className="text-gray-700 max-w-3xl mx-auto text-lg leading-relaxed font-medium">
@@ -141,11 +135,11 @@ const Chadhava = () => {
                 style={{ animationDelay: `${index * 150}ms` }}
               >
                 {/* Decorative Background */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-orange-100 to-transparent rounded-bl-full opacity-50 group-hover:opacity-70 transition-opacity"></div>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-linear-to-bl from-orange-100 to-transparent rounded-bl-full opacity-50 group-hover:opacity-70 transition-opacity"></div>
 
                 {/* Image Section */}
                 <div className="relative h-72 overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent z-10" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/30 to-transparent z-10" />
                   <img
                     src={item.image}
                     alt={isHindi ? item.title : item.titleEn}
@@ -216,7 +210,7 @@ const Chadhava = () => {
                           : "Offer with Devotion"}
                       </span>
                     </div>
-                    <div className="bg-gradient-to-r from-orange-600 to-red-600 text-white rounded-full px-6 py-3 font-bold text-sm flex items-center gap-2 hover:from-orange-700 hover:to-red-700 transition-all shadow-lg cursor-pointer transform group-hover:scale-105 hover:shadow-xl">
+                    <div className="bg-linear-to-r from-orange-600 to-red-600 text-white rounded-full px-6 py-3 font-bold text-sm flex items-center gap-2 hover:from-orange-700 hover:to-red-700 transition-all shadow-lg cursor-pointer transform group-hover:scale-105 hover:shadow-xl">
                       {isHindi ? "अर्पित करें" : "Offer Now"}
                       <ChevronRight className="w-4 h-4" />
                     </div>
@@ -232,7 +226,7 @@ const Chadhava = () => {
 
   // Detail View
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-red-50 to-yellow-50 font-sans pb-20">
+    <div className="min-h-screen bg-linear-to-br from-orange-50 via-red-50 to-yellow-50 font-sans pb-20">
       {/* Toast Notification */}
       {showToast && (
         <div className="fixed top-24 left-1/2 transform -translate-x-1/2 z-50 bg-green-600 text-white px-6 py-3 rounded-full flex items-center gap-2 shadow-xl animate-bounce">
@@ -274,7 +268,7 @@ const Chadhava = () => {
                     "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=600&fit=crop";
                 }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
+              <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent pointer-events-none"></div>
 
               {/* Floating Badge */}
               <div className="absolute top-6 right-6 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-xl border-2 border-orange-200 shadow-lg">
@@ -480,7 +474,7 @@ const Chadhava = () => {
 
       {/* CTA Button - Centered and Responsive */}
       <div className="text-center pt-8">
-        <button className="bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white font-bold py-4 px-8 sm:px-12 rounded-2xl shadow-xl shadow-orange-200 transition-all transform hover:scale-105 hover:shadow-2xl flex items-center justify-center gap-3 mx-auto text-base sm:text-lg w-full sm:w-auto max-w-sm sm:max-w-none">
+        <button className="bg-linear-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white font-bold py-4 px-8 sm:px-12 rounded-2xl shadow-xl shadow-orange-200 transition-all transform hover:scale-105 hover:shadow-2xl flex items-center justify-center gap-3 mx-auto text-base sm:text-lg w-full sm:w-auto max-w-sm sm:max-w-none">
           <Heart className="w-5 h-5 sm:w-6 sm:h-6" />
           <span className="text-center">
             {isHindi ? "श्रद्धापूर्वक अर्पित करें" : "Offer with Devotion"}
@@ -504,7 +498,7 @@ const Chadhava = () => {
           {howItWorksData.steps.map((step, idx) => (
             <div key={step.id} className="relative group">
               {/* Decorative Background */}
-              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-orange-100 to-red-100 rounded-3xl transform rotate-3 group-hover:rotate-6 transition-transform opacity-50"></div>
+              <div className="absolute top-0 left-0 w-full h-full bg-linear-to-br from-orange-100 to-red-100 rounded-3xl transform rotate-3 group-hover:rotate-6 transition-transform opacity-50"></div>
 
               <div className="relative bg-white p-8 rounded-3xl shadow-xl border-2 border-orange-100 h-full flex flex-col items-center text-center transition-all hover:-translate-y-2 hover:shadow-2xl">
                 <div className="relative mb-8">
@@ -515,7 +509,7 @@ const Chadhava = () => {
                       className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                     />
                   </div>
-                  <div className="absolute -top-4 -right-4 w-12 h-12 rounded-full bg-gradient-to-br from-orange-500 to-red-600 text-white flex items-center justify-center font-bold shadow-lg text-lg border-4 border-white">
+                  <div className="absolute -top-4 -right-4 w-12 h-12 rounded-full bg-linear-to-br from-orange-500 to-red-600 text-white flex items-center justify-center font-bold shadow-lg text-lg border-4 border-white">
                     {idx + 1}
                   </div>
                 </div>

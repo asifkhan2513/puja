@@ -1,7 +1,12 @@
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
+import Loader from "../Loader";
+import { useState } from "react";
 
 const ContachUs = () => {
+
+
+  const [isLoading , setIsLoading] = useState(true)
   const contactInfo = [
     {
       icon: Mail,
