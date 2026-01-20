@@ -7,6 +7,7 @@ import {
   Star,
   Heart,
   CheckCircle,
+  MapPin,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../../contexts/LanguageContext";
@@ -501,6 +502,27 @@ const About = () => {
                 </div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* Visit Us Section */}
+      <section className="py-20 px-4 bg-gradient-to-b from-orange-50/30 to-amber-50/40 relative overflow-hidden">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="flex justify-center mb-6">
+            <div className="p-4 bg-amber-100 rounded-full animate-pulse">
+              <MapPin className="w-10 h-10 text-amber-600" />
+            </div>
+          </div>
+          <h2
+            className={`text-3xl md:text-4xl font-bold text-gray-900 mb-6 pt-serif-bold ${language === "hindi" ? "hindi-heading" : ""}`}
+          >
+            {language === "hindi" ? "हमारे केंद्र पर आएं" : "Visit Our Centre"}
+          </h2>
+          <div className="bg-white/80 backdrop-blur-md border border-amber-200 rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 max-w-2xl mx-auto cursor-pointer group">
+            <p className="text-xl text-gray-800 font-semibold group-hover:text-amber-600 transition-colors cursor-pointer">
+              Address- daraganj prayagraj Uttarpradesh
+            </p>
           </div>
         </div>
       </section>

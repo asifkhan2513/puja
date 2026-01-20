@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import {
   Flower,
@@ -18,6 +18,7 @@ import {
 import LazyImage from "../LazyImage";
 import { PATH } from "../config/Path";
 import { useLanguage } from "../../contexts/LanguageContext";
+import Video from "../../assets/Home2.mp4"
 
 // Import images
 import temple from "../../assets/temple.jpg";
@@ -176,67 +177,78 @@ const HomePage = () => {
     return () => clearInterval(testimonialInterval);
   }, [testimonials.length]);
 
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = true;
+      videoRef.current.play().catch(() => {
+        console.log("Autoplay blocked");
+      });
+    }
+  }, []);
   return (
-    <div className="min-h-screen w-full bg-gradient-to-b from-amber-50 to-white">
-      {/* Hero Section with Carousel */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Carousel Background */}
-        {carouselImages.map((image, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-              index === currentImageIndex ? "opacity-100" : "opacity-0"
-            }`}
-          >
-            <LazyImage
-              src={image}
-              alt={`Sacred Hindu Temple ${index + 1}`}
-              priority={index === 0}
-              className="w-full h-full object-cover"
-            />
+    <div className="min-h-screen w-full bg-linear-to-b from-amber-50 to-white">
+      {/* Hero Section with Video Background */}
+      <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
+      
+      {/* 🎥 Video Background */}
+      <video
+        ref={videoRef}
+        className="absolute inset-0 w-full h-full object-cover"
+        src={Video}
+        muted
+        loop
+        autoPlay
+        playsInline
+        preload="auto"
+      />
+
+      {/* 🌑 Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40 flex items-center justify-center px-4">
+        <div className="text-center max-w-5xl mx-auto">
+
+          {/* Heading */}
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+            {language === "english"
+              ? "Divine Blessings at Your"
+              : "दिव्य आशीर्वाद आपके"}
+            <span className="block text-amber-400">
+              {language === "english" ? "Doorstep" : "द्वार पर"}
+            </span>
+          </h1>
+
+          {/* Subtitle */}
+          <p className="text-lg sm:text-xl md:text-2xl text-white font-medium mb-8 max-w-3xl mx-auto">
+            {language === "english"
+              ? "Book authentic Poojas performed by experienced pandits from sacred temples across India"
+              : "भारत के पवित्र मंदिरों से अनुभवी पंडितों द्वारा किए जाने वाले प्रामाणिक पूजा बुक करें"}
+          </p>
+
+          {/* Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Link
+              to={PATH.POOJA}
+              className="px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold rounded-full shadow-xl hover:scale-105 transition-all flex items-center gap-2"
+            >
+              {language === "english" ? "Book a Pooja" : "पूजा बुक करें"}
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+
+            <Link
+              to="/about-us"
+              className="px-8 py-4 bg-white/20 backdrop-blur-md text-white font-bold rounded-full border border-white hover:bg-white hover:text-amber-600 transition-all"
+            >
+              {language === "english" ? "Learn More" : "और जानें"}
+            </Link>
           </div>
-        ))}
 
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/40 z-10 flex items-center justify-center">
-          <div className="text-center px-4 max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-              {language === "english"
-                ? "Divine Blessings at Your"
-                : "दिव्य आशीर्वाद आपके"}{" "}
-              <span className="text-amber-400 block">
-                {language === "english" ? "Doorstep" : "द्वार पर"}
-              </span>
-            </h1>
-
-            <p className="text-xl md:text-2xl text-white font-semibold mb-8 max-w-3xl mx-auto">
-              {language === "english"
-                ? "Book authentic Poojas performed by experienced pandits from sacred temples across India"
-                : "भारत के पवित्र मंदिरों से अनुभवी पंडितों द्वारा किए जाने वाले प्रामाणिक पूजा बुक करें"}
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link
-                to={PATH.POOJA}
-                className="px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold rounded-3xl hover:from-amber-600 hover:to-orange-700 shadow-2xl hover:shadow-amber/50 transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
-              >
-                {language === "english" ? "Book a Pooja" : "पूजा बुक करें"}
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-
-              <Link
-                to="/about-us"
-                className="px-8 py-4 bg-white/20 backdrop-blur-md text-white font-bold rounded-3xl border-2 border-white hover:bg-white hover:text-amber-600 transition-all duration-300 flex items-center justify-center gap-2"
-              >
-                {language === "english" ? "Learn More" : "और जानें"}
-              </Link>
-            </div>
-          </div>
         </div>
-      </section>
+      </div>
+    </section>
 
       {/* Second Hero Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-amber-50 via-orange-50 to-red-50">
+      <section className="py-20 px-4 bg-linear-to-br from-amber-50 via-orange-50 to-red-50">
         <div className="w-full max-w-screen-2xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
@@ -248,7 +260,7 @@ const HomePage = () => {
                       ? "India's Temples"
                       : "भारत के मंदिर"}
                   </span>
-                  <span className="block text-transparent bg-gradient-to-r from-amber-600 via-orange-600 to-red-600 bg-clip-text animate-slideInLeft delay-200">
+                  <span className="block text-transparent bg-linear-to-r from-amber-600 via-orange-600 to-red-600 bg-clip-text animate-slideInLeft delay-200">
                     {language === "english"
                       ? "Now on Your Mobile"
                       : "अब आपके मोबाइल पर"}
@@ -274,7 +286,7 @@ const HomePage = () => {
               <div className="flex flex-col sm:flex-row gap-4 animate-slideInLeft delay-500">
                 <Link
                   to="/chadhava"
-                  className="group px-8 py-4 bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 text-white font-bold rounded-2xl hover:from-amber-600 hover:via-orange-600 hover:to-red-600 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3 border-2 border-transparent hover:border-amber-300"
+                  className="group px-8 py-4 bg-linear-to-r from-amber-500 via-orange-500 to-red-500 text-white font-bold rounded-2xl hover:from-amber-600 hover:via-orange-600 hover:to-red-600 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3 border-2 border-transparent hover:border-amber-300"
                 >
                   {language === "english" ? "Book Chadhava" : "चढ़ावा बुक करें"}
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -292,11 +304,11 @@ const HomePage = () => {
                 />
 
                 {/* Image Overlay Effect */}
-                <div className="absolute inset-0 bg-gradient-to-t from-amber-500/20 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-amber-500/20 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
 
               {/* Left Decorative Element Only */}
-              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full opacity-20 animate-pulse delay-1000"></div>
+              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-linear-to-br from-amber-400 to-orange-500 rounded-full opacity-20 animate-pulse delay-1000"></div>
 
               {/* Floating Animation Elements */}
               <div className="absolute top-10 right-10 w-4 h-4 bg-amber-400 rounded-full animate-bounce delay-700"></div>
@@ -339,14 +351,14 @@ const HomePage = () => {
                   to={service.link}
                   className="group relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 overflow-hidden"
                 >
-                  {/* Background Gradient */}
+                  {/* Background linear */}
                   <div
-                    className={`absolute inset-0 bg-gradient-to-br ${colors[index]} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                    className={`absolute inset-0 bg-linear-to-br ${colors[index]} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
                   ></div>
 
                   {/* Icon */}
                   <div
-                    className={`relative z-10 w-16 h-16 bg-gradient-to-br ${colors[index]} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
+                    className={`relative z-10 w-16 h-16 bg-linear-to-br ${colors[index]} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
                   >
                     <Icon className="w-8 h-8 text-white" />
                   </div>
@@ -371,7 +383,7 @@ const HomePage = () => {
 
                   {/* Decorative Corner */}
                   <div
-                    className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl ${colors[index]} opacity-10 rounded-bl-full`}
+                    className={`absolute top-0 right-0 w-20 h-20 bg-linear-to-bl ${colors[index]} opacity-10 rounded-bl-full`}
                   ></div>
                 </Link>
               );
@@ -435,8 +447,8 @@ const HomePage = () => {
                 </div>
 
                 {/* Decorative Elements */}
-                <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-to-br from-amber-100 to-orange-100 rounded-full opacity-50"></div>
-                <div className="absolute -top-4 -left-4 w-16 h-16 bg-gradient-to-br from-orange-100 to-red-100 rounded-full opacity-30"></div>
+                <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-linear-to-br from-amber-100 to-orange-100 rounded-full opacity-50"></div>
+                <div className="absolute -top-4 -left-4 w-16 h-16 bg-linear-to-br from-orange-100 to-red-100 rounded-full opacity-30"></div>
               </div>
 
               {/* Dots Indicator */}
@@ -458,7 +470,7 @@ const HomePage = () => {
 
           {/* Bottom CTA */}
           <div className="text-center mt-16">
-            <div className="inline-flex items-center gap-4 px-8 py-4 bg-gradient-to-r from-amber-100 to-orange-100 rounded-2xl">
+            <div className="inline-flex items-center gap-4 px-8 py-4 bg-linear-to-r from-amber-100 to-orange-100 rounded-2xl">
               <Sparkles className="w-6 h-6 text-amber-600" />
               <span className="text-lg font-semibold text-gray-800">
                 {language === "english"

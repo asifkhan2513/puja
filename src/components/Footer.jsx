@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { Sparkles, Mail, Phone } from "lucide-react";
+import { Sparkles, Mail, Phone, MapPin } from "lucide-react";
 import { PATH } from "./config/Path";
 import LOGO from "../assets/LOGO.png";
 import {
@@ -152,7 +152,7 @@ const Footer = () => {
         </div>
 
         {/* Contact Section */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 p-4 bg-gray-800/30 rounded-lg border border-gray-700/50">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8 p-4 bg-gray-800/30 rounded-lg border border-gray-700/50">
           <div className="flex items-center gap-3">
             <div className="p-2 bg-amber-500/10 rounded-lg">
               <Mail className="w-5 h-5 text-amber-400 stroke-[1.5]" />
@@ -179,6 +179,17 @@ const Footer = () => {
               >
                 +91 7054790404
               </a>
+            </div>
+          </div>
+          <div className="flex items-center gap-3">
+            <div className="p-2 bg-amber-500/10 rounded-lg">
+              <MapPin className="w-5 h-5 text-amber-400 stroke-[1.5]" />
+            </div>
+            <div>
+              <p className="text-xs text-gray-500">Visit Us</p>
+              <p className="text-sm text-gray-300 hover:text-amber-400 transition-colors cursor-pointer">
+                123 Temple Street, New Delhi, India 110001
+              </p>
             </div>
           </div>
         </div>
