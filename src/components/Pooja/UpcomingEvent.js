@@ -354,7 +354,7 @@ const UpcomingEvent = [
     timeHi: "सुबह 10:00 से दोपहर 12:00 तक",
 
     image:
-      "https://images.bhaskarassets.com/webp/thumb/512x0/web2images/521/2019/06/19/0521_ganesh_ji_pooja_vidhi.jpg",
+      "https://d18guwlcxyb2ak.cloudfront.net/wp-content/uploads/2019/12/31033604/BY-GODS-GANESH-PUJA-600x900.jpg",
     description:
       "गणेश पूजा एवं अथर्वशीर्ष पाठ से विघ्नों का नाश एवं बुद्धि वृद्धि",
     descriptionEn:
@@ -1586,7 +1586,7 @@ const UpcomingEvent = [
     timeHi: "सुबह 10:00 से दोपहर 12:00 तक",
 
     image:
-      "https://www.jagranimages.com/images/newimg/11022024/11_02_2024-surya_pooja_23650602.jpg",
+      "https://www.jagranimages.com/images/newimg/04082024/07_03_2021-surya-108-names_21437139%20(1)%20(2).jpg",
     description:
       "सूर्य पूजा एवं आदित्य हृदय स्तोत्र पाठ से आत्मबल, तेज और स्वास्थ्य की प्राप्ति",
     descriptionEn:
