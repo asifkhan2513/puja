@@ -50,7 +50,7 @@ const HomePage = () => {
       link: PATH.POOJA,
       description:
         language === "english"
-          ? "Book online pujas anytime, anywhere and get prasad delivered to your home."
+          ? "Book online poojass anytime, anywhere and get prasad delivered to your home."
           : "ऑनलाइन पूजा बुक करें कभी भी, कहीं भी और प्रसाद घर पर प्राप्त करें।",
     },
     {
@@ -68,7 +68,7 @@ const HomePage = () => {
       link: PATH.PRODUCTS,
       description:
         language === "english"
-          ? "Everything for your devotion — now just a tap away. Shop puja essentials, powerful Siddh items & more — delivered to your doorstep."
+          ? "Everything for your devotion — now just a tap away. Shop poojas essentials, powerful Siddh items & more — delivered to your doorstep."
           : "आपकी भक्ति के लिए सब कुछ — अब बस एक टैप की दूरी पर। पूजा की आवश्यक वस्तुएं, शक्तिशाली सिद्ध वस्तुएं और बहुत कुछ खरीदें।",
     },
     {
@@ -145,7 +145,7 @@ const HomePage = () => {
       rating: 5,
       review:
         language === "english"
-          ? "The pandits were knowledgeable and performed the puja with proper mantras. I could feel the positive energy even from home. Great initiative!"
+          ? "The pandits were knowledgeable and performed the poojas with proper mantras. I could feel the positive energy even from home. Great initiative!"
           : "पंडित जी बहुत जानकार थे और उन्होंने सही मंत्रों के साथ पूजा की। घर से ही मैं सकारात्मक ऊर्जा महसूस कर सका। बेहतरीन पहल!",
       date: language === "english" ? "5 days ago" : "5 दिन पहले",
     },
@@ -265,7 +265,7 @@ const HomePage = () => {
 
                 <p className="text-xl md:text-2xl text-gray-700 font-semibold animate-slideInLeft delay-300">
                   {language === "english"
-                    ? "Perform Puja and Offer Chadhava, Anywhere, Anytime"
+                    ? "Perform poojas and Offer Chadhava, Anywhere, Anytime"
                     : "पूजा करें और चढ़ाएं चढ़ावा, कहीं भी, कभी भी"}
                 </p>
 

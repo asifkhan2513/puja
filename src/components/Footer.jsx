@@ -188,7 +188,7 @@ const Footer = () => {
             <div>
               <p className="text-xs text-gray-500">Visit Us</p>
               <p className="text-sm text-gray-300 hover:text-amber-400 transition-colors cursor-pointer">
-                123 Temple Street, New Delhi, India 110001
+                Address- daraganj prayagraj Uttarpradesh
               </p>
             </div>
           </div>
