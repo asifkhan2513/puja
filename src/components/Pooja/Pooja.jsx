@@ -109,9 +109,7 @@ const Pooja = () => {
 
   // Loader
   if (isLoading) {
-    return (
-      <Loader/>
-    );
+    return <Loader />;
   }
 
   // Handle participation - now uses slug instead of ID
@@ -177,7 +175,7 @@ const Pooja = () => {
       : true;
     const matchesDeity = selectedDeity
       ? category.subCategories.some((sub) =>
-          sub.deity?.toLowerCase().includes(selectedDeity.toLowerCase())
+          sub.deity?.toLowerCase().includes(selectedDeity.toLowerCase()),
         )
       : true;
     const matchesSearch = searchQuery
@@ -185,7 +183,7 @@ const Pooja = () => {
         category.subCategories.some(
           (sub) =>
             sub.deity?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            sub.benefits?.toLowerCase().includes(searchQuery.toLowerCase())
+            sub.benefits?.toLowerCase().includes(searchQuery.toLowerCase()),
         )
       : true;
     return matchesCategory && matchesDeity && matchesSearch;
@@ -195,14 +193,14 @@ const Pooja = () => {
   const getAllSubCategories = () => {
     if (selectedCategory) {
       const category = poojaCategories.find(
-        (cat) => cat.heading === selectedCategory
+        (cat) => cat.heading === selectedCategory,
       );
       let subCats = category ? category.subCategories : [];
 
       // Filter by deity if selected
       if (selectedDeity) {
         subCats = subCats.filter((sub) =>
-          sub.deity?.toLowerCase().includes(selectedDeity.toLowerCase())
+          sub.deity?.toLowerCase().includes(selectedDeity.toLowerCase()),
         );
       }
 
@@ -246,7 +244,7 @@ const Pooja = () => {
     };
 
     return (
-      <div className="group bg-white rounded-2xl shadow-lg hover:shadow-xl border border-orange-100 overflow-hidden transition-all duration-300 w-full">
+      <div className="group bg-white rounded-2xl shadow-lg hover:shadow-xl border border-orange-100 overflow-hidden transition-all duration-300 w-full hover-trident">
         {/* Image with Date Badge - Made smaller */}
         <div
           className="relative h-32 sm:h-36 overflow-hidden cursor-pointer"
@@ -695,7 +693,7 @@ const Pooja = () => {
                 {subCategories.map((sub) => (
                   <div
                     key={sub.id}
-                    className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl border border-orange-100 overflow-hidden transition-all duration-300 transform hover:-translate-y-1"
+                    className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl border border-orange-100 overflow-hidden transition-all duration-300 transform hover:-translate-y-1 hover-trident"
                   >
                     <div className="relative h-32 bg-gradient-to-br from-amber-500 to-orange-600 p-6 flex items-center justify-between overflow-hidden">
                       <div className="absolute top-0 right-0 p-4 opacity-10">
@@ -799,7 +797,7 @@ const Pooja = () => {
                 {filteredCategoryPoojas.map((pooja, index) => (
                   <div
                     key={`${pooja.categoryId}-${pooja.id}`}
-                    className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl border border-orange-100 overflow-hidden transition-all duration-300 transform hover:-translate-y-1"
+                    className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl border border-orange-100 overflow-hidden transition-all duration-300 transform hover:-translate-y-1 hover-trident"
                     style={{
                       animationDelay: `${index * 100}ms`,
                       animation: "fadeInUp 0.6s ease-out forwards",

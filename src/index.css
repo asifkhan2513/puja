@@ -11,8 +11,8 @@
   --color-text: #1f2937;
   --font-heading: "Arimo", sans-serif;
   --font-paragraph: "Nunito", sans-serif;
-  --shadow-custom: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-custom:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 /* Base Styles */
@@ -268,7 +268,8 @@ button {
     box-shadow: 0 0 5px rgba(251, 146, 60, 0.5);
   }
   50% {
-    box-shadow: 0 0 20px rgba(251, 146, 60, 0.8),
+    box-shadow:
+      0 0 20px rgba(251, 146, 60, 0.8),
       0 0 30px rgba(251, 146, 60, 0.6);
   }
 }
@@ -330,12 +331,14 @@ button {
 
 /* Custom Box Shadows */
 .shadow-divine {
-  box-shadow: 0 20px 25px -5px rgba(251, 146, 60, 0.1),
+  box-shadow:
+    0 20px 25px -5px rgba(251, 146, 60, 0.1),
     0 10px 10px -5px rgba(251, 146, 60, 0.04);
 }
 
 .shadow-divine-lg {
-  box-shadow: 0 25px 50px -12px rgba(251, 146, 60, 0.25),
+  box-shadow:
+    0 25px 50px -12px rgba(251, 146, 60, 0.25),
     0 0 0 1px rgba(251, 146, 60, 0.05);
 }
 
@@ -374,4 +377,95 @@ button {
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(135deg, #c2410c, #b91c1c);
+}
+
+/* Custom Trident Cursor */
+.cursor-trident {
+  cursor: url("./assets/Trident.png"), auto !important;
+}
+
+.cursor-trident * {
+  cursor: url("./assets/Trident.png"), auto !important;
+}
+
+/* Hover effects with trident cursor */
+.hover-trident:hover {
+  cursor:
+    url("./assets/Trident.png") 16 16,
+    auto !important;
+}
+
+.hover-trident:hover * {
+  cursor:
+    url("./assets/Trident.png") 16 16,
+    auto !important;
+}
+
+/* Alternative cursor paths for better compatibility */
+.hover-trident:hover {
+  cursor:
+    url("/src/assets/Trident.png") 16 16,
+    auto !important;
+  cursor:
+    url("./assets/Trident.png") 16 16,
+    auto !important;
+  cursor:
+    url("../assets/Trident.png") 16 16,
+    auto !important;
+}
+
+.hover-trident:hover * {
+  cursor:
+    url("/src/assets/Trident.png") 16 16,
+    auto !important;
+  cursor:
+    url("./assets/Trident.png") 16 16,
+    auto !important;
+  cursor:
+    url("../assets/Trident.png") 16 16,
+    auto !important;
+}
+/* Trident cursor animation */
+@keyframes trident-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 5px rgba(251, 146, 60, 0.5);
+  }
+  50% {
+    box-shadow:
+      0 0 15px rgba(251, 146, 60, 0.8),
+      0 0 25px rgba(251, 146, 60, 0.6);
+  }
+}
+
+.hover-trident:hover {
+  animation: trident-glow 2s ease-in-out infinite;
+}
+
+/* Trident indicator styles */
+.trident-indicator {
+  animation: trident-glow 2s ease-in-out infinite;
+}
+
+/* Enhanced trident cursor visibility */
+.hover-trident {
+  position: relative;
+}
+
+.hover-trident::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  border: 2px solid transparent;
+  border-radius: inherit;
+  transition: border-color 0.3s ease;
+}
+
+.hover-trident:hover::after {
+  border-color: rgba(251, 146, 60, 0.3);
+  animation: trident-glow 2s ease-in-out infinite;
 }

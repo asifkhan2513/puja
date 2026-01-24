@@ -11,6 +11,8 @@ import {
   Wand,
   Flower,
   Store,
+  Zap,
+  Gift,
 } from "lucide-react";
 import LOGO from "../assets/LOGO.png";
 import { useLanguage } from "../contexts/LanguageContext";
@@ -42,12 +44,12 @@ const Navbar = () => {
     {
       name: language === "english" ? "Special Poojas" : "विशेष पूजा",
       href: PATH.SPECIAL_POOJA,
-      icon: Sparkles,
+      icon: Zap,
     },
     {
       name: language === "english" ? "Chadhava" : "चढ़ावा",
       href: PATH.CHADHAVA,
-      icon: Sparkles,
+      icon: Gift,
     },
     {
       name: language === "english" ? "Temples" : "मंदिर",
@@ -129,7 +131,7 @@ const Navbar = () => {
             <img
               src={LOGO}
               alt="Logo"
-              className="w-16 h-16 md:w-20 md:h-20 rounded-full object-contain"
+              className="w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full object-contain hover:scale-110 transition-transform duration-300"
             />
           </button>
 

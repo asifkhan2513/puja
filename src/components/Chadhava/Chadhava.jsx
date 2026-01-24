@@ -133,7 +133,7 @@ const Chadhava = () => {
                     `/chadhava/${createSlug(item.titleEn || item.title)}`,
                   )
                 }
-                className="group bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:-translate-y-4 transition-all duration-500 cursor-pointer border-2 border-orange-100/50 hover:border-orange-300 transform hover:scale-[1.03] animate-fade-in-up relative"
+                className="group bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:-translate-y-4 transition-all duration-500 cursor-pointer border-2 border-orange-100/50 hover:border-orange-300 transform hover:scale-[1.03] animate-fade-in-up relative hover-trident"
                 style={{ animationDelay: `${index * 150}ms` }}
               >
                 {/* Decorative Background */}
@@ -200,7 +200,7 @@ const Chadhava = () => {
                   </div>
 
                   {/* Action Button */}
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between relative">
                     <div className="flex items-center gap-2 text-gray-500 text-xs">
                       <Heart className="w-4 h-4 text-red-400" />
                       <span>
@@ -212,6 +212,13 @@ const Chadhava = () => {
                     <div className="bg-gradient-to-r from-orange-600 to-red-600 text-white rounded-full px-4 py-2 font-bold text-sm flex items-center gap-2 hover:from-orange-700 hover:to-red-700 transition-all shadow-lg cursor-pointer transform group-hover:scale-105 hover:shadow-xl">
                       {isHindi ? "अर्पित करें" : "Offer Now"}
                       <ChevronRight className="w-4 h-4" />
+                    </div>
+
+                    {/* Trident indicator - shows on hover */}
+                    <div className="absolute -top-2 -right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                      <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center shadow-lg trident-indicator">
+                        <span className="text-white text-sm">🔱</span>
+                      </div>
                     </div>
                   </div>
                 </div>

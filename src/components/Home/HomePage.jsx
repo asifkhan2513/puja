@@ -198,11 +198,11 @@ const HomePage = () => {
   return (
     <div className="min-h-screen w-full bg-linear-to-b from-amber-50 to-white">
       {/* Hero Section with Video Background */}
-      <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
+      <section className="relative h-screen w-full max-w-full overflow-hidden flex items-center justify-center">
         {/* 🎥 Video Background */}
         <video
           ref={videoRef}
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full max-w-full h-full object-cover"
           src={Video}
           muted
           loop
@@ -212,8 +212,8 @@ const HomePage = () => {
         />
 
         {/* 🌑 Overlay */}
-        <div className="absolute inset-0 bg-linear-to-r from-black/80 via-black/60 to-black/40 flex items-center justify-center px-4">
-          <div className="text-center max-w-5xl mx-auto">
+        <div className="absolute inset-0 bg-linear-to-r from-black/80 via-black/60 to-black/40 flex items-center justify-center px-4 max-w-full">
+          <div className="text-center max-w-5xl mx-auto w-full">
             {/* Heading */}
             <h1 className="text-4xl mt-3 sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
               {language === "english"

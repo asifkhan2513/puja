@@ -1,3 +1,5 @@
+import GemstonesImage from "../../assets/gemstone.jpeg";
+import Moonga from "../../assets/moonga.jpeg"
 export const products = [
   {
     id: 1,
@@ -66,8 +68,7 @@ export const products = [
   {
     id: 2,
     slug: "ratna",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTctbeJwEICA6rMaATkaR2jCZb0gBefyiK2VA&s",
+    image: GemstonesImage,
     title: {
       hi: "रत्न",
       en: "Ratna (Gemstones)",
@@ -80,55 +81,74 @@ export const products = [
       {
         id: 201,
         name: { hi: "मूंगा", en: "Moonga (Coral)" },
-        image:
-          "https://www.poojashop.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/r/e/red_coral_mala_1.jpg",
+        image: Moonga,
+        description: { hi: "मंगल ग्रह के लिए", en: "For Mars planet" }
       },
       {
         id: 202,
         name: { hi: "नीलम", en: "Neelam (Blue Sapphire)" },
-        image:
-          "https://m.media-amazon.com/images/I/71v3qk0g3RL._AC_UY1100_.jpg",
+        image: GemstonesImage,
+        description: { hi: "शनि ग्रह के लिए", en: "For Saturn planet" }
       },
       {
         id: 203,
         name: { hi: "गोमेद", en: "Gomedh (Hessonite)" },
-        image:
-          "https://m.media-amazon.com/images/I/61v0W8Q9B2L._AC_UY1100_.jpg",
+        image: GemstonesImage,
+        description: { hi: "राहु ग्रह के लिए", en: "For Rahu planet" }
       },
       {
         id: 204,
         name: { hi: "लहसुनिया", en: "Lehsuniya (Cat's Eye)" },
-        image:
-          "https://m.media-amazon.com/images/I/61cN6dZ8oJL._AC_UY1100_.jpg",
+        image: GemstonesImage,
+        description: { hi: "केतु ग्रह के लिए", en: "For Ketu planet" }
       },
       {
         id: 205,
-        name: { hi: "अमेरिकन डायमंड (ए.डी.)", en: "American Diamond (A.D.)" },
-        image:
-          "https://m.media-amazon.com/images/I/61XKJH8p9JL._AC_UY1100_.jpg",
+        name: { hi: "हीरा", en: "Heera (Diamond)" },
+        image: GemstonesImage,
+        description: { hi: "शुक्र ग्रह के लिए", en: "For Venus planet" }
       },
       {
         id: 206,
         name: { hi: "मोती", en: "Moti (Pearl)" },
-        image:
-          "https://m.media-amazon.com/images/I/61Qe0L4nG-L._AC_UY1100_.jpg",
+        image: GemstonesImage,
+        description: { hi: "चंद्र ग्रह के लिए", en: "For Moon planet" }
       },
       {
         id: 207,
         name: { hi: "पन्ना", en: "Panna (Emerald)" },
-        image:
-          "https://m.media-amazon.com/images/I/61o5gKX9MZL._AC_UY1100_.jpg",
+        image: GemstonesImage,
+        description: { hi: "बुध ग्रह के लिए", en: "For Mercury planet" }
       },
       {
         id: 208,
         name: { hi: "पुखराज", en: "Pokhraj (Yellow Sapphire)" },
-        image:
-          "https://m.media-amazon.com/images/I/71Jk2yP0Z8L._AC_UY1100_.jpg",
+        image: GemstonesImage,
+        description: { hi: "गुरु ग्रह के लिए", en: "For Jupiter planet" }
       },
       {
         id: 209,
+        name: { hi: "माणिक", en: "Manik (Ruby)" },
+        image: GemstonesImage,
+        description: { hi: "सूर्य ग्रह के लिए", en: "For Sun planet" }
+      },
+      {
+        id: 210,
         name: { hi: "ओपल", en: "Opal" },
-        image: "https://m.media-amazon.com/images/I/61c9OpalZL._AC_UY1100_.jpg",
+        image: GemstonesImage,
+        description: { hi: "शुक्र का उप रत्न", en: "Sub-gem for Venus" }
+      },
+      {
+        id: 211,
+        name: { hi: "फिरोजा", en: "Firoza (Turquoise)" },
+        image: GemstonesImage,
+        description: { hi: "गुरु का उप रत्न", en: "Sub-gem for Jupiter" }
+      },
+      {
+        id: 212,
+        name: { hi: "सुनहला", en: "Sunehla (Citrine)" },
+        image: GemstonesImage,
+        description: { hi: "गुरु का उप रत्न", en: "Sub-gem for Jupiter" }
       },
     ],
   },
