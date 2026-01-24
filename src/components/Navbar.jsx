@@ -1,9 +1,4 @@
-import {
-  HamburgerMenuIcon,
-  Cross1Icon,
-  HomeIcon,
-  RocketIcon,
-} from "@radix-ui/react-icons";
+import { HamburgerMenuIcon, Cross1Icon, HomeIcon } from "@radix-ui/react-icons";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { PATH } from "./config/Path";
@@ -12,7 +7,6 @@ import {
   Phone,
   ChevronDown,
   LandPlot,
-  Video,
   Heart,
   Wand,
   Flower,
@@ -46,20 +40,15 @@ const Navbar = () => {
       icon: Sparkles,
     },
     {
+      name: language === "english" ? "Special Poojas" : "विशेष पूजा",
+      href: PATH.SPECIAL_POOJA,
+      icon: Sparkles,
+    },
+    {
       name: language === "english" ? "Chadhava" : "चढ़ावा",
       href: PATH.CHADHAVA,
       icon: Sparkles,
     },
-    // {
-    //   name: language === "english" ? "Daan & Seva" : "दान और सेवा",
-    //   href: PATH.DAAN,
-    //   icon: RocketIcon,
-    // },
-    // {
-    //   name: language === "english" ? "Rashifal" : "राशिफल",
-    //   href: PATH.RASHIFAL_DAILY,
-    //   icon: Sparkles,
-    // },
     {
       name: language === "english" ? "Temples" : "मंदिर",
       icon: HomeIcon,
@@ -134,13 +123,13 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-md shadow-md border-b z-50">
       <div className="max-w-screen-2xl mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <button onClick={() => handleNavClick(PATH.HOME)}>
             <img
               src={LOGO}
               alt="Logo"
-              className="w-20 h-20 md:w-32 md:h-32 rounded-full "
+              className="w-16 h-16 md:w-20 md:h-20 rounded-full object-contain"
             />
           </button>
 
@@ -158,12 +147,7 @@ const Navbar = () => {
                       <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
                     </button>
 
-                    <div
-                      className="absolute left-0 mt-2 w-72 bg-white rounded-2xl shadow-xl border border-orange-100
-                        opacity-0 invisible translate-y-2
-                        group-hover:opacity-100 group-hover:visible group-hover:translate-y-0
-                        transition-all duration-300 ease-out z-50 overflow-hidden"
-                    >
+                    <div className="absolute left-0 mt-2 w-72 bg-white rounded-2xl shadow-xl border border-orange-100 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 ease-out z-50 overflow-hidden">
                       <div className="p-2">
                         {item.dropdown.map((sub, i) => {
                           const SubIcon = sub.icon || Sparkles;
@@ -171,8 +155,7 @@ const Navbar = () => {
                             <button
                               key={i}
                               onClick={() => handleNavClick(sub.href)}
-                              className="flex items-start gap-4 w-full text-left p-3 rounded-xl 
-                                hover:bg-orange-50 transition-colors cursor-pointer group/item"
+                              className="flex items-start gap-4 w-full text-left p-3 rounded-xl hover:bg-orange-50 transition-colors cursor-pointer group/item"
                             >
                               <div className="mt-1 p-2 bg-orange-100 rounded-lg group-hover/item:bg-orange-200 transition-colors">
                                 <SubIcon className="w-5 h-5 text-orange-600" />
@@ -214,7 +197,7 @@ const Navbar = () => {
                 onClick={() => setLanguage("hindi")}
                 className={`px-3 py-1.5 rounded-full text-sm font-semibold transition-all duration-300 ${
                   language === "hindi"
-                    ? "bg-linear-to-r from-purple-500 to-purple-600 text-white shadow-sm"
+                    ? "bg-gradient-to-r from-purple-500 to-purple-600 text-white shadow-sm"
                     : "text-gray-600 hover:text-purple-600"
                 }`}
               >
@@ -226,7 +209,7 @@ const Navbar = () => {
                 onClick={() => setLanguage("english")}
                 className={`px-3 py-1.5 rounded-full text-sm font-semibold transition-all duration-300 ${
                   language === "english"
-                    ? "bg-linear-to-r from-purple-500 to-purple-600 text-white shadow-sm"
+                    ? "bg-gradient-to-r from-purple-500 to-purple-600 text-white shadow-sm"
                     : "text-gray-600 hover:text-purple-600"
                 }`}
               >
@@ -238,7 +221,7 @@ const Navbar = () => {
 
             <button
               onClick={() => handleNavClick(PATH.POOJA_DEVI_MAA)}
-              className="px-6 py-2 bg-linear-to-r from-amber-500 to-orange-600 text-white rounded-2xl"
+              className="px-6 py-2 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-2xl hover:from-amber-600 hover:to-orange-700 transition-all duration-300"
             >
               {language === "english" ? "Book Pooja" : "पूजा बुक करें"}
             </button>
@@ -260,7 +243,7 @@ const Navbar = () => {
                   onClick={() => setLanguage("hindi")}
                   className={`flex-1 px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
                     language === "hindi"
-                      ? "bg-linear-to-r from-purple-500 to-purple-600 text-white shadow-sm"
+                      ? "bg-gradient-to-r from-purple-500 to-purple-600 text-white shadow-sm"
                       : "text-gray-600"
                   }`}
                 >
@@ -270,7 +253,7 @@ const Navbar = () => {
                   onClick={() => setLanguage("english")}
                   className={`flex-1 px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
                     language === "english"
-                      ? "bg-linear-to-r from-purple-500 to-purple-600 text-white shadow-sm"
+                      ? "bg-gradient-to-r from-purple-500 to-purple-600 text-white shadow-sm"
                       : "text-gray-600"
                   }`}
                 >

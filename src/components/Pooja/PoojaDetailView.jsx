@@ -118,7 +118,7 @@ const PoojaDetailView = ({ slug, language = "hindi" }) => {
       )}
 
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-br from-amber-600 to-orange-700 overflow-hidden">
+      <div className="relative bg-linear-to-br from-amber-600 to-orange-700 overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20"></div>
         <div className="absolute top-0 right-0 p-12 opacity-10">
           <Sun className="w-64 h-64 text-yellow-300 animate-spin-slow" />
@@ -151,7 +151,7 @@ const PoojaDetailView = ({ slug, language = "hindi" }) => {
                   alt={event.poojaName}
                   className="w-full h-auto object-cover aspect-[3/4]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent"></div>
                 <div className="absolute bottom-4 left-4 right-4 text-white">
                   <div className="flex items-center gap-2 text-yellow-300 text-sm font-bold mb-1">
                     <MapPin className="w-4 h-4" />
@@ -269,7 +269,7 @@ const PoojaDetailView = ({ slug, language = "hindi" }) => {
                     className={`rounded-3xl p-6 sm:p-8 shadow-xl border-2 border-orange-100 hover:shadow-2xl hover:scale-[1.01] transition-all duration-300 relative overflow-hidden group ${
                       idx % 2 === 0
                         ? "bg-white"
-                        : "bg-gradient-to-br from-amber-50 to-orange-50"
+                        : "bg-linear-to-br from-amber-50 to-orange-50"
                     }`}
                   >
                     {/* Decorative Background Element */}
@@ -304,7 +304,7 @@ const PoojaDetailView = ({ slug, language = "hindi" }) => {
                               key={bIdx}
                               className="bg-white/80 backdrop-blur-sm p-4 rounded-xl shadow-sm border border-orange-100 hover:border-orange-300 flex items-start gap-3 transition-colors duration-200"
                             >
-                              <div className="mt-1 bg-gradient-to-br from-green-100 to-green-200 p-1.5 rounded-full text-green-700 shrink-0 shadow-inner">
+                              <div className="mt-1 bg-linear-to-br from-green-100 to-green-200 p-1.5 rounded-full text-green-700 shrink-0 shadow-inner">
                                 <CheckCircle className="w-4 h-4" />
                               </div>
                               <span className="font-semibold text-gray-800 text-sm leading-snug">
@@ -337,7 +337,7 @@ const PoojaDetailView = ({ slug, language = "hindi" }) => {
                         key={i}
                         className="flex gap-4 p-4 rounded-2xl bg-orange-50/50 hover:bg-orange-50 transition-colors border border-transparent hover:border-orange-100 group"
                       >
-                        <div className="h-3 w-3 rounded-full bg-gradient-to-r from-orange-400 to-red-500 mt-2 shrink-0 group-hover:scale-125 transition-transform duration-300 shadow-md"></div>
+                        <div className="h-3 w-3 rounded-full bg-linear-to-r from-orange-400 to-red-500 mt-2 shrink-0 group-hover:scale-125 transition-transform duration-300 shadow-md"></div>
                         <span className="text-gray-700 font-medium leading-relaxed">
                           {point}
                         </span>
@@ -366,7 +366,7 @@ const PoojaDetailView = ({ slug, language = "hindi" }) => {
                       <div className="absolute top-0 right-0 w-24 h-24 bg-orange-50 rounded-bl-full -mr-8 -mt-8 opacity-50 group-hover:scale-110 transition-transform duration-500"></div>
 
                       <div className="flex items-center gap-4 mb-4 relative z-10">
-                        <div className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-orange-400 to-red-500 text-white font-bold text-lg rounded-xl shadow-md group-hover:rotate-6 transition-transform duration-300">
+                        <div className="flex items-center justify-center w-10 h-10 bg-linear-to-br from-orange-400 to-red-500 text-white font-bold text-lg rounded-xl shadow-md group-hover:rotate-6 transition-transform duration-300">
                           {idx + 1}
                         </div>
                         <h3 className="font-bold text-xl text-gray-800 leading-tight">
@@ -392,7 +392,7 @@ const PoojaDetailView = ({ slug, language = "hindi" }) => {
             <div className="sticky top-24 space-y-6">
               {/* Dynamic Booking Card */}
               <div className="bg-white rounded-3xl shadow-2xl border border-orange-200 overflow-hidden transform transition-all hover:scale-[1.02]">
-                <div className="bg-gradient-to-r from-orange-500 to-amber-600 text-white p-6 text-center">
+                <div className="bg-linear-to-r from-orange-500 to-amber-600 text-white p-6 text-center">
                   <h3 className="text-xl font-bold mb-1 text-white!">
                     {isHindi ? "विशेष पूजा अनुष्ठान" : "Special Pooja Ritual"}
                   </h3>
@@ -437,7 +437,7 @@ const PoojaDetailView = ({ slug, language = "hindi" }) => {
                     </div>
                   </div>
 
-                  <button className="w-full bg-gradient-to-r from-orange-600 to-red-600 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-orange-500/30 active:scale-95 transition-all text-lg flex items-center justify-center gap-2 group">
+                  <button className="w-full bg-linear-to-r from-orange-600 to-red-600 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-orange-500/30 active:scale-95 transition-all text-lg flex items-center justify-center gap-2 group">
                     {isHindi ? "अभी बुक करें" : "BOOK NOW"}
                     <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </button>
@@ -492,7 +492,7 @@ const PoojaDetailView = ({ slug, language = "hindi" }) => {
               <div key={idx} className="relative group">
                 <div className="absolute top-0 left-0 w-full h-full bg-orange-100 rounded-3xl transform rotate-3 group-hover:rotate-6 transition-transform"></div>
                 <div className="relative bg-white p-6 rounded-3xl shadow-xl border border-orange-50 h-full flex flex-col items-center text-center">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center text-white text-2xl font-bold mb-4 shadow-lg">
+                  <div className="w-16 h-16 rounded-2xl bg-linear-to-br from-orange-400 to-red-500 flex items-center justify-center text-white text-2xl font-bold mb-4 shadow-lg">
                     {idx + 1}
                   </div>
                   <h4 className="font-bold text-lg text-gray-800 mb-3">

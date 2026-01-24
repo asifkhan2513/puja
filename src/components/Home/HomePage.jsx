@@ -54,6 +54,15 @@ const HomePage = () => {
           : "ऑनलाइन पूजा बुक करें कभी भी, कहीं भी और प्रसाद घर पर प्राप्त करें।",
     },
     {
+      icon: Sparkles,
+      name: language === "english" ? "Special Poojas" : "विशेष पूजा",
+      link: PATH.SPECIAL_POOJA,
+      description:
+        language === "english"
+          ? "Experience unique and powerful rituals tailored to your spiritual needs with our special poojas."
+          : "हमारी विशेष पूजा के साथ अपनी आध्यात्मिक आवश्यकताओं के लिए अनूठे और शक्तिशाली अनुष्ठानों का अनुभव करें।",
+    },
+    {
       icon: Gift,
       name: language === "english" ? "Chadhava" : "चढ़ावा",
       link: "/chadhava",

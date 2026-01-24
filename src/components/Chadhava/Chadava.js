@@ -1,7 +1,15 @@
+import Bel from "../../assets/Bel.jpeg";
+import lal from "../../assets/lal.jpeg";
+import durgaganesh from "../../assets/durgaganesh.jpeg";
+import tulsi from "../../assets/tulsi.jpeg";
+import oil from "../../assets/oil.jpeg";
+import yamuna from "../../assets/yamuna.jpeg";
+
+
 export const items = [
   {
     id: 1,
-    image: "https://static.wixstatic.com/media/f47600_12ae73e900404bd7845b76be4e91af55~mv2.jpg/v1/fill/w_640,h_600,al_c,q_85,enc_auto/f47600_12ae73e900404bd7845b76be4e91af55~mv2.jpg",
+    image: Bel,
     title: "भगवान शिव को अर्पित चढ़ावे का शास्त्रोक्त विधान",
     titleEn: "Scriptural Procedure for Offerings to Lord Shiva",
     name: "बेलपत्र (बिल्व पत्र)",
@@ -31,7 +39,7 @@ export const items = [
   },
   {
     id: 2,
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPOnTf1hrp4i78e4kHw3zfJqytqCZEYNit4Q&s",
+    image: lal,
     title: "गंगा माता को श्रद्धापूर्वक अर्पित लाल चुनरी",
     titleEn: "Red Chunari Reverently Offered to Mother Ganga",
     name: "लाल चुनरी",
@@ -61,7 +69,7 @@ export const items = [
   },
   {
     id: 3,
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTfAWAWeplOilzgyR_MZrlosKr17TcpZDOHw&s",
+    image: durgaganesh,
     title: "श्री गणेश को श्रद्धापूर्वक अर्पित दूर्वा",
     titleEn: "Durva Grass Reverently Offered to Lord Ganesha",
     name: "दूर्वा (दूर्वा घास)",
@@ -101,7 +109,7 @@ export const items = [
   },
   {
     id: 4,
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQytYbs0Vmbrk_r-bY04AN35vQWQ1XoQ-QSjg&s",
+    image: tulsi,
     title: "श्री नारायण हरि को श्रद्धापूर्वक अर्पित तुलसी माला",
     titleEn: "Tulsi Mala Reverently Offered to Lord Narayana Hari",
     name: "तुलसी माला",
@@ -139,7 +147,7 @@ export const items = [
   },
   {
     id: 5,
-    image: "https://images.news18.com/ibnkhabar/uploads/2023/02/photo_2023-02-11_16-18-20-16761125023x2.jpg",
+    image: oil,
     title: "श्री शनि देव को श्रद्धापूर्वक अर्पित सरसों का तेल",
     titleEn: "Mustard Oil Reverently Offered to Lord Shani Dev",
     name: "सरसों का तेल",
@@ -177,7 +185,7 @@ export const items = [
   },
   {
     "id": 6,
-    "image": "https://images.news18.com/ibnkhabar/uploads/2021/02/surya-dev.jpg?im=FitAndFill,width=1200,height=900",
+    "image": yamuna,
     "title": "सूर्य देव की पुत्री यमुना महारानी को श्रद्धापूर्वक दीपदान",
     "titleEn": "Reverent Offering of a Lamp to Goddess Yamuna, Daughter of Surya Dev",
     "name": "दीप",

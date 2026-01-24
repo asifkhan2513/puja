@@ -17,6 +17,8 @@ export const PATH = {
   POOJA_HEALTH_PROTECTION: "/pooja/health-protection",
   POOJA_MARRIAGE_RELATIONSHIP: "/pooja/marriage-relationship",
   POOJA_WEALTH_BUSINESS: "/pooja/wealth-business",
+  SPECIAL_POOJA: "/special-pooja",
+  SPECIAL_POOJA_DETAILS: "/special-pooja/:slug",
   DAAN: "/daan",
   DAAN_HEALTH: "/daan/health",
   DAAN_MARRIAGE: "/daan/marriage",
