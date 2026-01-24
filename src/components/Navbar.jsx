@@ -125,13 +125,13 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-md shadow-md border-b z-50">
       <div className="max-w-screen-2xl mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-24 md:h-28 lg:h-32">
           {/* Logo */}
           <button onClick={() => handleNavClick(PATH.HOME)}>
             <img
               src={LOGO}
               alt="Logo"
-              className="w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full object-contain hover:scale-110 transition-transform duration-300"
+              className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full object-contain"
             />
           </button>
 
