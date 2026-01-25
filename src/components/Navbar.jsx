@@ -1,4 +1,4 @@
-import { HamburgerMenuIcon, Cross1Icon, HomeIcon } from "@radix-ui/react-icons";
+import { HomeIcon } from "@radix-ui/react-icons";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { PATH } from "./config/Path";
@@ -13,6 +13,8 @@ import {
   Store,
   Zap,
   Gift,
+  Menu,
+  X,
 } from "lucide-react";
 import LOGO from "../assets/LOGO.png";
 import { useLanguage } from "../contexts/LanguageContext";
@@ -125,18 +127,18 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-md shadow-md border-b z-50">
       <div className="max-w-screen-2xl mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-24">
           {/* Logo */}
           <button onClick={() => handleNavClick(PATH.HOME)}>
             <img
               src={LOGO}
               alt="Logo"
-              className="w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full object-contain hover:scale-110 transition-transform duration-300"
+              className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full object-contain hover:scale-110 transition-transform duration-300"
             />
           </button>
 
           {/* Desktop */}
-          <div className="hidden md:flex gap-6 items-center">
+          <div className="hidden lg:flex gap-6 items-center">
             {links.map((item, index) => {
               const Icon = item.icon;
 
@@ -230,14 +232,18 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Toggle */}
-          <button className="md:hidden" onClick={() => setOpen(!open)}>
-            {open ? <Cross1Icon /> : <HamburgerMenuIcon />}
+          <button className="lg:hidden" onClick={() => setOpen(!open)}>
+            {open ? (
+              <X className="w-8 h-8 text-gray-800" strokeWidth={2.5} />
+            ) : (
+              <Menu className="w-8 h-8 text-gray-800" strokeWidth={2.5} />
+            )}
           </button>
         </div>
 
         {/* Mobile Menu */}
         {open && (
-          <div className="md:hidden pb-4 bg-white border-t">
+          <div className="lg:hidden pb-4 bg-white border-t">
             {/* Language Toggle for Mobile */}
             <div className="px-4 py-3 border-b border-gray-100">
               <div className="flex items-center justify-center bg-gray-50 rounded-full p-1">

@@ -175,7 +175,7 @@ const Pooja = () => {
       : true;
     const matchesDeity = selectedDeity
       ? category.subCategories.some((sub) =>
-          sub.deity?.toLowerCase().includes(selectedDeity.toLowerCase()),
+          sub.deity?.toLowerCase().includes(selectedDeity.toLowerCase())
         )
       : true;
     const matchesSearch = searchQuery
@@ -183,7 +183,7 @@ const Pooja = () => {
         category.subCategories.some(
           (sub) =>
             sub.deity?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            sub.benefits?.toLowerCase().includes(searchQuery.toLowerCase()),
+            sub.benefits?.toLowerCase().includes(searchQuery.toLowerCase())
         )
       : true;
     return matchesCategory && matchesDeity && matchesSearch;
@@ -193,14 +193,14 @@ const Pooja = () => {
   const getAllSubCategories = () => {
     if (selectedCategory) {
       const category = poojaCategories.find(
-        (cat) => cat.heading === selectedCategory,
+        (cat) => cat.heading === selectedCategory
       );
       let subCats = category ? category.subCategories : [];
 
       // Filter by deity if selected
       if (selectedDeity) {
         subCats = subCats.filter((sub) =>
-          sub.deity?.toLowerCase().includes(selectedDeity.toLowerCase()),
+          sub.deity?.toLowerCase().includes(selectedDeity.toLowerCase())
         );
       }
 
@@ -244,7 +244,7 @@ const Pooja = () => {
     };
 
     return (
-      <div className="group bg-white rounded-2xl shadow-lg hover:shadow-xl border border-orange-100 overflow-hidden transition-all duration-300 w-full hover-trident">
+      <div className="group bg-white rounded-2xl shadow-lg hover:shadow-xl border border-orange-100 overflow-hidden transition-all duration-300 w-full hover-trident relative transform">
         {/* Image with Date Badge - Made smaller */}
         <div
           className="relative h-32 sm:h-36 overflow-hidden cursor-pointer"
@@ -363,6 +363,12 @@ const Pooja = () => {
                   ? "View Full Details"
                   : "पूरा विवरण देखें"}
               </button>
+            </div>
+          </div>
+          {/* Trident indicator - shows on hover */}
+          <div className="absolute -top-2 -right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-20">
+            <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center shadow-lg trident-indicator">
+              <span className="text-white text-sm">🔱</span>
             </div>
           </div>
         </div>
@@ -693,8 +699,14 @@ const Pooja = () => {
                 {subCategories.map((sub) => (
                   <div
                     key={sub.id}
-                    className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl border border-orange-100 overflow-hidden transition-all duration-300 transform hover:-translate-y-1 hover-trident"
+                    className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl border border-orange-100 overflow-hidden transition-all duration-300 transform hover:-translate-y-1 hover-trident relative"
                   >
+                    {/* Trident indicator - shows on hover */}
+                    <div className="absolute -top-2 -right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-20">
+                      <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center shadow-lg trident-indicator">
+                        <span className="text-white text-sm">🔱</span>
+                      </div>
+                    </div>
                     <div className="relative h-32 bg-gradient-to-br from-amber-500 to-orange-600 p-6 flex items-center justify-between overflow-hidden">
                       <div className="absolute top-0 right-0 p-4 opacity-10">
                         <div className="w-20 h-20 rounded-full border-6 border-white"></div>
@@ -765,6 +777,13 @@ const Pooja = () => {
                         Book This Pooja
                         <ArrowRight className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" />
                       </button>
+
+                      {/* Trident indicator - shows on hover */}
+                      <div className="absolute -top-2 -right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-20">
+                        <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center shadow-lg trident-indicator">
+                          <span className="text-white text-sm">🔱</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -803,6 +822,12 @@ const Pooja = () => {
                       animation: "fadeInUp 0.6s ease-out forwards",
                     }}
                   >
+                    {/* Trident indicator - shows on hover */}
+                    <div className="absolute -top-2 -right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-20">
+                      <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center shadow-lg trident-indicator">
+                        <span className="text-white text-sm">🔱</span>
+                      </div>
+                    </div>
                     <div className="relative h-32 bg-gradient-to-br from-amber-500 to-orange-600 p-6 flex items-center justify-between overflow-hidden">
                       <div className="absolute top-0 right-0 p-4 opacity-10">
                         <div className="w-20 h-20 rounded-full border-6 border-white"></div>
