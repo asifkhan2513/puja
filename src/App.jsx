@@ -33,176 +33,176 @@ const HomePage = lazy(() => import("./components/Home/HomePage"));
 /* Brand & Info */
 const Brand_Story = lazy(() => import("./components/About/Brand_Story"));
 const Mission_Trust_Signals = lazy(
-  () => import("./components/About/Mission_Trust_Signals"),
+  () => import("./components/About/Mission_Trust_Signals")
 );
 const Team_Pandits = lazy(() => import("./components/About/Team_Pandits"));
 const App_Features = lazy(() => import("./components/Download/App_Features"));
 const QR_Code_Store_Buttons = lazy(
-  () => import("./components/Download/QR_Code_Store_Buttons"),
+  () => import("./components/Download/QR_Code_Store_Buttons")
 );
 const Legal = lazy(() => import("./components/Legal/Legal"));
 const Faq = lazy(() => import("./components/FAQ/Faq"));
 
 /* Poojas by Deity */
 const Devi_Maa_poojas = lazy(
-  () => import("./components/OnlinePuja/Deity/Devi_Maa_Pujas"),
+  () => import("./components/OnlinePuja/Deity/Devi_Maa_Pujas")
 );
 const Lord_Ganesha_poojas = lazy(
-  () => import("./components/OnlinePuja/Deity/Lord_Ganesha_Pujas"),
+  () => import("./components/OnlinePuja/Deity/Lord_Ganesha_Pujas")
 );
 const Lord_Shiva_poojas = lazy(
-  () => import("./components/OnlinePuja/Deity/Lord_Shiva_Pujas"),
+  () => import("./components/OnlinePuja/Deity/Lord_Shiva_Pujas")
 );
 const Lord_Vishnu_poojas = lazy(
-  () => import("./components/OnlinePuja/Deity/Lord_Vishnu_Pujas"),
+  () => import("./components/OnlinePuja/Deity/Lord_Vishnu_Pujas")
 );
 
 /* Poojas by Intention / Category */
 const Career_Job_pooja = lazy(
-  () => import("./components/OnlinePuja/Intention/Career_Job_Puja"),
+  () => import("./components/OnlinePuja/Intention/Career_Job_Puja")
 );
 const Health_Protection_pooja = lazy(
-  () => import("./components/OnlinePuja/Intention/Health_Protection_Puja"),
+  () => import("./components/OnlinePuja/Intention/Health_Protection_Puja")
 );
 const Marriage_Relationship_pooja = lazy(
-  () => import("./components/OnlinePuja/Intention/Marriage_Relationship_Puja"),
+  () => import("./components/OnlinePuja/Intention/Marriage_Relationship_Puja")
 );
 const Wealth_Business_pooja = lazy(
-  () => import("./components/OnlinePuja/Intention/Wealth_Business_Puja"),
+  () => import("./components/OnlinePuja/Intention/Wealth_Business_Puja")
 );
 
 /* Daan & Checkout Flow */
 const Health_related_Daan = lazy(
-  () => import("./components/Daan/Intention/Health_related_Daan"),
+  () => import("./components/Daan/Intention/Health_related_Daan")
 );
 const Marriage_Relationship_Daan = lazy(
-  () => import("./components/Daan/Intention/Marriage_Relationship_Daan"),
+  () => import("./components/Daan/Intention/Marriage_Relationship_Daan")
 );
 const Peace__Protection_Daan = lazy(
-  () => import("./components/Daan/Intention/Peace__Protection_Daan"),
+  () => import("./components/Daan/Intention/Peace__Protection_Daan")
 );
 const Wealth_Business_Daan = lazy(
-  () => import("./components/Daan/Intention/Wealth_Business_Daan"),
+  () => import("./components/Daan/Intention/Wealth_Business_Daan")
 );
 const Seva_Daan_Details = lazy(
-  () => import("./components/Daan/Bhet/Seva_Daan_Details"),
+  () => import("./components/Daan/Bhet/Seva_Daan_Details")
 );
 const Checkout = lazy(() => import("./components/Daan/Bhet/Checkout"));
 const Checkout_Cart_Summary = lazy(
   () =>
-    import("./components/OnlinePuja/IndividualPujaDetailPages/Checkout_Cart_Summary"),
+    import("./components/OnlinePuja/IndividualPujaDetailPages/Checkout_Cart_Summary")
 );
 const Payment_Confirmation = lazy(
-  () => import("./components/Daan/Bhet/Payment_Confirmation"),
+  () => import("./components/Daan/Bhet/Payment_Confirmation")
 );
 const Payment_Confirmation_Page = lazy(
   () =>
-    import("./components/OnlinePuja/IndividualPujaDetailPages/Payment_Confirmation_Page"),
+    import("./components/OnlinePuja/IndividualPujaDetailPages/Payment_Confirmation_Page")
 );
 const Intent_Prayer_Note = lazy(
-  () => import("./components/Daan/Bhet/Intent_Prayer_Note"),
+  () => import("./components/Daan/Bhet/Intent_Prayer_Note")
 );
 const User_Details_Form = lazy(
   () =>
-    import("./components/OnlinePuja/IndividualPujaDetailPages/User_Details_Form"),
+    import("./components/OnlinePuja/IndividualPujaDetailPages/User_Details_Form")
 );
 const Packages_Add_ons = lazy(
   () =>
-    import("./components/OnlinePuja/IndividualPujaDetailPages/Packages_Add_ons"),
+    import("./components/OnlinePuja/IndividualPujaDetailPages/Packages_Add_ons")
 );
 const Date_Time_Selection = lazy(
   () =>
-    import("./components/OnlinePuja/IndividualPujaDetailPages/Date_Time_Selection"),
+    import("./components/OnlinePuja/IndividualPujaDetailPages/Date_Time_Selection")
 );
 
 /* Temples & City Pages */
 const Temples_of_Bharat = lazy(
-  () => import("./components/DharmikGyan/Categories/Temples_of_Bharat"),
+  () => import("./components/DharmikGyan/Categories/Temples_of_Bharat")
 );
 const Ayodhya = lazy(() => import("./components/Daan/Temple/Ayodhya"));
 const Kashi = lazy(() => import("./components/Daan/Temple/Kashi"));
 const Ujjain = lazy(() => import("./components/Daan/Temple/Ujjain"));
 const Ayodhya_Temple_poojas = lazy(
-  () => import("./components/OnlinePuja/Temple/Ayodhya_Temple_Pujas"),
+  () => import("./components/OnlinePuja/Temple/Ayodhya_Temple_Pujas")
 );
 const Kashi_Vishwanath_poojas = lazy(
-  () => import("./components/OnlinePuja/Temple/Kashi_Vishwanath_Pujas"),
+  () => import("./components/OnlinePuja/Temple/Kashi_Vishwanath_Pujas")
 );
 const Ujjain_Temple_poojas = lazy(
-  () => import("./components/OnlinePuja/Temple/Ujjain_Temple_Pujas"),
+  () => import("./components/OnlinePuja/Temple/Ujjain_Temple_Pujas")
 );
 const SpiritualPlaces = lazy(
-  () => import("./components/OnlinePuja/Temple/SpiritualPlaces"),
+  () => import("./components/OnlinePuja/Temple/SpiritualPlaces")
 );
 const LiveDarshan = lazy(
-  () => import("./components/OnlinePuja/Temple/LiveDarshan"),
+  () => import("./components/OnlinePuja/Temple/LiveDarshan")
 );
 const LiveDarshanDetail = lazy(
-  () => import("./components/OnlinePuja/Temple/LiveDarshanDetail"),
+  () => import("./components/OnlinePuja/Temple/LiveDarshanDetail")
 );
 
 /* Knowledge / Content */
 const Article_Content = lazy(
-  () => import("./components/DharmikGyan/BlogDetails/Article_Content"),
+  () => import("./components/DharmikGyan/BlogDetails/Article_Content")
 );
 const Aarti = lazy(() => import("./components/DharmikGyan/Categories/Aarti"));
 const Festivals_Vrat = lazy(
-  () => import("./components/DharmikGyan/Categories/Festivals_Vrat"),
+  () => import("./components/DharmikGyan/Categories/Festivals_Vrat")
 );
 const Mantra_Stotra = lazy(
-  () => import("./components/DharmikGyan/Categories/Mantra_Stotra"),
+  () => import("./components/DharmikGyan/Categories/Mantra_Stotra")
 );
 
 /* Rashifal / Horoscopes */
 const Daily_Rashifal = lazy(
-  () => import("./components/Rashifal/Indivisualrash/Daily_Rashifal"),
+  () => import("./components/Rashifal/Indivisualrash/Daily_Rashifal")
 );
 const Weekly_Rashifal = lazy(
-  () => import("./components/Rashifal/Indivisualrash/Weekly_Rashifal"),
+  () => import("./components/Rashifal/Indivisualrash/Weekly_Rashifal")
 );
 const Monthly_Rashifal = lazy(
-  () => import("./components/Rashifal/Indivisualrash/Monthly_Rashifal"),
+  () => import("./components/Rashifal/Indivisualrash/Monthly_Rashifal")
 );
 const Yearly_Rashifal = lazy(
-  () => import("./components/Rashifal/Indivisualrash/Yearly_Rashifal"),
+  () => import("./components/Rashifal/Indivisualrash/Yearly_Rashifal")
 );
 
 /* Individual Zodiac Pages */
 const Mesh_Aries = lazy(
-  () => import("./components/Rashifal/RashiListingPage/Mesh_Aries"),
+  () => import("./components/Rashifal/RashiListingPage/Mesh_Aries")
 );
 const Vrishabha_Taurus = lazy(
-  () => import("./components/Rashifal/RashiListingPage/Vrishabha_Taurus"),
+  () => import("./components/Rashifal/RashiListingPage/Vrishabha_Taurus")
 );
 const Mithun_Gemini = lazy(
-  () => import("./components/Rashifal/RashiListingPage/Mithun_Gemini"),
+  () => import("./components/Rashifal/RashiListingPage/Mithun_Gemini")
 );
 const Kark_Cancer = lazy(
-  () => import("./components/Rashifal/RashiListingPage/Kark_Cancer"),
+  () => import("./components/Rashifal/RashiListingPage/Kark_Cancer")
 );
 const Simha_Leo = lazy(
-  () => import("./components/Rashifal/RashiListingPage/Simha_Leo"),
+  () => import("./components/Rashifal/RashiListingPage/Simha_Leo")
 );
 const Kanya_Virgo = lazy(
-  () => import("./components/Rashifal/RashiListingPage/Kanya_Virgo"),
+  () => import("./components/Rashifal/RashiListingPage/Kanya_Virgo")
 );
 const Tula_Libra = lazy(
-  () => import("./components/Rashifal/RashiListingPage/Tula_Libra"),
+  () => import("./components/Rashifal/RashiListingPage/Tula_Libra")
 );
 const Vrishchik_Scorpio = lazy(
-  () => import("./components/Rashifal/RashiListingPage/Vrishchik_Scorpio"),
+  () => import("./components/Rashifal/RashiListingPage/Vrishchik_Scorpio")
 );
 const Dhanu_Sagittarius = lazy(
-  () => import("./components/Rashifal/RashiListingPage/Dhanu_Sagittarius"),
+  () => import("./components/Rashifal/RashiListingPage/Dhanu_Sagittarius")
 );
 const Makar_Capricorn = lazy(
-  () => import("./components/Rashifal/RashiListingPage/Makar_Capricorn"),
+  () => import("./components/Rashifal/RashiListingPage/Makar_Capricorn")
 );
 const Kumbh_Aquarius = lazy(
-  () => import("./components/Rashifal/RashiListingPage/Kumbh_Aquarius"),
+  () => import("./components/Rashifal/RashiListingPage/Kumbh_Aquarius")
 );
 const Meen_Pisces = lazy(
-  () => import("./components/Rashifal/RashiListingPage/Meen_Pisces"),
+  () => import("./components/Rashifal/RashiListingPage/Meen_Pisces")
 );
 
 /* Contact Us */
