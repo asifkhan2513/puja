@@ -113,16 +113,37 @@ const Spacialpooja = () => {
                 <div className="relative z-10">
                   <div className="flex justify-between items-start mb-4">
                     <SubTitle item={item} />
-                    {item.header?.emoji && (
-                      <span className="text-4xl animate-float filter drop-shadow-md">
-                        {item.header.emoji}
-                      </span>
-                    )}
-                    {item.emojiHeader?.main && (
-                      <span className="text-4xl animate-float filter drop-shadow-md">
-                        {item.emojiHeader.main}
-                      </span>
-                    )}
+                    <div className="flex flex-col items-end gap-2">
+                      {(item.price || item.priceAndFormats?.details?.price) &&
+                        (() => {
+                          const priceText = item.price
+                            ? item.price[language]
+                            : item.priceAndFormats?.details?.price?.[language];
+                          const [amount, info] = priceText.split(" (");
+                          return (
+                            <div className="text-right">
+                              <div className="text-xl font-extrabold text-orange-600 leading-none">
+                                {amount}
+                              </div>
+                              {info && (
+                                <div className="text-[10px] text-gray-500 font-medium">
+                                  ({info}
+                                </div>
+                              )}
+                            </div>
+                          );
+                        })()}
+                      {item.header?.emoji && (
+                        <span className="text-4xl animate-float filter drop-shadow-md">
+                          {item.header.emoji}
+                        </span>
+                      )}
+                      {item.emojiHeader?.main && (
+                        <span className="text-4xl animate-float filter drop-shadow-md">
+                          {item.emojiHeader.main}
+                        </span>
+                      )}
+                    </div>
                   </div>
                   <h2 className="text-2xl md:text-3xl font-bold text-gray-900 font-serif leading-tight">
                     {getTitle(item)}
@@ -1065,6 +1086,15 @@ const Spacialpooja = () => {
 
               {/* Card Footer - Action Button */}
               <div className="p-8 bg-white/50 border-t border-amber-100">
+                {(item.price || item.priceAndFormats?.details?.price) && (
+                  <div className="mb-4 text-center">
+                    <span className="text-2xl font-bold text-orange-800">
+                      {item.price
+                        ? item.price[language]
+                        : item.priceAndFormats?.details?.price?.[language]}
+                    </span>
+                  </div>
+                )}
                 <button className="w-full bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-600 hover:to-amber-700 text-white font-bold py-4 px-6 rounded-2xl shadow-lg hover:shadow-orange-500/30 transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2">
                   <Calendar className="w-6 h-6" />
                   {language === "hindi" ? "अभी बुक करें" : "Book Now"}

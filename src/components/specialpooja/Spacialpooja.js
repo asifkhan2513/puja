@@ -10,8 +10,8 @@ const splpooja = [
       english: "Bhagwan Puja",
     },
     price: {
-      hindi: "₹(कर सहित)",
-      english: "₹(Inclusive of tax)",
+      hindi: "₹11,000 (कर सहित)",
+      english: "₹11,000 (Inclusive of tax)",
     },
     availableOptions: {
       hindi: [
@@ -205,6 +205,10 @@ const splpooja = [
   },
   {
     id: 2,
+    price: {
+      hindi: "₹11,000 (कर सहित)",
+      english: "₹11,000 (Inclusive of tax)",
+    },
     header: {
       emoji: "🌺",
       hindi: "दुर्गा सप्तशती पाठ & पूजा – घर बैठे ऑनलाइन अनुभव",
@@ -461,6 +465,10 @@ const splpooja = [
   },
   {
     id: 3,
+    price: {
+      hindi: "₹1,21,000 (कर सहित)",
+      english: "₹1,21,000 (Inclusive of tax)",
+    },
     emojiHeader: {
       main: "🕉️",
       hindi: "महामृत्युंजय जाप (7 दिवस)",
@@ -723,6 +731,10 @@ const splpooja = [
   },
   {
     id: 4,
+    price: {
+      hindi: "₹11,000 (कर सहित)",
+      english: "₹11,000 (Inclusive of tax)",
+    },
     emojiHeader: {
       main: "🕉️",
       hindi: "रुद्राभिषेक पूजा",
@@ -1042,8 +1054,8 @@ const splpooja = [
       },
       details: {
         price: {
-          hindi: "₹ (कर सहित)",
-          english: "₹ (Inclusive of all taxes)",
+          hindi: "₹11,000 (कर सहित)",
+          english: "₹11,000 (Inclusive of tax)",
         },
         formats: {
           hindi: [
@@ -1246,6 +1258,10 @@ const splpooja = [
   },
   {
     id: 8,
+    price: {
+      hindi: "₹11,000 (कर सहित)",
+      english: "₹11,000 (Inclusive of tax)",
+    },
 
     emojiHeader: {
       main: "🕉️",
@@ -1554,6 +1570,10 @@ const splpooja = [
   },
   {
     id: 9,
+    price: {
+      hindi: "₹11,000 (कर सहित)",
+      english: "₹11,000 (Inclusive of tax)",
+    },
 
     emojiHeader: {
       main: "🕉️",
