@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Loader from "../Loader";
 import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
+import toast from "react-hot-toast";
 
 const ContachUs = () => {
   const form = useRef();
@@ -23,13 +24,15 @@ const ContachUs = () => {
       .then(
         (result) => {
           console.log(result.text);
-          alert("Message sent successfully!");
+          toast.success("Message sent successfully!");
           e.target.reset();
           setIsLoading(false);
         },
         (error) => {
-          console.log(error.text);
-          alert("Failed to send message, please try again.");
+          console.error("EmailJS Error:", error);
+          const errorMessage =
+            error?.text || "Failed to send message, please try again.";
+          toast.error(errorMessage);
           setIsLoading(false);
         }
       );
